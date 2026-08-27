@@ -242,7 +242,7 @@ export default function Navbar({ onOpenSchedule }) {
                             return (
                               <Link
                                 key={item.id}
-                                to="/services"
+                                to={`/services?service=${item.id}`}
                                 onMouseEnter={() => setActiveMenuService(idx)}
                                 onClick={() => setServicesDropdownOpen(false)}
                                 className={`p-3 rounded-2xl border transition-all duration-300 flex items-start gap-3 group/item ${
@@ -316,7 +316,7 @@ export default function Navbar({ onOpenSchedule }) {
                       </div>
 
                       <Link
-                        to="/services"
+                        to={`/services?service=${currentPreview.id}`}
                         onClick={() => setServicesDropdownOpen(false)}
                         className="btn-gold w-full py-2.5 rounded-xl text-xs font-extrabold flex items-center justify-center gap-2 mt-4 shadow-lg"
                       >
@@ -490,11 +490,11 @@ export default function Navbar({ onOpenSchedule }) {
                       return (
                         <Link
                           key={item.id}
-                          to="/services"
+                          to={`/services?service=${item.id}`}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="flex items-center gap-2.5 p-2 rounded-lg bg-white/5 hover:bg-amber-400/20 text-xs text-[#d1c4e9] hover:text-white transition-colors"
+                          className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/5 hover:bg-amber-400/20 active:bg-amber-400/30 text-xs text-[#d1c4e9] hover:text-white transition-colors cursor-pointer"
                         >
-                          <Icon className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                          <Icon className="w-4 h-4 text-amber-400 shrink-0" />
                           <span className="font-semibold text-white truncate">{item.title}</span>
                         </Link>
                       );

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { 
   ShieldCheck, 
   Tv, 
@@ -31,6 +32,32 @@ import {
 
 export default function ServicesSection({ onOpenSchedule }) {
   const [activeTab, setActiveTab] = useState(0);
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
+
+  // Match URL query parameter or hash to tab
+  useEffect(() => {
+    const serviceParam = searchParams.get('service') || location.hash.replace('#', '') || '';
+    if (!serviceParam) return;
+
+    const s = serviceParam.toLowerCase();
+    let targetIdx = -1;
+
+    if (['security', 'security_monitoring', 'cctv', 'surveillance'].includes(s)) targetIdx = 0;
+    else if (['av', 'audio_video', 'audio', 'video'].includes(s)) targetIdx = 1;
+    else if (['firesafety', 'fire_safety', 'fire_safety_rodent', 'fire', 'leakage'].includes(s)) targetIdx = 2;
+    else if (['network', 'network_connectivity', 'connectivity', 'it'].includes(s)) targetIdx = 3;
+    else if (['fitout', 'fitout_leasehold', 'interiors', 'workspace', 'leasehold'].includes(s)) targetIdx = 4;
+    else if (['injection', 'injection_moulding', 'moulding', 'manufacturing'].includes(s)) targetIdx = 5;
+
+    if (targetIdx !== -1) {
+      setActiveTab(targetIdx);
+      const el = document.getElementById('services-interactive');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }, [location.search, location.hash, searchParams]);
 
   const servicesData = [
     {
