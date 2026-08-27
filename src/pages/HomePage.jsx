@@ -622,32 +622,21 @@ export default function HomePage({ onOpenSchedule }) {
           <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#10061e] to-transparent z-10 pointer-events-none"></div>
 
           {/* Marquee Row */}
-          <div className="animate-marquee flex items-center gap-4 py-2 hover:[animation-play-state:paused] cursor-pointer">
+          <div className="animate-marquee flex items-center gap-4 py-3 hover:[animation-play-state:paused] cursor-pointer">
             {[...brandPartners, ...brandPartners].map((brand, idx) => (
               <div
                 key={idx}
-                className="w-[230px] min-w-[230px] glass-card p-5 rounded-2xl border border-white/10 hover:border-amber-400/60 transition-all duration-300 text-center group bg-[#16082c] shrink-0 shadow-xl flex flex-col justify-between h-[130px]"
+                className="w-[190px] min-w-[190px] sm:w-[210px] sm:min-w-[210px] h-[85px] sm:h-[95px] glass-card px-6 py-4 rounded-2xl border border-white/10 hover:border-amber-400/60 transition-all duration-300 flex items-center justify-center group bg-[#16082c] shrink-0 shadow-xl"
+                title={brand.name}
               >
-                {/* Brand Logo Display */}
-                <div className="h-10 flex items-center justify-center mb-2 px-2">
-                  <img
-                    src={brand.logo}
-                    alt={`${brand.name} Logo`}
-                    className="max-h-8 max-w-[140px] object-contain filter drop-shadow group-hover:scale-105 transition-transform"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                    }}
-                  />
-                </div>
-
-                <div>
-                  <div className="text-xs font-bold font-heading text-white group-hover:text-amber-300 transition-colors">
-                    {brand.name}
-                  </div>
-                  <div className="text-[10px] text-[#b8a7dc] font-mono leading-tight truncate mt-0.5">
-                    {brand.category}
-                  </div>
-                </div>
+                <img
+                  src={brand.logo}
+                  alt={`${brand.name} Logo`}
+                  className="max-h-9 sm:max-h-11 max-w-[150px] sm:max-w-[165px] object-contain filter drop-shadow group-hover:scale-110 transition-transform duration-300"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                  }}
+                />
               </div>
             ))}
           </div>
