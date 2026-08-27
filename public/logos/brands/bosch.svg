@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+    <circle cx="30" cy="30" r="18" stroke="#ef4444" stroke-width="3.5" fill="none"/>
+    <rect x="22" y="18" width="16" height="24" rx="2" stroke="#ef4444" stroke-width="3" fill="none"/>
+    <text x="60" y="41" font-family="Arial, sans-serif" font-weight="900" font-size="30" fill="#ffffff" letter-spacing="2">BOSCH</text>
+  </svg>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+    <circle cx="30" cy="30" r="15" stroke="#38bdf8" stroke-width="4" fill="none"/>
+    <circle cx="30" cy="30" r="6" fill="#38bdf8"/>
+    <text x="56" y="40" font-family="Arial, sans-serif" font-weight="800" font-size="28" fill="#ffffff">VIVOTEK</text>
+  </svg>

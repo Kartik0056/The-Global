@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+    <polygon points="15,45 32,15 49,45" fill="#ef4444"/>
+    <polygon points="23,45 32,28 41,45" fill="#10061e"/>
+    <text x="58" y="40" font-family="Arial, sans-serif" font-weight="900" font-size="27" fill="#ffffff" letter-spacing="1">POLYCAB</text>
+  </svg>

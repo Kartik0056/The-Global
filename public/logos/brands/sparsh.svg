@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+    <circle cx="28" cy="30" r="15" fill="#f59e0b"/>
+    <circle cx="28" cy="30" r="8" fill="#10061e"/>
+    <circle cx="28" cy="30" r="4" fill="#ef4444"/>
+    <text x="54" y="41" font-family="Arial, sans-serif" font-weight="900" font-size="30" fill="#ffffff" letter-spacing="1">SPARSH</text>
+  </svg>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+    <circle cx="32" cy="30" r="16" stroke="#10b981" stroke-width="5" fill="none"/>
+    <path d="M38 36L46 44" stroke="#10b981" stroke-width="5" stroke-linecap="round"/>
+    <text x="58" y="40" font-family="Arial, sans-serif" font-weight="900" font-size="30" fill="#ffffff" letter-spacing="1.5">QUBO</text>
+  </svg>
