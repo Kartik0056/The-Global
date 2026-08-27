@@ -237,20 +237,20 @@ export default function HomePage({ onOpenSchedule }) {
 
   // Section 6: Trusted Brand Partners (from Doc 1)
   const brandPartners = [
-    { name: 'Hikvision', category: 'CCTV & Video Security' },
-    { name: 'Vivotech', category: 'Optical Surveillance' },
-    { name: 'TYCO', category: 'Fire & Electronic Security' },
-    { name: 'QUBO', category: 'Smart Door Locks (Hero Electronix)' },
-    { name: 'Bosch', category: 'Security & PA Systems' },
-    { name: 'Honeywell', category: 'Building Automation & Fire' },
-    { name: 'Henrich', category: 'Industrial Networking' },
-    { name: 'Sparsh', category: 'Surveillance Electronics' },
-    { name: 'Panasonic', category: 'Display & Communications' },
-    { name: 'Polycab', category: 'Wires & Structured Cables' },
-    { name: 'Ahuja', category: 'Public Address & Audio' },
-    { name: 'AKG', category: 'Professional Microphones' },
-    { name: 'D-Link', category: 'Networking & Switches' },
-    { name: 'Netgear', category: 'Enterprise Network Gear' },
+    { name: 'Hikvision', category: 'CCTV & Video Security', logo: '/logos/brands/hikvision.svg' },
+    { name: 'Vivotech', category: 'Optical Surveillance', logo: '/logos/brands/vivotek.svg' },
+    { name: 'TYCO', category: 'Fire & Electronic Security', logo: '/logos/brands/tyco.svg' },
+    { name: 'QUBO', category: 'Smart Door Locks (Hero Electronix)', logo: '/logos/brands/qubo.svg' },
+    { name: 'Bosch', category: 'Security & PA Systems', logo: '/logos/brands/bosch.svg' },
+    { name: 'Honeywell', category: 'Building Automation & Fire', logo: '/logos/brands/honeywell.svg' },
+    { name: 'Henrich', category: 'Industrial Networking', logo: '/logos/brands/henrich.svg' },
+    { name: 'Sparsh', category: 'Surveillance Electronics', logo: '/logos/brands/sparsh.svg' },
+    { name: 'Panasonic', category: 'Display & Communications', logo: '/logos/brands/panasonic.svg' },
+    { name: 'Polycab', category: 'Wires & Structured Cables', logo: '/logos/brands/polycab.svg' },
+    { name: 'Ahuja', category: 'Public Address & Audio', logo: '/logos/brands/ahuja.svg' },
+    { name: 'AKG', category: 'Professional Microphones', logo: '/logos/brands/akg.svg' },
+    { name: 'D-Link', category: 'Networking & Switches', logo: '/logos/brands/dlink.svg' },
+    { name: 'Netgear', category: 'Enterprise Network Gear', logo: '/logos/brands/netgear.svg' },
   ];
 
   // Section 7: Client Testimonials
@@ -626,13 +626,27 @@ export default function HomePage({ onOpenSchedule }) {
             {[...brandPartners, ...brandPartners].map((brand, idx) => (
               <div
                 key={idx}
-                className="w-[220px] min-w-[220px] glass-card px-5 py-4 rounded-2xl border border-white/10 hover:border-amber-400/50 transition-all text-center group bg-[#16082c] shrink-0 shadow-lg"
+                className="w-[230px] min-w-[230px] glass-card p-5 rounded-2xl border border-white/10 hover:border-amber-400/60 transition-all duration-300 text-center group bg-[#16082c] shrink-0 shadow-xl flex flex-col justify-between h-[130px]"
               >
-                <div className="text-sm font-extrabold font-heading text-white group-hover:text-amber-300 transition-colors">
-                  {brand.name}
+                {/* Brand Logo Display */}
+                <div className="h-10 flex items-center justify-center mb-2 px-2">
+                  <img
+                    src={brand.logo}
+                    alt={`${brand.name} Logo`}
+                    className="max-h-8 max-w-[140px] object-contain filter drop-shadow group-hover:scale-105 transition-transform"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
                 </div>
-                <div className="text-[10px] text-[#b8a7dc] mt-1 font-mono leading-tight truncate">
-                  {brand.category}
+
+                <div>
+                  <div className="text-xs font-bold font-heading text-white group-hover:text-amber-300 transition-colors">
+                    {brand.name}
+                  </div>
+                  <div className="text-[10px] text-[#b8a7dc] font-mono leading-tight truncate mt-0.5">
+                    {brand.category}
+                  </div>
                 </div>
               </div>
             ))}

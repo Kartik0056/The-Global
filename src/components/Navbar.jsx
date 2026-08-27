@@ -17,12 +17,11 @@ import {
   ChevronRight,
   Zap,
   ShieldCheck,
-  ShoppingBag,
-  Heart,
-  User,
-  LogOut,
+  Calendar,
+  Layers,
   Server,
-  Boxes
+  Boxes,
+  Phone
 } from 'lucide-react';
 
 export default function Navbar({ onOpenSchedule }) {
@@ -36,10 +35,6 @@ export default function Navbar({ onOpenSchedule }) {
   const dropdownTimeoutRef = useRef(null);
   const dropdownContainerRef = useRef(null);
   const location = useLocation();
-
-  // (rest unchanged down to right action suite)
-  // ...
-
 
   const servicesMegaMenu = [
     {
@@ -152,27 +147,29 @@ export default function Navbar({ onOpenSchedule }) {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full bg-[#120722]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl">
-      <nav className="w-full px-3 sm:px-5 lg:px-6 2xl:px-8 py-2.5 sm:py-3 relative max-w-[1800px] mx-auto">
-        <div className="w-full flex items-center justify-between gap-2 lg:gap-3 xl:gap-4">
+      <nav className="w-full px-3 sm:px-5 lg:px-6 2xl:px-8 py-2 sm:py-2.5 relative max-w-[1800px] mx-auto">
+        <div className="w-full flex items-center justify-between gap-1.5 sm:gap-3">
           
+          {/* Logo Section (Mobile: Icon Only, Desktop: Icon + Text) */}
           <Link to="/" className="flex items-center gap-2 sm:gap-2.5 group shrink-0">
-            <div className="relative flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-2xl bg-white/95 border-2 border-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.45)] group-hover:shadow-[0_0_28px_rgba(245,158,11,0.75)] group-hover:scale-105 transition-all duration-300 overflow-hidden p-0.5">
+            <div className="relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-xl sm:rounded-2xl bg-white/95 border-2 border-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.45)] group-hover:scale-105 transition-all duration-300 overflow-hidden p-0.5 shrink-0">
               <img
                 src="/logo.png"
                 alt="The Global Enterprises Logo"
                 className="w-full h-full object-contain"
               />
             </div>
-            <div className="flex flex-col">
+            <div className="hidden md:flex flex-col">
               <span className="text-xs sm:text-sm 2xl:text-base font-black tracking-wider text-white font-heading uppercase group-hover:text-amber-300 transition-colors whitespace-nowrap">
                 The Global Enterprises
               </span>
-              <span className="text-[8px] sm:text-[9px] tracking-[0.16em] text-amber-400 font-extrabold uppercase whitespace-nowrap hidden sm:block">
+              <span className="text-[8px] sm:text-[9px] tracking-[0.16em] text-amber-400 font-extrabold uppercase whitespace-nowrap">
                 Smart Solutions, Secure Spaces
               </span>
             </div>
           </Link>
 
+          {/* Desktop Navigation Links */}
           <div className="hidden xl:flex items-center gap-2 2xl:gap-3.5 flex-nowrap font-bold">
             <Link 
               to="/" 
@@ -194,6 +191,7 @@ export default function Navbar({ onOpenSchedule }) {
               <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-400 transition-all ${location.pathname === '/about' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </Link>
 
+            {/* Desktop Mega Menu Dropdown */}
             <div 
               ref={dropdownContainerRef}
               className="relative py-1"
@@ -303,15 +301,15 @@ export default function Navbar({ onOpenSchedule }) {
                           </div>
                         </div>
 
-                        <p className="text-[11px] text-[#d1c4e9] leading-relaxed mb-3">
+                        <p className="text-xs text-[#d1c4e9] leading-relaxed mb-3">
                           {currentPreview.desc}
                         </p>
 
-                        <div className="space-y-1.5 mb-3">
-                          {currentPreview.points.slice(0, 2).map((pt, pIdx) => (
-                            <div key={pIdx} className="flex items-center gap-1.5 text-[10px] text-[#c4b5fd]">
-                              <CheckCircle2 className="w-3 h-3 text-amber-400 shrink-0" />
-                              <span className="truncate">{pt}</span>
+                        <div className="space-y-1.5">
+                          {currentPreview.points.map((pt, pIdx) => (
+                            <div key={pIdx} className="flex items-center gap-2 text-[11px] text-amber-200">
+                              <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                              <span>{pt}</span>
                             </div>
                           ))}
                         </div>
@@ -320,9 +318,9 @@ export default function Navbar({ onOpenSchedule }) {
                       <Link
                         to="/services"
                         onClick={() => setServicesDropdownOpen(false)}
-                        className="btn-gold w-full py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-lg"
+                        className="btn-gold w-full py-2.5 rounded-xl text-xs font-extrabold flex items-center justify-center gap-2 mt-4 shadow-lg"
                       >
-                        <span>Explore Full Scope &amp; Deliverables</span>
+                        <span>Explore {currentPreview.title}</span>
                         <ArrowUpRight className="w-3.5 h-3.5" />
                       </Link>
                     </div>
@@ -383,45 +381,49 @@ export default function Navbar({ onOpenSchedule }) {
             </Link>
           </div>
 
-          {/* Right Action Suite (Phone, Admin CRM & Meeting CTA) */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          {/* Right Action Suite - Responsive for All Screens */}
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
 
+            {/* Direct Phone Call Button */}
             <a
               href="tel:+919899933768"
-              className="hidden 2xl:flex items-center gap-1.5 text-xs font-bold text-white hover:text-amber-300 px-3 py-2 rounded-xl bg-[#1b0a36] border border-white/15 hover:border-amber-400 transition-all shadow-md whitespace-nowrap"
+              className="flex items-center gap-1.5 p-2 sm:px-3 sm:py-2 rounded-xl bg-[#1b0a36] border border-white/15 hover:border-amber-400 text-white hover:text-amber-300 transition-all shadow-md shrink-0"
+              title="Call Us: +91 98999 33768"
             >
-              <PhoneCall className="w-3.5 h-3.5 text-amber-400" />
-              <span>+91 98999 33768</span>
+              <PhoneCall className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" />
+              <span className="hidden 2xl:inline text-xs font-bold whitespace-nowrap">+91 98999 33768</span>
             </a>
 
-            {/* Admin CRM Portal Link with Unread Badge Counter */}
+            {/* Admin CRM Portal Link with Unread Counter */}
             <Link
               to="/admin"
-              className="relative flex items-center gap-1.5 px-3.5 py-2 sm:py-2.5 rounded-xl bg-[#261047] border border-amber-400/50 text-amber-300 hover:text-white hover:border-amber-400 text-xs font-bold transition-all shadow-md shrink-0"
+              className="relative flex items-center gap-1.5 p-2 sm:px-3 sm:py-2 rounded-xl bg-[#261047] border border-amber-400/50 text-amber-300 hover:text-white hover:border-amber-400 text-xs font-bold transition-all shadow-md shrink-0"
               title="Admin CRM Portal"
             >
-              <ShieldCheck className="w-4 h-4 text-amber-400" />
-              <span>Admin CRM</span>
+              <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" />
+              <span className="hidden lg:inline whitespace-nowrap">Admin CRM</span>
               {unreadCount > 0 && (
-                <span className="w-4.5 h-4.5 rounded-full bg-red-500 text-white font-black text-[10px] flex items-center justify-center animate-pulse shadow-md">
+                <span className="w-4 h-4 rounded-full bg-red-500 text-white font-black text-[9px] flex items-center justify-center animate-pulse shadow-md">
                   {unreadCount}
                 </span>
               )}
             </Link>
 
+            {/* Schedule Meeting Button */}
             <button
               onClick={onOpenSchedule}
-              className="btn-gold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm flex items-center gap-1 sm:gap-1.5 cursor-pointer font-extrabold shadow-xl shrink-0 whitespace-nowrap"
+              className="btn-gold p-2 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-xs flex items-center gap-1.5 cursor-pointer font-extrabold shadow-xl shrink-0 whitespace-nowrap"
+              title="Schedule a meeting"
             >
-              <span>Schedule a meeting</span>
-              <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <span className="hidden sm:inline">Schedule a meeting</span>
             </button>
 
-            {/* Mobile / Tablet Menu Toggle Button */}
+            {/* Hamburger Button (Always visible on mobile & tablet < xl) */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden p-2 rounded-xl bg-[#1e0e38] border border-white/10 text-white hover:text-amber-400 shrink-0"
-              aria-label="Toggle menu"
+              className="xl:hidden p-2 rounded-xl bg-[#220e3f] border border-amber-400/40 text-amber-300 hover:text-white hover:bg-amber-400/20 transition-all shrink-0 cursor-pointer shadow-lg"
+              aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -429,65 +431,71 @@ export default function Navbar({ onOpenSchedule }) {
 
         </div>
 
-        {/* Mobile / Tablet Drawer */}
+        {/* Mobile / Tablet Full Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="xl:hidden bg-[#120722] border-t border-white/10 px-4 sm:px-6 py-5 transition-all animate-fadeIn mt-3 max-h-[85vh] overflow-y-auto">
+          <div className="xl:hidden bg-[#110520] border-t border-amber-400/30 px-4 sm:px-6 py-5 transition-all animate-fadeIn mt-2 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.9)] max-h-[82vh] overflow-y-auto">
             <div className="flex flex-col space-y-3 text-sm">
               <Link
                 to="/"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`py-1 border-b border-white/5 font-semibold ${
-                  location.pathname === '/' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
+                className={`py-2 px-3 rounded-xl border font-bold flex items-center justify-between ${
+                  location.pathname === '/' 
+                    ? 'bg-amber-400/20 text-amber-300 border-amber-400/50' 
+                    : 'bg-[#180930] text-[#d1c4e9] border-white/5 hover:text-white'
                 }`}
               >
-                Home
+                <span>Home</span>
+                <ChevronRight className="w-4 h-4 text-amber-400" />
               </Link>
+
               <Link
                 to="/about"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`py-1 border-b border-white/5 font-semibold ${
-                  location.pathname === '/about' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
+                className={`py-2 px-3 rounded-xl border font-bold flex items-center justify-between ${
+                  location.pathname === '/about' 
+                    ? 'bg-amber-400/20 text-amber-300 border-amber-400/50' 
+                    : 'bg-[#180930] text-[#d1c4e9] border-white/5 hover:text-white'
                 }`}
               >
-                About Us
+                <span>About Us</span>
+                <ChevronRight className="w-4 h-4 text-amber-400" />
               </Link>
 
-              {/* Mobile Accordion for What We Do */}
-              <div className="border-b border-white/5 py-1">
-                <div className="flex items-center justify-between py-1">
+              {/* Mobile Accordion for What We Do / Services */}
+              <div className="rounded-xl border border-white/10 bg-[#180930] overflow-hidden">
+                <div className="flex items-center justify-between py-2.5 px-3">
                   <Link
                     to="/services"
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`font-semibold ${
-                      location.pathname === '/services' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
+                    className={`font-bold flex items-center gap-2 ${
+                      location.pathname === '/services' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-white'
                     }`}
                   >
-                    What We Do
+                    <Zap className="w-4 h-4 text-amber-400" />
+                    <span>What We Do (6 Services)</span>
                   </Link>
                   <button
                     type="button"
                     onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                    className="p-1 text-[#d1c4e9] hover:text-amber-400 focus:outline-none"
+                    className="p-1 rounded-lg bg-white/5 text-amber-400 hover:text-white"
                   >
-                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileServicesOpen ? 'rotate-180 text-amber-400' : ''}`} />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180' : ''}`} />
                   </button>
                 </div>
 
                 {mobileServicesOpen && (
-                  <div className="pl-3 pt-2 pb-1 space-y-2 text-xs">
+                  <div className="p-2 pt-0 space-y-1.5 border-t border-white/10 bg-[#120722]/90">
                     {servicesMegaMenu.map((item) => {
                       const Icon = item.icon;
                       return (
                         <Link
                           key={item.id}
                           to="/services"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                          }}
-                          className="flex items-center gap-2.5 p-2 rounded-xl bg-white/5 hover:bg-amber-400/20 text-[#c4b5fd] hover:text-white transition-colors"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center gap-2.5 p-2 rounded-lg bg-white/5 hover:bg-amber-400/20 text-xs text-[#d1c4e9] hover:text-white transition-colors"
                         >
-                          <Icon className="w-4 h-4 text-amber-400 shrink-0" />
-                          <span className="font-semibold text-white">{item.title}</span>
+                          <Icon className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                          <span className="font-semibold text-white truncate">{item.title}</span>
                         </Link>
                       );
                     })}
@@ -498,64 +506,101 @@ export default function Navbar({ onOpenSchedule }) {
               <Link
                 to="/capabilities"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`py-1 border-b border-white/5 font-semibold ${
-                  location.pathname === '/capabilities' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
+                className={`py-2 px-3 rounded-xl border font-bold flex items-center justify-between ${
+                  location.pathname === '/capabilities' 
+                    ? 'bg-amber-400/20 text-amber-300 border-amber-400/50' 
+                    : 'bg-[#180930] text-[#d1c4e9] border-white/5 hover:text-white'
                 }`}
               >
-                Capabilities
+                <span>Capabilities</span>
+                <ChevronRight className="w-4 h-4 text-amber-400" />
               </Link>
+
               <Link
                 to="/values"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`py-1 border-b border-white/5 font-semibold ${
-                  location.pathname === '/values' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
+                className={`py-2 px-3 rounded-xl border font-bold flex items-center justify-between ${
+                  location.pathname === '/values' 
+                    ? 'bg-amber-400/20 text-amber-300 border-amber-400/50' 
+                    : 'bg-[#180930] text-[#d1c4e9] border-white/5 hover:text-white'
                 }`}
               >
-                Core Values
+                <span>Core Values</span>
+                <ChevronRight className="w-4 h-4 text-amber-400" />
               </Link>
+
               <Link
                 to="/mission"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`py-1 border-b border-white/5 font-semibold ${
-                  location.pathname === '/mission' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
+                className={`py-2 px-3 rounded-xl border font-bold flex items-center justify-between ${
+                  location.pathname === '/mission' 
+                    ? 'bg-amber-400/20 text-amber-300 border-amber-400/50' 
+                    : 'bg-[#180930] text-[#d1c4e9] border-white/5 hover:text-white'
                 }`}
               >
-                Mission
+                <span>Mission</span>
+                <ChevronRight className="w-4 h-4 text-amber-400" />
               </Link>
+
               <Link
                 to="/clients"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`py-1 border-b border-white/5 font-semibold ${
-                  location.pathname === '/clients' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
+                className={`py-2 px-3 rounded-xl border font-bold flex items-center justify-between ${
+                  location.pathname === '/clients' 
+                    ? 'bg-amber-400/20 text-amber-300 border-amber-400/50' 
+                    : 'bg-[#180930] text-[#d1c4e9] border-white/5 hover:text-white'
                 }`}
               >
-                Client Trust
+                <span>Client Trust</span>
+                <ChevronRight className="w-4 h-4 text-amber-400" />
               </Link>
+
               <Link
                 to="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`py-1 border-b border-white/5 font-semibold ${
-                  location.pathname === '/contact' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
+                className={`py-2 px-3 rounded-xl border font-bold flex items-center justify-between ${
+                  location.pathname === '/contact' 
+                    ? 'bg-amber-400/20 text-amber-300 border-amber-400/50' 
+                    : 'bg-[#180930] text-[#d1c4e9] border-white/5 hover:text-white'
                 }`}
               >
-                Contact
+                <span>Contact</span>
+                <ChevronRight className="w-4 h-4 text-amber-400" />
               </Link>
 
-              <div className="pt-3 flex flex-col gap-3">
+              <Link
+                to="/admin"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2 px-3 rounded-xl border border-amber-400/40 bg-[#261047] font-bold text-amber-300 flex items-center justify-between"
+              >
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-amber-400" />
+                  <span>Admin CRM Portal</span>
+                </div>
+                {unreadCount > 0 && (
+                  <span className="px-2 py-0.5 rounded-full bg-red-500 text-white text-[10px] font-black">
+                    {unreadCount} New Leads
+                  </span>
+                )}
+              </Link>
+
+              {/* Mobile CTA Action Buttons */}
+              <div className="pt-2 flex flex-col gap-2">
                 <a
                   href="tel:+919899933768"
-                  className="flex items-center gap-2 text-xs text-amber-300 font-bold"
+                  className="flex items-center justify-center gap-2 p-3 rounded-xl bg-[#1b0a36] border border-amber-400/40 text-xs text-amber-300 font-bold shadow-md"
                 >
-                  <PhoneCall className="w-4 h-4" />
-                  <span>Call: +91 98999 33768</span>
+                  <PhoneCall className="w-4 h-4 text-amber-400" />
+                  <span>Direct Call: +91 98999 33768</span>
                 </a>
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
                     onOpenSchedule();
                   }}
-                  className="btn-gold w-full py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2"
+                  className="btn-gold w-full py-3 rounded-xl text-xs font-extrabold flex items-center justify-center gap-2 shadow-xl cursor-pointer"
                 >
+                  <Calendar className="w-4 h-4" />
                   <span>Schedule a meeting</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </button>
@@ -564,6 +609,7 @@ export default function Navbar({ onOpenSchedule }) {
           </div>
         )}
       </nav>
+
       {/* Backdrop overlay for mega menu */}
       {servicesDropdownOpen && (
         <div 
@@ -574,4 +620,3 @@ export default function Navbar({ onOpenSchedule }) {
     </header>
   );
 }
-
