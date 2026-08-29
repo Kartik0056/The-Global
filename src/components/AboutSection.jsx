@@ -37,16 +37,16 @@ export default function AboutSection({ onOpenSchedule }) {
 
   const whatWeDoTech = [
     'Security systems including CCTV, body-worn cameras and access control',
-    'Audio-visual solutions for conference and collaboration spaces',
-    'Fire safety installation and regulatory compliance for workplaces',
-    'Integrated systems designed for reliable daily operations'
+    'Audio-visual solutions for seamless communication',
+    'Fire safety Installation at your workplace so that you can sleep peacefully at home',
+    'System integration that brings everything together'
   ];
 
   const whatWeDoSpaces = [
-    "Interior fit-outs that reflect your company's identity",
+    "Interior fit-outs that reflects your company's personality",
     'Ergonomic furniture that keeps your team comfortable',
-    'Custom partitioning to create the ideal floor layout',
-    'Comprehensive office essentials and infrastructure setup'
+    'Custom partitioning to create the perfect layout',
+    "All those office essentials you can't work without"
   ];
 
   const coreValues = [
@@ -131,15 +131,15 @@ export default function AboutSection({ onOpenSchedule }) {
               </div>
 
               <h3 className="text-xl sm:text-2xl font-bold font-heading text-white leading-snug mb-4">
-                When <span className="text-amber-400 font-semibold">Mr. Sachin Arora</span> and <span className="text-amber-400 font-semibold">Mrs. Rajni Arora</span> founded <span className="text-white">Global Enterprises</span> in 2017, they had a clear vision: <span className="text-purple-200">to build an entity that truly makes business operations straightforward and dependable.</span>
+                When <span className="text-amber-400 font-semibold">Mr. Sachin Arora</span> and <span className="text-amber-400 font-semibold">Mrs. Rajni Arora</span> founded <span className="text-white">Global Enterprises</span> in 2017, they had a clear vision: <span className="text-purple-200">to build an entity that truly makes business life easier.</span>
               </h3>
 
               <p className="text-sm sm:text-base text-[#d1c4e9] leading-relaxed mb-4">
-                And that&apos;s exactly what we&apos;ve become – your single-window partner for modern workplace technology and secure office environments.
+                And that&apos;s exactly what we&apos;ve become – your one-stop solution for everything from cutting-edge technology to smart &amp; secure office spaces.
               </p>
 
               <p className="text-sm sm:text-base text-[#d1c4e9] leading-relaxed">
-                We believe that every business deserves access to quality equipment, expert support, and environments that inspire productivity. That&apos;s why we focus on understanding your specific requirements and delivering solutions that perform day after day.
+                We believe that every business deserves access to quality equipment, expert support, and environments that inspire productivity. That&apos;s why we&apos;ve built our company around understanding your unique needs and delivering solutions that actually work for you.
               </p>
             </div>
 
@@ -174,7 +174,7 @@ export default function AboutSection({ onOpenSchedule }) {
               </div>
               <div>
                 <p className="text-xs sm:text-sm italic text-amber-200 font-medium leading-relaxed">
-                  &ldquo;Because we believe in long-term relationships rather than one-off transactions, we offer end-to-end turnkey project execution and maintenance support to keep your facilities running smoothly.&rdquo;
+                  &ldquo;And because we believe in relationships, not just transactions, we offer full turnkey project management and maintenance services to keep everything on track for years to come.&rdquo;
                 </p>
                 <div className="mt-2 text-[10px] font-bold uppercase tracking-widest text-amber-400/80">
                   &mdash; Founders: Mr. Sachin &amp; Mrs. Rajni Arora
@@ -188,10 +188,10 @@ export default function AboutSection({ onOpenSchedule }) {
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="section-badge justify-center mb-2">WHAT WE DO</div>
             <h3 className="text-2xl sm:text-4xl font-extrabold font-heading text-white tracking-tight mb-3">
-              FOCUS ON <span className="text-gold-gradient">YOUR CORE BUSINESS</span>
+              SPEND YOUR TIME ON <span className="text-gold-gradient">WHAT MATTERS MOST</span>
             </h3>
             <p className="text-xs sm:text-sm text-[#d1c4e9]">
-              We take care of your workspace setup, security infrastructure, and ongoing maintenance.
+              We&apos;ll take care of your workspace setup and maintenance.
             </p>
           </div>
 
@@ -202,7 +202,7 @@ export default function AboutSection({ onOpenSchedule }) {
                   <Zap className="w-5 h-5" />
                 </div>
                 <h4 className="text-xl font-bold font-heading text-white">
-                  Technology Solutions
+                  Tech That Works For You
                 </h4>
               </div>
 
@@ -222,7 +222,7 @@ export default function AboutSection({ onOpenSchedule }) {
                   <Building className="w-5 h-5" />
                 </div>
                 <h4 className="text-xl font-bold font-heading text-white">
-                  Workspace Environments
+                  Spaces That Inspire
                 </h4>
               </div>
 
@@ -242,10 +242,10 @@ export default function AboutSection({ onOpenSchedule }) {
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="section-badge justify-center mb-2">OUR VALUES</div>
             <h3 className="text-2xl sm:text-4xl font-extrabold font-heading text-white tracking-tight mb-2">
-              REAL PEOPLE DELIVERING <span className="text-gold-gradient">REAL RESULTS</span>
+              WE&apos;RE REAL PEOPLE WHO CARE ABOUT <span className="text-gold-gradient">DELIVERING REAL RESULTS</span>
             </h3>
             <p className="text-xs sm:text-sm text-[#d1c4e9]">
-              The operational principles that guide our everyday client engagements:
+              The core principles that guide our everyday work:
             </p>
           </div>
 
@@ -272,35 +272,32 @@ export default function AboutSection({ onOpenSchedule }) {
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-wider mb-4">
               <Shield className="w-4 h-4 text-amber-400" />
-              <span>WHY CLIENTS CHOOSE US</span>
+              <span>WHY OUR CLIENTS TRUST US</span>
             </div>
 
             <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-white mb-4">
-              Trusted by Private Enterprises &amp; Public Institutions
+              Trusted by Amazing Organisations Across India
             </h3>
 
             <p className="text-xs sm:text-sm text-[#d1c4e9] leading-relaxed mb-4">
-              We work with organizations across India &ndash; from dynamic private companies to established brands like <span className="text-white font-semibold">Interglobe Aviation (IndiGo)</span>, <span className="text-white font-semibold">FedEx Express</span>, and <span className="text-white font-semibold">Rio Tinto India</span>, as well as public services including <span className="text-white font-semibold">Civil Defense</span> and the <span className="text-white font-semibold">National Disaster Response Force (NDRF)</span>.
+              We&apos;re incredibly proud to work with amazing organisations across India &ndash; from growing startups to established corporations like <span className="text-white font-semibold">Interglobe Aviation (Indigo)</span>, <span className="text-white font-semibold">FedEx Express</span>, and <span className="text-white font-semibold">Rio Tinto India</span>, as well as vital government services like <span className="text-white font-semibold">Civil Defense</span> and the <span className="text-white font-semibold">National Disaster Response Force (NDRF)</span>.
             </p>
 
             <p className="text-xs sm:text-sm text-[#c4b5fd] leading-relaxed">
-              Our clients count on us for reliable delivery, proactive communication, and solutions tailored to their operational scale.
+              They choose us because we deliver what we promise: quality products, excellent relationship, and solutions that genuinely make their businesses better.
             </p>
           </div>
         </div>
 
         <div className="text-center max-w-3xl mx-auto">
-          <div className="section-badge justify-center mb-3">NEXT STEPS</div>
+          <div className="section-badge justify-center mb-3">LOOKING FORWARD</div>
           <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-white mb-3">
-            Ready to Upgrade Your Workspace?
+            Did you like our vision?
           </h3>
           <p className="text-xs sm:text-sm text-[#d1c4e9] leading-relaxed mb-6">
-            Get in touch with our engineering team to discuss your security, audio-visual, or office fit-out requirements.
+            As technology evolves and workplace needs change, we&apos;re committed to staying ahead. We&apos;re constantly exploring new approaches to help your business breathe in an ever-changing world. Let&apos;s help you create an environment where your business can truly flourish.
           </p>
           <div className="p-6 rounded-2xl bg-[#1b0a36] border border-amber-400/30 inline-block">
-            <p className="text-sm font-bold text-amber-300 mb-4">
-              Let&apos;s build an environment that helps your team do their best work.
-            </p>
             <button
               onClick={onOpenSchedule}
               className="btn-gold px-8 py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 cursor-pointer shadow-xl"

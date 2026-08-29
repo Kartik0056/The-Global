@@ -192,7 +192,7 @@ export default function ClientsSection({ onOpenSchedule }) {
                 onClick={onOpenSchedule}
                 className="btn-gold w-full py-3 rounded-xl font-bold text-xs flex items-center justify-center gap-2 cursor-pointer shadow-lg"
               >
-                <span>Schedule a discussion</span>
+                <span>Join this list today</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>

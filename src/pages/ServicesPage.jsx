@@ -95,14 +95,24 @@ export default function ServicesPage({ onOpenSchedule }) {
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-black font-heading text-white tracking-tight leading-[1.1] mb-5">
-            SERVICES &amp; <span className="text-gold-gradient">WORKSPACE SOLUTIONS</span>
+            Smooth Network &amp; <span className="text-gold-gradient">Connectivity Services,</span> Everywhere.
           </h1>
 
-          <p className="text-base sm:text-lg text-[#d1c4e9] max-w-3xl mx-auto leading-relaxed">
-            From smart CCTV surveillance, body-worn cameras, and certified fire alarms to office fit-outs, network integration, and precision injection moulding.
+          <p className="text-base sm:text-lg text-[#d1c4e9] max-w-3xl mx-auto leading-relaxed mb-8">
+            Expert wireless network planning and deployment for seamless, high-speed connectivity across your entire workspace.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mt-8 text-xs text-[#d8b4fe]">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+            <button
+              onClick={onOpenSchedule}
+              className="btn-gold px-8 py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-2xl"
+            >
+              <span>Schedule a meeting today</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-[#d8b4fe]">
             <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
               <Shield className="w-4 h-4 text-amber-400" />
               <span>Tech That Works For You</span>
@@ -248,6 +258,24 @@ export default function ServicesPage({ onOpenSchedule }) {
             })}
           </div>
 
+        </div>
+      </section>
+
+      <section className="py-16 bg-gradient-to-r from-[#17082e] via-[#240f42] to-[#17082e] border-t border-amber-400/30">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-4xl font-extrabold font-heading text-white mb-4">
+            Secure, Reliable, and Efficient. <span className="text-gold-gradient">IT Solutions That Ensure Success.</span>
+          </h2>
+          <p className="text-xs sm:text-sm text-[#d1c4e9] max-w-2xl mx-auto mb-6">
+            Get in touch with our certified engineers for comprehensive network planning, wireless deployment, and turnkey infrastructure support.
+          </p>
+          <button
+            onClick={onOpenSchedule}
+            className="btn-gold px-8 py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-2xl"
+          >
+            <span>Get a Free Consultation</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
         </div>
       </section>
 

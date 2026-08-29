@@ -45,12 +45,12 @@ export default function HomePage({ onOpenSchedule }) {
       category: 'SURVEILLANCE',
       icon: Video,
       image: '/images/cctv.jpg',
-      badge: 'OPTICAL CAMERAS / AMC',
-      desc: 'Smart CCTV solutions providing continuous security monitoring. From site assessments to Annual Maintenance Contracts (AMC), we tailor systems to your specific operational needs.',
+      badge: 'VIGILANT SECURITY / AMC',
+      desc: 'Unlimited Peace of mind with our smart CCTV solutions with eagle’s eyes, providing vigilant security. From discreet checks to Annual Maintenance Contract (AMC), we tailor solutions to your specific needs.',
       features: [
-        'Security assessments & high-definition 4K optics',
-        'Tailored Annual Maintenance Contracts (AMC)',
-        'Remote mobile & central cloud VMS access'
+        'Strategic site assessments & high-definition 4K optics',
+        'Discreet checks to Annual Maintenance Contract (AMC)',
+        'Vigilant 24/7 security monitoring tailored to your needs'
       ]
     },
     {
@@ -61,11 +61,11 @@ export default function HomePage({ onOpenSchedule }) {
       icon: Shield,
       image: '/images/hero_bg.jpg',
       badge: 'AIRLINE TRUSTED & LTE',
-      desc: 'Commercial airlines including Air India, Etihad, IndiGo, and British Airways rely on our LTE-enabled body-worn cameras for field evidence recording and staff safety.',
+      desc: 'Leading airlines like Air India, Etihad, IndiGo, British Airways, and more rely on our LTE-enabled body-worn cameras. These cameras record and stream high-quality video evidence, trusted by businesses globally.',
       features: [
-        'LTE-enabled live video streaming & evidence capture',
-        'Trusted by Air India, IndiGo, Etihad & British Airways',
-        'Encrypted local & cloud compliance storage'
+        'LTE-enabled live video recording & streaming evidence',
+        'Trusted by Air India, Etihad, IndiGo & British Airways',
+        'High-quality video evidence trusted by businesses globally'
       ]
     },
     {
@@ -75,12 +75,12 @@ export default function HomePage({ onOpenSchedule }) {
       category: 'FIRE SAFETY',
       icon: Flame,
       image: '/images/firesafety.jpg',
-      badge: 'EARLY DETECTION / RAPID RESPONSE',
-      desc: 'Protect your personnel and facility with certified fire detection and extinguishing systems. Early detection and rapid suppression are essential for life safety.',
+      badge: 'EARLY DETECTION & RAPID RESPONSE',
+      desc: 'Protect your most valuable – your people and your property – with our fire detection & Extinguishing systems. Early detection and rapid response are crucial, and our systems are designed for maximum effectiveness.',
       features: [
         'Automated fire suppression & sprinkler networks',
-        'Certified addressable & conventional smoke alarms',
-        'Designed for rapid emergency response & code compliance'
+        'Certified addressable & conventional smoke detection',
+        'Early detection and rapid response for maximum effectiveness'
       ]
     },
     {
@@ -91,11 +91,11 @@ export default function HomePage({ onOpenSchedule }) {
       icon: Tv,
       image: '/images/av_room.jpg',
       badge: 'HD CONFERENCING & SIGNAGE',
-      desc: 'Custom audio-video solutions for businesses, including high-definition conferencing, interactive touchscreens, acoustic sound reinforcement, and digital signage.',
+      desc: 'Personal audio-video solutions for businesses, including high-definition conferencing, interactive presentations, professional audio, and digital signage. Ongoing support enhance communication, productivity, and engagement in meeting rooms and collaboration spaces.',
       features: [
-        'High-definition video conferencing & beamforming audio',
-        'Interactive presentation touchscreens & digital signage',
-        'Ongoing support for meeting rooms & collaboration spaces'
+        'High-definition conferencing & interactive presentations',
+        'Professional audio & digital signage integration',
+        'Ongoing support to enhance communication and productivity'
       ]
     },
     {
@@ -105,27 +105,27 @@ export default function HomePage({ onOpenSchedule }) {
       category: 'ACCESS CONTROL',
       icon: Scan,
       image: '/images/speedgates.jpg',
-      badge: 'ACCESS CONTROL BARRIERS',
-      desc: 'Manage and monitor access to your facilities with robust electronic access control systems designed to safeguard sensitive work zones and manage foot traffic.',
+      badge: 'INTELLIGENT ACCESS CONTROL',
+      desc: 'Manage and monitor access to your premises with our intelligent access control systems. They are designed to deter unauthorised entry like a bouncer at a club, but for your office.',
       features: [
-        'Electronic card readers & biometric entry locks',
-        'Visitor management & real-time credentialing',
-        'Prevents unauthorized access across all perimeter doors'
+        'Manage and monitor access across all premises',
+        'Intelligent deterrence against unauthorized entry',
+        'Electronic card readers, biometrics & visitor logging'
       ]
     },
     {
       id: 'smart_locks',
-      title: 'Smart Door Locks',
+      title: 'Smart door locks',
       subtitle: 'HERO ELECTRONIX / QUBO',
       category: 'SMART LOCKS',
       icon: Lock,
       image: '/images/speedgates.jpg',
       badge: 'AUTHORIZED QUBO INSTALLER',
-      desc: 'Experience the convenience and protection of QUBO smart door locks. As authorized installers for QUBO (a Hero Electronix company), we serve Delhi NCR and North India.',
+      desc: 'Install the convenience and protection of QUBO smart door locks. As authorized installers for QUBO (a Hero Electronix Pvt. Ltd. company), we serve the NCR region and other areas of North India.',
       features: [
-        'Official authorized installer for QUBO (Hero Electronix)',
-        'Keyless biometric, passcode & remote app access',
-        'Full service coverage across NCR & North India'
+        'Convenience and protection of QUBO smart door locks',
+        'Authorized installers for QUBO (Hero Electronix Pvt. Ltd.)',
+        'Serving the NCR region and areas across North India'
       ]
     },
     {
@@ -135,27 +135,27 @@ export default function HomePage({ onOpenSchedule }) {
       category: 'ATTENDANCE',
       icon: Users,
       image: '/images/speedgates.jpg',
-      badge: 'ACCURATE TIME REPORTS',
-      desc: 'Digital attendance tracking and automated turnstile gates for streamlined entry and shift management across commercial offices and campuses.',
+      badge: 'USER-FRIENDLY SET-UPS',
+      desc: "Attendance tracking and managing public access with our user-friendly set-ups. While we can't guarantee a 100% reduction in unnecessary smoke breaks, we can certainly provide detailed reports on it.",
       features: [
-        'Automated time & attendance reporting dashboards',
-        'Controlled public access & optical turnstile gates',
-        'Face readers, fingerprint & RFID mobile scanning'
+        'User-friendly attendance tracking and access set-ups',
+        'Detailed, accurate reporting on workplace attendance',
+        'Controlled public access & automated turnstile gates'
       ]
     },
     {
       id: 'epabx',
-      title: 'EPABX Office Communications',
-      subtitle: 'TELEPHONY & CALL MANAGEMENT',
+      title: 'EPABX',
+      subtitle: 'OFFICE COMMUNICATIONS',
       category: 'EPABX',
       icon: PhoneCall,
       image: '/images/av_room.jpg',
-      badge: 'INTERNAL CALL ROUTING',
-      desc: 'Simplify your office communications with our EPABX systems. Enjoy clear internal extensions, organized call routing, and low telephone costs.',
+      badge: 'FREE INTERNAL CALLS',
+      desc: 'Simplify your office communications with our EPABX (Electronic Private Automatic Branch Exchange) service. Enjoy free internal calls, effortless call management, and a more productive workday',
       features: [
-        'Internal intercom calling between departments',
-        'Call routing, queuing & voicemail management',
-        'Dependable PBX hardware installation & maintenance'
+        'Simplify office communications with EPABX service',
+        'Enjoy free internal calls between departments',
+        'Effortless call management for a more productive workday'
       ]
     },
     {
@@ -165,27 +165,27 @@ export default function HomePage({ onOpenSchedule }) {
       category: 'INTERIOR FIT-OUT',
       icon: Armchair,
       image: '/images/workspace.jpg',
-      badge: 'MODERN WORKSPACES',
-      desc: 'Get the most out of your commercial space. Our leasehold improvement services deliver complete office fit-outs including painting, flooring, and partitioning.',
+      badge: 'PERFECT ENVIRONMENT',
+      desc: 'Get the most out of your leased space. Our leasehold improvement services deliver the perfect environment for your business, including painting, flooring, and partition installations etc.',
       features: [
-        'Custom demountable partitions & drywall layouts',
-        'Quality flooring, painting, and ceiling finishes',
-        'Ergonomic modular workstations & conference desks'
+        'Get the most out of your leased commercial space',
+        'Delivers the perfect environment for your business',
+        'Including painting, flooring, and partition installations'
       ]
     },
     {
       id: 'network_integration',
       title: 'Network Integration',
-      subtitle: 'CORE IT & SERVER ROOMS',
+      subtitle: 'CORE IT & INFRASTRUCTURE',
       category: 'NETWORKING',
       icon: Server,
       image: '/images/headquarters.jpg',
-      badge: 'RELIABLE CONNECTIVITY',
-      desc: 'We design and install reliable enterprise networks. From structured cabling and server racks to managed switches and Wi-Fi, we ensure steady connectivity.',
+      badge: 'RELIABLE EFFICIENT NETWORKS',
+      desc: 'We build reliable, efficient networks. Implementing core infrastructure to seamless voice and data solutions, we handle everything: connectivity, server rooms, and, ensuring your business stays connected and secure.',
       features: [
-        'Core network planning, routing & switch deployment',
-        'Server room design, rack setups & structured cabling',
-        'High-bandwidth wireless & point-to-point links'
+        'We build reliable, efficient networks for business',
+        'Core infrastructure to seamless voice and data solutions',
+        'Connectivity, server rooms, and secure operations'
       ]
     }
   ];
@@ -194,22 +194,22 @@ export default function HomePage({ onOpenSchedule }) {
     {
       icon: ShieldCheck,
       title: 'Your Workplace, Secured',
-      desc: 'A coordinated suite of solutions &ndash; CCTV, fire safety, and access control &ndash; designed to safeguard your employees and physical assets.'
+      desc: 'A suite of security solutions – CCTV, fire detection, and access control – all working in harmony to optimise security. We take a holistic approach to security, ensuring every vulnerability is addressed.'
     },
     {
       icon: Zap,
-      title: 'Practical Engineering',
-      desc: 'We combine proven commercial-grade equipment with dependable customer service. With professional installation and ongoing support, we are with you at every stage.'
+      title: 'Innovation Meets Execution',
+      desc: "We leverage international-grade tech and back it up with exceptional customer service. With seamless implementation and continuous support, we're with you every step of the way."
     },
     {
       icon: Layers,
-      title: 'Single-Point Accountability',
-      desc: 'Why juggle multiple individual contractors when you can partner with one experienced team? We handle your security, AV, and IT infrastructure together.'
+      title: 'One-Stop Shop',
+      desc: 'Why juggle multiple vendors when you can get everything you need from one trusted partner? We handle all your security and connectivity needs, saving you time, money, and hassle.'
     },
     {
       icon: Award,
-      title: 'Focus on Core Growth',
-      desc: 'Focus on managing your business knowing that your facility infrastructure is secure, properly maintained, and compliant with safety codes.'
+      title: 'Focus on What Matters',
+      desc: 'Focus on growing your business, knowing that your workplace is secure, connected, and operating at peak efficiency. We provide the peace of mind you need to thrive.'
     }
   ];
 

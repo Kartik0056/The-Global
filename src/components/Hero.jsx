@@ -93,11 +93,11 @@ export default function Hero({ onOpenSchedule }) {
             </div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-[4.2rem] font-extrabold font-heading text-white leading-[1.1] sm:leading-[1.08] tracking-tight mb-4 sm:mb-5 drop-shadow-md">
-              Modern <br className="hidden sm:inline" />
+              Next-Gen <br className="hidden sm:inline" />
               Workspace <br className="hidden sm:inline" />
               Solutions,{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 drop-shadow-[0_4px_25px_rgba(245,158,11,0.4)]">
-                Here &amp; Now.
+                Here And Now.
               </span>
             </h1>
 
@@ -125,20 +125,20 @@ export default function Hero({ onOpenSchedule }) {
             <div className="flex flex-wrap items-center gap-y-3 gap-x-6 text-xs sm:text-sm text-[#d8b4fe]">
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-400 shadow-[0_0_10px_#f59e0b]"></span>
-                <span className="font-bold text-white">10+</span>
-                <span className="text-[#c4b5fd]">Years of experience</span>
+                <span className="font-bold text-white">10+ Years</span>
+                <span className="text-[#c4b5fd]">of Serving</span>
               </div>
 
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-400 shadow-[0_0_10px_#f59e0b]"></span>
-                <span className="font-bold text-white">200+</span>
-                <span className="text-[#c4b5fd]">Clients served</span>
+                <span className="font-bold text-white">All-in-one</span>
+                <span className="text-[#c4b5fd]">Integration Solutions</span>
               </div>
 
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-400 shadow-[0_0_10px_#f59e0b]"></span>
-                <span className="font-bold text-white">Turnkey</span>
-                <span className="text-[#c4b5fd]">Integration</span>
+                <span className="font-bold text-white">Trusted by</span>
+                <span className="text-[#c4b5fd]">200+ Businesses</span>
               </div>
             </div>
           </div>

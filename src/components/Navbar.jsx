@@ -88,7 +88,7 @@ export default function Navbar({ onOpenSchedule }) {
       title: 'Injection Moulding Solutions',
       category: 'PRECISION MANUFACTURING',
       icon: Boxes,
-      image: '/images/speedgates.jpg',
+      image: '/images/injection_moulding.jpg',
       badge: 'JOB WORK & CUSTOM MOULDS',
       desc: 'Job work for existing moulds and custom plastics product manufacturing from prototype to full production.',
       points: ['Running Customer Moulds (Job Work)', 'Custom Product & Tooling Design', 'Certified Quality Assurance']
