@@ -25,7 +25,7 @@ import {
 } from 'lucide-react';
 
 export default function Navbar({ onOpenSchedule }) {
-  const { unreadCount } = useInquiry();
+  const { unreadCount, isLoggedIn, openAdminLogin } = useInquiry();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -394,14 +394,20 @@ export default function Navbar({ onOpenSchedule }) {
               <span className="hidden 2xl:inline text-xs font-bold whitespace-nowrap">+91 98999 33768</span>
             </a>
 
-            {/* Admin CRM Portal Link with Unread Counter */}
+            {/* Admin CRM Portal / Login Drawer Button */}
             <Link
               to="/admin"
-              className="relative flex items-center gap-1.5 p-2 sm:px-3 sm:py-2 rounded-xl bg-[#261047] border border-amber-400/50 text-amber-300 hover:text-white hover:border-amber-400 text-xs font-bold transition-all shadow-md shrink-0"
-              title="Admin CRM Portal"
+              onClick={(e) => {
+                if (!isLoggedIn) {
+                  e.preventDefault();
+                  openAdminLogin();
+                }
+              }}
+              className="relative flex items-center gap-1.5 p-2 sm:px-3 sm:py-2 rounded-xl bg-[#261047] border border-amber-400/50 text-amber-300 hover:text-white hover:border-amber-400 text-xs font-bold transition-all shadow-md shrink-0 cursor-pointer"
+              title={isLoggedIn ? 'Admin CRM Dashboard' : 'Admin Login'}
             >
               <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" />
-              <span className="hidden lg:inline whitespace-nowrap">Admin CRM</span>
+              <span className="hidden lg:inline whitespace-nowrap">{isLoggedIn ? 'Admin CRM' : 'Admin Login'}</span>
               {unreadCount > 0 && (
                 <span className="w-4 h-4 rounded-full bg-red-500 text-white font-black text-[9px] flex items-center justify-center animate-pulse shadow-md">
                   {unreadCount}
@@ -570,12 +576,18 @@ export default function Navbar({ onOpenSchedule }) {
 
               <Link
                 to="/admin"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-2 px-3 rounded-xl border border-amber-400/40 bg-[#261047] font-bold text-amber-300 flex items-center justify-between"
+                onClick={(e) => {
+                  setMobileMenuOpen(false);
+                  if (!isLoggedIn) {
+                    e.preventDefault();
+                    openAdminLogin();
+                  }
+                }}
+                className="py-2.5 px-3 rounded-xl border border-amber-400/40 bg-[#261047] font-bold text-amber-300 flex items-center justify-between cursor-pointer"
               >
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-amber-400" />
-                  <span>Admin CRM Portal</span>
+                  <span>{isLoggedIn ? 'Admin CRM Portal' : 'Admin Login'}</span>
                 </div>
                 {unreadCount > 0 && (
                   <span className="px-2 py-0.5 rounded-full bg-red-500 text-white text-[10px] font-black">

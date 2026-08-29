@@ -38,6 +38,7 @@ export default function AdminPage() {
     unreadCount, 
     adminUser, 
     isLoggedIn, 
+    openAdminLogin,
     login, 
     logout, 
     updateInquiryStatus, 
@@ -51,11 +52,6 @@ export default function AdminPage() {
     requestOTP,
     changePassword
   } = useInquiry();
-
-  // Login Form States
-  const [adminId, setAdminId] = useState('admin');
-  const [password, setPassword] = useState('admin123');
-  const [loginError, setLoginError] = useState('');
 
   // CRM Filter & Selection States
   const [activeTab, setActiveTab] = useState('ALL');
@@ -91,15 +87,12 @@ export default function AdminPage() {
   const [activeOtpCode, setActiveOtpCode] = useState('');
   const [secMessage, setSecMessage] = useState(null); // { type: 'success' | 'error', text }
 
-  // Handle Admin Login
-  const handleLoginSubmit = async (e) => {
-    e.preventDefault();
-    setLoginError('');
-    const res = await login(adminId, password);
-    if (!res.success) {
-      setLoginError(res.message);
+  // Automatically trigger slide-over drawer if unauthenticated on /admin
+  useEffect(() => {
+    if (!isLoggedIn) {
+      openAdminLogin();
     }
-  };
+  }, [isLoggedIn, openAdminLogin]);
 
   // Quick Reply Message Templates
   const replyTemplates = [
@@ -206,87 +199,32 @@ export default function AdminPage() {
   // -------------------------------------------------------------
   if (!isLoggedIn) {
     return (
-      <div className="min-h-screen pt-24 pb-16 flex items-center justify-center bg-[#0d041a] bg-tech-grid relative overflow-hidden px-4">
+      <div className="min-h-screen pt-28 pb-20 flex items-center justify-center bg-[#0d041a] relative overflow-hidden px-4">
         {/* Glow Effects */}
         <div className="bg-glow-orb w-[500px] h-[500px] bg-purple-700/20 top-10 left-10"></div>
         <div className="bg-glow-orb w-[500px] h-[500px] bg-amber-500/15 bottom-10 right-10"></div>
 
-        <div className="max-w-md w-full glass-card p-8 sm:p-10 rounded-3xl border border-amber-400/40 shadow-2xl relative z-10">
-          <div className="text-center mb-8">
-            <div className="w-16 h-16 rounded-2xl bg-amber-400 text-[#120722] mx-auto flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(245,158,11,0.6)] font-bold">
-              <ShieldCheck className="w-9 h-9" />
-            </div>
-            <span className="text-[10px] font-black tracking-[0.25em] text-amber-400 uppercase font-mono">
-              RESTRICTED ENTERPRISE PORTAL
-            </span>
-            <h1 className="text-2xl sm:text-3xl font-extrabold font-heading text-white mt-1">
-              ADMIN CRM LOGIN
-            </h1>
-            <p className="text-xs text-[#d1c4e9] mt-2">
-              Enter your Unique Admin ID / Email / Phone and Password to launch the CRM.
-            </p>
+        <div className="max-w-md w-full glass-card p-8 sm:p-10 rounded-3xl border border-amber-400/30 text-center relative z-10 shadow-2xl">
+          <div className="w-14 h-14 rounded-2xl bg-amber-400/15 border border-amber-400/30 text-amber-400 mx-auto flex items-center justify-center mb-5 shadow-lg">
+            <ShieldCheck className="w-7 h-7" />
           </div>
+          <span className="text-[10px] font-mono font-bold tracking-widest text-amber-400 uppercase block mb-1">
+            Restricted CRM Dashboard
+          </span>
+          <h1 className="text-2xl font-bold font-heading text-white mb-3">
+            Admin Authentication Required
+          </h1>
+          <p className="text-xs text-gray-300 leading-relaxed mb-6">
+            Access to client inquiries, leads pipeline, and consultation schedules requires verified administrative sign-in.
+          </p>
 
-          {loginError && (
-            <div className="mb-6 p-3.5 rounded-xl bg-red-950/80 border border-red-500/50 text-red-300 text-xs flex items-center gap-2">
-              <AlertCircle className="w-4 h-4 shrink-0 text-red-400" />
-              <span>{loginError}</span>
-            </div>
-          )}
-
-          <form onSubmit={handleLoginSubmit} className="space-y-5">
-            <div>
-              <label className="block text-xs font-bold text-amber-300 uppercase tracking-wider mb-2">
-                Unique Admin ID / Email / Mobile
-              </label>
-              <div className="relative">
-                <User className="w-5 h-5 absolute left-3.5 top-1/2 -translate-y-1/2 text-[#a895be]" />
-                <input
-                  type="text"
-                  required
-                  value={adminId}
-                  onChange={(e) => setAdminId(e.target.value)}
-                  placeholder="e.g. admin or admin@theglobal.com"
-                  className="w-full bg-[#16082b] border border-white/20 rounded-xl py-3 pl-11 pr-4 text-sm text-white focus:outline-none focus:border-amber-400 transition-colors"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-amber-300 uppercase tracking-wider mb-2">
-                Admin Password
-              </label>
-              <div className="relative">
-                <Lock className="w-5 h-5 absolute left-3.5 top-1/2 -translate-y-1/2 text-[#a895be]" />
-                <input
-                  type="password"
-                  required
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="••••••••"
-                  className="w-full bg-[#16082b] border border-white/20 rounded-xl py-3 pl-11 pr-4 text-sm text-white focus:outline-none focus:border-amber-400 transition-colors"
-                />
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full btn-gold py-3.5 rounded-xl font-extrabold text-sm uppercase tracking-wider shadow-xl flex items-center justify-center gap-2 cursor-pointer mt-2"
-            >
-              <span>Authenticate &amp; Launch CRM</span>
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </form>
-
-          {/* Credentials Info */}
-          <div className="mt-8 p-4 rounded-2xl bg-[#17082e] border border-amber-400/30 text-center">
-            <span className="text-[10px] font-mono text-amber-300 uppercase tracking-widest block mb-1">
-              DEFAULT ADMIN CREDENTIALS
-            </span>
-            <div className="text-xs font-bold text-white font-mono">
-              ID: <span className="text-amber-400">admin</span> &bull; Pass: <span className="text-amber-400">admin123</span>
-            </div>
-          </div>
+          <button
+            onClick={openAdminLogin}
+            className="w-full btn-gold py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider shadow-xl flex items-center justify-center gap-2 cursor-pointer transition-all"
+          >
+            <span>Open Admin Sign In</span>
+            <ChevronRight className="w-4 h-4" />
+          </button>
         </div>
       </div>
     );

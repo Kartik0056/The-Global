@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /api/
 
+# Host & Sitemap Directives
+Host: https://globalenterprises.in
 Sitemap: https://globalenterprises.in/sitemap.xml
