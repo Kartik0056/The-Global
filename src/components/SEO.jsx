@@ -5,67 +5,76 @@ const BASE_URL = 'https://globalenterprises.in';
 
 const pageSEOMap = {
   '/': {
-    title: 'The Global Enterprises | 4K Security Systems, CCTV, Speed Gates & Workspace Fit-outs',
-    description: "India's premier one-stop partner for 4K AI CCTV surveillance, LTE body-worn cameras, QUBO smart locks, fire safety systems, executive AV suites, office fit-outs & turnkey management. Founded in 2017 by Sachin & Rajni Arora, CR Park, New Delhi.",
-    keywords: 'Global Enterprises, The Global Enterprises, CCTV camera installation Delhi, 4K AI CCTV surveillance, QUBO Hero Electronix smart locks, biometric speed gates, commercial fire alarms, boardroom AV integration, office fit-outs Delhi, Sachin Arora, Rajni Arora, CR Park New Delhi, IndiGo airline security, FedEx logistics security',
+    title: 'The Global Enterprises | Integrated Workspace & Security Solutions',
+    description: 'Global Enterprises is a single-window partner providing CCTV surveillance, access control, boardroom audio-video, fire safety systems, and office fit-outs across India.',
     image: '/images/headquarters.jpg',
-    type: 'website'
+    type: 'website',
+    isIndexable: true,
+    pageName: 'Home'
   },
   '/about': {
-    title: 'About The Global Enterprises | Sachin & Rajni Arora | Est. 2017 New Delhi',
-    description: 'Learn the story of The Global Enterprises, founded in 2017 by Mr. Sachin Arora & Mrs. Rajni Arora in CR Park, New Delhi. Discover our mission: Tech That Works For You and Spaces That Inspire.',
-    keywords: 'About Global Enterprises, Sachin Arora, Rajni Arora, CR Park New Delhi, workspace solutions company India, enterprise IT integration, CCTV contractors Delhi, office fitout company',
+    title: 'About Us | The Global Enterprises',
+    description: 'Founded in 2017 by Sachin and Rajni Arora, Global Enterprises delivers turnkey technology integration, security infrastructure, and office environments from CR Park, New Delhi.',
     image: '/images/headquarters.jpg',
-    type: 'article'
+    type: 'article',
+    isIndexable: true,
+    pageName: 'About Us'
   },
   '/services': {
-    title: 'Comprehensive Enterprise Services | CCTV, AV, Fire Safety, Fit-Outs & Moulding',
-    description: 'Explore our 6 specialized service categories: Security & Monitoring Systems, Audio & Video Solutions, Fire Safety & Rodent Management, Network & Connectivity, Fit-out & Leasehold Improvements, and Injection Moulding Solutions.',
-    keywords: 'CCTV surveillance installation, LTE body-worn cameras, boardroom video conferencing, addressable fire alarms, corporate network infrastructure, office interior fitouts, injection moulding job work Delhi',
+    title: 'Workspace, Security & IT Infrastructure Services | The Global Enterprises',
+    description: 'Explore our 6 core services: Security & Monitoring Systems, Audio & Video Solutions, Fire Safety & Rodent Management, Network & Connectivity, Office Fit-outs, and Injection Moulding.',
     image: '/images/cctv.jpg',
-    type: 'website'
+    type: 'website',
+    isIndexable: true,
+    pageName: 'Services'
   },
   '/capabilities': {
-    title: 'Hardware & Technology Catalog | 4K CCTV, Speed Gates & Fire Systems',
-    description: 'Explore our enterprise hardware lineup: 4K optical starlight sensors, biometric speed gates, addressable fire alarm panels, interactive 4K video walls, and BIFMA ergonomic sit-stand furniture.',
-    keywords: '4K CCTV specifications, optical speed gate barriers, addressable fire panels, EPABX intercom, commercial video wall, ergonomic motorized workstations',
+    title: 'Hardware & Systems Catalog | The Global Enterprises',
+    description: 'Specifications for commercial 4K CCTV cameras, optical speed gates, addressable fire alarm panels, boardroom display systems, and ergonomic modular workstations.',
     image: '/images/speedgates.jpg',
-    type: 'website'
+    type: 'website',
+    isIndexable: true,
+    pageName: 'Hardware & Systems Matrix'
   },
   '/values': {
-    title: 'Core Values & Quality Governance | The Global Enterprises',
-    description: "We don't cut corners. Ever. Explore the core values guiding The Global Enterprises: Quality, Timeliness, Fair Value, Dedication, and Ethical Integrity in every corporate project.",
-    keywords: 'Global Enterprises values, quality turnkey execution, ethical contracting, workspace governance, trusted enterprise partner',
+    title: 'Our Core Values | The Global Enterprises',
+    description: 'The five operating principles that guide our everyday client work: Quality, Timeliness, Fair Value, Dedication, and Honest Integrity.',
     image: '/images/workspace.jpg',
-    type: 'article'
+    type: 'article',
+    isIndexable: true,
+    pageName: 'Core Values'
   },
   '/mission': {
-    title: 'Our Mission & Sustainable Practices | The Global Enterprises',
-    description: 'Empowering modern Indian enterprises with safe, productive, and technologically superior workspaces backed by sustainable engineering and single-point turnkey accountability.',
-    keywords: 'Global Enterprises mission, sustainable office design, green workspace technology, corporate infrastructure vision',
+    title: 'Our Mission & Vision | The Global Enterprises',
+    description: 'Building long-term client partnerships through turnkey project execution, reliable ongoing maintenance, and sustainable workspace engineering.',
     image: '/images/hero_bg.jpg',
-    type: 'article'
+    type: 'article',
+    isIndexable: true,
+    pageName: 'Mission & Vision'
   },
   '/clients': {
-    title: 'Our Community of Clients | IndiGo, FedEx, Air India, NDRF | The Global Enterprises',
-    description: 'Trusted by over 200+ leading organizations: IndiGo, FedEx Express, Rio Tinto India, Air India, British Airways, Air Canada, Air France, Etihad, Civil Defense, and NDRF.',
-    keywords: 'Global Enterprises clients, IndiGo aviation security, FedEx logistics security, Air India body-worn cameras, NDRF defense equipment, corporate testimonials',
+    title: 'Our Community of Clients | The Global Enterprises',
+    description: 'See the airlines, corporations, logistics providers, and public institutions across India that trust Global Enterprises for workspace infrastructure and security.',
     image: '/images/firesafety.jpg',
-    type: 'website'
+    type: 'website',
+    isIndexable: true,
+    pageName: 'Clients'
   },
   '/contact': {
-    title: 'Contact Us & Request Turnkey Proposal | CR Park New Delhi | The Global Enterprises',
-    description: 'Consult with our senior solution architects. Visit our office at 52/21 Basement, Pocket 52, CR Park, New Delhi-110019 or call +91 98999 33768 for an itemized BOQ estimate.',
-    keywords: 'Contact Global Enterprises, CR Park New Delhi office, security consultation Delhi, turnkey office proposal, request BOQ estimate',
+    title: 'Contact Us | The Global Enterprises',
+    description: 'Get in touch with our engineering and project teams in CR Park, New Delhi for site assessments, service inquiries, and project consultations.',
     image: '/images/headquarters.jpg',
-    type: 'website'
+    type: 'website',
+    isIndexable: true,
+    pageName: 'Contact Us'
   },
   '/admin': {
-    title: 'Admin CRM Portal | The Global Enterprises',
-    description: 'Secure central CRM and inquiry management portal for authorized directors of The Global Enterprises.',
-    keywords: 'admin crm, global enterprises portal',
+    title: 'Admin Sign In | The Global Enterprises',
+    description: 'Administrative portal for Global Enterprises team members.',
     image: '/images/headquarters.jpg',
-    type: 'website'
+    type: 'website',
+    isIndexable: false,
+    pageName: 'Admin'
   }
 };
 
@@ -74,7 +83,7 @@ export default function SEO() {
 
   useEffect(() => {
     const seo = pageSEOMap[pathname] || pageSEOMap['/'];
-    const currentUrl = `${BASE_URL}/#${pathname}`;
+    const currentUrl = pathname === '/' ? BASE_URL : `${BASE_URL}/#${pathname}`;
     const imageUrl = `${BASE_URL}${seo.image}`;
 
     // 1. Update Title
@@ -93,8 +102,14 @@ export default function SEO() {
 
     // 3. Primary Meta Tags
     setMetaTag('name', 'description', seo.description);
-    setMetaTag('name', 'keywords', seo.keywords);
-    setMetaTag('name', 'author', 'The Global Enterprises (Sachin & Rajni Arora)');
+    setMetaTag('name', 'author', 'The Global Enterprises');
+
+    // Robots directive based on indexability
+    if (seo.isIndexable) {
+      setMetaTag('name', 'robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
+    } else {
+      setMetaTag('name', 'robots', 'noindex, nofollow');
+    }
 
     // 4. Open Graph Meta Tags
     setMetaTag('property', 'og:title', seo.title);
@@ -120,34 +135,49 @@ export default function SEO() {
     }
     canonical.setAttribute('href', currentUrl);
 
-    // 7. Dynamic BreadcrumbList JSON-LD Schema
-    const breadcrumbSchema = {
+    // 7. Dynamic WebPage & BreadcrumbList JSON-LD Schema
+    const pageSchema = {
       '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      'itemListElement': [
+      '@graph': [
         {
-          '@type': 'ListItem',
-          'position': 1,
-          'name': 'Home',
-          'item': `${BASE_URL}/#/`
+          '@type': 'WebPage',
+          '@id': `${currentUrl}#webpage`,
+          'url': currentUrl,
+          'name': seo.title,
+          'description': seo.description,
+          'isPartOf': {
+            '@id': `${BASE_URL}/#website`
+          }
         },
-        ...(pathname !== '/' ? [{
-          '@type': 'ListItem',
-          'position': 2,
-          'name': seo.title.split('|')[0].trim(),
-          'item': currentUrl
-        }] : [])
+        {
+          '@type': 'BreadcrumbList',
+          '@id': `${currentUrl}#breadcrumb`,
+          'itemListElement': [
+            {
+              '@type': 'ListItem',
+              'position': 1,
+              'name': 'Home',
+              'item': BASE_URL
+            },
+            ...(pathname !== '/' ? [{
+              '@type': 'ListItem',
+              'position': 2,
+              'name': seo.pageName,
+              'item': currentUrl
+            }] : [])
+          ]
+        }
       ]
     };
 
-    let scriptElement = document.getElementById('dynamic-breadcrumb-schema');
+    let scriptElement = document.getElementById('dynamic-page-schema');
     if (!scriptElement) {
       scriptElement = document.createElement('script');
-      scriptElement.id = 'dynamic-breadcrumb-schema';
+      scriptElement.id = 'dynamic-page-schema';
       scriptElement.type = 'application/ld+json';
       document.head.appendChild(scriptElement);
     }
-    scriptElement.textContent = JSON.stringify(breadcrumbSchema);
+    scriptElement.textContent = JSON.stringify(pageSchema);
 
   }, [pathname]);
 
