@@ -36,10 +36,8 @@ function AppContent() {
       <ScrollToTop />
       <SEO />
       <div className="min-h-screen bg-[#120722] text-[#f1f1f6] relative flex flex-col justify-between selection:bg-amber-500/30 selection:text-white">
-        {/* Navigation Bar */}
         <Navbar onOpenSchedule={() => setIsScheduleOpen(true)} />
 
-        {/* Page Routing */}
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<HomePage onOpenSchedule={() => setIsScheduleOpen(true)} />} />
@@ -54,16 +52,13 @@ function AppContent() {
           </Routes>
         </main>
 
-        {/* Footer */}
         <Footer />
 
-        {/* Schedule Consultation Modal */}
         <ScheduleModal
           isOpen={isScheduleOpen}
           onClose={() => setIsScheduleOpen(false)}
         />
 
-        {/* Slide-over Right Admin Login Drawer */}
         <AdminLoginDrawer
           isOpen={isAdminLoginOpen}
           onClose={closeAdminLogin}

@@ -59,13 +59,10 @@ export default function AboutSection({ onOpenSchedule }) {
 
   return (
     <section id="about" className="relative py-28 bg-[#140827] overflow-hidden">
-      {/* Ambient background glows */}
       <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-purple-900/20 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-10 right-0 w-[500px] h-[500px] bg-amber-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
             <div className="section-badge mb-3">ABOUT GLOBAL ENTERPRISES</div>
@@ -82,8 +79,6 @@ export default function AboutSection({ onOpenSchedule }) {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch mb-20">
-          
-          {/* Left Column: HQ Showcase */}
           <div className="lg:col-span-5 relative flex flex-col justify-between">
             <div className="relative rounded-3xl overflow-hidden border border-white/20 h-full min-h-[440px] bg-[#1a0b32] group shadow-2xl">
               <img
@@ -128,9 +123,7 @@ export default function AboutSection({ onOpenSchedule }) {
             </div>
           </div>
 
-          {/* Right Column: Narrative */}
           <div className="lg:col-span-7 flex flex-col justify-between gap-6">
-            
             <div className="glass-card p-8 sm:p-9 rounded-3xl border border-white/10 relative overflow-hidden bg-[#1a0a33]">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-[#271047] border border-amber-400/30 text-amber-300 text-xs font-bold mb-5">
                 <Sparkles className="w-3.5 h-3.5 text-amber-400" />
@@ -188,12 +181,9 @@ export default function AboutSection({ onOpenSchedule }) {
                 </div>
               </div>
             </div>
-
           </div>
-
         </div>
 
-        {/* What We Do */}
         <div className="mb-20">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="section-badge justify-center mb-2">WHAT WE DO</div>
@@ -248,7 +238,6 @@ export default function AboutSection({ onOpenSchedule }) {
           </div>
         </div>
 
-        {/* Core Values */}
         <div className="mb-20">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="section-badge justify-center mb-2">OUR VALUES</div>
@@ -279,7 +268,6 @@ export default function AboutSection({ onOpenSchedule }) {
           </div>
         </div>
 
-        {/* Client Trust Card */}
         <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#270f49] via-[#17082e] to-[#270f49] border border-amber-400/30 mb-16 shadow-2xl">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-wider mb-4">
@@ -301,7 +289,6 @@ export default function AboutSection({ onOpenSchedule }) {
           </div>
         </div>
 
-        {/* CTA */}
         <div className="text-center max-w-3xl mx-auto">
           <div className="section-badge justify-center mb-3">NEXT STEPS</div>
           <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-white mb-3">
@@ -323,7 +310,6 @@ export default function AboutSection({ onOpenSchedule }) {
             </button>
           </div>
         </div>
-
       </div>
     </section>
   );

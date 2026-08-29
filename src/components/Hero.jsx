@@ -68,8 +68,6 @@ export default function Hero({ onOpenSchedule }) {
 
   return (
     <section id="home" className="relative min-h-screen pt-36 lg:pt-40 pb-24 flex flex-col justify-center overflow-hidden">
-      
-      {/* Background Media */}
       <div className="absolute inset-0 z-0">
         <img
           src="/images/hero_bg.jpg"
@@ -81,17 +79,12 @@ export default function Hero({ onOpenSchedule }) {
         <div className="absolute inset-0 bg-tech-grid opacity-60"></div>
       </div>
 
-      {/* Ambient Glows */}
       <div className="bg-glow-orb w-[600px] h-[600px] bg-purple-700/25 top-20 -left-32"></div>
       <div className="bg-glow-orb w-[700px] h-[700px] bg-amber-500/15 top-40 -right-20"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-14">
-          
-          {/* Left Column: Heading & Value Proposition */}
           <div className="lg:col-span-7 flex flex-col justify-center text-left">
-            
             <div className="inline-flex items-center gap-2 mb-4 px-2.5 sm:px-3 py-1 rounded-lg bg-[#251044]/90 border border-amber-400/40 max-w-full backdrop-blur-md">
               <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-amber-400 animate-pulse shrink-0"></span>
               <span className="text-[10px] sm:text-xs font-bold tracking-[0.12em] sm:tracking-[0.18em] text-amber-300 uppercase font-heading truncate">
@@ -129,7 +122,6 @@ export default function Hero({ onOpenSchedule }) {
               </a>
             </div>
 
-            {/* Credibility Counters */}
             <div className="flex flex-wrap items-center gap-y-3 gap-x-6 text-xs sm:text-sm text-[#d8b4fe]">
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-400 shadow-[0_0_10px_#f59e0b]"></span>
@@ -149,10 +141,8 @@ export default function Hero({ onOpenSchedule }) {
                 <span className="text-[#c4b5fd]">Integration</span>
               </div>
             </div>
-
           </div>
 
-          {/* Right Column: Orbital Visual Showcase */}
           <div className="lg:col-span-5 flex items-center justify-center relative">
             <OrbitalSystem
               activeNodeId={heroSpotlights[activeTab]?.id}
@@ -164,13 +154,9 @@ export default function Hero({ onOpenSchedule }) {
               }}
             />
           </div>
-
         </div>
 
-        {/* Interactive Solutions Showcase */}
         <div className="glass-card rounded-3xl border border-white/20 overflow-hidden shadow-2xl p-5 sm:p-7 bg-[#1b0a36]/90 backdrop-blur-2xl">
-          
-          {/* Tabs */}
           <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-5 border-b border-white/10 no-scrollbar">
             {heroSpotlights.map((item, idx) => (
               <button
@@ -187,10 +173,7 @@ export default function Hero({ onOpenSchedule }) {
             ))}
           </div>
 
-          {/* Featured Tab Display */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-            
-            {/* Image Preview */}
             <div className="lg:col-span-7 relative rounded-2xl overflow-hidden group aspect-[16/9] border border-white/15 bg-black/40">
               <img
                 src={current.image}
@@ -214,7 +197,6 @@ export default function Hero({ onOpenSchedule }) {
               </div>
             </div>
 
-            {/* Specifications & Actions */}
             <div className="lg:col-span-5 flex flex-col justify-between h-full py-2">
               <div>
                 <div className="text-[10px] font-bold uppercase tracking-widest text-amber-400 mb-1">
@@ -224,7 +206,7 @@ export default function Hero({ onOpenSchedule }) {
                   {current.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-[#d1c4e9] leading-relaxed mb-4">
-                  Turnkey architectural engineering, certified deployment, and comprehensive annual maintenance support.
+                  End-to-end design, installation, and ongoing maintenance support.
                 </p>
 
                 <div className="space-y-2 mb-6">
@@ -253,11 +235,8 @@ export default function Hero({ onOpenSchedule }) {
                 </a>
               </div>
             </div>
-
           </div>
-
         </div>
-
       </div>
     </section>
   );

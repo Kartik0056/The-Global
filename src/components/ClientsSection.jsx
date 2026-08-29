@@ -70,13 +70,10 @@ export default function ClientsSection({ onOpenSchedule }) {
 
   return (
     <section id="clients" className="relative py-28 bg-[#120722] bg-tech-grid overflow-hidden">
-      {/* Ambient background glows */}
       <div className="bg-glow-orb w-[600px] h-[600px] bg-amber-500/10 -top-20 -right-20"></div>
       <div className="bg-glow-orb w-[600px] h-[600px] bg-purple-700/15 bottom-0 left-10"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="section-badge justify-center mb-3">OUR CLIENTS &amp; PARTNERS</div>
           <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight mb-4">
@@ -90,7 +87,6 @@ export default function ClientsSection({ onOpenSchedule }) {
           </p>
         </div>
 
-        {/* Client Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-16">
           {communityClients.map((client, idx) => {
             const Icon = client.icon;
@@ -115,7 +111,6 @@ export default function ClientsSection({ onOpenSchedule }) {
           })}
         </div>
 
-        {/* Enterprise Client Highlights */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {featuredEnterpriseClients.map((client, idx) => {
             const Icon = client.icon;
@@ -168,7 +163,6 @@ export default function ClientsSection({ onOpenSchedule }) {
             );
           })}
 
-          {/* Partnership Card */}
           <div className="glass-card p-6 rounded-3xl border border-amber-400/40 bg-gradient-to-br from-[#2b1250] to-[#17082e] flex flex-col justify-between shadow-2xl relative overflow-hidden group">
             <div>
               <div className="relative aspect-[16/9] rounded-2xl overflow-hidden mb-5 border border-amber-400/30 bg-black">
@@ -204,7 +198,6 @@ export default function ClientsSection({ onOpenSchedule }) {
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );

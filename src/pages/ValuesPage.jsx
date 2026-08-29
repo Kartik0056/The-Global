@@ -59,7 +59,6 @@ export default function ValuesPage() {
 
   return (
     <div className="pt-20">
-      {/* Front Hero Header with Layered Workspace Background Image */}
       <div className="relative min-h-[420px] sm:min-h-[460px] flex items-center justify-center overflow-hidden border-b border-white/10">
         <div className="absolute inset-0 z-0">
           <img
@@ -71,11 +70,9 @@ export default function ValuesPage() {
           <div className="absolute inset-0 bg-tech-grid opacity-60"></div>
         </div>
 
-        {/* Ambient Glows */}
         <div className="bg-glow-orb w-[500px] h-[500px] bg-purple-700/20 -top-20 left-1/4"></div>
         <div className="bg-glow-orb w-[500px] h-[500px] bg-amber-500/15 bottom-0 right-1/4"></div>
 
-        {/* Content */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center py-16">
           <div className="inline-flex items-center gap-2 mb-4 px-3.5 py-1.5 rounded-full bg-[#261047]/90 border border-amber-400/40 backdrop-blur-md">
             <Award className="w-3.5 h-3.5 text-amber-400" />
@@ -105,10 +102,8 @@ export default function ValuesPage() {
         </div>
       </div>
 
-      {/* Main Bento Grid Values Component */}
       <ValuesSection />
 
-      {/* Deep-Dive: How We Practice Our Values On-Site */}
       <section className="py-24 bg-[#10061e] border-t border-white/10 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -162,7 +157,6 @@ export default function ValuesPage() {
             })}
           </div>
 
-          {/* Founders Ethics Pledge */}
           <div className="mt-16 glass-card p-8 rounded-3xl border border-amber-400/40 bg-gradient-to-r from-[#200c3b] via-[#16082b] to-[#200c3b] shadow-2xl text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-wider mb-4">
               <Shield className="w-4 h-4 text-amber-400" />

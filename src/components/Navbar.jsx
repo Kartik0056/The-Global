@@ -97,17 +97,6 @@ export default function Navbar({ onOpenSchedule }) {
 
   const currentPreview = servicesMegaMenu[activeMenuService];
 
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/about' },
-    { name: 'Capabilities', path: '/capabilities' },
-    { name: 'Core Values', path: '/values' },
-    { name: 'Mission', path: '/mission' },
-    { name: 'Client Trust', path: '/clients' },
-    { name: 'Contact', path: '/contact' },
-  ];
-
-  // Mouse hover handlers with debounce timer
   const handleMouseEnter = () => {
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
@@ -145,8 +134,6 @@ export default function Navbar({ onOpenSchedule }) {
     <header className="fixed top-0 left-0 right-0 z-50 w-full bg-[#120722]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl">
       <nav className="w-full px-3 sm:px-5 lg:px-6 2xl:px-8 py-2 sm:py-2.5 relative max-w-[1800px] mx-auto">
         <div className="w-full flex items-center justify-between gap-1.5 sm:gap-3">
-          
-          {/* Logo Section */}
           <Link to="/" className="flex items-center gap-2 sm:gap-2.5 group shrink-0">
             <div className="relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-xl sm:rounded-2xl bg-white/95 border-2 border-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.45)] group-hover:scale-105 transition-all duration-300 overflow-hidden p-0.5 shrink-0">
               <img
@@ -165,7 +152,6 @@ export default function Navbar({ onOpenSchedule }) {
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
           <div className="hidden xl:flex items-center gap-2 2xl:gap-3.5 flex-nowrap font-bold">
             <Link 
               to="/" 
@@ -187,7 +173,6 @@ export default function Navbar({ onOpenSchedule }) {
               <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-400 transition-all ${location.pathname === '/about' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </Link>
 
-            {/* Desktop Dropdown */}
             <div 
               ref={dropdownContainerRef}
               className="relative py-1"
@@ -223,7 +208,6 @@ export default function Navbar({ onOpenSchedule }) {
                   className="fixed top-full left-0 right-0 w-full bg-[#110620] border-y border-amber-400/40 shadow-[0_30px_70px_rgba(0,0,0,0.98)] z-50 animate-fadeIn px-6 sm:px-12 lg:px-16 py-7 before:absolute before:-top-4 before:left-0 before:right-0 before:h-4 before:content-['']"
                 >
                   <div className="max-w-7xl mx-auto grid grid-cols-12 gap-8 items-stretch">
-                    
                     <div className="col-span-12 lg:col-span-7 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-white/10 pb-6 lg:pb-0 lg:pr-8">
                       <div>
                         <div className="text-xs font-bold uppercase tracking-widest text-amber-400 mb-3 flex items-center gap-2">
@@ -320,7 +304,6 @@ export default function Navbar({ onOpenSchedule }) {
                         <ArrowUpRight className="w-3.5 h-3.5" />
                       </Link>
                     </div>
-
                   </div>
                 </div>
               )}
@@ -377,10 +360,7 @@ export default function Navbar({ onOpenSchedule }) {
             </Link>
           </div>
 
-          {/* Right Action Suite - Responsive for All Screens */}
           <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-
-            {/* Direct Phone Call Button */}
             <a
               href="tel:+919899933768"
               className="flex items-center gap-1.5 p-2 sm:px-3 sm:py-2 rounded-xl bg-[#1b0a36] border border-white/15 hover:border-amber-400 text-white hover:text-amber-300 transition-all shadow-md shrink-0"
@@ -390,7 +370,6 @@ export default function Navbar({ onOpenSchedule }) {
               <span className="hidden 2xl:inline text-xs font-bold whitespace-nowrap">+91 98999 33768</span>
             </a>
 
-            {/* Admin CRM Portal / Login Drawer Button */}
             <Link
               to="/admin"
               onClick={(e) => {
@@ -411,7 +390,6 @@ export default function Navbar({ onOpenSchedule }) {
               )}
             </Link>
 
-            {/* Schedule Meeting Button */}
             <button
               onClick={onOpenSchedule}
               className="btn-gold p-2 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-xs flex items-center gap-1.5 cursor-pointer font-extrabold shadow-xl shrink-0 whitespace-nowrap"
@@ -421,7 +399,6 @@ export default function Navbar({ onOpenSchedule }) {
               <span className="hidden sm:inline">Schedule a meeting</span>
             </button>
 
-            {/* Hamburger Button (Always visible on mobile & tablet < xl) */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="xl:hidden p-2 rounded-xl bg-[#220e3f] border border-amber-400/40 text-amber-300 hover:text-white hover:bg-amber-400/20 transition-all shrink-0 cursor-pointer shadow-lg"
@@ -430,10 +407,8 @@ export default function Navbar({ onOpenSchedule }) {
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
-
         </div>
 
-        {/* Mobile / Tablet Full Navigation Drawer */}
         {mobileMenuOpen && (
           <div className="xl:hidden bg-[#110520] border-t border-amber-400/30 px-4 sm:px-6 py-5 transition-all animate-fadeIn mt-2 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.9)] max-h-[82vh] overflow-y-auto">
             <div className="flex flex-col space-y-3 text-sm">
@@ -463,7 +438,6 @@ export default function Navbar({ onOpenSchedule }) {
                 <ChevronRight className="w-4 h-4 text-amber-400" />
               </Link>
 
-              {/* Mobile Accordion for What We Do / Services */}
               <div className="rounded-xl border border-white/10 bg-[#180930] overflow-hidden">
                 <div className="flex items-center justify-between py-2.5 px-3">
                   <Link
@@ -592,7 +566,6 @@ export default function Navbar({ onOpenSchedule }) {
                 )}
               </Link>
 
-              {/* Mobile CTA Action Buttons */}
               <div className="pt-2 flex flex-col gap-2">
                 <a
                   href="tel:+919899933768"
@@ -618,7 +591,6 @@ export default function Navbar({ onOpenSchedule }) {
         )}
       </nav>
 
-      {/* Backdrop overlay for mega menu */}
       {servicesDropdownOpen && (
         <div 
           className="fixed inset-0 top-[60px] bg-black/50 backdrop-blur-[2px] z-40"

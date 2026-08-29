@@ -16,14 +16,10 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-[#0b0316] border-t border-white/10 pt-16 pb-12 overflow-hidden text-sm">
-      {/* Background ambient lighting */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-purple-900/10 blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
-          
-          {/* Col 1: Brand Info */}
           <div className="lg:col-span-4 flex flex-col justify-between">
             <div>
               <Link to="/" className="flex items-center gap-3 mb-4">
@@ -62,7 +58,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Col 2: Services Quick Links */}
           <div className="lg:col-span-3">
             <h4 className="text-xs font-bold uppercase tracking-[0.16em] text-amber-400 mb-4 font-heading">
               Our Capabilities
@@ -77,7 +72,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 3: Navigation */}
           <div className="lg:col-span-2">
             <h4 className="text-xs font-bold uppercase tracking-[0.16em] text-amber-400 mb-4 font-heading">
               Company
@@ -93,7 +87,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 4: Contact info */}
           <div className="lg:col-span-3">
             <h4 className="text-xs font-bold uppercase tracking-[0.16em] text-amber-400 mb-4 font-heading">
               National Headquarters
@@ -117,10 +110,8 @@ export default function Footer() {
               </div>
             </div>
           </div>
-
         </div>
 
-        {/* Bottom copyright & Scroll to Top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8e7ea8]">
           <div>
             &copy; {new Date().getFullYear()} The Global Enterprises. All rights reserved. &bull; Smart Solutions, Secure Spaces.
@@ -134,7 +125,6 @@ export default function Footer() {
             <ArrowUp className="w-3.5 h-3.5" />
           </button>
         </div>
-
       </div>
     </footer>
   );

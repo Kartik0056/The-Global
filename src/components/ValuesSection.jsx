@@ -12,12 +12,9 @@ import {
 export default function ValuesSection() {
   return (
     <section id="values" className="relative py-28 bg-[#120722] bg-tech-grid overflow-hidden">
-      {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-purple-800/10 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <div className="section-badge justify-center mb-3">03 / CORE VALUES</div>
           <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight mb-4">
@@ -28,10 +25,7 @@ export default function ValuesSection() {
           </div>
         </div>
 
-        {/* Values Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          
-          {/* Quality */}
           <div className="md:col-span-7 glass-card p-6 sm:p-8 rounded-3xl border border-amber-400/30 bg-gradient-to-br from-[#240f42] to-[#16082b] flex flex-col justify-between hover:border-amber-400/60 transition-all duration-300 group relative overflow-hidden">
             <div className="absolute top-0 right-0 w-48 h-48 bg-amber-500/10 rounded-bl-full pointer-events-none"></div>
             <div>
@@ -68,7 +62,6 @@ export default function ValuesSection() {
             </div>
           </div>
 
-          {/* Timeliness */}
           <div className="md:col-span-5 glass-card p-6 sm:p-8 rounded-3xl border border-white/10 flex flex-col justify-between hover:border-amber-400/50 transition-all duration-300 group">
             <div>
               <div className="relative aspect-[16/8] rounded-2xl overflow-hidden mb-5 border border-white/15 bg-black">
@@ -104,7 +97,6 @@ export default function ValuesSection() {
             </div>
           </div>
 
-          {/* Transparency */}
           <div className="md:col-span-4 glass-card p-6 sm:p-7 rounded-3xl border border-white/10 flex flex-col justify-between hover:border-amber-400/50 transition-all duration-300 group">
             <div>
               <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-4 border border-white/15 bg-black">
@@ -131,7 +123,6 @@ export default function ValuesSection() {
             </div>
           </div>
 
-          {/* Value */}
           <div className="md:col-span-4 glass-card p-6 sm:p-7 rounded-3xl border border-white/10 flex flex-col justify-between hover:border-amber-400/50 transition-all duration-300 group">
             <div>
               <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-4 border border-white/15 bg-black">
@@ -158,7 +149,6 @@ export default function ValuesSection() {
             </div>
           </div>
 
-          {/* Dedication */}
           <div className="md:col-span-4 glass-card p-6 sm:p-7 rounded-3xl border border-white/10 flex flex-col justify-between hover:border-amber-400/50 transition-all duration-300 group">
             <div>
               <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-4 border border-white/15 bg-black">
@@ -185,7 +175,6 @@ export default function ValuesSection() {
             </div>
           </div>
 
-          {/* Integrity */}
           <div className="md:col-span-12 glass-card p-6 sm:p-8 rounded-3xl border border-amber-400/30 bg-gradient-to-r from-[#200c3b] via-[#16082b] to-[#200c3b] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl overflow-hidden group">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 w-full sm:w-auto">
               <div className="relative w-full sm:w-36 aspect-[16/9] rounded-2xl overflow-hidden border border-amber-400/30 shrink-0 bg-black">
@@ -211,9 +200,7 @@ export default function ValuesSection() {
               Certified ethical compliance, data protection NDA guarantees, and genuine hardware sourcing.
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
   );

@@ -128,13 +128,10 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
 
   return (
     <section className="py-20 bg-[#120722] relative overflow-hidden">
-      {/* Ambient background glows */}
       <div className="bg-glow-orb w-[600px] h-[600px] bg-purple-700/15 top-1/4 -left-20"></div>
       <div className="bg-glow-orb w-[600px] h-[600px] bg-amber-500/10 bottom-1/4 -right-20"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Filter Controls */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-10 pb-6 border-b border-white/10">
           <div className="flex flex-wrap items-center gap-2">
             {[
@@ -172,14 +169,12 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
           </div>
         </div>
 
-        {/* Product Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProducts.map((prod) => (
             <div
               key={prod.id}
               className="glass-card rounded-3xl border border-white/10 hover:border-amber-400/50 transition-all duration-300 flex flex-col overflow-hidden group bg-[#16082b]"
             >
-              {/* Header Image */}
               <div className="relative aspect-[16/10] overflow-hidden bg-black">
                 <img
                   src={prod.image}
@@ -193,7 +188,6 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
                 </div>
               </div>
 
-              {/* Body */}
               <div className="p-6 flex flex-col justify-between flex-1">
                 <div>
                   <h3 className="text-lg font-bold font-heading text-white group-hover:text-amber-300 transition-colors mb-2">
@@ -229,11 +223,9 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
           ))}
         </div>
 
-        {/* Technical Datasheet Modal */}
         {selectedProductModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
             <div className="relative w-full max-w-2xl glass-card rounded-3xl border border-amber-400/50 p-5 sm:p-8 bg-[#180933] shadow-2xl max-h-[90vh] overflow-y-auto">
-              
               <button
                 onClick={() => setSelectedProductModal(null)}
                 className="absolute top-4 right-4 p-2 rounded-xl bg-white/10 text-white hover:bg-amber-400 hover:text-[#10061e] transition-colors cursor-pointer"
@@ -287,11 +279,9 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
-
             </div>
           </div>
         )}
-
       </div>
     </section>
   );

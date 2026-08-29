@@ -75,7 +75,6 @@ export default function AdminLoginDrawer({ isOpen, onClose }) {
 
   return (
     <>
-      {/* Backdrop */}
       <div
         onClick={onClose}
         aria-hidden="true"
@@ -84,7 +83,6 @@ export default function AdminLoginDrawer({ isOpen, onClose }) {
         }`}
       />
 
-      {/* Slide-over Panel from Right */}
       <aside
         aria-label="Admin Login Drawer"
         aria-modal="true"
@@ -93,7 +91,6 @@ export default function AdminLoginDrawer({ isOpen, onClose }) {
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        {/* Drawer Header */}
         <div className="p-6 sm:p-7 border-b border-white/10 relative">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2.5">
@@ -123,7 +120,6 @@ export default function AdminLoginDrawer({ isOpen, onClose }) {
           </p>
         </div>
 
-        {/* Drawer Body / Form */}
         <div className="p-6 sm:p-7 flex-1 overflow-y-auto">
           {errorMessage && (
             <div className="mb-5 p-3.5 rounded-xl bg-red-950/80 border border-red-500/40 text-red-200 text-xs flex items-start gap-2.5">
@@ -133,7 +129,6 @@ export default function AdminLoginDrawer({ isOpen, onClose }) {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Admin ID Field */}
             <div>
               <label 
                 htmlFor="admin-identifier" 
@@ -159,7 +154,6 @@ export default function AdminLoginDrawer({ isOpen, onClose }) {
               </div>
             </div>
 
-            {/* Password Field */}
             <div>
               <label 
                 htmlFor="admin-password" 
@@ -192,7 +186,6 @@ export default function AdminLoginDrawer({ isOpen, onClose }) {
               </div>
             </div>
 
-            {/* Options */}
             <div className="flex items-center justify-between text-xs pt-1">
               <label className="flex items-center gap-2 cursor-pointer text-gray-300 hover:text-white">
                 <input
@@ -205,7 +198,6 @@ export default function AdminLoginDrawer({ isOpen, onClose }) {
               </label>
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={loading}
@@ -226,7 +218,6 @@ export default function AdminLoginDrawer({ isOpen, onClose }) {
           </form>
         </div>
 
-        {/* Drawer Footer */}
         <div className="p-5 border-t border-white/10 bg-[#0f041d]/70 text-center">
           <div className="flex items-center justify-center gap-2 text-[11px] text-gray-400">
             <LockKeyhole className="w-3.5 h-3.5 text-amber-400" />

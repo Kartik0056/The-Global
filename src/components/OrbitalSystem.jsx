@@ -154,17 +154,13 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
           setHoveredNode(null);
         }}
       >
-        {/* Ambient background glow */}
         <div className="absolute w-72 h-72 rounded-full bg-purple-900/30 blur-3xl -z-10 pointer-events-none animate-pulse"></div>
         <div className="absolute w-52 h-52 rounded-full bg-amber-500/10 blur-2xl -z-10 pointer-events-none"></div>
 
-        {/* Central Integrated Core Orb (Logo slightly smaller & geometrically centered) */}
         <div className="relative z-20 flex flex-col items-center justify-center pointer-events-none">
           <div className="relative flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-br from-[#1b0736] via-[#100422] to-[#15062c] border-2 border-amber-400/90 shadow-[0_0_40px_rgba(245,158,11,0.6),inset_0_0_20px_rgba(10,3,20,0.9)] overflow-hidden">
-            {/* Inner Dashed Ring */}
             <div className="absolute inset-1.5 rounded-full border border-dashed border-amber-400/60 animate-spin-slow pointer-events-none"></div>
             
-            {/* Central Logo - Geometrically centered & slightly smaller */}
             <div className="w-13 h-13 sm:w-16 sm:h-16 flex items-center justify-center relative z-10 p-1">
               <img
                 src="/logo.png"
@@ -174,7 +170,6 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
             </div>
           </div>
 
-          {/* Subtitle text below orb */}
           <div className="mt-2 text-center flex items-center justify-center">
             <span className="text-[9px] sm:text-[10px] font-bold font-mono tracking-[0.22em] text-amber-400 uppercase text-center block">
               INTEGRATED WORKSPACE
@@ -182,9 +177,7 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
           </div>
         </div>
 
-        {/* Concentric Orbit Rings SVG */}
         <svg className="absolute inset-0 w-full h-full pointer-events-none -z-0" viewBox="0 0 540 540">
-          {/* Inner Decorative Ring */}
           <circle
             cx="270"
             cy="270"
@@ -195,7 +188,6 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
             strokeDasharray="4 6"
           />
 
-          {/* Middle Active Orbit Ring (Inner Orbit) */}
           <circle
             cx="270"
             cy="270"
@@ -205,7 +197,6 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
             strokeWidth="1.2"
           />
 
-          {/* Outer Active Orbit Ring (Outer Orbit) */}
           <circle
             cx="270"
             cy="270"
@@ -216,7 +207,6 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
             strokeDasharray="6 8"
           />
 
-          {/* Active Pulsing Laser Line */}
           {activeOrHovered && (() => {
             const isOuter = activeOrHovered.orbit === 'outer';
             const calcAngle = isOuter
@@ -238,10 +228,8 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
           })()}
         </svg>
 
-        {/* Orbiting Moving Nodes (Outer = Clockwise, Inner = Anti-Clockwise) */}
         {nodes.map((node) => {
           const isOuter = node.orbit === 'outer';
-          // Outer orbit rotates CLOCKWISE (+), Inner orbit rotates ANTI-CLOCKWISE (-)
           const currentAngle = isOuter
             ? (node.baseAngle + rotationAngle) % 360
             : (node.baseAngle - rotationAngle) % 360;
@@ -279,7 +267,6 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
                   <IconComponent className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
                 </button>
 
-                {/* Smart Outward Tooltip - Zero Overlap Guaranteed */}
                 {isHovered && (
                   <div 
                     className={`absolute w-52 p-2.5 rounded-xl bg-[#1a0933]/95 border border-amber-400/80 shadow-[0_15px_35px_rgba(0,0,0,0.95)] backdrop-blur-2xl pointer-events-none z-50 animate-fadeIn text-left flex items-center gap-2.5 ${getTooltipPositionClass(x, y)}`}
@@ -307,7 +294,6 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
           );
         })}
 
-        {/* Decorative pulse dots */}
         <div className="absolute top-8 right-12 w-2 h-2 rounded-full bg-amber-400/80 animate-ping"></div>
         <div className="absolute bottom-10 left-10 w-2 h-2 rounded-full bg-purple-400/80 animate-pulse"></div>
       </div>

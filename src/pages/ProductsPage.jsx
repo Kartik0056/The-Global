@@ -5,7 +5,6 @@ import { Cpu, CheckCircle, ShieldCheck } from 'lucide-react';
 export default function ProductsPage({ onOpenSchedule }) {
   return (
     <div className="pt-20">
-      {/* Header Banner */}
       <div className="relative min-h-[380px] sm:min-h-[420px] flex items-center justify-center overflow-hidden border-b border-white/10">
         <div className="absolute inset-0 z-0">
           <img
@@ -17,11 +16,9 @@ export default function ProductsPage({ onOpenSchedule }) {
           <div className="absolute inset-0 bg-tech-grid opacity-50"></div>
         </div>
 
-        {/* Ambient Glows */}
         <div className="bg-glow-orb w-[500px] h-[500px] bg-purple-700/20 -top-20 right-1/4"></div>
         <div className="bg-glow-orb w-[500px] h-[500px] bg-amber-500/15 bottom-0 left-1/4"></div>
 
-        {/* Content */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center py-16">
           <div className="inline-flex items-center gap-2 mb-4 px-3.5 py-1.5 rounded-full bg-[#261047]/90 border border-amber-400/40 backdrop-blur-md">
             <Cpu className="w-3.5 h-3.5 text-amber-400" />

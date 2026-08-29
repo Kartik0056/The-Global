@@ -9,9 +9,7 @@ import {
   Clock, 
   ShieldCheck, 
   Building2,
-  FileSpreadsheet,
-  Layers,
-  Sparkles
+  FileSpreadsheet
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -103,13 +101,10 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="relative py-28 bg-[#140828] overflow-hidden">
-      {/* Background ambient lighting */}
       <div className="bg-glow-orb w-[600px] h-[600px] bg-amber-500/10 -top-20 -right-20"></div>
       <div className="bg-glow-orb w-[600px] h-[600px] bg-purple-700/20 bottom-0 left-10"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="section-badge justify-center mb-3">ENTERPRISE CONSULTATION</div>
           <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight mb-4">
@@ -121,11 +116,7 @@ export default function ContactSection() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          {/* Left Column: Direct Contact Details & Information Cards */}
           <div className="lg:col-span-5 flex flex-col gap-3.5">
-            
-            {/* Direct Email Card */}
             <div className="glass-card p-5 sm:p-6 rounded-2xl border border-white/10 flex items-start gap-4 hover:border-amber-400/50 transition-all duration-300 group">
               <div className="w-12 h-12 rounded-xl bg-[#28114b] border border-amber-400/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-400 group-hover:text-[#120722] transition-all shadow-md shrink-0">
                 <Mail className="w-5 h-5" />
@@ -146,7 +137,6 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Direct Phone Card */}
             <div className="glass-card p-5 sm:p-6 rounded-2xl border border-white/10 flex items-start gap-4 hover:border-amber-400/50 transition-all duration-300 group">
               <div className="w-12 h-12 rounded-xl bg-[#28114b] border border-amber-400/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-400 group-hover:text-[#120722] transition-all shadow-md shrink-0">
                 <Phone className="w-5 h-5" />
@@ -167,7 +157,6 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Visit Headquarters Card */}
             <div className="glass-card p-5 sm:p-6 rounded-2xl border border-white/10 flex items-start gap-4 hover:border-amber-400/50 transition-all duration-300 group">
               <div className="w-12 h-12 rounded-xl bg-[#28114b] border border-amber-400/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-400 group-hover:text-[#120722] transition-all shadow-md shrink-0">
                 <MapPin className="w-5 h-5" />
@@ -185,7 +174,6 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Security Assurance Guarantee */}
             <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-[#240e44] to-[#17082e] border border-amber-400/20 flex items-center gap-3.5">
               <div className="w-10 h-10 rounded-xl bg-amber-400/10 flex items-center justify-center text-amber-400 shrink-0">
                 <ShieldCheck className="w-5 h-5" />
@@ -194,13 +182,10 @@ export default function ContactSection() {
                 <span className="font-bold text-white">Full NDA Confidentiality:</span> All project proposals, layout blueprints, and security telemetry data remain strictly protected under Indian NDA compliance.
               </div>
             </div>
-
           </div>
 
-          {/* Right Column: Lead Form & Scope Selector */}
           <div className="lg:col-span-7 flex flex-col">
             <div className="glass-card p-6 sm:p-8 rounded-3xl border border-white/15 relative overflow-hidden shadow-2xl bg-[#1b0a36]/90 backdrop-blur-xl">
-              
               {isSubmitted ? (
                 <div className="py-16 text-center flex flex-col items-center justify-center my-auto">
                   <div className="w-16 h-16 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-5 shadow-xl">
@@ -243,8 +228,6 @@ export default function ContactSection() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 flex flex-col justify-between h-full">
-                  
-                  {/* Form Header */}
                   <div className="flex items-center justify-between border-b border-white/10 pb-4">
                     <div>
                       <h3 className="text-xl sm:text-2xl font-bold font-heading text-white">
@@ -259,9 +242,7 @@ export default function ContactSection() {
                     </div>
                   </div>
 
-                  {/* Section 1: Contact Information */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {/* Full Name */}
                     <div>
                       <label className="block text-xs font-semibold text-gray-200 mb-1.5">
                         Full Name <span className="text-amber-400">*</span>
@@ -277,7 +258,6 @@ export default function ContactSection() {
                       />
                     </div>
 
-                    {/* Email Address */}
                     <div>
                       <label className="block text-xs font-semibold text-gray-200 mb-1.5">
                         Work Email <span className="text-amber-400">*</span>
@@ -293,7 +273,6 @@ export default function ContactSection() {
                       />
                     </div>
 
-                    {/* Company Name */}
                     <div>
                       <label className="block text-xs font-semibold text-gray-200 mb-1.5">
                         Company / Organization
@@ -308,7 +287,6 @@ export default function ContactSection() {
                       />
                     </div>
 
-                    {/* Phone Number */}
                     <div>
                       <label className="block text-xs font-semibold text-gray-200 mb-1.5">
                         Phone Number <span className="text-amber-400">*</span>
@@ -325,9 +303,7 @@ export default function ContactSection() {
                     </div>
                   </div>
 
-                  {/* Section 2: Project Specifications */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {/* Primary Service */}
                     <div>
                       <label className="block text-xs font-semibold text-gray-200 mb-1.5">
                         Primary Service Required
@@ -346,7 +322,6 @@ export default function ContactSection() {
                       </select>
                     </div>
 
-                    {/* Facility Type */}
                     <div>
                       <label className="block text-xs font-semibold text-gray-200 mb-1.5">
                         Facility / Space Type
@@ -365,7 +340,6 @@ export default function ContactSection() {
                       </select>
                     </div>
 
-                    {/* Estimated Area */}
                     <div>
                       <label className="block text-xs font-semibold text-gray-200 mb-1.5">
                         Estimated Facility Area
@@ -384,7 +358,6 @@ export default function ContactSection() {
                       </select>
                     </div>
 
-                    {/* Project Budget */}
                     <div>
                       <label className="block text-xs font-semibold text-gray-200 mb-1.5">
                         Estimated Budget Range
@@ -404,7 +377,6 @@ export default function ContactSection() {
                     </div>
                   </div>
 
-                  {/* Section 3: Project Requirements Message */}
                   <div>
                     <label className="block text-xs font-semibold text-gray-200 mb-1.5">
                       Project Scope &amp; Special Requirements <span className="text-gray-400 font-normal">(Optional)</span>
@@ -419,7 +391,6 @@ export default function ContactSection() {
                     />
                   </div>
 
-                  {/* Submit Button & Assurance Badges */}
                   <div className="pt-2 space-y-3">
                     <button
                       type="submit"
@@ -451,15 +422,11 @@ export default function ContactSection() {
                       </div>
                     </div>
                   </div>
-
                 </form>
               )}
-
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
   );

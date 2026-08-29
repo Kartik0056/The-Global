@@ -2,33 +2,23 @@ import React, { useState } from 'react';
 import { useInquiry } from '../context/InquiryContext';
 import { 
   ShieldCheck, 
-  Lock, 
-  User, 
   Phone, 
   Mail, 
-  Building, 
-  Calendar, 
   MessageSquare, 
   Search, 
-  Filter, 
   Volume2, 
   VolumeX, 
   Bell, 
   LogOut, 
   Send, 
-  CheckCircle, 
   Clock, 
   AlertCircle, 
   Trash2, 
   FileText, 
-  ExternalLink,
   ChevronRight,
-  Sparkles,
   BarChart3,
   KeyRound,
-  Smartphone,
   Shield,
-  RefreshCw,
   X
 } from 'lucide-react';
 
@@ -39,7 +29,6 @@ export default function AdminPage() {
     adminUser, 
     isLoggedIn, 
     openAdminLogin,
-    login, 
     logout, 
     updateInquiryStatus, 
     updateInquiryNotes, 
@@ -53,7 +42,6 @@ export default function AdminPage() {
     changePassword
   } = useInquiry();
 
-  // CRM Filter & Selection States
   const [activeTab, setActiveTab] = useState('ALL');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedInquiry, setSelectedInquiry] = useState(null);
@@ -61,7 +49,6 @@ export default function AdminPage() {
   const [customReplyMessage, setCustomReplyMessage] = useState('');
   const [selectedLeadIds, setSelectedLeadIds] = useState([]);
 
-  // Checkbox Selection Helpers
   const toggleSelectLead = (id) => {
     setSelectedLeadIds(prev => 
       prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]
@@ -76,18 +63,15 @@ export default function AdminPage() {
     }
   };
 
-  // Password Change Security Modal States
   const [isSecurityModalOpen, setIsSecurityModalOpen] = useState(false);
-  const [secTab, setSecTab] = useState('old_pass'); // 'old_pass' or 'otp'
+  const [secTab, setSecTab] = useState('old_pass');
   const [oldPass, setOldPass] = useState('');
   const [newPass, setNewPass] = useState('');
   const [confirmPass, setConfirmPass] = useState('');
   const [otpDestination, setOtpDestination] = useState('9899933768');
   const [enteredOtp, setEnteredOtp] = useState('');
-  const [activeOtpCode, setActiveOtpCode] = useState('');
-  const [secMessage, setSecMessage] = useState(null); // { type: 'success' | 'error', text }
+  const [secMessage, setSecMessage] = useState(null);
 
-  // Quick Reply Message Templates
   const replyTemplates = [
     {
       title: 'Initial Acknowledgement',
@@ -103,7 +87,6 @@ export default function AdminPage() {
     }
   ];
 
-  // Open Direct WhatsApp Chat with Pre-filled Message
   const openWhatsApp = (phone, text) => {
     const cleanPhone = phone.replace(/[^0-9]/g, '');
     const formattedPhone = cleanPhone.length === 10 ? '91' + cleanPhone : cleanPhone;
@@ -111,12 +94,10 @@ export default function AdminPage() {
     window.open(`https://wa.me/${formattedPhone}?text=${encodedText}`, '_blank');
   };
 
-  // Handle Request OTP
   const handleSendOTP = async () => {
     setSecMessage(null);
     const res = await requestOTP(otpDestination);
     if (res.success) {
-      setActiveOtpCode(res.otpDemo || '849201');
       setSecMessage({
         type: 'success',
         text: res.message + ` (Live Verification OTP: ${res.otpDemo || '849201'})`
@@ -126,7 +107,6 @@ export default function AdminPage() {
     }
   };
 
-  // Handle Password Change Submission
   const handlePasswordChangeSubmit = async (e) => {
     e.preventDefault();
     setSecMessage(null);
@@ -164,7 +144,6 @@ export default function AdminPage() {
     }
   };
 
-  // Filtered Inquiries (Dynamic Array)
   const filteredInquiries = inquiries.filter(inq => {
     const matchesTab = 
       activeTab === 'ALL' ? true :
@@ -182,18 +161,13 @@ export default function AdminPage() {
     return matchesTab && matchesSearch;
   });
 
-  // Dynamic Pipeline Metrics
   const newLeadsCount = inquiries.filter(i => i.status === 'New').length;
   const inProgressCount = inquiries.filter(i => i.status === 'In Progress').length;
   const closedCount = inquiries.filter(i => i.status === 'Closed').length;
 
-  // -------------------------------------------------------------
-  // VIEW 1: ADMIN LOGIN PORTAL (Unauthenticated State)
-  // -------------------------------------------------------------
   if (!isLoggedIn) {
     return (
       <div className="min-h-screen pt-28 pb-20 flex items-center justify-center bg-[#0d041a] relative overflow-hidden px-4">
-        {/* Glow Effects */}
         <div className="bg-glow-orb w-[500px] h-[500px] bg-purple-700/20 top-10 left-10"></div>
         <div className="bg-glow-orb w-[500px] h-[500px] bg-amber-500/15 bottom-10 right-10"></div>
 
@@ -223,14 +197,9 @@ export default function AdminPage() {
     );
   }
 
-  // -------------------------------------------------------------
-  // VIEW 2: AUTHENTICATED DYNAMIC ADMIN CRM BOARD
-  // -------------------------------------------------------------
   return (
     <div className="min-h-screen pt-24 pb-20 bg-[#0d041a] text-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Top Header Bar */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/10 mb-8">
           <div>
             <div className="flex items-center gap-2 mb-1">
@@ -245,7 +214,6 @@ export default function AdminPage() {
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
-            {/* Delete Selected Leads Button (Bulk Delete) */}
             {selectedLeadIds.length > 0 && (
               <button
                 onClick={handleBulkDelete}
@@ -257,7 +225,6 @@ export default function AdminPage() {
               </button>
             )}
 
-            {/* Password & Security Modal Trigger */}
             <button
               onClick={() => setIsSecurityModalOpen(true)}
               className="p-2.5 rounded-xl bg-[#2b1250] border border-amber-400/60 text-amber-300 hover:text-white transition-all flex items-center gap-1.5 text-xs font-bold cursor-pointer shadow-md"
@@ -267,7 +234,6 @@ export default function AdminPage() {
               <span>Change Password</span>
             </button>
 
-            {/* Audio Chime Notification Toggle */}
             <button
               onClick={() => {
                 setSoundEnabled(!soundEnabled);
@@ -284,7 +250,6 @@ export default function AdminPage() {
               <span className="hidden sm:inline">{soundEnabled ? 'Audio Chime ON' : 'Muted'}</span>
             </button>
 
-            {/* Notification Bell Badge */}
             <div className="relative p-2.5 rounded-xl bg-white/5 border border-white/10 text-amber-400">
               <Bell className="w-5 h-5" />
               {unreadCount > 0 && (
@@ -294,7 +259,6 @@ export default function AdminPage() {
               )}
             </div>
 
-            {/* Admin Profile & Logout */}
             <div className="flex items-center gap-3 pl-3 border-l border-white/10">
               <div className="text-right hidden sm:block">
                 <div className="text-xs font-bold text-white">{adminUser.name || 'Super Admin'}</div>
@@ -313,7 +277,6 @@ export default function AdminPage() {
           </div>
         </div>
 
-        {/* Dynamic Stats Metrics Top Row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
           <div className="glass-card p-5 rounded-2xl border border-white/10 bg-gradient-to-br from-[#1d0b38] to-[#120722]">
             <div className="flex items-center justify-between mb-2">
@@ -352,9 +315,7 @@ export default function AdminPage() {
           </div>
         </div>
 
-        {/* Filters & Search Toolbar */}
         <div className="glass-card p-4 rounded-2xl border border-white/10 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          {/* Status Tabs */}
           <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
             {[
               { label: 'ALL LEADS', key: 'ALL', count: inquiries.length },
@@ -381,7 +342,6 @@ export default function AdminPage() {
             ))}
           </div>
 
-          {/* Search Bar */}
           <div className="relative w-full md:w-80">
             <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
             <input
@@ -394,7 +354,6 @@ export default function AdminPage() {
           </div>
         </div>
 
-        {/* Main Dynamic Leads List */}
         <div className="space-y-6">
           {filteredInquiries.length === 0 ? (
             <div className="glass-card p-14 text-center rounded-3xl border border-amber-400/30 bg-[#16082b]">
@@ -422,11 +381,8 @@ export default function AdminPage() {
                 )}
 
                 <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6 pt-2">
-                  
-                  {/* Left Column: Lead Details */}
                   <div className="space-y-3 flex-1">
                     <div className="flex flex-wrap items-center gap-3">
-                      {/* Lead Selection Checkbox for Bulk Actions */}
                       <label className="flex items-center gap-2 cursor-pointer bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg hover:bg-white/10">
                         <input
                           type="checkbox"
@@ -447,7 +403,6 @@ export default function AdminPage() {
                         {new Date(inq.createdAt).toLocaleString()}
                       </span>
                       
-                      {/* Status Selector Dropdown */}
                       <select
                         value={inq.status}
                         onChange={(e) => updateInquiryStatus(inq.id, e.target.value)}
@@ -475,7 +430,6 @@ export default function AdminPage() {
                       </div>
                     </div>
 
-                    {/* Contact Pills */}
                     <div className="flex flex-wrap items-center gap-3 text-xs text-[#d1c4e9]">
                       <div className="flex items-center gap-1.5 font-mono font-semibold text-white bg-white/5 px-3 py-1.5 rounded-xl border border-white/10">
                         <Phone className="w-3.5 h-3.5 text-amber-400" />
@@ -494,13 +448,11 @@ export default function AdminPage() {
                       </div>
                     </div>
 
-                    {/* Client Message Payload */}
                     <div className="p-3.5 rounded-2xl bg-[#100422] border border-white/5 text-xs text-[#d1c4e9] leading-relaxed">
                       <span className="font-bold text-white block mb-0.5">Inquiry Details &amp; Requirements:</span>
                       <span>{inq.message}</span>
                     </div>
 
-                    {/* Saved Admin Internal Notes */}
                     {inq.notes && (
                       <div className="p-3 rounded-xl bg-purple-950/60 border border-purple-500/30 text-xs text-purple-200">
                         <span className="font-bold text-amber-300 block mb-0.5">Admin Internal Notes:</span>
@@ -509,13 +461,11 @@ export default function AdminPage() {
                     )}
                   </div>
 
-                  {/* Right Column: Direct 1-Click Action Buttons */}
                   <div className="flex flex-col sm:flex-row lg:flex-col gap-2.5 shrink-0 lg:w-64 border-t lg:border-t-0 lg:border-l border-white/10 pt-4 lg:pt-0 lg:pl-6">
                     <span className="text-[10px] font-bold text-amber-400 uppercase tracking-wider font-mono">
                       DIRECT CUSTOMER ACTION
                     </span>
 
-                    {/* 💬 DIRECT WHATSAPP MESSAGE BUTTON */}
                     <button
                       onClick={() => openWhatsApp(inq.phone, replyTemplates[0].text(inq))}
                       className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer"
@@ -524,7 +474,6 @@ export default function AdminPage() {
                       <span>Send WhatsApp Msg</span>
                     </button>
 
-                    {/* 📞 DIRECT CALL BUTTON */}
                     <a
                       href={`tel:${inq.phone}`}
                       className="w-full bg-amber-400 hover:bg-amber-300 text-[#120722] font-extrabold text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2"
@@ -533,7 +482,6 @@ export default function AdminPage() {
                       <span>Direct Phone Call</span>
                     </a>
 
-                    {/* ✉️ EMAIL BUTTON */}
                     {inq.email && (
                       <a
                         href={`mailto:${inq.email}?subject=Regarding your infrastructure inquiry with The Global Enterprises&body=${encodeURIComponent(replyTemplates[0].text(inq))}`}
@@ -544,7 +492,6 @@ export default function AdminPage() {
                       </a>
                     )}
 
-                    {/* Interactive Action Details Modal Button */}
                     <button
                       onClick={() => {
                         setSelectedInquiry(inq);
@@ -557,7 +504,6 @@ export default function AdminPage() {
                       <span>Quick Templates &amp; Notes</span>
                     </button>
 
-                    {/* Delete Lead Button */}
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
@@ -580,9 +526,6 @@ export default function AdminPage() {
 
       </div>
 
-      {/* ------------------------------------------------------------- */}
-      {/* SECURITY & PASSWORD CHANGE MODAL (Old Password OR OTP) */}
-      {/* ------------------------------------------------------------- */}
       {isSecurityModalOpen && (
         <div className="fixed inset-0 z-[9999] bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
           <div className="glass-card max-w-lg w-full p-6 sm:p-8 rounded-3xl border border-amber-400/60 shadow-2xl relative">
@@ -602,7 +545,6 @@ export default function AdminPage() {
               </button>
             </div>
 
-            {/* Mode Switcher Tabs */}
             <div className="grid grid-cols-2 gap-2 mb-6 p-1 rounded-xl bg-[#120626] border border-white/10">
               <button
                 onClick={() => setSecTab('old_pass')}
@@ -634,8 +576,6 @@ export default function AdminPage() {
             )}
 
             <form onSubmit={handlePasswordChangeSubmit} className="space-y-4">
-              
-              {/* MODE 1: Old Password */}
               {secTab === 'old_pass' && (
                 <div>
                   <label className="block text-xs font-bold text-amber-300 uppercase tracking-wider mb-1.5">
@@ -652,7 +592,6 @@ export default function AdminPage() {
                 </div>
               )}
 
-              {/* MODE 2: OTP Verification */}
               {secTab === 'otp' && (
                 <div className="space-y-3">
                   <div>
@@ -694,7 +633,6 @@ export default function AdminPage() {
                 </div>
               )}
 
-              {/* New Password */}
               <div>
                 <label className="block text-xs font-bold text-amber-300 uppercase tracking-wider mb-1.5">
                   New Admin Password
@@ -709,7 +647,6 @@ export default function AdminPage() {
                 />
               </div>
 
-              {/* Confirm New Password */}
               <div>
                 <label className="block text-xs font-bold text-amber-300 uppercase tracking-wider mb-1.5">
                   Confirm New Password
@@ -737,9 +674,6 @@ export default function AdminPage() {
         </div>
       )}
 
-      {/* ------------------------------------------------------------- */}
-      {/* QUICK TEMPLATES & NOTES MODAL */}
-      {/* ------------------------------------------------------------- */}
       {selectedInquiry && (
         <div className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
           <div className="glass-card max-w-2xl w-full p-6 sm:p-8 rounded-3xl border border-amber-400/60 shadow-2xl relative max-h-[90vh] overflow-y-auto">
@@ -761,7 +695,6 @@ export default function AdminPage() {
               </button>
             </div>
 
-            {/* Quick WhatsApp Reply Message Generator */}
             <div className="mb-6 space-y-3">
               <label className="block text-xs font-bold text-amber-300 uppercase tracking-wider">
                 Select Pre-Filled WhatsApp / SMS Response Template:
@@ -795,7 +728,6 @@ export default function AdminPage() {
               </button>
             </div>
 
-            {/* Admin Internal Notes Textarea */}
             <div className="space-y-3 pt-4 border-t border-white/10">
               <label className="block text-xs font-bold text-amber-300 uppercase tracking-wider">
                 Save Internal Admin Notes:

@@ -351,13 +351,10 @@ export default function ServicesSection({ onOpenSchedule }) {
 
   return (
     <section id="services-interactive" className="relative py-24 bg-[#120722] bg-tech-grid overflow-hidden">
-      {/* Glow Orbs */}
       <div className="bg-glow-orb w-[600px] h-[600px] bg-purple-700/15 top-1/4 -right-40"></div>
       <div className="bg-glow-orb w-[500px] h-[500px] bg-amber-500/10 bottom-20 -left-20"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="section-badge justify-center mb-3">SERVICES DIRECTORY</div>
           <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight mb-4">
@@ -368,7 +365,6 @@ export default function ServicesSection({ onOpenSchedule }) {
           </p>
         </div>
 
-        {/* 6 Core Service Tabs */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mb-10">
           {servicesData.map((s, idx) => {
             const Icon = s.icon;
@@ -395,10 +391,7 @@ export default function ServicesSection({ onOpenSchedule }) {
           })}
         </div>
 
-        {/* Service Detailed Container */}
         <div className="glass-card rounded-3xl border border-white/15 overflow-hidden shadow-2xl p-6 sm:p-10 bg-gradient-to-br from-[#1b0a36] via-[#140828] to-[#1c0b38]">
-          
-          {/* Header Banner for Selected Service */}
           <div className="mb-8 pb-8 border-b border-white/10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-wider mb-3">
@@ -422,10 +415,7 @@ export default function ServicesSection({ onOpenSchedule }) {
             </button>
           </div>
 
-          {/* Offerings Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-10">
-            
-            {/* Left: Core Offerings List */}
             <div className="lg:col-span-8 space-y-5">
               <div className="text-xs font-extrabold uppercase tracking-widest text-amber-400 mb-3 flex items-center gap-2">
                 <Layers className="w-4 h-4" />
@@ -449,10 +439,7 @@ export default function ServicesSection({ onOpenSchedule }) {
               ))}
             </div>
 
-            {/* Right: Benefits & Client Highlights */}
             <div className="lg:col-span-4 flex flex-col gap-6">
-              
-              {/* Image Preview */}
               <div className="relative rounded-2xl overflow-hidden aspect-[16/10] border border-white/15 shadow-xl bg-black">
                 <img
                   src={current.image}
@@ -465,7 +452,6 @@ export default function ServicesSection({ onOpenSchedule }) {
                 </div>
               </div>
 
-              {/* Benefits Box */}
               <div className="p-6 rounded-2xl bg-[#17082e] border border-amber-400/30 flex-1">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-amber-300 mb-4 flex items-center gap-2">
                   <Zap className="w-4 h-4 text-amber-400" />
@@ -480,12 +466,9 @@ export default function ServicesSection({ onOpenSchedule }) {
                   ))}
                 </div>
               </div>
-
             </div>
-
           </div>
 
-          {/* Bottom Action Ribbon */}
           <div className="p-5 rounded-2xl bg-[#230e3d] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-xs text-[#e9d5ff] font-medium text-center sm:text-left">
               Need customized integration across multiple sites or offices?
@@ -498,9 +481,7 @@ export default function ServicesSection({ onOpenSchedule }) {
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
-
         </div>
-
       </div>
     </section>
   );

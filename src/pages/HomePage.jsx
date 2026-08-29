@@ -190,7 +190,6 @@ export default function HomePage({ onOpenSchedule }) {
     }
   ];
 
-  // Section 4: Why Choose Global Enterprises
   const whyChooseUs = [
     {
       icon: ShieldCheck,
@@ -214,7 +213,6 @@ export default function HomePage({ onOpenSchedule }) {
     }
   ];
 
-  // Section 5: Community of Clients (from Doc 1)
   const clientCommunity = [
     { name: 'Agile Airport Services', icon: Plane, tag: 'Airport Ground Operations' },
     { name: 'Air Canada', icon: Plane, tag: 'International Airline' },
@@ -228,7 +226,6 @@ export default function HomePage({ onOpenSchedule }) {
     { name: 'Singapore Airlines Limited', icon: Plane, tag: 'Premier International Airline' },
   ];
 
-  // Section 6: Trusted Brand Partners (from Doc 1)
   const brandPartners = [
     { name: 'Hikvision', category: 'CCTV & Video Security', logo: '/logos/brands/hikvision.svg' },
     { name: 'Vivotech', category: 'Optical Surveillance', logo: '/logos/brands/vivotek.svg' },
@@ -246,7 +243,6 @@ export default function HomePage({ onOpenSchedule }) {
     { name: 'Netgear', category: 'Enterprise Network Gear', logo: '/logos/brands/netgear.svg' },
   ];
 
-  // Section 7: Client Testimonials
   const clientTestimonials = [
     {
       quote: 'The Global Enterprises transformed our flight operations security with robust body-worn cameras and CCTV systems. Their single-point turnkey accountability eliminated vendor friction entirely.',
@@ -268,7 +264,6 @@ export default function HomePage({ onOpenSchedule }) {
     }
   ];
 
-  // Section 8: FAQ from Google Doc 1
   const faqItems = [
     {
       q: 'What are the components of a good security system?',
@@ -311,10 +306,8 @@ export default function HomePage({ onOpenSchedule }) {
 
   return (
     <div className="relative">
-      {/* Section 1: Hero Banner */}
       <Hero onOpenSchedule={onOpenSchedule} />
 
-      {/* Section 2: Stats & Credibility Ribbon */}
       <section className="py-8 sm:py-10 bg-gradient-to-r from-[#17082e] via-[#210c40] to-[#17082e] border-y border-amber-400/30 relative overflow-hidden shadow-2xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
@@ -343,7 +336,6 @@ export default function HomePage({ onOpenSchedule }) {
         </div>
       </section>
 
-      {/* Section 3: Our Comprehensive Solutions */}
       <section id="comprehensive-solutions" className="py-24 bg-[#120722] bg-tech-grid relative overflow-hidden">
         <div className="bg-glow-orb w-[600px] h-[600px] bg-purple-700/15 top-20 right-0"></div>
         <div className="bg-glow-orb w-[500px] h-[500px] bg-amber-500/10 bottom-10 left-0"></div>
@@ -370,10 +362,7 @@ export default function HomePage({ onOpenSchedule }) {
             </Link>
           </div>
 
-          {/* Interactive 10-Item Tabbed Display */}
           <div className="glass-card rounded-3xl border border-white/15 overflow-hidden shadow-2xl p-5 sm:p-8 bg-[#180933]/90 backdrop-blur-2xl">
-            
-            {/* 10 Navigation Buttons Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 mb-8">
               {comprehensiveSolutions.map((item, idx) => {
                 const Icon = item.icon;
@@ -402,10 +391,7 @@ export default function HomePage({ onOpenSchedule }) {
               })}
             </div>
 
-            {/* Solution Visual & Detailed Content */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              
-              {/* Image Preview */}
               <div className="lg:col-span-6 relative rounded-2xl overflow-hidden aspect-[16/10] border border-white/15 shadow-2xl group bg-black">
                 <img
                   src={currentSolution.image}
@@ -425,7 +411,6 @@ export default function HomePage({ onOpenSchedule }) {
                 </div>
               </div>
 
-              {/* Solution Narrative & Bullets */}
               <div className="lg:col-span-6 flex flex-col justify-between h-full">
                 <div>
                   <div className="text-[10px] font-extrabold uppercase tracking-widest text-amber-400 mb-1">
@@ -449,7 +434,6 @@ export default function HomePage({ onOpenSchedule }) {
                   </div>
                 </div>
 
-                {/* Section 3 CTA */}
                 <div className="p-4 rounded-2xl bg-[#230e3d] border border-amber-400/30 flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="text-xs text-[#e9d5ff] font-medium text-center sm:text-left">
                     Ready to enhance your workplace security and efficiency?
@@ -462,20 +446,14 @@ export default function HomePage({ onOpenSchedule }) {
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
-
               </div>
-
             </div>
-
           </div>
-
         </div>
       </section>
 
-      {/* Section 4: Why Choose Global Enterprises? */}
       <section className="py-24 bg-[#10061e] border-y border-white/10 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="section-badge justify-center mb-2">SECTION 4 / THE DIFFERENCE</div>
             <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight">
@@ -521,7 +499,6 @@ export default function HomePage({ onOpenSchedule }) {
             })}
           </div>
 
-          {/* Section 4 Callout CTA */}
           <div className="p-8 rounded-3xl bg-gradient-to-r from-[#280f47] via-[#1a0b32] to-[#280f47] border border-amber-400/40 text-center max-w-3xl mx-auto shadow-2xl">
             <h3 className="text-2xl font-bold font-heading text-white mb-2">
               Experience the Global Enterprises difference.
@@ -537,14 +514,11 @@ export default function HomePage({ onOpenSchedule }) {
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
-
         </div>
       </section>
 
-      {/* Section 5: Our Community of Clients */}
       <section className="py-24 bg-[#140828] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="section-badge justify-center mb-2">SECTION 5 / CLIENT COMMUNITY</div>
             <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight">
@@ -555,7 +529,6 @@ export default function HomePage({ onOpenSchedule }) {
             </p>
           </div>
 
-          {/* 10 Client Cards Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-12">
             {clientCommunity.map((client, idx) => {
               const Icon = client.icon;
@@ -580,7 +553,6 @@ export default function HomePage({ onOpenSchedule }) {
             })}
           </div>
 
-          {/* Section 5 CTA */}
           <div className="text-center">
             <button
               onClick={onOpenSchedule}
@@ -590,11 +562,9 @@ export default function HomePage({ onOpenSchedule }) {
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
-
         </div>
       </section>
 
-      {/* Section 6: Our Trusted Brand Partners */}
       <section className="py-20 bg-[#10061e] border-y border-white/10 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
           <div className="text-center max-w-3xl mx-auto">
@@ -608,13 +578,10 @@ export default function HomePage({ onOpenSchedule }) {
           </div>
         </div>
 
-        {/* Single-Line Continuous Horizontal Scrolling Showcase */}
         <div className="relative w-full overflow-hidden">
-          {/* Left & Right Gradient Shadows for seamless smooth edge fade */}
           <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#10061e] to-transparent z-10 pointer-events-none"></div>
           <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#10061e] to-transparent z-10 pointer-events-none"></div>
 
-          {/* Marquee Row */}
           <div className="animate-marquee flex items-center gap-4 py-3 hover:[animation-play-state:paused] cursor-pointer">
             {[...brandPartners, ...brandPartners].map((brand, idx) => (
               <div
@@ -636,10 +603,8 @@ export default function HomePage({ onOpenSchedule }) {
         </div>
       </section>
 
-      {/* Section 7: See What Our Satisfied Clients Are Saying */}
       <section className="py-24 bg-[#140828] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="section-badge justify-center mb-2">SECTION 7 / TESTIMONIALS</div>
             <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white">
@@ -680,14 +645,11 @@ export default function HomePage({ onOpenSchedule }) {
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
-      {/* Section 8: FAQ from Google Doc 1 */}
       <section className="py-24 bg-[#10061e] border-t border-white/10 relative">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          
           <div className="text-center mb-16">
             <div className="section-badge justify-center mb-2">SECTION 8 / FAQ</div>
             <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white">
@@ -724,16 +686,12 @@ export default function HomePage({ onOpenSchedule }) {
               );
             })}
           </div>
-
         </div>
       </section>
 
-      {/* Indicative Fast Estimator Calculator */}
       <section className="py-20 bg-[#120722] border-t border-white/10 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
             <div className="lg:col-span-5">
               <div className="section-badge mb-2">INSTANT BUDGET ESTIMATOR</div>
               <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white leading-tight mb-4">
@@ -761,7 +719,6 @@ export default function HomePage({ onOpenSchedule }) {
 
             <div className="lg:col-span-7">
               <div className="glass-card p-6 sm:p-8 rounded-3xl border border-amber-400/40 bg-[#1b0a36] shadow-2xl">
-                
                 <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
                   <div className="flex items-center gap-2 text-sm font-extrabold text-white">
                     <Calculator className="w-5 h-5 text-amber-400" />
@@ -846,16 +803,12 @@ export default function HomePage({ onOpenSchedule }) {
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
-
               </div>
             </div>
-
           </div>
-
         </div>
       </section>
 
-      {/* High-Impact Executive Callout Banner */}
       <section className="py-20 bg-gradient-to-r from-[#290e4f] via-[#16082b] to-[#290e4f] border-t border-amber-400/30 text-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <div className="inline-flex items-center gap-2 mb-4 px-3.5 py-1.5 rounded-full bg-[#3b156e] border border-amber-400/40 text-amber-300 text-xs font-black uppercase tracking-widest">
@@ -889,7 +842,6 @@ export default function HomePage({ onOpenSchedule }) {
           </div>
         </div>
       </section>
-
     </div>
   );
 }

@@ -31,7 +31,6 @@ export default function ClientsPage({ onOpenSchedule }) {
 
   return (
     <div className="pt-20">
-      {/* Front Hero Header */}
       <div className="relative min-h-[420px] sm:min-h-[460px] flex items-center justify-center overflow-hidden border-b border-white/10">
         <div className="absolute inset-0 z-0">
           <img
@@ -43,11 +42,9 @@ export default function ClientsPage({ onOpenSchedule }) {
           <div className="absolute inset-0 bg-tech-grid opacity-60"></div>
         </div>
 
-        {/* Ambient Glows */}
         <div className="bg-glow-orb w-[500px] h-[500px] bg-purple-700/20 -top-20 left-1/3"></div>
         <div className="bg-glow-orb w-[500px] h-[500px] bg-amber-500/15 bottom-0 right-1/4"></div>
 
-        {/* Content */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center py-16">
           <div className="inline-flex items-center gap-2 mb-4 px-3.5 py-1.5 rounded-full bg-[#261047]/90 border border-amber-400/40 backdrop-blur-md">
             <Shield className="w-3.5 h-3.5 text-amber-400" />
@@ -77,10 +74,8 @@ export default function ClientsPage({ onOpenSchedule }) {
         </div>
       </div>
 
-      {/* Main Clients Grid Section */}
       <ClientsSection onOpenSchedule={onOpenSchedule} />
 
-      {/* Client Endorsement Testimonials */}
       <section className="py-24 bg-[#140828] border-t border-white/10 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -127,7 +122,6 @@ export default function ClientsPage({ onOpenSchedule }) {
         </div>
       </section>
 
-      {/* Direct Partnership CTA */}
       <section className="py-20 bg-gradient-to-r from-[#220c3d] via-[#16082b] to-[#220c3d] border-t border-amber-400/30 text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h3 className="text-2xl sm:text-4xl font-black font-heading text-white mb-3">

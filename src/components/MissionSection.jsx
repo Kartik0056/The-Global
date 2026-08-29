@@ -39,12 +39,9 @@ export default function MissionSection({ onOpenSchedule }) {
 
   return (
     <section id="mission" className="relative py-28 bg-[#140828] overflow-hidden">
-      {/* Background Glow */}
       <div className="bg-glow-orb w-[500px] h-[500px] bg-purple-600/15 top-1/3 -left-32"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header */}
         <div className="mb-16">
           <div className="section-badge mb-3">04 / MISSION</div>
           <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight mb-4">
@@ -55,10 +52,7 @@ export default function MissionSection({ onOpenSchedule }) {
           </div>
         </div>
 
-        {/* Narrative & Pillars */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          {/* Left Narrative Box */}
           <div className="lg:col-span-6 flex flex-col justify-between glass-card p-8 sm:p-10 rounded-3xl border border-white/10 relative">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-[#271047] border border-amber-400/30 text-amber-300 text-xs font-bold mb-6 w-fit">
               <Target className="w-4 h-4 text-amber-400" />
@@ -77,7 +71,6 @@ export default function MissionSection({ onOpenSchedule }) {
               We are committed to delivering tailored, end-to-end solutions that ensure reliable functionality, aesthetic appeal, and long-term durability for every client.
             </p>
 
-            {/* Turnkey Commitment Card */}
             <div className="p-5 rounded-2xl bg-gradient-to-r from-amber-500/15 via-[#230f3f] to-purple-600/15 border border-amber-400/30 flex items-center justify-between gap-4">
               <div>
                 <div className="text-[10px] font-bold text-amber-400 uppercase tracking-widest">
@@ -97,7 +90,6 @@ export default function MissionSection({ onOpenSchedule }) {
             </div>
           </div>
 
-          {/* Right 4 Pillar Cards */}
           <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
             {pillars.map((pillar, idx) => {
               const Icon = pillar.icon;
@@ -133,7 +125,6 @@ export default function MissionSection({ onOpenSchedule }) {
               );
             })}
           </div>
-
         </div>
       </div>
     </section>

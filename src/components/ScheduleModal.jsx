@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Calendar, Clock, CheckCircle2, Video, ArrowRight, ShieldCheck } from 'lucide-react';
+import { X, Calendar, CheckCircle2, ArrowRight } from 'lucide-react';
 import { useInquiry } from '../context/InquiryContext';
 import confetti from 'canvas-confetti';
 
@@ -48,8 +48,6 @@ export default function ScheduleModal({ isOpen, onClose }) {
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto">
       <div className="relative w-full max-w-lg p-5 sm:p-7 rounded-3xl bg-[#180930] border border-amber-400/30 shadow-2xl my-auto max-h-[92dvh] flex flex-col">
-        
-        {/* Close Button */}
         <button
           onClick={handleClose}
           className="absolute top-4 right-4 p-2 rounded-xl text-gray-400 hover:text-white hover:bg-white/10 transition-colors z-20 cursor-pointer"
@@ -58,7 +56,6 @@ export default function ScheduleModal({ isOpen, onClose }) {
           <X className="w-5 h-5" />
         </button>
 
-        {/* Modal Header */}
         <div className="flex items-center gap-3 mb-5 pr-10 shrink-0">
           <div className="w-10 h-10 rounded-2xl bg-amber-400/15 border border-amber-400/30 flex items-center justify-center text-amber-400 shrink-0 shadow-md">
             <Calendar className="w-5 h-5" />
@@ -73,7 +70,6 @@ export default function ScheduleModal({ isOpen, onClose }) {
           </div>
         </div>
 
-        {/* Scrollable Modal Content */}
         <div className="overflow-y-auto pr-1 flex-1 space-y-4">
           {isBooked ? (
             <div className="py-6 text-center flex flex-col items-center">
@@ -100,7 +96,6 @@ export default function ScheduleModal({ isOpen, onClose }) {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-3.5">
-              
               <div>
                 <label className="block text-xs font-medium text-gray-200 mb-1.5">
                   Full Name <span className="text-amber-400">*</span>
@@ -206,7 +201,6 @@ export default function ScheduleModal({ isOpen, onClose }) {
             </form>
           )}
         </div>
-
       </div>
     </div>
   );
