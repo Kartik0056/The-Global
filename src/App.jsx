@@ -16,12 +16,14 @@ import ContactPage from './pages/ContactPage';
 import AdminPage from './pages/AdminPage';
 import SEO from './components/SEO';
 
-// Scroll to top helper on page change
+// Scroll to top helper on page change & close modal drawers
 function ScrollToTop() {
   const { pathname } = useLocation();
+  const { closeAdminLogin } = useInquiry();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
-  }, [pathname]);
+    closeAdminLogin();
+  }, [pathname, closeAdminLogin]);
   return null;
 }
 

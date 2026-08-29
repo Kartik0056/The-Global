@@ -3,18 +3,9 @@ import MissionSection from '../components/MissionSection';
 import { 
   Target, 
   Leaf, 
-  Sparkles, 
   Layers, 
-  Zap, 
-  ShieldCheck, 
-  ArrowRight,
-  TrendingUp,
-  Cpu,
-  Globe,
-  Compass,
-  CheckCircle2
+  ArrowRight
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 export default function MissionPage({ onOpenSchedule }) {
   const visionRoadmap = [

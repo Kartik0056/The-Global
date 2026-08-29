@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { 
   ShieldCheck, 
   ArrowRight, 
-  Sparkles, 
+  Sparkles,
   Zap, 
   Building2, 
   CheckCircle,
@@ -15,25 +15,19 @@ import {
   Tv,
   Flame,
   Armchair,
-  Wrench,
-  Clock,
   Shield,
   Plane,
-  Truck,
-  Factory,
-  AlertOctagon,
   ChevronRight,
   ChevronDown,
+  Clock,
+  Star,
   Calculator,
   Layers,
   ArrowUpRight,
-  Radio,
   Lock,
   PhoneCall,
   Server,
-  Star,
   Users,
-  BadgeCheck,
   Check
 } from 'lucide-react';
 
@@ -43,21 +37,20 @@ export default function HomePage({ onOpenSchedule }) {
   const [selectedEstimatorServices, setSelectedEstimatorServices] = useState(['cctv', 'speedgates', 'fire']);
   const [openFaq, setOpenFaq] = useState(0);
 
-  // Section 3: All 10 Comprehensive Solutions from Google Doc 1
   const comprehensiveSolutions = [
     {
       id: 'cctv',
       title: 'CCTV Systems',
-      subtitle: 'SMART 4K SURVEILLANCE',
+      subtitle: '4K SURVEILLANCE & MONITORING',
       category: 'SURVEILLANCE',
       icon: Video,
       image: '/images/cctv.jpg',
-      badge: 'EAGLE EYE OPTICS / AMC',
-      desc: 'Unlimited Peace of mind with our smart CCTV solutions with eagle’s eyes, providing vigilant security. From discreet checks to Annual Maintenance Contract (AMC), we tailor solutions to your specific needs.',
+      badge: 'OPTICAL CAMERAS / AMC',
+      desc: 'Smart CCTV solutions providing continuous security monitoring. From site assessments to Annual Maintenance Contracts (AMC), we tailor systems to your specific operational needs.',
       features: [
-        'Discreet security inspections & smart 4K optics',
+        'Security assessments & high-definition 4K optics',
         'Tailored Annual Maintenance Contracts (AMC)',
-        'Remote mobile & central cloud VMS telemetry'
+        'Remote mobile & central cloud VMS access'
       ]
     },
     {
@@ -68,7 +61,7 @@ export default function HomePage({ onOpenSchedule }) {
       icon: Shield,
       image: '/images/hero_bg.jpg',
       badge: 'AIRLINE TRUSTED & LTE',
-      desc: 'Leading airlines like Air India, Etihad, IndiGo, British Airways, and more rely on our LTE-enabled body-worn cameras. These cameras record and stream high-quality video evidence, trusted by businesses globally.',
+      desc: 'Commercial airlines including Air India, Etihad, IndiGo, and British Airways rely on our LTE-enabled body-worn cameras for field evidence recording and staff safety.',
       features: [
         'LTE-enabled live video streaming & evidence capture',
         'Trusted by Air India, IndiGo, Etihad & British Airways',
@@ -83,7 +76,7 @@ export default function HomePage({ onOpenSchedule }) {
       icon: Flame,
       image: '/images/firesafety.jpg',
       badge: 'EARLY DETECTION / RAPID RESPONSE',
-      desc: 'Protect your most valuable – your people and your property – with our fire detection & Extinguishing systems. Early detection and rapid response are crucial, and our systems are designed for maximum effectiveness.',
+      desc: 'Protect your personnel and facility with certified fire detection and extinguishing systems. Early detection and rapid suppression are essential for life safety.',
       features: [
         'Automated fire suppression & sprinkler networks',
         'Certified addressable & conventional smoke alarms',
@@ -93,12 +86,12 @@ export default function HomePage({ onOpenSchedule }) {
     {
       id: 'av_solutions',
       title: 'Advanced Audio & Video Solutions',
-      subtitle: 'PERSONALIZED BUSINESS AV',
+      subtitle: 'BUSINESS AV INTEGRATION',
       category: 'SMART AV',
       icon: Tv,
       image: '/images/av_room.jpg',
       badge: 'HD CONFERENCING & SIGNAGE',
-      desc: 'Personal audio-video solutions for businesses, including high-definition conferencing, interactive presentations, professional audio, and digital signage. Ongoing support enhance communication, productivity, and engagement in meeting rooms and collaboration spaces.',
+      desc: 'Custom audio-video solutions for businesses, including high-definition conferencing, interactive touchscreens, acoustic sound reinforcement, and digital signage.',
       features: [
         'High-definition video conferencing & beamforming audio',
         'Interactive presentation touchscreens & digital signage',
@@ -108,16 +101,16 @@ export default function HomePage({ onOpenSchedule }) {
     {
       id: 'access_control',
       title: 'Access Control Systems',
-      subtitle: 'INTELLIGENT PREMISES SECURITY',
+      subtitle: 'PREMISES ACCESS MANAGEMENT',
       category: 'ACCESS CONTROL',
       icon: Scan,
       image: '/images/speedgates.jpg',
-      badge: 'UNAUTHORISED ENTRY DETERRENCE',
-      desc: 'Manage and monitor access to your premises with our intelligent access control systems. They are designed to deter unauthorised entry like a bouncer at a club, but for your office.',
+      badge: 'ACCESS CONTROL BARRIERS',
+      desc: 'Manage and monitor access to your facilities with robust electronic access control systems designed to safeguard sensitive work zones and manage foot traffic.',
       features: [
-        'Intelligent card readers & biometric entry locks',
+        'Electronic card readers & biometric entry locks',
         'Visitor management & real-time credentialing',
-        'Deters unauthorised access across all perimeter doors'
+        'Prevents unauthorized access across all perimeter doors'
       ]
     },
     {
@@ -128,7 +121,7 @@ export default function HomePage({ onOpenSchedule }) {
       icon: Lock,
       image: '/images/speedgates.jpg',
       badge: 'AUTHORIZED QUBO INSTALLER',
-      desc: 'Install the convenience and protection of QUBO smart door locks. As authorized installers for QUBO (a Hero Electronix Pvt. Ltd. company), we serve the NCR region and other areas of North India.',
+      desc: 'Experience the convenience and protection of QUBO smart door locks. As authorized installers for QUBO (a Hero Electronix company), we serve Delhi NCR and North India.',
       features: [
         'Official authorized installer for QUBO (Hero Electronix)',
         'Keyless biometric, passcode & remote app access',
@@ -143,7 +136,7 @@ export default function HomePage({ onOpenSchedule }) {
       icon: Users,
       image: '/images/speedgates.jpg',
       badge: 'ACCURATE TIME REPORTS',
-      desc: 'Attendance tracking and managing public access with our user-friendly set-ups. While we can\'t guarantee a 100% reduction in unnecessary smoke breaks, we can certainly provide detailed reports on it.',
+      desc: 'Digital attendance tracking and automated turnstile gates for streamlined entry and shift management across commercial offices and campuses.',
       features: [
         'Automated time & attendance reporting dashboards',
         'Controlled public access & optical turnstile gates',
@@ -157,11 +150,11 @@ export default function HomePage({ onOpenSchedule }) {
       category: 'EPABX',
       icon: PhoneCall,
       image: '/images/av_room.jpg',
-      badge: 'FREE INTERNAL CALLS',
-      desc: 'Simplify your office communications with our EPABX (Electronic Private Automatic Branch Exchange) service. Enjoy free internal calls, effortless call management, and a more productive workday.',
+      badge: 'INTERNAL CALL ROUTING',
+      desc: 'Simplify your office communications with our EPABX systems. Enjoy clear internal extensions, organized call routing, and low telephone costs.',
       features: [
-        'Free internal intercom calling between departments',
-        'Effortless call routing, queuing & voicemail management',
+        'Internal intercom calling between departments',
+        'Call routing, queuing & voicemail management',
         'Dependable PBX hardware installation & maintenance'
       ]
     },
@@ -173,10 +166,10 @@ export default function HomePage({ onOpenSchedule }) {
       icon: Armchair,
       image: '/images/workspace.jpg',
       badge: 'MODERN WORKSPACES',
-      desc: 'Get the most out of your leased space. Our leasehold improvement services deliver the perfect environment for your business, including painting, flooring, and partition installations etc.',
+      desc: 'Get the most out of your commercial space. Our leasehold improvement services deliver complete office fit-outs including painting, flooring, and partitioning.',
       features: [
         'Custom demountable partitions & drywall layouts',
-        'Premium flooring, painting, and ceiling finishings',
+        'Quality flooring, painting, and ceiling finishes',
         'Ergonomic modular workstations & conference desks'
       ]
     },
@@ -187,8 +180,8 @@ export default function HomePage({ onOpenSchedule }) {
       category: 'NETWORKING',
       icon: Server,
       image: '/images/headquarters.jpg',
-      badge: 'SEAMLESS CONNECTIVITY',
-      desc: 'We build reliable, efficient networks. Implementing core infrastructure to seamless voice and data solutions, we handle everything: connectivity, server rooms, and, ensuring your business stays connected and secure.',
+      badge: 'RELIABLE CONNECTIVITY',
+      desc: 'We design and install reliable enterprise networks. From structured cabling and server racks to managed switches and Wi-Fi, we ensure steady connectivity.',
       features: [
         'Core network planning, routing & switch deployment',
         'Server room design, rack setups & structured cabling',
@@ -202,22 +195,22 @@ export default function HomePage({ onOpenSchedule }) {
     {
       icon: ShieldCheck,
       title: 'Your Workplace, Secured',
-      desc: 'A suite of security solutions – CCTV, fire detection, and access control – all working in harmony to optimise security. We take a holistic approach to security, ensuring every vulnerability is addressed.'
+      desc: 'A coordinated suite of solutions &ndash; CCTV, fire safety, and access control &ndash; designed to safeguard your employees and physical assets.'
     },
     {
       icon: Zap,
-      title: 'Innovation Meets Execution',
-      desc: 'We leverage international-grade tech and back it up with exceptional customer service. With seamless implementation and continuous support, we\'re with you every step of the way.'
+      title: 'Practical Engineering',
+      desc: 'We combine proven commercial-grade equipment with dependable customer service. With professional installation and ongoing support, we are with you at every stage.'
     },
     {
       icon: Layers,
-      title: 'One-Stop Shop',
-      desc: 'Why juggle multiple vendors when you can get everything you need from one trusted partner? We handle all your security and connectivity needs, saving you time, money, and hassle.'
+      title: 'Single-Point Accountability',
+      desc: 'Why juggle multiple individual contractors when you can partner with one experienced team? We handle your security, AV, and IT infrastructure together.'
     },
     {
       icon: Award,
-      title: 'Focus on What Matters',
-      desc: 'Focus on growing your business, knowing that your workplace is secure, connected, and operating at peak efficiency. We provide the peace of mind you need to thrive.'
+      title: 'Focus on Core Growth',
+      desc: 'Focus on managing your business knowing that your facility infrastructure is secure, properly maintained, and compliant with safety codes.'
     }
   ];
 

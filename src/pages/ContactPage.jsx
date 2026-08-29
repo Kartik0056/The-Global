@@ -4,14 +4,10 @@ import {
   Mail, 
   Phone, 
   MapPin, 
-  Sparkles, 
   Clock, 
-  ShieldCheck,
-  Building,
   PhoneCall,
-  Calendar,
-  CheckCircle,
-  Headphones
+  Headphones,
+  Sparkles
 } from 'lucide-react';
 
 export default function ContactPage() {

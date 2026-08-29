@@ -6,10 +6,7 @@ import {
   Coins, 
   HeartHandshake, 
   ShieldCheck,
-  Check,
-  Sparkles,
-  Zap,
-  TrendingUp
+  Check
 } from 'lucide-react';
 
 export default function ValuesSection() {
@@ -31,10 +28,10 @@ export default function ValuesSection() {
           </div>
         </div>
 
-        {/* Asymmetric Bento-Grid Layout */}
+        {/* Values Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           
-          {/* Card 1: Quality (Large Span - 7 Cols) */}
+          {/* Quality */}
           <div className="md:col-span-7 glass-card p-6 sm:p-8 rounded-3xl border border-amber-400/30 bg-gradient-to-br from-[#240f42] to-[#16082b] flex flex-col justify-between hover:border-amber-400/60 transition-all duration-300 group relative overflow-hidden">
             <div className="absolute top-0 right-0 w-48 h-48 bg-amber-500/10 rounded-bl-full pointer-events-none"></div>
             <div>
@@ -49,7 +46,7 @@ export default function ValuesSection() {
                   <Award className="w-5 h-5" />
                 </div>
                 <div className="absolute top-3 right-3">
-                  <span className="text-[10px] font-black text-amber-300 uppercase tracking-widest px-3 py-1 rounded-full bg-[#120722]/90 border border-amber-400/30 backdrop-blur-md">
+                  <span className="text-[10px] font-bold text-amber-300 uppercase tracking-widest px-3 py-1 rounded-full bg-[#120722]/90 border border-amber-400/30 backdrop-blur-md">
                     PILLAR 01
                   </span>
                 </div>
@@ -71,7 +68,7 @@ export default function ValuesSection() {
             </div>
           </div>
 
-          {/* Card 2: Timeliness (5 Cols) */}
+          {/* Timeliness */}
           <div className="md:col-span-5 glass-card p-6 sm:p-8 rounded-3xl border border-white/10 flex flex-col justify-between hover:border-amber-400/50 transition-all duration-300 group">
             <div>
               <div className="relative aspect-[16/8] rounded-2xl overflow-hidden mb-5 border border-white/15 bg-black">
@@ -98,7 +95,7 @@ export default function ValuesSection() {
                 &ldquo;We respect your deadlines because we know they matter.&rdquo;
               </p>
               <p className="text-xs sm:text-sm text-[#d1c4e9] leading-relaxed">
-                Disciplined milestone tracking ensures seamless office handovers on schedule.
+                Disciplined milestone tracking ensures smooth office handovers on schedule.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-white/10 flex items-center gap-1.5 text-xs text-emerald-400">
@@ -107,7 +104,7 @@ export default function ValuesSection() {
             </div>
           </div>
 
-          {/* Card 3: Transparency (4 Cols) */}
+          {/* Transparency */}
           <div className="md:col-span-4 glass-card p-6 sm:p-7 rounded-3xl border border-white/10 flex flex-col justify-between hover:border-amber-400/50 transition-all duration-300 group">
             <div>
               <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-4 border border-white/15 bg-black">
@@ -134,7 +131,7 @@ export default function ValuesSection() {
             </div>
           </div>
 
-          {/* Card 4: Value (4 Cols) */}
+          {/* Value */}
           <div className="md:col-span-4 glass-card p-6 sm:p-7 rounded-3xl border border-white/10 flex flex-col justify-between hover:border-amber-400/50 transition-all duration-300 group">
             <div>
               <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-4 border border-white/15 bg-black">
@@ -156,12 +153,12 @@ export default function ValuesSection() {
                 &ldquo;Fair pricing for exceptional results &ndash; that’s our promise.&rdquo;
               </p>
               <p className="text-xs text-[#d1c4e9] leading-relaxed">
-                Maximum lifecycle efficiency and energy savings across hardware nodes.
+                Maximum lifecycle efficiency and energy savings across all installations.
               </p>
             </div>
           </div>
 
-          {/* Card 5: Dedication (4 Cols) */}
+          {/* Dedication */}
           <div className="md:col-span-4 glass-card p-6 sm:p-7 rounded-3xl border border-white/10 flex flex-col justify-between hover:border-amber-400/50 transition-all duration-300 group">
             <div>
               <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-4 border border-white/15 bg-black">
@@ -183,12 +180,12 @@ export default function ValuesSection() {
                 &ldquo;We&apos;re invested in your success and work closely with you every step of the way.&rdquo;
               </p>
               <p className="text-xs text-[#d1c4e9] leading-relaxed">
-                Dedicated account directors with 24/7 priority emergency dispatch.
+                Dedicated account managers with priority emergency support.
               </p>
             </div>
           </div>
 
-          {/* Card 6: Integrity (Full Width Banner - 12 Cols) */}
+          {/* Integrity */}
           <div className="md:col-span-12 glass-card p-6 sm:p-8 rounded-3xl border border-amber-400/30 bg-gradient-to-r from-[#200c3b] via-[#16082b] to-[#200c3b] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl overflow-hidden group">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 w-full sm:w-auto">
               <div className="relative w-full sm:w-36 aspect-[16/9] rounded-2xl overflow-hidden border border-amber-400/30 shrink-0 bg-black">
@@ -211,7 +208,7 @@ export default function ValuesSection() {
               </div>
             </div>
             <div className="text-xs text-left sm:text-right text-[#c4b5fd] max-w-xs shrink-0">
-              Certified ethical compliance, data protection NDA guarantees, and transparent hardware origins.
+              Certified ethical compliance, data protection NDA guarantees, and genuine hardware sourcing.
             </div>
           </div>
 

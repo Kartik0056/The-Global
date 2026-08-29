@@ -7,18 +7,10 @@ import {
   Users, 
   MapPin, 
   CheckCircle, 
-  CheckCircle2,
   ArrowRight, 
   Sparkles,
-  Building,
-  Target,
-  FileCheck,
-  Zap,
-  Lock,
-  Layers,
-  HeartHandshake
+  Building
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 export default function AboutPage({ onOpenSchedule }) {
   const coreStrengths = [
@@ -76,7 +68,7 @@ export default function AboutPage({ onOpenSchedule }) {
           </h1>
 
           <p className="text-base sm:text-lg text-[#d1c4e9] max-w-3xl mx-auto leading-relaxed">
-            Founded in 2017 by <span className="text-amber-400 font-semibold">Mr. Sachin Arora</span> and <span className="text-amber-400 font-semibold">Mrs. Rajni Arora</span>, Global Enterprises is your one-stop solution for cutting-edge technology and smart &amp; secure office spaces.
+            Founded in 2017 by <span className="text-amber-400 font-semibold">Mr. Sachin Arora</span> and <span className="text-amber-400 font-semibold">Mrs. Rajni Arora</span>, Global Enterprises is your one-stop solution for modern workplace technology and secure office spaces.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mt-8 text-xs text-[#d8b4fe]">

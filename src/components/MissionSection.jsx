@@ -5,11 +5,8 @@ import {
   Leaf, 
   Compass, 
   Users, 
-  Sparkles,
-  ArrowRight,
-  ShieldCheck,
-  CheckCircle,
-  Award
+  ArrowRight, 
+  CheckCircle 
 } from 'lucide-react';
 
 export default function MissionSection({ onOpenSchedule }) {
@@ -17,26 +14,26 @@ export default function MissionSection({ onOpenSchedule }) {
     {
       icon: Layers,
       title: 'Quality & Variety',
-      desc: 'Extensive portfolio of enterprise-grade hardware, aesthetic modular furniture and customized security packages.',
-      metric: '500+ Engineered SKUs'
+      desc: 'Comprehensive portfolio of commercial hardware, modular furniture, and custom security packages.',
+      metric: '500+ Products'
     },
     {
       icon: Leaf,
       title: 'Sustainable Practices',
-      desc: 'Eco-conscious materials, energy-efficient illumination, and lifecycle-optimized installations that reduce carbon footprint.',
-      metric: 'Zero-Waste Modular Systems'
+      desc: 'Eco-conscious materials, energy-efficient lighting, and modular installations built for long lifecycle value.',
+      metric: 'Eco-Friendly Systems'
     },
     {
       icon: Compass,
       title: 'Expert Guidance',
-      desc: 'Strategic consultation from certified space architects, network engineers, and safety specialists from day one.',
-      metric: 'Certified Lead Engineers'
+      desc: 'Strategic consultation from experienced space architects, network engineers, and safety specialists.',
+      metric: 'Certified Engineers'
     },
     {
       icon: Users,
       title: 'Experienced Team',
-      desc: 'Seasoned professionals with extensive field experience across civil defense, multinational logistics, and high-security zones.',
-      metric: '10+ Years Domain Mastery'
+      desc: 'Dedicated professionals with extensive field experience across aviation, logistics, and corporate facilities.',
+      metric: '10+ Years Experience'
     }
   ];
 
@@ -58,7 +55,7 @@ export default function MissionSection({ onOpenSchedule }) {
           </div>
         </div>
 
-        {/* Narrative & Visual Grid */}
+        {/* Narrative & Pillars */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Narrative Box */}
@@ -69,15 +66,15 @@ export default function MissionSection({ onOpenSchedule }) {
             </div>
 
             <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-white leading-snug mb-5">
-              Combining the latest innovations with <span className="text-amber-400">exceptional support and service.</span>
+              Combining reliable technology with <span className="text-amber-400">dependable support and service.</span>
             </h3>
 
             <p className="text-sm sm:text-base text-[#d1c4e9] leading-relaxed mb-5">
-              Our mission is all about providing a one-stop solution for all your office and technological needs by combining the latest innovations with exceptional support and service.
+              Our mission is to provide a single, accountable source for all your workplace infrastructure needs &mdash; combining modern equipment with dedicated ongoing support.
             </p>
 
             <p className="text-sm sm:text-base text-[#d1c4e9] leading-relaxed mb-8">
-              We are deeply committed to delivering customized, end-to-end solutions that ensure not only functionality and efficiency but also aesthetic appeal. It&apos;s all about understanding your unique requirements and creating workspaces that reflect quality, precision, and thoughtful design.
+              We are committed to delivering tailored, end-to-end solutions that ensure reliable functionality, aesthetic appeal, and long-term durability for every client.
             </p>
 
             {/* Turnkey Commitment Card */}
@@ -87,7 +84,7 @@ export default function MissionSection({ onOpenSchedule }) {
                   Turnkey Commitment
                 </div>
                 <div className="text-sm font-bold text-white mt-0.5">
-                  Designed, Built &amp; Maintained Under One Roof
+                  Designed, Installed &amp; Maintained Under One Roof
                 </div>
               </div>
               <button
@@ -130,7 +127,7 @@ export default function MissionSection({ onOpenSchedule }) {
 
                   <div className="mt-4 pt-3 border-t border-white/10 flex items-center gap-1.5 text-[11px] text-[#c4b5fd]">
                     <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>Active Standard</span>
+                    <span>Quality Standard</span>
                   </div>
                 </div>
               );

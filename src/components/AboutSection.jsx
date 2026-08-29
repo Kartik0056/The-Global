@@ -1,6 +1,17 @@
 import React from 'react';
-import { Calendar, Users, MapPin, Sparkles, Quote, Award, CheckCircle, Shield, ArrowRight, Zap, Building, HeartHandshake, CheckCircle2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { 
+  Calendar, 
+  Users, 
+  MapPin, 
+  Sparkles, 
+  Quote, 
+  Award, 
+  CheckCircle2, 
+  Shield, 
+  ArrowRight, 
+  Zap, 
+  Building 
+} from 'lucide-react';
 
 export default function AboutSection({ onOpenSchedule }) {
   const stats = [
@@ -26,16 +37,16 @@ export default function AboutSection({ onOpenSchedule }) {
 
   const whatWeDoTech = [
     'Security systems including CCTV, body-worn cameras and access control',
-    'Audio-visual solutions for seamless communication',
-    'Fire safety Installation at your workplace so that you can sleep peacefully at home',
-    'System integration that brings everything together'
+    'Audio-visual solutions for conference and collaboration spaces',
+    'Fire safety installation and regulatory compliance for workplaces',
+    'Integrated systems designed for reliable daily operations'
   ];
 
   const whatWeDoSpaces = [
-    "Interior fit-outs that reflects your company's personality",
+    "Interior fit-outs that reflect your company's identity",
     'Ergonomic furniture that keeps your team comfortable',
-    'Custom partitioning to create the perfect layout',
-    "All those office essentials you can't work without"
+    'Custom partitioning to create the ideal floor layout',
+    'Comprehensive office essentials and infrastructure setup'
   ];
 
   const coreValues = [
@@ -48,7 +59,7 @@ export default function AboutSection({ onOpenSchedule }) {
 
   return (
     <section id="about" className="relative py-28 bg-[#140827] overflow-hidden">
-      {/* Background ambient lighting */}
+      {/* Ambient background glows */}
       <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-purple-900/20 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-10 right-0 w-[500px] h-[500px] bg-amber-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -70,10 +81,9 @@ export default function AboutSection({ onOpenSchedule }) {
           </div>
         </div>
 
-        {/* Story Split Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch mb-20">
           
-          {/* Left Column: HQ Image Showcase */}
+          {/* Left Column: HQ Showcase */}
           <div className="lg:col-span-5 relative flex flex-col justify-between">
             <div className="relative rounded-3xl overflow-hidden border border-white/20 h-full min-h-[440px] bg-[#1a0b32] group shadow-2xl">
               <img
@@ -83,7 +93,6 @@ export default function AboutSection({ onOpenSchedule }) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#120722] via-[#120722]/30 to-transparent"></div>
 
-              {/* Top Floating Badge */}
               <div className="absolute top-4 left-4 p-3 rounded-2xl bg-[#140828]/95 backdrop-blur-xl border border-amber-400/40 shadow-2xl flex items-center gap-3">
                 <div className="w-11 h-11 rounded-xl bg-white/95 border border-amber-400/50 shadow-md flex items-center justify-center p-0.5 shrink-0 overflow-hidden">
                   <img
@@ -97,19 +106,18 @@ export default function AboutSection({ onOpenSchedule }) {
                     GLOBAL ENTERPRISES
                   </div>
                   <div className="text-[10px] text-amber-300/90 font-medium">
-                    Next-Gen Workspace Solutions
+                    Smart Solutions, Secure Spaces
                   </div>
                 </div>
               </div>
 
-              {/* Bottom Details Overlay */}
               <div className="absolute bottom-4 left-4 right-4 p-5 rounded-2xl bg-[#160829]/95 backdrop-blur-xl border border-white/10 shadow-2xl">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-amber-400">
                     HEADQUARTERS
                   </span>
                   <span className="text-[10px] font-bold text-emerald-400 flex items-center gap-1 bg-emerald-950/70 border border-emerald-500/30 px-2.5 py-0.5 rounded">
-                    <CheckCircle className="w-3 h-3" />
+                    <CheckCircle2 className="w-3 h-3" />
                     Est. 2017 &bull; New Delhi
                   </span>
                 </div>
@@ -120,10 +128,9 @@ export default function AboutSection({ onOpenSchedule }) {
             </div>
           </div>
 
-          {/* Right Column: Founder Narrative & Facts Grid */}
+          {/* Right Column: Narrative */}
           <div className="lg:col-span-7 flex flex-col justify-between gap-6">
             
-            {/* Story Card */}
             <div className="glass-card p-8 sm:p-9 rounded-3xl border border-white/10 relative overflow-hidden bg-[#1a0a33]">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-[#271047] border border-amber-400/30 text-amber-300 text-xs font-bold mb-5">
                 <Sparkles className="w-3.5 h-3.5 text-amber-400" />
@@ -131,19 +138,18 @@ export default function AboutSection({ onOpenSchedule }) {
               </div>
 
               <h3 className="text-xl sm:text-2xl font-bold font-heading text-white leading-snug mb-4">
-                When <span className="text-amber-400 font-semibold">Mr. Sachin Arora</span> and <span className="text-amber-400 font-semibold">Mrs. Rajni Arora</span> founded <span className="text-white">Global Enterprises</span> in 2017, they had a clear vision: <span className="text-purple-200">to build an entity that truly makes business life easier.</span>
+                When <span className="text-amber-400 font-semibold">Mr. Sachin Arora</span> and <span className="text-amber-400 font-semibold">Mrs. Rajni Arora</span> founded <span className="text-white">Global Enterprises</span> in 2017, they had a clear vision: <span className="text-purple-200">to build an entity that truly makes business operations straightforward and dependable.</span>
               </h3>
 
               <p className="text-sm sm:text-base text-[#d1c4e9] leading-relaxed mb-4">
-                And that&apos;s exactly what we&apos;ve become – your one-stop solution for everything from cutting-edge technology to smart &amp; secure office spaces.
+                And that&apos;s exactly what we&apos;ve become – your single-window partner for modern workplace technology and secure office environments.
               </p>
 
               <p className="text-sm sm:text-base text-[#d1c4e9] leading-relaxed">
-                We believe that every business deserves access to quality equipment, expert support, and environments that inspire productivity. That&apos;s why we&apos;ve built our company around understanding your unique needs and delivering solutions that actually work for you.
+                We believe that every business deserves access to quality equipment, expert support, and environments that inspire productivity. That&apos;s why we focus on understanding your specific requirements and delivering solutions that perform day after day.
               </p>
             </div>
 
-            {/* 3 Executive Fact Badges */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {stats.map((stat, idx) => {
                 const Icon = stat.icon;
@@ -155,7 +161,7 @@ export default function AboutSection({ onOpenSchedule }) {
                     <div className="w-10 h-10 rounded-xl bg-[#28114b] border border-amber-400/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-400 group-hover:text-[#120722] transition-all mb-3 shadow">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <div className="text-[10px] font-extrabold uppercase tracking-widest text-amber-400">
+                    <div className="text-[10px] font-bold uppercase tracking-widest text-amber-400">
                       {stat.label}
                     </div>
                     <div className="text-sm sm:text-base font-bold font-heading text-white mt-0.5 leading-snug">
@@ -169,14 +175,13 @@ export default function AboutSection({ onOpenSchedule }) {
               })}
             </div>
 
-            {/* Turnkey Project Relationship Quote Banner */}
             <div className="p-6 rounded-2xl bg-gradient-to-r from-[#240e44] via-[#1a0b32] to-[#240e44] border border-amber-400/30 flex items-start gap-4 shadow-xl">
               <div className="p-3 rounded-xl bg-amber-400/10 border border-amber-400/30 text-amber-400 shrink-0">
                 <Quote className="w-5 h-5" />
               </div>
               <div>
                 <p className="text-xs sm:text-sm italic text-amber-200 font-medium leading-relaxed">
-                  &ldquo;And because we believe in relationships, not just transactions, we offer full turnkey project management and maintenance services to keep everything on track for years to come.&rdquo;
+                  &ldquo;Because we believe in long-term relationships rather than one-off transactions, we offer end-to-end turnkey project execution and maintenance support to keep your facilities running smoothly.&rdquo;
                 </p>
                 <div className="mt-2 text-[10px] font-bold uppercase tracking-widest text-amber-400/80">
                   &mdash; Founders: Mr. Sachin &amp; Mrs. Rajni Arora
@@ -188,27 +193,26 @@ export default function AboutSection({ onOpenSchedule }) {
 
         </div>
 
-        {/* What We Do Section */}
+        {/* What We Do */}
         <div className="mb-20">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="section-badge justify-center mb-2">WHAT WE DO</div>
             <h3 className="text-2xl sm:text-4xl font-extrabold font-heading text-white tracking-tight mb-3">
-              SPEND YOUR TIME ON <span className="text-gold-gradient">WHAT MATTERS MOST</span>
+              FOCUS ON <span className="text-gold-gradient">YOUR CORE BUSINESS</span>
             </h3>
             <p className="text-xs sm:text-sm text-[#d1c4e9]">
-              We&apos;ll take care of your workspace setup and maintenance. Our services include:
+              We take care of your workspace setup, security infrastructure, and ongoing maintenance.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Tech That Works For You */}
             <div className="glass-card p-6 sm:p-8 rounded-3xl border border-white/15 bg-[#190933]">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400">
                   <Zap className="w-5 h-5" />
                 </div>
                 <h4 className="text-xl font-bold font-heading text-white">
-                  Tech That Works For You:
+                  Technology Solutions
                 </h4>
               </div>
 
@@ -222,14 +226,13 @@ export default function AboutSection({ onOpenSchedule }) {
               </div>
             </div>
 
-            {/* Spaces That Inspire */}
             <div className="glass-card p-6 sm:p-8 rounded-3xl border border-white/15 bg-[#190933]">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-300 flex items-center justify-center">
                   <Building className="w-5 h-5" />
                 </div>
                 <h4 className="text-xl font-bold font-heading text-white">
-                  Spaces That Inspire:
+                  Workspace Environments
                 </h4>
               </div>
 
@@ -245,7 +248,7 @@ export default function AboutSection({ onOpenSchedule }) {
           </div>
         </div>
 
-        {/* Our Values Section */}
+        {/* Core Values */}
         <div className="mb-20">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="section-badge justify-center mb-2">OUR VALUES</div>
@@ -253,7 +256,7 @@ export default function AboutSection({ onOpenSchedule }) {
               REAL PEOPLE DELIVERING <span className="text-gold-gradient">REAL RESULTS</span>
             </h3>
             <p className="text-xs sm:text-sm text-[#d1c4e9]">
-              We&apos;re real people who care about delivering real results:
+              The operational principles that guide our everyday client engagements:
             </p>
           </div>
 
@@ -276,40 +279,40 @@ export default function AboutSection({ onOpenSchedule }) {
           </div>
         </div>
 
-        {/* Why Our Clients Trust Us */}
+        {/* Client Trust Card */}
         <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#270f49] via-[#17082e] to-[#270f49] border border-amber-400/30 mb-16 shadow-2xl">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-wider mb-4">
               <Shield className="w-4 h-4 text-amber-400" />
-              <span>WHY OUR CLIENTS TRUST US</span>
+              <span>WHY CLIENTS CHOOSE US</span>
             </div>
 
             <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-white mb-4">
-              Trusted by Startups, Corporations &amp; National Defense
+              Trusted by Private Enterprises &amp; Public Institutions
             </h3>
 
             <p className="text-xs sm:text-sm text-[#d1c4e9] leading-relaxed mb-4">
-              We&apos;re incredibly proud to work with amazing organisations across India – from growing startups to established corporations like <span className="text-white font-semibold">Interglobe Aviation (IndiGo)</span>, <span className="text-white font-semibold">FedEx Express</span>, and <span className="text-white font-semibold">Rio Tinto India</span>, as well as vital government services like <span className="text-white font-semibold">Civil Defense</span> and the <span className="text-white font-semibold">National Disaster Response Force (NDRF)</span>.
+              We work with organizations across India &ndash; from dynamic private companies to established brands like <span className="text-white font-semibold">Interglobe Aviation (IndiGo)</span>, <span className="text-white font-semibold">FedEx Express</span>, and <span className="text-white font-semibold">Rio Tinto India</span>, as well as public services including <span className="text-white font-semibold">Civil Defense</span> and the <span className="text-white font-semibold">National Disaster Response Force (NDRF)</span>.
             </p>
 
             <p className="text-xs sm:text-sm text-[#c4b5fd] leading-relaxed">
-              They choose us because we deliver what we promise: quality products, excellent relationship, and solutions that genuinely make their businesses better.
+              Our clients count on us for reliable delivery, proactive communication, and solutions tailored to their operational scale.
             </p>
           </div>
         </div>
 
-        {/* Looking Forward & CTA */}
+        {/* CTA */}
         <div className="text-center max-w-3xl mx-auto">
-          <div className="section-badge justify-center mb-3">LOOKING FORWARD</div>
+          <div className="section-badge justify-center mb-3">NEXT STEPS</div>
           <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-white mb-3">
-            Staying Ahead in an Ever-Changing World
+            Ready to Upgrade Your Workspace?
           </h3>
           <p className="text-xs sm:text-sm text-[#d1c4e9] leading-relaxed mb-6">
-            As technology evolves and workplace needs change, we&apos;re committed to staying ahead. We&apos;re constantly exploring new approaches to help your business breathe in an ever-changing world.
+            Get in touch with our engineering team to discuss your security, audio-visual, or office fit-out requirements.
           </p>
           <div className="p-6 rounded-2xl bg-[#1b0a36] border border-amber-400/30 inline-block">
             <p className="text-sm font-bold text-amber-300 mb-4">
-              Did you like our vision? Let&apos;s help you create an environment where your business can truly flourish.
+              Let&apos;s build an environment that helps your team do their best work.
             </p>
             <button
               onClick={onOpenSchedule}

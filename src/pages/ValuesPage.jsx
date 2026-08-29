@@ -2,18 +2,14 @@ import React from 'react';
 import ValuesSection from '../components/ValuesSection';
 import { 
   Award, 
-  Sparkles, 
   CheckCircle2, 
   ShieldCheck,
   Clock,
   Eye,
   Coins,
   HeartHandshake,
-  Shield,
-  FileCheck,
-  Check
+  Shield
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 export default function ValuesPage() {
   const valueBreakdowns = [

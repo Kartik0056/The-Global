@@ -34,15 +34,15 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
     return () => cancelAnimationFrame(animationFrameId);
   }, [isPaused]);
 
-  // Dual orbit system: Outer ring (5 nodes, Clockwise) & Inner ring (3 nodes, Anti-Clockwise)
+  // Orbit nodes configuration
   const nodes = [
-    // 5 Outer Ring Nodes (Clockwise - 72 deg spacing)
+    // Outer orbit nodes
     {
       id: 'lock',
       title: 'Secure Access Control',
-      category: 'PERIMETER DEFENSE',
+      category: 'ACCESS CONTROL',
       icon: Lock,
-      orbit: 'outer', // Outer Orbit Ring (1/5)
+      orbit: 'outer',
       orbitRadius: 220,
       baseAngle: 0,
       image: '/images/speedgates.jpg',
@@ -53,7 +53,7 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
       title: 'Audio-Visual Collaboration',
       category: 'SMART CONFERENCING',
       icon: PhoneCall,
-      orbit: 'outer', // Outer Orbit Ring (2/5)
+      orbit: 'outer',
       orbitRadius: 220,
       baseAngle: 72,
       image: '/images/av_room.jpg',
@@ -64,7 +64,7 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
       title: 'Ergonomic Workspaces',
       category: 'INTERIOR FIT-OUTS',
       icon: Building2,
-      orbit: 'outer', // Outer Orbit Ring (3/5)
+      orbit: 'outer',
       orbitRadius: 220,
       baseAngle: 144,
       image: '/images/workspace.jpg',
@@ -73,33 +73,33 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
     {
       id: 'defense',
       title: 'Perimeter Defense',
-      category: 'MISSION CRITICAL',
+      category: 'PERIMETER SECURITY',
       icon: ShieldCheck,
-      orbit: 'outer', // Outer Orbit Ring (4/5)
+      orbit: 'outer',
       orbitRadius: 220,
       baseAngle: 216,
       image: '/images/cctv.jpg',
-      desc: 'Enterprise-grade physical and digital defense layers.'
+      desc: 'Physical and digital security infrastructure.'
     },
     {
       id: 'cctv',
       title: '4K CCTV & Body Cameras',
-      category: 'ENTERPRISE SECURITY',
+      category: 'VIDEO SURVEILLANCE',
       icon: Video,
-      orbit: 'outer', // Outer Orbit Ring (5/5)
+      orbit: 'outer',
       orbitRadius: 220,
       baseAngle: 288,
       image: '/images/cctv.jpg',
       desc: 'High-definition 4K optical surveillance & body-worn cameras.'
     },
 
-    // 3 Inner Ring Nodes (Anti-Clockwise - 120 deg spacing)
+    // Inner orbit nodes
     {
       id: 'integration',
       title: 'Turnkey System Integration',
-      category: 'CENTRAL ARCHITECTURE',
+      category: 'SYSTEM INTEGRATION',
       icon: Network,
-      orbit: 'inner', // Inner Orbit Ring (1/3)
+      orbit: 'inner',
       orbitRadius: 155,
       baseAngle: 300,
       image: '/images/speedgates.jpg',
@@ -110,18 +110,18 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
       title: 'Speed Gates & Access',
       category: 'ACCESS CONTROL',
       icon: Scan,
-      orbit: 'inner', // Inner Orbit Ring (2/3)
+      orbit: 'inner',
       orbitRadius: 155,
       baseAngle: 60,
       image: '/images/speedgates.jpg',
-      desc: 'Biometric, RFID & automated turnstiles for seamless entry.'
+      desc: 'Biometric, RFID & automated turnstiles for fast entry.'
     },
     {
       id: 'fire',
       title: 'Fire Safety & Thermal Alarm',
       category: 'LIFE SAFETY',
       icon: Flame,
-      orbit: 'inner', // Inner Orbit Ring (3/3)
+      orbit: 'inner',
       orbitRadius: 155,
       baseAngle: 180,
       image: '/images/firesafety.jpg',
@@ -131,7 +131,7 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
 
   const activeOrHovered = hoveredNode || nodes.find(n => n.id === activeNodeId) || null;
 
-  // Smart outward tooltip positioning logic (Zero overlap guaranteed)
+  // Tooltip placement relative to node coordinates
   const getTooltipPositionClass = (x, y) => {
     if (y > 40) {
       return "top-full mt-3 left-1/2 -translate-x-1/2";

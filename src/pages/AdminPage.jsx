@@ -87,13 +87,6 @@ export default function AdminPage() {
   const [activeOtpCode, setActiveOtpCode] = useState('');
   const [secMessage, setSecMessage] = useState(null); // { type: 'success' | 'error', text }
 
-  // Automatically trigger slide-over drawer if unauthenticated on /admin
-  useEffect(() => {
-    if (!isLoggedIn) {
-      openAdminLogin();
-    }
-  }, [isLoggedIn, openAdminLogin]);
-
   // Quick Reply Message Templates
   const replyTemplates = [
     {

@@ -2,51 +2,44 @@ import React, { useState } from 'react';
 import ServicesSection from '../components/ServicesSection';
 import { 
   ArrowRight, 
-  Sparkles, 
   CheckCircle2, 
   Zap, 
   Shield, 
   Building,
-  Wrench,
-  Clock,
-  Award,
   ChevronDown,
-  FileCheck,
-  CheckCircle,
-  AlertCircle
+  CheckCircle
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 export default function ServicesPage({ onOpenSchedule }) {
   const [openFaq, setOpenFaq] = useState(0);
 
   const faqs = [
     {
-      q: 'What are the components of a good security system?',
-      a: 'A comprehensive security system majorly includes elements like access control, surveillance (CCTV), intrusion detection, fire detection, and emergency response plans. It should also consider cybersecurity.'
+      q: 'What are the components of a complete security system?',
+      a: 'A complete security system includes access control, video surveillance (CCTV), intrusion detection, fire alarms, and emergency egress protocols, supported by proper network configuration.'
     },
     {
-      q: 'How can I learn more or get a demo?',
-      a: 'You can book a demo by calling/emailing us directly. Look for a "Book a Demo" button or contact information on our website or marketing materials.'
+      q: 'How can I schedule a consultation or site audit?',
+      a: 'You can schedule a consultation by calling or emailing us directly, or using the "Schedule a meeting" button on our website.'
     },
     {
-      q: 'What are the benefits of using a single vendor for multiple solutions?',
-      a: 'Using a single vendor helps with procurement, makes communication easy, and often results in quality integration and support for the overall system.'
+      q: 'What are the benefits of using a single vendor for multiple infrastructure needs?',
+      a: 'Using a single vendor simplifies project coordination, eliminates finger-pointing between contractors, and ensures smooth integration across security, IT, and interior fit-outs.'
     },
     {
       q: 'What is included in The Global Enterprises Turnkey AMC contract?',
-      a: 'Our comprehensive Turnkey AMC includes scheduled preventative site maintenance, sensor calibration, optical lens cleaning, firmware security patches, guaranteed emergency technician dispatch, and dedicated account management.'
+      a: 'Our Turnkey AMC includes scheduled preventative maintenance, sensor calibration, optical lens cleaning, emergency technician dispatch, and dedicated account management.'
     },
     {
       q: 'Are your fire safety installations certified according to safety codes?',
-      a: 'Yes. All fire safety designs, addressable and conventional control panels, smoke detectors, and emergency linkages comply with statutory fire safety guidelines and national building codes.'
+      a: 'Yes. All fire safety installations, control panels, smoke detectors, and emergency linkages comply with statutory safety guidelines and National Building Code (NBC 2016) standards.'
     }
   ];
 
   const amcTiers = [
     {
       tier: 'Standard Maintenance AMC',
-      target: 'Essential Commercial & Retail Spaces',
+      target: 'Commercial & Retail Facilities',
       response: 'Within 12 Hours',
       visits: 'Quarterly Checkup (4/year)',
       spareParts: 'Standard OEM Rate',
@@ -55,24 +48,24 @@ export default function ServicesPage({ onOpenSchedule }) {
         'Preventative hardware inspections',
         'Camera lens cleaning & refocusing',
         'Fire alarm bell & zone testing',
-        'Basic telephone & email support'
+        'Direct telephone & email support'
       ]
     },
     {
       tier: 'Enterprise Platinum AMC',
-      target: 'Mission-Critical, Aviation & Defense Facilities',
-      badge: 'MOST POPULAR',
+      target: 'Aviation, Logistics & Corporate Campuses',
+      badge: 'RECOMMENDED',
       response: 'Guaranteed 4-Hour On-Site SLA',
       visits: 'Bi-Monthly Checkup (6/year)',
       spareParts: 'Priority Sourcing & Direct Replacement',
-      vmsMonitoring: 'Central 24/7 Cloud Telemetry',
+      vmsMonitoring: 'Central Cloud Monitoring Support',
       features: [
         'Dedicated Lead Systems Engineer',
         'Guaranteed 4-hour emergency dispatch',
-        'Full compliance & sensor calibration audit',
-        'Zero-downtime hot-swap spare buffer',
-        'Priority executive phone hotline',
-        'Comprehensive multi-year price lock'
+        'Full compliance & sensor calibration audits',
+        'Hot-swap spare buffer availability',
+        'Priority technical phone hotline',
+        'Comprehensive multi-year contract options'
       ]
     }
   ];

@@ -1,13 +1,12 @@
 import React from 'react';
 import CapabilitiesMatrix from '../components/CapabilitiesMatrix';
-import { Cpu, Sparkles, CheckCircle, ShieldCheck } from 'lucide-react';
+import { Cpu, CheckCircle, ShieldCheck } from 'lucide-react';
 
 export default function ProductsPage({ onOpenSchedule }) {
   return (
     <div className="pt-20">
-      {/* Front Hero Header with Layered Speed Gates / Hardware Background Image */}
+      {/* Header Banner */}
       <div className="relative min-h-[380px] sm:min-h-[420px] flex items-center justify-center overflow-hidden border-b border-white/10">
-        {/* Layered Background Image */}
         <div className="absolute inset-0 z-0">
           <img
             src="/images/speedgates.jpg"

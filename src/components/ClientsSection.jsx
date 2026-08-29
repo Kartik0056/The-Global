@@ -6,11 +6,7 @@ import {
   Shield, 
   AlertOctagon, 
   CheckCircle,
-  Building,
   Award,
-  Lock,
-  Radio,
-  FileCheck,
   Building2,
   ArrowRight
 } from 'lucide-react';
@@ -36,45 +32,45 @@ export default function ClientsSection({ onOpenSchedule }) {
       icon: Plane,
       image: '/images/cctv.jpg',
       desc: 'LTE body-worn cameras, operations command centers & airport workspace security technology.',
-      tier: 'TIER-1 AVIATION SECURITY',
+      tier: 'AVIATION STANDARDS',
     },
     {
       category: 'Global Logistics Security',
       name: 'FedEx Express',
       icon: Truck,
       image: '/images/speedgates.jpg',
-      desc: 'Continuous tracking, access control barriers, high-throughput distribution hub surveillance & rapid AMC.',
-      tier: 'GLOBAL LOGISTICS STANDARD',
+      desc: 'Continuous tracking, access control barriers, distribution hub surveillance & rapid maintenance support.',
+      tier: 'LOGISTICS STANDARD',
     },
     {
       category: 'Industrial Enterprise',
       name: 'Rio Tinto India',
       icon: Factory,
       image: '/images/headquarters.jpg',
-      desc: 'Heavy industrial facility safety, integrated access architecture & hazardous zone optical monitoring nodes.',
-      tier: 'HEAVY INDUSTRIAL SPEC',
+      desc: 'Industrial facility safety, integrated access architecture & hazardous zone optical monitoring nodes.',
+      tier: 'INDUSTRIAL SPEC',
     },
     {
       category: 'Government Agency',
       name: 'Civil Defense',
       icon: Shield,
       image: '/images/firesafety.jpg',
-      desc: 'Critical emergency response coordination systems, fire safety, automated alerting & emergency gear deployment.',
-      tier: 'GOVT PUBLIC SAFETY',
+      desc: 'Emergency response coordination systems, fire safety, automated alerting & emergency gear deployment.',
+      tier: 'PUBLIC SAFETY',
     },
     {
-      category: 'Critical National Defense',
+      category: 'Disaster Response',
       name: 'National Disaster Response Force (NDRF)',
       icon: AlertOctagon,
       image: '/images/hero_bg.jpg',
-      desc: 'Mission-critical thermal monitoring, ruggedized body-worn cameras & disaster command center setups.',
-      tier: 'DEFENSE-GRADE MISSION CRITICAL',
+      desc: 'Thermal monitoring, ruggedized body-worn cameras & disaster command center infrastructure.',
+      tier: 'EMERGENCY SERVICES',
     }
   ];
 
   return (
     <section id="clients" className="relative py-28 bg-[#120722] bg-tech-grid overflow-hidden">
-      {/* Subtle Glows */}
+      {/* Ambient background glows */}
       <div className="bg-glow-orb w-[600px] h-[600px] bg-amber-500/10 -top-20 -right-20"></div>
       <div className="bg-glow-orb w-[600px] h-[600px] bg-purple-700/15 bottom-0 left-10"></div>
 
@@ -87,14 +83,14 @@ export default function ClientsSection({ onOpenSchedule }) {
             OUR COMMUNITY <span className="text-gold-gradient">OF CLIENTS</span>
           </h2>
           <div className="inline-block px-4 py-1.5 rounded-full bg-[#240e44] border border-amber-400/30 text-amber-300 font-bold text-xs sm:text-sm tracking-widest uppercase mb-4">
-            WHY OUR CLIENTS TRUST US
+            WHY CLIENTS TRUST US
           </div>
           <p className="text-base sm:text-lg text-[#d1c4e9]">
-            We are incredibly proud to work with some of the most amazing organisations across India – from growing startups to established airlines, corporations, and vital government services.
+            We are proud to work with leading organizations across India &ndash; from growing businesses to established airlines, industrial corporations, and public services.
           </p>
         </div>
 
-        {/* 10 Community of Clients Grid */}
+        {/* Client Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-16">
           {communityClients.map((client, idx) => {
             const Icon = client.icon;
@@ -119,7 +115,7 @@ export default function ClientsSection({ onOpenSchedule }) {
           })}
         </div>
 
-        {/* Major Enterprise & Defense Trust Cards */}
+        {/* Enterprise Client Highlights */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {featuredEnterpriseClients.map((client, idx) => {
             const Icon = client.icon;
@@ -140,7 +136,7 @@ export default function ClientsSection({ onOpenSchedule }) {
                       <Icon className="w-5 h-5" />
                     </div>
                     <div className="absolute top-3 right-3">
-                      <span className="text-[10px] font-extrabold tracking-wider uppercase text-amber-300 px-2.5 py-1 rounded-full bg-[#120722]/90 border border-amber-400/40 font-mono backdrop-blur-md">
+                      <span className="text-[10px] font-bold tracking-wider uppercase text-amber-300 px-2.5 py-1 rounded-full bg-[#120722]/90 border border-amber-400/40 font-mono backdrop-blur-md">
                         {client.tier}
                       </span>
                     </div>
@@ -150,7 +146,7 @@ export default function ClientsSection({ onOpenSchedule }) {
                     {client.category}
                   </div>
 
-                  <h3 className="text-xl font-extrabold font-heading text-white mb-2.5 group-hover:text-amber-300 transition-colors">
+                  <h3 className="text-xl font-bold font-heading text-white mb-2.5 group-hover:text-amber-300 transition-colors">
                     {client.name}
                   </h3>
 
@@ -162,7 +158,7 @@ export default function ClientsSection({ onOpenSchedule }) {
                 <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                   <div className="flex items-center gap-1.5 text-emerald-400 font-semibold">
                     <CheckCircle className="w-3.5 h-3.5" />
-                    <span>Verified Deployment</span>
+                    <span>Verified Project</span>
                   </div>
                   <span className="text-amber-400/90 font-mono text-[11px]">
                     Turnkey AMC
@@ -172,7 +168,7 @@ export default function ClientsSection({ onOpenSchedule }) {
             );
           })}
 
-          {/* Onboarding Callout Card */}
+          {/* Partnership Card */}
           <div className="glass-card p-6 rounded-3xl border border-amber-400/40 bg-gradient-to-br from-[#2b1250] to-[#17082e] flex flex-col justify-between shadow-2xl relative overflow-hidden group">
             <div>
               <div className="relative aspect-[16/9] rounded-2xl overflow-hidden mb-5 border border-amber-400/30 bg-black">
@@ -190,11 +186,11 @@ export default function ClientsSection({ onOpenSchedule }) {
               <div className="text-[11px] font-bold text-amber-300 uppercase tracking-widest mb-1">
                 ENTERPRISE PARTNERSHIP
               </div>
-              <h3 className="text-2xl font-extrabold font-heading text-white mb-2.5">
-                Join This List Today
+              <h3 className="text-2xl font-bold font-heading text-white mb-2.5">
+                Join Our Client Network
               </h3>
               <p className="text-xs sm:text-sm text-[#d1c4e9] leading-relaxed">
-                Elevate your corporate security, 4K CCTV surveillance, access barriers, and fire safety systems with our dedicated engineering board.
+                Upgrade your corporate security, 4K CCTV surveillance, access barriers, and workspace fit-outs with our experienced engineering team.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-white/10">
@@ -202,7 +198,7 @@ export default function ClientsSection({ onOpenSchedule }) {
                 onClick={onOpenSchedule}
                 className="btn-gold w-full py-3 rounded-xl font-bold text-xs flex items-center justify-center gap-2 cursor-pointer shadow-lg"
               >
-                <span>Join this list today</span>
+                <span>Schedule a discussion</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>

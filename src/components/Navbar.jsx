@@ -8,20 +8,16 @@ import {
   PhoneCall, 
   ChevronDown,
   Video,
-  Scan,
   Tv,
   Flame,
   Armchair,
-  Wrench,
   CheckCircle2,
   ChevronRight,
   Zap,
   ShieldCheck,
   Calendar,
-  Layers,
   Server,
-  Boxes,
-  Phone
+  Boxes
 } from 'lucide-react';
 
 export default function Navbar({ onOpenSchedule }) {
@@ -43,9 +39,9 @@ export default function Navbar({ onOpenSchedule }) {
       category: 'CCTV, BODY-WORN & ACCESS',
       icon: Video,
       image: '/images/cctv.jpg',
-      badge: '4K CCTV & BODY CAMERAS',
-      desc: 'Smart 4K CCTV surveillance, LTE body-worn cameras, intelligent access control, and QUBO smart door locks.',
-      points: ['Strategic 4K Camera Placement', 'LTE Body-Worn Video Evidence', 'Biometric Access & QUBO Smart Locks']
+      badge: '4K CCTV & ACCESS CONTROL',
+      desc: '4K CCTV surveillance, body-worn cameras, access control systems, and QUBO smart door locks.',
+      points: ['Strategic 4K Camera Placement', 'LTE Body-Worn Video Equipment', 'Biometric Access & Smart Locks']
     },
     {
       id: 'av',
@@ -73,9 +69,9 @@ export default function Navbar({ onOpenSchedule }) {
       category: 'CORE IT & VOIP',
       icon: Server,
       image: '/images/headquarters.jpg',
-      badge: 'HIGH-VELOCITY NETWORK',
-      desc: 'Strategic wireless network planning, router and switch configuration, VoIP implementation, and server room design.',
-      points: ['Strategic Network Architecture', 'Enterprise VoIP & Point-to-Point', 'Server Rack & Cable Dressing']
+      badge: 'CORE IT & NETWORK',
+      desc: 'Wireless network planning, router and switch configuration, VoIP implementation, and server room design.',
+      points: ['Structured Network Architecture', 'Enterprise VoIP & Wireless Links', 'Server Rack & Cable Dressing']
     },
     {
       id: 'fitout',
@@ -83,9 +79,9 @@ export default function Navbar({ onOpenSchedule }) {
       category: 'OFFICE INTERIORS',
       icon: Armchair,
       image: '/images/workspace.jpg',
-      badge: 'SPACES THAT INSPIRE',
+      badge: 'WORKSPACE FIT-OUT',
       desc: 'Office space planning, structural partitions, painting, flooring, electrical lighting, and modular workstations.',
-      points: ['Modular Workstations & Furniture', 'Custom Demountable Partitions', 'Complete MEP & Flooring Finishings']
+      points: ['Modular Workstations & Furniture', 'Custom Demountable Partitions', 'Complete MEP & Flooring Finishes']
     },
     {
       id: 'injection',
@@ -94,8 +90,8 @@ export default function Navbar({ onOpenSchedule }) {
       icon: Boxes,
       image: '/images/speedgates.jpg',
       badge: 'JOB WORK & CUSTOM MOULDS',
-      desc: 'Job work for existing moulds and custom plastics product manufacturing from prototype to full production ramp-up.',
-      points: ['Running Your Moulds (Job Work)', 'Custom Product & Mould Design', 'Certified Quality & Smart Solutions']
+      desc: 'Job work for existing moulds and custom plastics product manufacturing from prototype to full production.',
+      points: ['Running Customer Moulds (Job Work)', 'Custom Product & Tooling Design', 'Certified Quality Assurance']
     }
   ];
 
@@ -111,7 +107,7 @@ export default function Navbar({ onOpenSchedule }) {
     { name: 'Contact', path: '/contact' },
   ];
 
-  // Mouse hover handlers with robust debounce timer
+  // Mouse hover handlers with debounce timer
   const handleMouseEnter = () => {
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
@@ -150,7 +146,7 @@ export default function Navbar({ onOpenSchedule }) {
       <nav className="w-full px-3 sm:px-5 lg:px-6 2xl:px-8 py-2 sm:py-2.5 relative max-w-[1800px] mx-auto">
         <div className="w-full flex items-center justify-between gap-1.5 sm:gap-3">
           
-          {/* Logo Section (Mobile: Icon Only, Desktop: Icon + Text) */}
+          {/* Logo Section */}
           <Link to="/" className="flex items-center gap-2 sm:gap-2.5 group shrink-0">
             <div className="relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-xl sm:rounded-2xl bg-white/95 border-2 border-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.45)] group-hover:scale-105 transition-all duration-300 overflow-hidden p-0.5 shrink-0">
               <img
@@ -191,7 +187,7 @@ export default function Navbar({ onOpenSchedule }) {
               <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-400 transition-all ${location.pathname === '/about' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </Link>
 
-            {/* Desktop Mega Menu Dropdown */}
+            {/* Desktop Dropdown */}
             <div 
               ref={dropdownContainerRef}
               className="relative py-1"
@@ -230,9 +226,9 @@ export default function Navbar({ onOpenSchedule }) {
                     
                     <div className="col-span-12 lg:col-span-7 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-white/10 pb-6 lg:pb-0 lg:pr-8">
                       <div>
-                        <div className="text-xs font-black uppercase tracking-widest text-amber-400 mb-3 flex items-center gap-2">
+                        <div className="text-xs font-bold uppercase tracking-widest text-amber-400 mb-3 flex items-center gap-2">
                           <Zap className="w-4 h-4" />
-                          <span>ENTERPRISE SOLUTIONS &amp; HARDWARE NODES</span>
+                          <span>SPECIALIZED SERVICE AREAS</span>
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">

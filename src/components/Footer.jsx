@@ -5,8 +5,6 @@ import {
   Mail, 
   Phone, 
   MapPin, 
-  Shield, 
-  Award, 
   Calendar, 
   Users 
 } from 'lucide-react';
@@ -47,7 +45,7 @@ export default function Footer() {
               </Link>
 
               <p className="text-xs sm:text-sm text-[#b8a7dc] leading-relaxed max-w-sm mb-6">
-                Your one-stop enterprise partner for modern workspace infrastructure, certified fire safety, intelligent access control, 4K CCTV surveillance, and ergonomic interior setups.
+                Your trusted partner for workplace infrastructure, fire safety systems, access control, 4K CCTV surveillance, and ergonomic interior fit-outs.
               </p>
             </div>
 

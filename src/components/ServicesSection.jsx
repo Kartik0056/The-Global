@@ -1,32 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { 
-  ShieldCheck, 
-  Tv, 
-  Flame, 
-  Cpu, 
-  Palette, 
-  Armchair, 
-  LayoutGrid, 
-  Wrench, 
   CheckCircle2, 
   ArrowRight,
   Sparkles,
   Zap,
-  Building,
   Layers,
-  ChevronRight,
   Shield,
-  Video,
-  Scan,
-  Lock,
-  Users,
-  PhoneCall,
+  Tv,
+  Flame,
   Server,
-  Droplets,
-  Bug,
+  Armchair,
   Boxes,
-  Phone,
   CheckCircle
 } from 'lucide-react';
 
@@ -35,7 +20,6 @@ export default function ServicesSection({ onOpenSchedule }) {
   const location = useLocation();
   const [searchParams] = useSearchParams();
 
-  // Match URL query parameter or hash to tab
   useEffect(() => {
     const serviceParam = searchParams.get('service') || location.hash.replace('#', '') || '';
     if (!serviceParam) return;
@@ -66,61 +50,60 @@ export default function ServicesSection({ onOpenSchedule }) {
       shortTitle: 'Security & Monitoring',
       icon: Shield,
       image: '/images/cctv.jpg',
-      headline: "Let's Make Your Place Safer, Together.",
-      subHeadline: 'Surveillance & Monitoring Systems Installed for Your Protection and Convenience.',
-      intro: "Imagine feeling completely secure, no matter where you are. We make that happen. We're your friendly professionals for security and safety installations, so you can relax knowing your workplace is protected.",
+      headline: "Let's Make Your Workplace Safe & Protected.",
+      subHeadline: 'Surveillance & Monitoring Systems Installed for Your Protection and Convenience',
+      intro: "Security is essential for smooth business operations. We provide certified CCTV surveillance, access barriers, and monitoring infrastructure so you can focus on running your business with confidence.",
       coreOfferings: [
         {
           name: 'Professional CCTV Camera Installation',
           points: [
             'Strategic Camera Placement: Site assessments for optimal and clear surveillance coverage.',
-            'Expert System Configuration: Seamless operation and easy retrieval of recorded footage.',
-            'Remote Viewing Setup: Live camera feeds via mobile or computer from anywhere.',
-            'CCTV Types: IP-based (high-res digital network video), HD-based (analog coax), and Standalone localized systems.'
+            'System Configuration: Clear operation and straightforward retrieval of recorded footage.',
+            'Remote Viewing Setup: Live camera feeds accessible via mobile or desktop workstations.',
+            'CCTV Options: IP-based digital networks, HD analog coax systems, and standalone installations.'
           ]
         },
         {
           name: 'Body-Worn Cameras',
           points: [
-            "Team deployment and practical training so your personnel are confident in the field.",
-            'Secure encrypted video data storage and management.'
+            'Field deployment and hands-on staff training for airport and security teams.',
+            'Secure encrypted video data storage and management protocols.'
           ]
         },
         {
           name: 'Access Control Systems',
           points: [
-            'Card reader installations to ensure only authorized personnel enter.',
-            'High-security biometric fingerprint and 3D facial recognition systems.',
-            'Visitor management systems to track and account for all premises visitors.'
+            'Card reader installations to ensure only authorized personnel enter specific zones.',
+            'Biometric fingerprint readers and facial recognition terminals.',
+            'Visitor management systems to log and verify all building visitors.'
           ]
         },
         {
-          name: 'Public Access & Attendance Systems',
+          name: 'Turnstiles & Attendance Systems',
           points: [
-            'Effortless digital time tracking for streamlined and accurate attendance.',
-            'Controlled turnstiles and speed gates preventing unauthorized entry.',
-            'Real-time video monitoring and mobile entrance communication.'
+            'Digital time tracking for accurate payroll and shift reporting.',
+            'Optical speed gates and turnstiles managing high foot-traffic entry.',
+            'Integrated intercoms and door phone systems for front entrances.'
           ]
         },
         {
           name: 'Smart Door Locks (Authorized QUBO Partner)',
           points: [
-            'Enterprise Smart Door Lock Systems with keyless entry and audit logs.',
-            'Professional deployment and integration into existing doors and infrastructure.',
-            'Remote access configuration and integrated video doorbell mobile communication.'
+            'Commercial smart locks with keyless entry, PIN codes, and audit logs.',
+            'Professional installation and integration into existing doors and frames.',
+            'Remote access management and video doorbell integration.'
           ]
         }
       ],
-      benefitsTitle: 'How Global Enterprises Make Your Life Easier',
+      benefitsTitle: 'Key Advantages of Our Security Systems',
       benefits: [
-        'Your place will be super secure, allowing you to relax.',
-        'You can avoid accidents and stay safe.',
-        'Your day-to-day operations will be smoother.',
-        'You\'ll have peace of mind knowing you\'re protected.',
-        'A plan tailored just for you will be created.',
-        'All installation and support will be handled, so you don\'t have to worry.'
+        '24/7 continuous monitoring and perimeter protection.',
+        'Immediate deterrent against unauthorized entry and incidents.',
+        'Smooth daily operations with streamlined staff access.',
+        'Tailored system architecture designed for your floor plan.',
+        'Complete installation, testing, and warranty support.'
       ],
-      ctaText: 'Schedule a Callback'
+      ctaText: 'Schedule a Consultation'
     },
     {
       id: 'audio_video',
@@ -128,57 +111,57 @@ export default function ServicesSection({ onOpenSchedule }) {
       shortTitle: 'Audio & Video Solutions',
       icon: Tv,
       image: '/images/av_room.jpg',
-      headline: 'Leading Audio & Video Solutions Provider in India',
-      subHeadline: 'Driving Productivity Through Seamless Connectivity & Immersive Experiences',
-      intro: 'Consider audio-visual (AV) solutions as means to assist businesses to communicate and connect more effectively. They make meetings easier to understand, presentations more captivating, and customer experiences more memorable.',
+      headline: 'Complete Audio & Video Solutions for Modern Workplaces',
+      subHeadline: 'Clear Audio, Video Collaboration & Reliable Room Technology',
+      intro: 'Modern AV solutions enable teams to communicate clearly and collaborate without technical friction. From executive boardrooms to training halls, we design and install systems that work reliably every time.',
       coreOfferings: [
         {
           name: 'Video & Audio Conferencing Systems',
           points: [
-            'High-definition face-to-face video systems that encourage collaboration and save on travel.',
-            'Audio conferencing from basic speakerphones to sophisticated DSP processing with noise-canceling array microphones.'
+            'High-definition video systems compatible with Zoom Rooms, Microsoft Teams, and Webex.',
+            'Beamforming ceiling microphone arrays with integrated acoustic echo cancellation.'
           ]
         },
         {
-          name: 'Display, Presentation & Digital Signage',
+          name: 'Displays, Projectors & Digital Signage',
           points: [
-            'Large displays, 4K laser projectors, and wireless presentation screen sharing.',
-            'Interactive touchscreens and electronic whiteboards.',
-            'Digital signage (LCD/LED video walls) with cloud content management systems (CMS).'
+            'Commercial 4K displays, laser projectors, and wireless 1-touch screen sharing.',
+            'Interactive touchscreens and digital whiteboards for collaborative working.',
+            'Video walls and reception digital signage with central content management.'
           ]
         },
         {
-          name: 'Conference Halls & E-Classrooms',
+          name: 'Conference Halls & Training Rooms',
           points: [
-            'Complete conference hall integration: LED walls, projectors, mics, speakers, and simple centralized touch controls.',
-            'Interactive E-classrooms with multimedia learning software for remote and in-person instruction.'
+            'Turnkey conference hall setups: LED video walls, PA systems, and central touch controllers.',
+            'Multimedia e-classrooms equipped for both in-person and remote sessions.'
           ]
         },
         {
-          name: 'Board Rooms & Hybrid Meeting Rooms',
+          name: 'Boardrooms & Hybrid Meeting Rooms',
           points: [
-            'Smart meeting room automation: lighting adjustment, room booking, and clean cable management.',
-            'Speaker-tracking hybrid cameras that automatically focus on whoever is talking.'
+            'Smart meeting room automation: lighting presets, display routing, and cable management.',
+            'Speaker-tracking cameras that automatically focus on active participants.'
           ]
         },
         {
           name: 'Public Address Systems & EPABX',
           points: [
-            'PA systems designed for clear voice delivery in small offices to large auditoriums.',
-            'EPABX telephone installation, setup, intelligent call routing, and voicemail management.'
+            'Zoned PA systems for clear voice announcements in offices and facilities.',
+            'EPABX telephone systems, IVR setup, intelligent call routing, and voicemail.'
           ]
         }
       ],
-      benefitsTitle: 'Comprehensive Solutions for Diverse Needs',
+      benefitsTitle: 'Tailored Environments We Support',
       benefits: [
-        'Large Corporations & Headquarters',
-        'Small to Medium-sized Businesses (SMBs)',
-        'Hotels & Hospitality',
-        'Healthcare Facilities & Hospitals',
-        'Government Buildings & Secretariats',
-        'Educational Institutions & Auditoriums'
+        'Corporate Headquarters & Office Campuses',
+        'Small to Medium-Sized Enterprises',
+        'Hotels & Hospitality Spaces',
+        'Healthcare & Hospital Facilities',
+        'Government Offices & Secretariats',
+        'Auditoriums & Training Centers'
       ],
-      ctaText: 'Discuss Your AV Needs'
+      ctaText: 'Discuss Your AV Requirements'
     },
     {
       id: 'fire_safety_rodent',
@@ -186,48 +169,48 @@ export default function ServicesSection({ onOpenSchedule }) {
       shortTitle: 'Fire Safety & Leakage',
       icon: Flame,
       image: '/images/firesafety.jpg',
-      headline: 'Comprehensive Protection Against Fire, Water, and Rodent',
-      subHeadline: 'Safeguarding Operational Integrity and Ensuring Business Continuity',
-      intro: 'Early detection and rapid response are crucial. We provide engineered solutions for extinguishing fires, lessening water damage, and managing pests in a coordinated, reliable way.',
+      headline: 'Protection Against Fire, Water Ingress & Pest Damage',
+      subHeadline: 'Safeguarding Operational Infrastructure and Business Continuity',
+      intro: 'Early detection and rapid response are essential for life safety and property protection. We provide certified fire detection, water leak sensors, and wire protection tailored to commercial standards.',
       coreOfferings: [
         {
-          name: 'Fire Detection & Extinguishing Systems',
+          name: 'Fire Detection & Suppression Systems',
           points: [
-            'Advanced Early Warning: Cutting-edge alarm panels and highly sensitive smoke detectors.',
-            'Automated Fire Suppression: Strategically installed sprinkler systems for immediate protection of server rooms and offices.',
-            'Fire Extinguisher Deployment & Training: Positioning industry-grade extinguishers and conducting staff emergency response training.'
+            'Early Warning: Modern addressable alarm panels and optical smoke sensors.',
+            'Automated Suppression: Clean agent and sprinkler systems for server rooms and offices.',
+            'Fire Extinguishers: Placement, certification, and hands-on emergency training for staff.'
           ]
         },
         {
           name: 'Conventional & Addressable Fire Alarms',
           points: [
-            'Conventional Systems: Optimized for Indian building conditions, differential voltages, reducing false alarms at budget-friendly cost.',
-            'Addressable Systems: Precise location identification for hospitals, industrial plants, and commercial towers.'
+            'Conventional Systems: Cost-effective zoned protection for smaller offices.',
+            'Addressable Systems: Precise location pinpointing for commercial towers and large campuses.'
           ]
         },
         {
-          name: 'Water Leakage Detection System',
+          name: 'Water Leakage Detection Systems',
           points: [
-            'Sensor-based water leak detection for continuous monitoring of server rooms, data centers, and utility spaces.',
-            'Proactive early warnings that prevent expensive water damage and data interruptions.'
+            'Sensor cable detection for server rooms, UPS areas, and plumbing shafts.',
+            'Real-time alerts to prevent equipment damage and costly network downtime.'
           ]
         },
         {
-          name: 'Rodent Management & Wire Protection',
+          name: 'Rodent Management & Cable Protection',
           points: [
-            'Corporate rodent management, modern rodent mesh nets, and efficient eradication plans.',
-            'Prevents rodent damage to electrical wiring, networking cables, and critical infrastructure.'
+            'Protective cable conduits, stainless steel wire mesh, and professional rodent exclusion.',
+            'Prevents rodent damage to electrical wiring and fiber optic lines.'
           ]
         }
       ],
-      benefitsTitle: 'What Sets Us Apart in Protection',
+      benefitsTitle: 'Our Safety & Compliance Standards',
       benefits: [
-        'Thorough hazard risk assessments conducted by certified safety engineers.',
-        'Full compliance with local and National Building Codes (NBC 2016).',
-        'Combined protection against fire, water leakage, and infrastructure pests.',
-        'Continuous preventative inspection schedules and testing.'
+        'Risk assessments conducted by safety engineers.',
+        'Compliance with National Building Code (NBC 2016) guidelines.',
+        'Combined protection across fire, water, and electrical infrastructure.',
+        'Scheduled preventative maintenance and periodic system audits.'
       ],
-      ctaText: 'Let’s Protect Your Workplace'
+      ctaText: 'Protect Your Workplace'
     },
     {
       id: 'network_connectivity',
@@ -235,43 +218,43 @@ export default function ServicesSection({ onOpenSchedule }) {
       shortTitle: 'Network & Connectivity',
       icon: Server,
       image: '/images/headquarters.jpg',
-      headline: 'Smooth Network & Connectivity Services, Everywhere.',
-      subHeadline: 'Expert Wireless Network Planning and Deployment for Seamless, High-Speed Connectivity.',
-      intro: "These days, if your internet's down, your business is down. It's not just about having a connection; it's about having a reliable one. We build networks that handle high traffic, minimize outages, and keep your team productive.",
+      headline: 'Reliable Network Infrastructure & Connectivity Services',
+      subHeadline: 'High-Speed, Reliable Connectivity for Modern Operations',
+      intro: "A dependable network is the foundation of daily business operations. We design and install structured cabling, switches, and enterprise Wi-Fi systems engineered for high uptime.",
       coreOfferings: [
         {
           name: 'Core Network Services',
           points: [
-            'Strategic Network Planning: Robust IP addressing schemes and wireless network architecture for high scalability.',
-            'Expert Deployment: Certified network engineers ensuring implementation with minimal operational disruption.',
-            'Optimised Configuration: Enterprise routers, switches, and access points tuned for peak speed and security.'
+            'Structured Network Design: IP planning, VLAN segmentation, and enterprise Wi-Fi coverage.',
+            'Deployment: Certified cabling and equipment installation with minimal work disruption.',
+            'Hardware Configuration: Routers, managed switches, and firewalls optimized for security.'
           ]
         },
         {
-          name: 'Communication & Data Connectivity',
+          name: 'Voice & Inter-Site Connectivity',
           points: [
-            'VOIP Implementation: Cost-effective voice solutions for crystal-clear corporate communications.',
-            'Point-to-Point Wireless Links: High-bandwidth wireless bridges for inter-building and remote connectivity.'
+            'VoIP Solutions: Cost-effective telephony for crystal-clear internal and external calls.',
+            'Point-to-Point Wireless: High-bandwidth wireless links between separate buildings.'
           ]
         },
         {
-          name: 'EPABX Systems & Server Rooms',
+          name: 'Server Rooms & EPABX Systems',
           points: [
-            'EPABX installation, configuration, call routing, queue control, and voicemail recording.',
-            'Server room design, rack installations, structured cable dressing, and cooling airflow management.'
+            'EPABX installation, IVR configuration, call queuing, and attendant consoles.',
+            'Server room build-outs: Rack mounting, cable dressing, UPS distribution, and ventilation.'
           ]
         }
       ],
-      benefitsTitle: 'How Global Enterprises Helps Businesses',
+      benefitsTitle: 'Operational Benefits for Your Team',
       benefits: [
-        'Making things run faster with seamless interoperability.',
-        'Cutting down on communication and telephone costs.',
-        'Knowing your corporate data is safe and secured.',
-        'Staying consistently connected with minimal downtime.',
-        'Technology that scales and grows with your business expansion.',
-        'Spend less time worrying about IT and more time on core business goals.'
+        'Optimized network speed and reliable interoperability.',
+        'Lower recurring telephone and communications costs.',
+        'Secure network architecture with role-based access.',
+        'Consistent uptime and fast troubleshooting response.',
+        'Scalable infrastructure ready for team expansion.',
+        'Comprehensive AMC support and SLA-backed maintenance.'
       ],
-      ctaText: 'Get a Free IT Consultation'
+      ctaText: 'Request an IT Network Consultation'
     },
     {
       id: 'fitout_leasehold',
@@ -279,50 +262,50 @@ export default function ServicesSection({ onOpenSchedule }) {
       shortTitle: 'Fit-out & Interiors',
       icon: Armchair,
       image: '/images/workspace.jpg',
-      headline: 'Building Offices That Inspire. Your Office, Our Expertise.',
-      subHeadline: 'Office Finishings, Fit-out & Leasehold Improvement Services.',
-      intro: "Ever walked into an office and just felt good? We believe your workspace should be a place where you and your team can grow, be productive, and actually enjoy being there. We take the stress out of creating the most positive office environment.",
+      headline: 'Workspace Fit-Outs & Turnkey Office Improvements',
+      subHeadline: 'Commercial Interior Fit-Outs, Partitioning & Ergonomic Furnishings',
+      intro: "Your workplace environment directly affects team productivity and morale. We handle complete interior fit-outs from architectural partitioning to acoustic ceilings and ergonomic workstations under a single contract.",
       coreOfferings: [
         {
-          name: 'Physical Space Solutions & Structural Work',
+          name: 'Space Planning & Civil Works',
           points: [
-            'Adding or removing walls and custom partitions to optimize layouts.',
-            'Modifying acoustic ceilings, doors, and window placements.',
-            'Comprehensive space planning, design, and relocation assistance.'
+            'Demountable glass partitions and acoustic drywall layout optimization.',
+            'Ceiling modifications, acoustic baffles, and door hardware installation.',
+            'Comprehensive floor planning and architectural site coordination.'
           ]
         },
         {
-          name: 'Interior Finishing & MEP Services',
+          name: 'Finishing & MEP Coordination',
           points: [
-            'Flooring installation (commercial carpet, tile, hardwood, vinyl).',
-            'Professional painting, wallpapering, and acoustic wall panels.',
-            'Upgrading lighting fixtures, electrical outlets, and specialized wiring.',
-            'Plumbing modifications for office restrooms and pantry facilities.'
+            'Commercial flooring: Carpet tiles, hardwood, vinyl, and epoxy finishes.',
+            'Commercial painting, wall coverings, and acoustic acoustic paneling.',
+            'LED lighting schemes, task illumination, and electrical power distribution.',
+            'Pantry and restroom plumbing adjustments.'
           ]
         },
         {
-          name: 'Modular Workstations & Furniture',
+          name: 'Modular Furniture & Workstations',
           points: [
-            'Modular workstations with ergonomic privacy panels and work surfaces.',
-            'Executive task chairs, desks, filing cabinets, conference tables, and lounge seating.'
+            'Modular linear and cluster workstations with wire management raceways.',
+            'Ergonomic mesh chairs, executive desks, conference tables, and breakout furniture.'
           ]
         },
         {
-          name: 'Technology, Safety & Cafeteria Infrastructure',
+          name: 'Technology & Safety Integration',
           points: [
-            'Integrated structured data cabling, server room build-outs, security and fire suppression.',
-            'Cafeteria space design and commercial kitchen equipment setup.'
+            'Under-floor data cabling, wall floor boxes, and server closet connections.',
+            'Cafeteria layout and commercial breakroom setups.'
           ]
         }
       ],
-      benefitsTitle: 'The Global Enterprises Difference in Fit-outs',
+      benefitsTitle: 'Our Fit-Out Execution Principles',
       benefits: [
-        'Comprehensive Space Solutions under a single contract.',
-        'Expert, Efficient Execution with minimal downtime.',
-        'Quality & Precision Focused joinery and finishes.',
-        'Collaborative client approach tailored to your brand identity.'
+        'Single-point turnkey accountability from design to handover.',
+        'Adherence to agreed project milestones and completion schedules.',
+        'Quality craftsmanship and commercial-grade materials.',
+        'Spaces designed around your workflow and corporate branding.'
       ],
-      ctaText: 'Schedule Office Makeover'
+      ctaText: 'Plan Your Office Fit-Out'
     },
     {
       id: 'injection_moulding',
@@ -330,37 +313,37 @@ export default function ServicesSection({ onOpenSchedule }) {
       shortTitle: 'Injection Moulding',
       icon: Boxes,
       image: '/images/speedgates.jpg',
-      headline: 'Injection Moulding Solutions',
-      subHeadline: 'Precise Work for Professional Environments.',
-      intro: "Whether you're a Fortune 500 company, a growing SMB, or a government facility, we understand the unique demands of professional environments. Our injection moulding expertise helps you meet compliance requirements, improve operational efficiency, and maintain professional standards.",
+      headline: 'Precision Injection Moulding & Manufacturing',
+      subHeadline: 'Custom Tooling and Component Manufacturing for Industry',
+      intro: "We provide injection moulding services for commercial components, enclosures, and custom parts. From running customer-owned moulds to custom tooling and serial production, we maintain consistent tolerances and quality control.",
       coreOfferings: [
         {
-          name: 'Running Your Moulds (Job Work Services)',
+          name: 'Mould Job Work Services',
           points: [
-            'Whether it is a few parts or a huge production run, we take great care in using your existing moulds.',
-            'We work with all grades of engineering plastics and maintain strict quality control.',
-            'Rapid turnaround capabilities when you are up against critical delivery deadlines.'
+            'Production runs using customer-supplied tooling with careful maintenance.',
+            'Processing across standard and engineering-grade thermoplastics.',
+            'Reliable batch turnaround to meet scheduled supply chain requirements.'
           ]
         },
         {
-          name: 'Creating Custom Products From Scratch',
+          name: 'Custom Product Development',
           points: [
-            'Design optimization for efficient manufacturability (DFM).',
-            'Rapid prototyping to test form, fit, and mechanical function.',
-            'Custom mould tooling design tailored to your exact component specifications.',
-            'Expert material selection to balance mechanical performance with cost efficiency.',
-            'Smooth scaling and ramp-up to high-volume commercial production.'
+            'Design for Manufacturability (DFM) reviews and optimization.',
+            'Prototyping for dimensional validation and mechanical testing.',
+            'Mould tooling fabrication built to technical component specifications.',
+            'Material recommendation balancing strength, finish, and unit cost.',
+            'Smooth transition from initial pilot runs to full-scale volume production.'
           ]
         }
       ],
-      benefitsTitle: 'Why People Choose Us for Manufacturing',
+      benefitsTitle: 'Why Work With Us on Moulding',
       benefits: [
-        'Quality: Registered and certified processes from raw resin to finished parts.',
-        'Smart Solutions: Deep plastics engineering knowledge to solve tricky design hurdles.',
-        'Modern Equipment: Upgraded precision machines for consistent part tolerances.',
-        'Responsive Collaboration: Flexible, attentive, and dedicated to your project success.'
+        'Rigorous quality checks from raw polymer to finished parts.',
+        'Experienced engineering support for tooling and cycle optimization.',
+        'Modern injection moulding machinery ensuring dimensional repeatability.',
+        'Transparent delivery schedules and responsive project communication.'
       ],
-      ctaText: 'Partner with Us on Moulding'
+      ctaText: 'Discuss Moulding Requirements'
     }
   ];
 

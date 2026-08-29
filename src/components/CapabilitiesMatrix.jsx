@@ -1,19 +1,11 @@
 import React, { useState } from 'react';
 import { 
-  Video, 
-  Scan, 
-  Tv, 
-  Flame, 
-  Armchair, 
   ArrowRight, 
   ShieldCheck, 
   CheckCircle,
-  Sparkles,
   Search,
-  Download,
   Info,
   X,
-  Layers,
   FileSpreadsheet
 } from 'lucide-react';
 
@@ -136,17 +128,17 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
 
   return (
     <section className="py-20 bg-[#120722] relative overflow-hidden">
-      {/* Ambient Orbs */}
+      {/* Ambient background glows */}
       <div className="bg-glow-orb w-[600px] h-[600px] bg-purple-700/15 top-1/4 -left-20"></div>
       <div className="bg-glow-orb w-[600px] h-[600px] bg-amber-500/10 bottom-1/4 -right-20"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Filter Tabs */}
+        {/* Filter Controls */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-10 pb-6 border-b border-white/10">
           <div className="flex flex-wrap items-center gap-2">
             {[
-              { id: 'all', label: 'All Hardware Nodes' },
+              { id: 'all', label: 'All Products' },
               { id: 'cctv', label: 'Surveillance' },
               { id: 'access', label: 'Access Control' },
               { id: 'av', label: 'Smart AV' },
@@ -174,7 +166,7 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Filter catalog specs..."
+              placeholder="Search catalog..."
               className="w-full bg-[#180933] border border-white/15 rounded-xl py-2 pl-9 pr-3 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-amber-400"
             />
           </div>

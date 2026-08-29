@@ -1,23 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ClientsSection from '../components/ClientsSection';
 import { 
   Shield, 
-  Sparkles, 
   Award, 
   ArrowRight,
-  Plane,
-  Truck,
-  Factory,
-  AlertOctagon,
-  Building2,
-  CheckCircle,
-  Quote,
-  FileCheck,
-  Lock,
-  Radio,
   Star
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 export default function ClientsPage({ onOpenSchedule }) {
   const testimonials = [
