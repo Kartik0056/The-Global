@@ -55,44 +55,43 @@ export default function ServicesSection({ onOpenSchedule }) {
       intro: "Imagine feeling completely secure, no matter where you are. We make that happen. We're your friendly professionals for security and safety installations, so you can relax knowing your workplace is protected.",
       coreOfferings: [
         {
-          name: 'Professional CCTV Camera Installation Services',
+          name: 'CCTV Surveillance & Monitoring Systems',
           points: [
-            'Strategic Camera Placement: With thorough site assessments to determine optimal camera locations, we give complete and clear surveillance coverage.',
-            'Expert System Configuration: We configure your recording system for seamless operation and easy retrieval of recorded footage.',
-            'Remote Viewing Setup: Sleep peacefully with remote access to your live camera feeds via your mobile or computer. Monitor your office property from anywhere.',
-            'Installation of Various CCTV Systems: IP-based (network digital video), HD-based (coaxial high-definition), and Standalone localized recording systems.'
+            'Camera Installation & Strategic Positioning: Optimal camera angles for complete and clear perimeter coverage.',
+            'Recording System Setup & Configuration: NVR/DVR setup for seamless recording and instant footage retrieval.',
+            'Remote Viewing Configuration: Access live camera feeds anytime via mobile devices or desktop workstations.',
+            'Supported CCTV Systems: IP-based digital networks, HD-based coaxial systems, and Standalone recording units.'
           ]
         },
         {
           name: 'Body-Worn Cameras',
           points: [
-            "If you need body cameras, we'll show your team how to use them, so they're comfortable and confident.",
-            "We'll also handle storing all that video, keeping it safe and sound."
+            'Camera Deployment & Training: Hands-on staff training for field deployment and operational confidence.',
+            'Secure Data Storage & Management: Encrypted video archival, audit logs, and footage management.'
           ]
         },
         {
           name: 'Access Control Systems',
           points: [
-            "We'll put in card readers so only the right people can get in.",
-            'Want something super secure? We can set up fingerprint or face recognition.',
-            "We can even help you keep track of visitors, making sure everyone's accounted for."
+            'Card Reader & Smart Card Systems: Restrict and authorize staff entry across secure operational zones.',
+            'Biometric Access Control: Eye scanner, 3D face reader, and precision fingerprint recognition terminals.',
+            'Visitor Management Systems: Digital visitor logging, pass issuance, and audit verification.'
           ]
         },
         {
           name: 'Public Access & Attendance Systems',
           points: [
-            'Effortless Time Tracking: We offer digital systems for streamlined, accurate attendance.',
-            'Implement controlled access via turnstiles, enhancing security and preventing unauthorized entry.',
-            'Real-time video monitoring and communication for corporate entrances, enhancing security and visitor management with mobile integration.'
+            'Time & Attendance Tracking: Digital shift logs with automated payroll software sync.',
+            'Optical Speed Gates & Turnstiles: High-throughput controlled access for corporate lobbies.',
+            'Mobile Access & Intercoms: Entrance video door monitoring and smartphone credential verification.'
           ]
         },
         {
           name: 'Smart Door Locks (Authorized QUBO Partner)',
           points: [
-            'Enterprise Smart Door Lock Systems: Keyless entry, remote management, and audit logs for enhanced security and efficiency.',
-            'Smart Lock Integration: Professional deployment into existing infrastructure, optimizing security protocols.',
-            'Remote Access Configuration: Robust remote access for flexible premises management.',
-            'Integrated Video Doorbell & Mobile Communication: Real-time video and mobile access for advanced visitor management.'
+            'Smart Lock Installation: Keyless digital entry, PIN keypad, and biometric locks for office doors.',
+            'Remote Access Configuration: Manage permissions, temporary digital keys, and entry logs remotely.',
+            'Video Doorbell & Video Phone: Real-time two-way audio/video communication with visitors.'
           ]
         }
       ],
@@ -120,38 +119,36 @@ export default function ServicesSection({ onOpenSchedule }) {
         {
           name: 'Video & Audio Conferencing Systems',
           points: [
-            'Video Conferencing Systems: Allow for face-to-face meetings over distance, encourage collaboration, and save on travel expenses with high-definition video and audio.',
-            'Audio Conferencing Systems: Ranging from basic speakerphones to sophisticated audio processing systems with noise-cancelling array microphones so everyone can hear and be heard.'
-          ]
-        },
-        {
-          name: 'Display, Presentation & Digital Signage',
-          points: [
-            'Large displays, projectors, and wireless presentation systems for easy content sharing.',
-            'Interactive touchscreens and digital whiteboards for collaborative working.',
-            'Digital Signage: Blending display screens (LCD, LED, video walls, touchscreens) with content management software for scheduling and cloud management.'
+            'Video Conferencing Systems: High-definition video meetings that encourage hybrid collaboration and reduce travel costs.',
+            'Audio Conferencing Systems: Sophisticated DSP audio processing and noise-cancelling microphone arrays for crystal-clear voice.'
           ]
         },
         {
           name: 'Conference Hall Integration & E-Classrooms',
           points: [
-            'Conference Hall Integration: Setting up LCD/LED screens, projectors, microphones, speakers, and simple central touch controls.',
-            'E-Classrooms: Interactive touchscreens, advanced AV systems, and software facilitating remote digital learning.',
-            'Presentation Systems: Projectors, displays, and control systems to make sure your message stands out and fascinates the audience.'
+            'Conference Hall Integration: Large LED/LCD video walls, stage audio, handheld mics, and simple central touch controls.',
+            'E-Classrooms: Interactive touchscreens, smart digital whiteboards, and remote learning software platforms.'
+          ]
+        },
+        {
+          name: 'Presentation Systems & Digital Signage',
+          points: [
+            'Presentation Systems: 4K laser projectors, commercial displays, and wireless 1-touch screen sharing.',
+            'Digital Signage: Networked display panels and video walls with cloud content management systems for scheduling.'
           ]
         },
         {
           name: 'Board Rooms & Hybrid Meeting Rooms',
           points: [
-            'Board Rooms & Meeting Rooms: Simple controls, automatic adjustments for lights and equipment, smart hybrid cameras that focus on active speakers.',
-            'Public Address Systems: Clear and audible voice in any setting, from small office spaces to huge auditoriums.'
+            'Board Rooms & Meeting Rooms: Speaker-tracking smart cameras, automated lighting presets, and cable cubbies.',
+            'Public Address (PA) Systems: Zoned background audio and audible voice announcements from small offices to large auditoriums.'
           ]
         },
         {
-          name: 'EPABX: Streamlined Call Handling',
+          name: 'EPABX Call Handling Solutions',
           points: [
-            'EPABX Installation & Setup: Dependable and effective telephone communication system customised to your unique business requirements.',
-            'Call Routing & Management: Route calls to the right staff, control call queues, monitor call activity, voicemail setup, and call recording.'
+            'EPABX Installation & Configuration: Business telephone PBX systems customized to your operational scale.',
+            'Call Routing & Management: Intelligent queue routing, automated attendant (IVR), voice mail setup, and call recording.'
           ]
         }
       ],
@@ -174,39 +171,39 @@ export default function ServicesSection({ onOpenSchedule }) {
       image: '/images/firesafety.jpg',
       headline: 'Comprehensive Protection Against Fire, Water, and Rodent',
       subHeadline: 'Protecting Your Assets and Ensuring Business Continuity',
-      intro: 'Early detection and rapid response are essential for protecting life and safeguarding critical infrastructure. We deploy cutting-edge alarm panels, automated fire suppression, sensor-based water leak detection, and preventative rodent management so your business operates without interruption.',
+      intro: "Protecting your assets and ensuring business continuity. Early detection, automated rapid suppression, and comprehensive risk mitigation against fire, water ingress, and rodent disruption.",
       coreOfferings: [
+        {
+          name: 'Fire Alarm & Early Warning Systems',
+          points: [
+            'Alarm Panel & Smoke Detector Installation: Cutting-edge addressable and conventional alarm panels with multi-criteria optical sensors.',
+            'Conventional Fire Alarm Systems: Cost-effective zoned fire alarms designed specifically for Indian voltage conditions and SMB offices.',
+            'Addressable Fire Alarm Systems: Pinpoint location identification of fire alarm signals for hospitals, industrial plants, and high-rise commercial buildings.'
+          ]
+        },
         {
           name: 'Fire Detection & Extinguishing Systems',
           points: [
-            'Advanced Early Warning Systems: Cutting-edge alarm panels and highly sensitive smoke detectors designed for rapid detection in corporate environments.',
-            'Automated Fire Suppression: Strategically installed sprinkler systems providing automated, immediate fire suppression for data centres and offices.',
-            'Strategic Fire Extinguisher Deployment & Training: Industry-grade fire extinguishers coupled with comprehensive staff emergency training.'
+            'Sprinkler System Installation: Automated sprinkler networks and clean-agent gas suppression for data centres and server rooms.',
+            'Fire Extinguisher Installation & Training: Strategically positioned extinguishers coupled with hands-on emergency training for staff.'
           ]
         },
         {
-          name: 'Conventional & Addressable Fire Alarms',
+          name: 'Environmental Safety: Water Leakage & Rodent Control',
           points: [
-            'Conventional Fire Alarm Systems: All-inclusive systems designed specifically for Indian power conditions and smaller commercial spaces.',
-            'Addressable Fire Alarm Systems: Advanced systems providing accurate location identification of fire alarm signals for hospitals, industrial plants, and high-rises.'
-          ]
-        },
-        {
-          name: 'Water Leakage Detection & Rodent Control',
-          points: [
-            'Leak Detection System Installation: Sensor-based water leakage detection offering continuous monitoring of server rooms, data centres, and utility spaces.',
-            'Rodent Management for a Hygienic Workplace: Setting up modern rodent nets, conduit protection, and prevention plans to protect wiring and essential infrastructure.'
+            'Leak Detection System Installation: Sensor-based water leak detection cables offering continuous monitoring of server rooms, UPS areas, and plumbing shafts.',
+            'Rodent Control Solutions: Heavy-duty rodent nets, armored wire conduits, and preventative eradication plans to protect electrical wiring and fiber cables.'
           ]
         }
       ],
       benefitsTitle: 'What Sets Us Apart',
       benefits: [
-        'Fullest assurance of continuous, proactive excellence.',
-        'Thorough risk assessments tailored to Indian building codes.',
-        'Integrated answers for extinguishing fires, lessening water damage, and managing pests.',
-        'Trained engineers ensuring all local and international safety standards are met.'
+        'Real, unmatched foresight: Thorough risk assessments to find specific answers for extinguishing fires, lessening water damage, and managing pests.',
+        'Continuous, proactive excellence: Client-centric approach with constant dedication to exceeding safety expectations.',
+        'Full compliance with statutory safety regulations, National Building Code (NBC), and local fire safety codes.',
+        'Seamless integration with your building management systems (BMS) and central control panels.'
       ],
-      ctaText: "Let's Protect Your Workplace"
+      ctaText: 'Schedule a meeting'
     },
     {
       id: 'network_connectivity',
@@ -219,20 +216,25 @@ export default function ServicesSection({ onOpenSchedule }) {
       intro: "These days, if your internet's down, your business is down. It's not just about having a connection; it's about having a reliable one. Everything runs through it – your data, your tools, how you talk to customers. You need a network that lets you move around, handle a lot of traffic, and just works, all the time. No one wants to deal with constant outages. That's where we come in. We're really good at building networks. We set up everything right, making sure it's running smoothly. Frankly, it's about making sure your team can get stuff done and your clients are happy. Because at the end of the day, that's what matters, right?",
       coreOfferings: [
         {
-          name: 'Core Network Services',
+          name: 'Core Network Planning & Implementation',
           points: [
-            'Strategic Network Planning: We design robust IP addressing and wireless networks for seamless connectivity and scalability.',
-            'Expert Deployment: Our certified engineers handle all aspects of implementation, ensuring minimal disruption.',
-            'Optimised Configuration: Routers, switches, and access points are configured for peak performance and security.'
+            'IP Addressing Schemes & Wireless Planning: Robust subnetting, VLAN segmentation, and enterprise Wi-Fi heatmap design.',
+            'Router & Switch Configuration: Layer 2/3 managed switches and enterprise routers configured for peak throughput and firewall security.',
+            'Wireless Access Point Deployment: Seamless roaming Wi-Fi access points across all office floors.'
           ]
         },
         {
-          name: 'Communication & Connectivity',
+          name: 'Data, Voice & Point-to-Point Connectivity',
           points: [
-            'VOIP Implementation: Cost-effective voice solutions for enhanced communication.',
-            'Reliable Point-to-Point Links: High-bandwidth wireless connections for remote locations.',
-            'Advanced EPABX Systems: Streamlined call management, voicemail setup, and recording tools.',
-            'Infrastructure Support: Server room design and rack implementation for optimal performance.'
+            'VOIP Solutions: Cost-effective digital telephony and high-definition voice over IP.',
+            'Wireless Point-to-Point Connections: High-bandwidth wireless bridge links connecting multiple buildings or remote sites.',
+            'EPABX Installation & Configuration: Call routing, interactive voice response (IVR), voice mail setup, and call recording solutions.'
+          ]
+        },
+        {
+          name: 'IT Infrastructure & Server Rooms',
+          points: [
+            'Server Rack Installation & Cable Dressing: Server room design, standard 42U rack mounting, PDU power distribution, and structured patch cabling.'
           ]
         }
       ],
@@ -258,36 +260,29 @@ export default function ServicesSection({ onOpenSchedule }) {
       intro: "Ever walked into an office and just felt good? We believe your workspace should be a place where you and your team can grow, be productive, and actually enjoy being there. That's why we're here to take the stress out of creating the most positive office environment. We are your friendly office makeover team. We'll handle all the nitty-gritty details, so you can focus on what you do best – running your business.",
       coreOfferings: [
         {
-          name: 'Structural Modifications & Space Planning',
+          name: 'Physical Space & Leasehold Properties',
           points: [
-            'Adding or removing walls and partitions to create new rooms or modify existing layouts.',
-            'Modifying ceilings, acoustic baffles, and changing door and window placements.',
-            'Comprehensive space planning, design, negotiation support, and relocation services.'
+            'Space Planning & Architectural Design: Optimizing office layout for collaboration, traffic flow, and team density.',
+            'Negotiation Support & Property Advisory: Technical due-diligence for leasehold facilities.',
+            'Relocation Services: Turnkey office shifting and IT hardware relocation without operational disruption.'
           ]
         },
         {
-          name: 'Interior Finishing & MEP Services',
+          name: 'Leasehold Improvements & MEP Services',
           points: [
-            'Installing new flooring (carpet, tile, wood, vinyl) and painting/wallpapering.',
-            'Installing new ceiling tiles and acoustic treatments.',
-            'Electrical and Lighting: Upgrading fixtures, adding/modifying outlets, and specialized electrical systems.',
-            'Plumbing: Installing or modifying sinks, toilets, and relocating plumbing lines.'
+            'Painting & Decorating: Commercial painting, custom finishes, and brand color integration.',
+            'Flooring Installation: Commercial carpet tiles, hardwood, vitrified tiles, and vinyl flooring.',
+            'Partition & Wall Construction: Demountable glass partitions, acoustic drywalls, and ceiling baffles.',
+            'Lighting & Electrical: LED fixtures, architectural mood lighting, and power raceways.'
           ]
         },
         {
-          name: 'Furniture, Modular Workstations & Amenities',
+          name: 'Interior Work & Amenities',
           points: [
-            'Modular workstations (panels, partitions, work surfaces) and ergonomic office chairs.',
-            'Desks, filing cabinets, bookcases, conference tables, and lounge furniture.',
-            'Cafeteria design, kitchen equipment installation, and breakroom setups.'
-          ]
-        },
-        {
-          name: 'Technology, Communication & Safety Integration',
-          points: [
-            'Installing cabling for internet and phone systems.',
-            'Setting up server rooms or data centers.',
-            'Installing security systems and fire suppression systems under single-point accountability.'
+            'Furniture Selection & Modular Workstations: Ergonomic chairs, linear/cluster workstations, executive desks, and conference tables.',
+            'Acoustic Treatment & Sound Dampening: Wall acoustic panels and ceiling baffles to reduce reverberation.',
+            'Signage Installation: Brand reception logos, directional signage, and safety egress markers.',
+            'Cafeteria Design & Kitchen Equipment: Full pantry and cafeteria layout with commercial kitchen equipment setup.'
           ]
         }
       ],

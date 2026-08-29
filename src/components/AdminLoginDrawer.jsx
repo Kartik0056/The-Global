@@ -10,7 +10,8 @@ import {
   ArrowRight, 
   AlertCircle,
   Loader2,
-  LockKeyhole
+  LockKeyhole,
+  Check
 } from 'lucide-react';
 import { useInquiry } from '../context/InquiryContext';
 
@@ -187,14 +188,25 @@ export default function AdminLoginDrawer({ isOpen, onClose }) {
             </div>
 
             <div className="flex items-center justify-between text-xs pt-1">
-              <label className="flex items-center gap-2 cursor-pointer text-gray-300 hover:text-white">
-                <input
-                  type="checkbox"
-                  checked={rememberMe}
-                  onChange={(e) => setRememberMe(e.target.checked)}
-                  className="rounded border-white/20 bg-[#0f041d] text-amber-400 focus:ring-amber-400/40 w-3.5 h-3.5"
-                />
-                <span>Remember this device</span>
+              <label 
+                onClick={(e) => {
+                  e.preventDefault();
+                  setRememberMe(!rememberMe);
+                }}
+                className="flex items-center gap-2.5 cursor-pointer text-gray-300 hover:text-white select-none group"
+              >
+                <div 
+                  className={`w-4 h-4 rounded-md border flex items-center justify-center transition-all duration-200 ${
+                    rememberMe 
+                      ? 'bg-amber-400 border-amber-300 text-[#10061e] shadow-[0_0_12px_rgba(245,158,11,0.5)]' 
+                      : 'bg-[#0f041d] border-white/30 text-transparent group-hover:border-amber-400/60'
+                  }`}
+                >
+                  <Check className={`w-3 h-3 stroke-[3] transition-transform ${rememberMe ? 'scale-100' : 'scale-0'}`} />
+                </div>
+                <span className="font-medium text-xs text-[#d1c4e9] group-hover:text-white transition-colors">
+                  Remember this device
+                </span>
               </label>
             </div>
 
