@@ -95,19 +95,19 @@ export default function ServicesPage({ onOpenSchedule }) {
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-black font-heading text-white tracking-tight leading-[1.1] mb-5">
-            Smooth Network &amp; <span className="text-gold-gradient">Connectivity Services,</span> Everywhere.
+            Let's Make Your Place <span className="text-gold-gradient">Safer, Together.</span>
           </h1>
 
           <p className="text-base sm:text-lg text-[#d1c4e9] max-w-3xl mx-auto leading-relaxed mb-8">
-            Expert wireless network planning and deployment for seamless, high-speed connectivity across your entire workspace.
+            Surveillance &amp; Monitoring Systems Installed for Your Protection and Convenience. Imagine feeling completely secure, no matter where you are &mdash; we make that happen.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
             <button
               onClick={onOpenSchedule}
-              className="btn-gold px-8 py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-2xl"
+              className="btn-gold px-8 py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-2xl cursor-pointer"
             >
-              <span>Schedule a meeting today</span>
+              <span>Get a Callback</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
@@ -264,16 +264,16 @@ export default function ServicesPage({ onOpenSchedule }) {
       <section className="py-16 bg-gradient-to-r from-[#17082e] via-[#240f42] to-[#17082e] border-t border-amber-400/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-4xl font-extrabold font-heading text-white mb-4">
-            Secure, Reliable, and Efficient. <span className="text-gold-gradient">IT Solutions That Ensure Success.</span>
+            Peace of mind starts here. <span className="text-gold-gradient">Expert security and monitoring installations.</span>
           </h2>
           <p className="text-xs sm:text-sm text-[#d1c4e9] max-w-2xl mx-auto mb-6">
-            Get in touch with our certified engineers for comprehensive network planning, wireless deployment, and turnkey infrastructure support.
+            Get in touch with our friendly professionals for custom site assessments, 4K CCTV surveillance, turnstiles, and turnkey facility protection.
           </p>
           <button
             onClick={onOpenSchedule}
-            className="btn-gold px-8 py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-2xl"
+            className="btn-gold px-8 py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-2xl cursor-pointer"
           >
-            <span>Get a Free Consultation</span>
+            <span>Get Started Today</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

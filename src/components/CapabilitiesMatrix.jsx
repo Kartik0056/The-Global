@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { 
   ArrowRight, 
   ShieldCheck, 
@@ -17,19 +18,38 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
   const products = [
     {
       id: 'p1',
-      title: '4K AI Optical Starlight Dome Camera',
+      title: '4K AI Optical Starlight Dome & Turret Camera',
       category: 'cctv',
       categoryLabel: 'SURVEILLANCE',
       image: '/images/cctv.jpg',
       specs: '3840x2160 • IP67 Weatherproof • IK10 Vandal-proof • 0.001 Lux Starlight',
       detailedSpecs: [
         'Resolution: 4K Ultra-HD (3840 x 2160 @ 30fps)',
-        'Sensor: 1/1.8" Progressive Scan Starlight CMOS',
+        'Sensor: 1/1.8" Progressive Scan Starlight CMOS with Zero IR Glare',
+        'Camera Types: Indoor Dome & Zero-Reflection Turret / Eyeball',
         'AI Features: Facial Telemetry, Line Crossing, Object Abandoned',
         'Storage: Dual H.265+ Compression with MicroSD & Cloud VMS',
         'Certifications: CE, FCC, RoHS, NDAA Compliant'
       ],
       applications: 'Corporate Headquarters, Aviation Hangars, Banking Vaults',
+      stockStatus: 'In-Stock & Deployable'
+    },
+    {
+      id: 'p1b',
+      title: 'Long-Range Outdoor Bullet & 360° PTZ Camera Array',
+      category: 'cctv',
+      categoryLabel: 'SURVEILLANCE',
+      image: '/images/cctv.jpg',
+      specs: '4K 40x Optical Zoom • 200m Smart IR • Auto Tracking • IP68 Weatherproof',
+      detailedSpecs: [
+        'Resolution: 4K Ultra-HD with 40x Optical Precision Zoom',
+        'Optics: Motorized 360° Endless Pan & 90° Tilt with Preset Patrols',
+        'Camera Types: Heavy-Duty Outdoor Bullet & High-Speed PTZ',
+        'Night Vision: 200m Smart Laser IR with Full-Color Starlight Matrix',
+        'Integration: ONVIF Profile S/G/T, Dual Coaxial HD & IP Network Setup',
+        'Housing: IP68 Weatherproof, Lightning Protection & Anti-Corrosion'
+      ],
+      applications: 'Perimeter Security, Airport Tarmacs, Industrial Campuses',
       stockStatus: 'In-Stock & Deployable'
     },
     {
@@ -223,46 +243,61 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
           ))}
         </div>
 
-        {selectedProductModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
-            <div className="relative w-full max-w-2xl glass-card rounded-3xl border border-amber-400/50 p-5 sm:p-8 bg-[#180933] shadow-2xl max-h-[90vh] overflow-y-auto">
-              <button
-                onClick={() => setSelectedProductModal(null)}
-                className="absolute top-4 right-4 p-2 rounded-xl bg-white/10 text-white hover:bg-amber-400 hover:text-[#10061e] transition-colors cursor-pointer"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-400 mb-1">
-                <FileSpreadsheet className="w-4 h-4" />
-                <span>OFFICIAL SPECIFICATION DATASHEET</span>
-              </div>
-
-              <h3 className="text-2xl font-black font-heading text-white mb-4">
-                {selectedProductModal.title}
-              </h3>
-
-              <div className="aspect-[16/8] rounded-2xl overflow-hidden border border-white/10 mb-5 bg-black">
-                <img
-                  src={selectedProductModal.image}
-                  alt={selectedProductModal.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="space-y-2 mb-6">
-                <div className="text-xs font-bold uppercase tracking-wider text-white mb-2">
-                  Technical Specifications:
-                </div>
-                {selectedProductModal.detailedSpecs.map((spec, idx) => (
-                  <div key={idx} className="flex items-start gap-2 text-xs text-[#d1c4e9] p-2 rounded-lg bg-[#10061e]/70 border border-white/5">
-                    <CheckCircle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                    <span>{spec}</span>
+        {selectedProductModal && typeof document !== 'undefined' && createPortal(
+          <div 
+            onClick={(e) => {
+              if (e.target === e.currentTarget) setSelectedProductModal(null);
+            }}
+            className="fixed inset-0 z-[99999] flex items-center justify-center p-3 sm:p-6 pt-20 sm:pt-24 pb-6 bg-black/85 backdrop-blur-md animate-fadeIn"
+          >
+            <div className="relative w-full max-w-2xl glass-card rounded-3xl border border-amber-400/50 bg-[#180933] shadow-2xl max-h-[78vh] sm:max-h-[82vh] flex flex-col overflow-hidden my-auto">
+              
+              {/* Pinned Header */}
+              <div className="p-4 sm:p-6 pb-3 sm:pb-4 border-b border-white/10 flex items-start justify-between gap-4 shrink-0 bg-[#180933]">
+                <div>
+                  <div className="flex items-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-amber-400 mb-1">
+                    <FileSpreadsheet className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                    <span>OFFICIAL SPECIFICATION DATASHEET</span>
                   </div>
-                ))}
+                  <h3 className="text-lg sm:text-2xl font-black font-heading text-white">
+                    {selectedProductModal.title}
+                  </h3>
+                </div>
+                
+                <button
+                  onClick={() => setSelectedProductModal(null)}
+                  className="p-2 rounded-xl bg-white/10 text-white hover:bg-amber-400 hover:text-[#10061e] transition-colors cursor-pointer shrink-0"
+                  aria-label="Close modal"
+                >
+                  <X className="w-5 h-5" />
+                </button>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/10">
+              {/* Scrollable Content Body */}
+              <div className="p-4 sm:p-6 overflow-y-auto flex-1 space-y-4 sm:space-y-5">
+                <div className="aspect-[16/8] rounded-2xl overflow-hidden border border-white/10 bg-black shrink-0">
+                  <img
+                    src={selectedProductModal.image}
+                    alt={selectedProductModal.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <div className="text-xs font-bold uppercase tracking-wider text-white mb-2">
+                    Technical Specifications:
+                  </div>
+                  {selectedProductModal.detailedSpecs.map((spec, idx) => (
+                    <div key={idx} className="flex items-start gap-2 text-xs text-[#d1c4e9] p-2 sm:p-2.5 rounded-lg bg-[#10061e]/70 border border-white/5">
+                      <CheckCircle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                      <span>{spec}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Pinned Footer */}
+              <div className="p-4 sm:p-6 pt-3 sm:pt-4 border-t border-white/10 bg-[#14072b]/95 backdrop-blur-md flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 shrink-0">
                 <div className="text-xs text-emerald-400 font-semibold flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4" />
                   <span>Certified Turnkey Deployment Ready</span>
@@ -273,14 +308,16 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
                     setSelectedProductModal(null);
                     onOpenSchedule();
                   }}
-                  className="btn-gold w-full sm:w-auto px-6 py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 cursor-pointer shadow-xl"
+                  className="btn-gold w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 cursor-pointer shadow-xl"
                 >
                   <span>Request Deployment Proposal</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
+
             </div>
-          </div>
+          </div>,
+          document.body
         )}
       </div>
     </section>

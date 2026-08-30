@@ -40,107 +40,107 @@ export default function HomePage({ onOpenSchedule }) {
   const comprehensiveSolutions = [
     {
       id: 'cctv',
-      title: 'CCTV Systems',
-      subtitle: '4K SURVEILLANCE & MONITORING',
+      title: 'Corporate Surveillance & Monitoring',
+      subtitle: 'IP, HD & STANDALONE CCTV SYSTEMS',
       category: 'SURVEILLANCE',
       icon: Video,
       image: '/images/cctv.jpg',
-      badge: 'VIGILANT SECURITY / AMC',
-      desc: 'Unlimited Peace of mind with our smart CCTV solutions with eagle’s eyes, providing vigilant security. From discreet checks to Annual Maintenance Contract (AMC), we tailor solutions to your specific needs.',
+      badge: 'COMPLETE COVERAGE / AMC',
+      desc: "Imagine feeling completely secure, no matter where you are. Strategic camera placement, expert system configuration, and remote live viewing from mobile/computer — we install IP, HD, and standalone CCTV systems tailored for complete protection.",
       features: [
-        'Strategic site assessments & high-definition 4K optics',
-        'Discreet checks to Annual Maintenance Contract (AMC)',
-        'Vigilant 24/7 security monitoring tailored to your needs'
+        'Strategic camera placement & optimal coverage assessments',
+        'Expert recording setup & effortless mobile remote viewing',
+        'IP, HD & Standalone systems with Bullet, Dome, and PTZ optics'
       ]
     },
     {
       id: 'body_worn',
-      title: 'Body-worn Cameras',
-      subtitle: 'LTE EVIDENCE RECORDING',
+      title: 'Body-Worn Cameras',
+      subtitle: 'FIELD DEPLOYMENT & STORAGE',
       category: 'BODY CAMERAS',
       icon: Shield,
       image: '/images/hero_bg.jpg',
       badge: 'AIRLINE TRUSTED & LTE',
-      desc: 'Leading airlines like Air India, Etihad, IndiGo, British Airways, and more rely on our LTE-enabled body-worn cameras. These cameras record and stream high-quality video evidence, trusted by businesses globally.',
+      desc: "If you need body cameras, we'll show your team how to use them, so they're comfortable and confident, while handling secure, compliant video storage.",
       features: [
-        'LTE-enabled live video recording & streaming evidence',
-        'Trusted by Air India, Etihad, IndiGo & British Airways',
-        'High-quality video evidence trusted by businesses globally'
+        'Hands-on staff training for operational confidence',
+        'Secure encrypted video archival and footage management',
+        'Trusted by Air India, Etihad, IndiGo & British Airways'
       ]
     },
     {
       id: 'fire_safety',
-      title: 'Fire Detection & Extinguishing Systems',
-      subtitle: 'LIFE SAFETY & SUPPRESSION',
+      title: 'Fire Safety, Leakage & Rodent Control',
+      subtitle: 'DETECTION, SUPPRESSION & RESILIENCE',
       category: 'FIRE SAFETY',
       icon: Flame,
       image: '/images/firesafety.jpg',
       badge: 'EARLY DETECTION & RAPID RESPONSE',
-      desc: 'Protect your most valuable – your people and your property – with our fire detection & Extinguishing systems. Early detection and rapid response are crucial, and our systems are designed for maximum effectiveness.',
+      desc: 'Comprehensive Protection Against Fire, Water, and Rodent. Protecting your assets and ensuring business continuity with advanced addressable early warning, automated sprinkler suppression, continuous leak detection, and preventative rodent defense.',
       features: [
-        'Automated fire suppression & sprinkler networks',
-        'Certified addressable & conventional smoke detection',
-        'Early detection and rapid response for maximum effectiveness'
+        'Advanced addressable & conventional fire alarm panels (NBC 2016)',
+        'Automated sprinkler suppression & staff extinguisher training',
+        'Continuous sensor water leak detection & corporate rodent management'
       ]
     },
     {
       id: 'av_solutions',
-      title: 'Advanced Audio & Video Solutions',
-      subtitle: 'BUSINESS AV INTEGRATION',
+      title: 'Audio & Video Solutions',
+      subtitle: 'CONFERENCING, DISPLAY & EPABX',
       category: 'SMART AV',
       icon: Tv,
       image: '/images/av_room.jpg',
-      badge: 'HD CONFERENCING & SIGNAGE',
-      desc: 'Personal audio-video solutions for businesses, including high-definition conferencing, interactive presentations, professional audio, and digital signage. Ongoing support enhance communication, productivity, and engagement in meeting rooms and collaboration spaces.',
+      badge: 'PREMIER AV INTEGRATION',
+      desc: 'Leading Audio & Video Solutions in India — driving productivity through seamless connectivity and immersive experiences. High-definition video conferencing, interactive displays, digital signage, noise-cancelling audio, and EPABX call routing.',
       features: [
-        'High-definition conferencing & interactive presentations',
-        'Professional audio & digital signage integration',
-        'Ongoing support to enhance communication and productivity'
+        'High-definition video meetings & speaker-tracking smart cameras',
+        'Large displays, wireless presentation & digital signage with CMS',
+        'Sophisticated DSP audio, PA systems & streamlined EPABX routing'
       ]
     },
     {
       id: 'access_control',
       title: 'Access Control Systems',
-      subtitle: 'PREMISES ACCESS MANAGEMENT',
+      subtitle: 'CARD READERS & BIOMETRICS',
       category: 'ACCESS CONTROL',
       icon: Scan,
       image: '/images/speedgates.jpg',
       badge: 'INTELLIGENT ACCESS CONTROL',
-      desc: 'Manage and monitor access to your premises with our intelligent access control systems. They are designed to deter unauthorised entry like a bouncer at a club, but for your office.',
+      desc: "Card readers, fingerprint, and face recognition access control systems to ensure only the right people get in and every visitor is accounted for.",
       features: [
-        'Manage and monitor access across all premises',
-        'Intelligent deterrence against unauthorized entry',
-        'Electronic card readers, biometrics & visitor logging'
+        'Smart card readers & zoned access authorization',
+        'High-accuracy fingerprint and facial recognition',
+        'Digital visitor management and logging verification'
       ]
     },
     {
       id: 'smart_locks',
-      title: 'Smart door locks',
-      subtitle: 'HERO ELECTRONIX / QUBO',
+      title: 'Smart Door Locks',
+      subtitle: 'ENTERPRISE KEYLESS ENTRY',
       category: 'SMART LOCKS',
       icon: Lock,
       image: '/images/speedgates.jpg',
       badge: 'AUTHORIZED QUBO INSTALLER',
-      desc: 'Install the convenience and protection of QUBO smart door locks. As authorized installers for QUBO (a Hero Electronix Pvt. Ltd. company), we serve the NCR region and other areas of North India.',
+      desc: 'Enterprise keyless entry, remote management, audit logs, and integrated video doorbells for robust premises management. Authorized installer for QUBO (Hero Electronix Pvt. Ltd.).',
       features: [
-        'Convenience and protection of QUBO smart door locks',
-        'Authorized installers for QUBO (Hero Electronix Pvt. Ltd.)',
-        'Serving the NCR region and areas across North India'
+        'Keyless entry, PIN keypads, and biometric locks',
+        'Robust remote access configuration & audit trail logs',
+        'Integrated video doorbell with two-way communication'
       ]
     },
     {
       id: 'public_access',
       title: 'Public Access & Attendance Systems',
-      subtitle: 'ATTENDANCE TRACKING & GATES',
+      subtitle: 'TIME TRACKING & TURNSTILES',
       category: 'ATTENDANCE',
       icon: Users,
       image: '/images/speedgates.jpg',
       badge: 'USER-FRIENDLY SET-UPS',
-      desc: "Attendance tracking and managing public access with our user-friendly set-ups. While we can't guarantee a 100% reduction in unnecessary smoke breaks, we can certainly provide detailed reports on it.",
+      desc: 'Effortless digital time tracking, controlled access turnstiles, and real-time video monitoring and intercom for corporate entrances.',
       features: [
-        'User-friendly attendance tracking and access set-ups',
-        'Detailed, accurate reporting on workplace attendance',
-        'Controlled public access & automated turnstile gates'
+        'Effortless digital shift logs and time tracking',
+        'Turnstiles for controlled high-throughput access',
+        'Real-time entrance video monitoring and mobile integration'
       ]
     },
     {

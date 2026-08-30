@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { useInquiry } from '../context/InquiryContext';
 import { 
   ShieldCheck, 
@@ -19,7 +20,13 @@ import {
   BarChart3,
   KeyRound,
   Shield,
-  X
+  X,
+  Eye,
+  MapPin,
+  Building2,
+  Copy,
+  Check,
+  Calendar
 } from 'lucide-react';
 
 export default function AdminPage() {
@@ -48,6 +55,23 @@ export default function AdminPage() {
   const [editingNotes, setEditingNotes] = useState('');
   const [customReplyMessage, setCustomReplyMessage] = useState('');
   const [selectedLeadIds, setSelectedLeadIds] = useState([]);
+  const [copiedField, setCopiedField] = useState(null);
+
+  const handleCopyText = (text, fieldName) => {
+    if (!text) return;
+    navigator.clipboard.writeText(text);
+    setCopiedField(fieldName);
+    setTimeout(() => setCopiedField(null), 2000);
+  };
+
+  const handleOpenDetails = (inq) => {
+    setSelectedInquiry(inq);
+    setEditingNotes(inq.notes || '');
+    setCustomReplyMessage(replyTemplates[0].text(inq));
+    if (!inq.read) {
+      markAsRead(inq.id);
+    }
+  };
 
   const toggleSelectLead = (id) => {
     setSelectedLeadIds(prev => 
@@ -100,10 +124,10 @@ export default function AdminPage() {
     if (res.success) {
       setSecMessage({
         type: 'success',
-        text: res.message + ` (Live Verification OTP: ${res.otpDemo || '849201'})`
+        text: res.message || '6-digit verification code dispatched to registered contact.'
       });
     } else {
-      setSecMessage({ type: 'error', text: 'Failed to dispatch OTP.' });
+      setSecMessage({ type: 'error', text: res.message || 'Failed to dispatch verification code.' });
     }
   };
 
@@ -367,11 +391,11 @@ export default function AdminPage() {
             filteredInquiries.map((inq) => (
               <div
                 key={inq.id}
-                onClick={() => markAsRead(inq.id)}
-                className={`glass-card p-6 sm:p-7 rounded-3xl border transition-all relative overflow-hidden group ${
+                onClick={() => handleOpenDetails(inq)}
+                className={`glass-card p-6 sm:p-7 rounded-3xl border transition-all relative overflow-hidden group cursor-pointer ${
                   !inq.read 
                     ? 'border-amber-400/70 bg-gradient-to-r from-[#260e47] via-[#1a0833] to-[#1a0833] shadow-[0_0_30px_rgba(245,158,11,0.2)]' 
-                    : 'border-white/10 hover:border-amber-400/40 bg-[#16082b]'
+                    : 'border-white/10 hover:border-amber-400/50 bg-[#16082b]'
                 }`}
               >
                 {!inq.read && (
@@ -383,7 +407,10 @@ export default function AdminPage() {
                 <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6 pt-2">
                   <div className="space-y-3 flex-1">
                     <div className="flex flex-wrap items-center gap-3">
-                      <label className="flex items-center gap-2 cursor-pointer bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg hover:bg-white/10">
+                      <label 
+                        onClick={(e) => e.stopPropagation()} 
+                        className="flex items-center gap-2 cursor-pointer bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg hover:bg-white/10"
+                      >
                         <input
                           type="checkbox"
                           checked={selectedLeadIds.includes(inq.id)}
@@ -399,29 +426,32 @@ export default function AdminPage() {
                       <span className="text-xs font-mono font-bold text-amber-400 bg-amber-400/10 px-2.5 py-1 rounded-lg border border-amber-400/30">
                         {inq.id}
                       </span>
-                      <span className="text-xs text-[#a895be] font-mono">
-                        {new Date(inq.createdAt).toLocaleString()}
+                      <span className="text-xs text-[#a895be] font-mono flex items-center gap-1">
+                        <Clock className="w-3 h-3 text-gray-400" />
+                        <span>{new Date(inq.createdAt).toLocaleString()}</span>
                       </span>
                       
-                      <select
-                        value={inq.status}
-                        onChange={(e) => updateInquiryStatus(inq.id, e.target.value)}
-                        className={`text-xs font-bold px-3 py-1 rounded-full border cursor-pointer focus:outline-none ${
-                          inq.status === 'New' ? 'bg-red-500/20 text-red-300 border-red-500/50' :
-                          inq.status === 'In Progress' ? 'bg-amber-500/20 text-amber-300 border-amber-500/50' :
-                          inq.status === 'Contacted' ? 'bg-purple-500/20 text-purple-300 border-purple-500/50' :
-                          'bg-emerald-500/20 text-emerald-300 border-emerald-500/50'
-                        }`}
-                      >
-                        <option value="New" className="bg-[#120722] text-white">🔴 Status: New</option>
-                        <option value="In Progress" className="bg-[#120722] text-white">🟡 Status: In Progress</option>
-                        <option value="Contacted" className="bg-[#120722] text-white">🟣 Status: Contacted</option>
-                        <option value="Closed" className="bg-[#120722] text-white">🟢 Status: Closed</option>
-                      </select>
+                      <div onClick={(e) => e.stopPropagation()}>
+                        <select
+                          value={inq.status}
+                          onChange={(e) => updateInquiryStatus(inq.id, e.target.value)}
+                          className={`text-xs font-bold px-3 py-1 rounded-full border cursor-pointer focus:outline-none ${
+                            inq.status === 'New' ? 'bg-red-500/20 text-red-300 border-red-500/50' :
+                            inq.status === 'In Progress' ? 'bg-amber-500/20 text-amber-300 border-amber-500/50' :
+                            inq.status === 'Contacted' ? 'bg-purple-500/20 text-purple-300 border-purple-500/50' :
+                            'bg-emerald-500/20 text-emerald-300 border-emerald-500/50'
+                          }`}
+                        >
+                          <option value="New" className="bg-[#120722] text-white">🔴 Status: New</option>
+                          <option value="In Progress" className="bg-[#120722] text-white">🟡 Status: In Progress</option>
+                          <option value="Contacted" className="bg-[#120722] text-white">🟣 Status: Contacted</option>
+                          <option value="Closed" className="bg-[#120722] text-white">🟢 Status: Closed</option>
+                        </select>
+                      </div>
                     </div>
 
                     <div>
-                      <h3 className="text-xl font-extrabold font-heading text-white flex items-center gap-2">
+                      <h3 className="text-xl font-extrabold font-heading text-white flex items-center gap-2 group-hover:text-amber-300 transition-colors">
                         <span>{inq.name}</span>
                         {inq.company && <span className="text-xs font-semibold text-amber-300">({inq.company})</span>}
                       </h3>
@@ -446,11 +476,18 @@ export default function AdminPage() {
                       <div className="flex items-center gap-1.5 text-amber-300 bg-amber-400/10 px-3 py-1.5 rounded-xl border border-amber-400/30 font-bold">
                         <span>Budget: {inq.budget}</span>
                       </div>
+
+                      {inq.location && (
+                        <div className="flex items-center gap-1.5 text-purple-300 bg-purple-500/10 px-3 py-1.5 rounded-xl border border-purple-500/30 font-medium">
+                          <MapPin className="w-3.5 h-3.5 text-purple-400" />
+                          <span>{inq.location}</span>
+                        </div>
+                      )}
                     </div>
 
                     <div className="p-3.5 rounded-2xl bg-[#100422] border border-white/5 text-xs text-[#d1c4e9] leading-relaxed">
                       <span className="font-bold text-white block mb-0.5">Inquiry Details &amp; Requirements:</span>
-                      <span>{inq.message}</span>
+                      <span className="line-clamp-3">{inq.message}</span>
                     </div>
 
                     {inq.notes && (
@@ -461,14 +498,25 @@ export default function AdminPage() {
                     )}
                   </div>
 
-                  <div className="flex flex-col sm:flex-row lg:flex-col gap-2.5 shrink-0 lg:w-64 border-t lg:border-t-0 lg:border-l border-white/10 pt-4 lg:pt-0 lg:pl-6">
+                  <div 
+                    onClick={(e) => e.stopPropagation()} 
+                    className="flex flex-col sm:flex-row lg:flex-col gap-2.5 shrink-0 lg:w-64 border-t lg:border-t-0 lg:border-l border-white/10 pt-4 lg:pt-0 lg:pl-6"
+                  >
                     <span className="text-[10px] font-bold text-amber-400 uppercase tracking-wider font-mono">
-                      DIRECT CUSTOMER ACTION
+                      DIRECT ACTIONS
                     </span>
 
                     <button
+                      onClick={() => handleOpenDetails(inq)}
+                      className="w-full btn-gold text-[#120722] font-black text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                    >
+                      <Eye className="w-4 h-4" />
+                      <span>View Full Details</span>
+                    </button>
+
+                    <button
                       onClick={() => openWhatsApp(inq.phone, replyTemplates[0].text(inq))}
-                      className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                      className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-2 px-4 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
                     >
                       <MessageSquare className="w-4 h-4" />
                       <span>Send WhatsApp Msg</span>
@@ -476,33 +524,21 @@ export default function AdminPage() {
 
                     <a
                       href={`tel:${inq.phone}`}
-                      className="w-full bg-amber-400 hover:bg-amber-300 text-[#120722] font-extrabold text-xs py-2.5 px-4 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2"
+                      className="w-full bg-white/10 hover:bg-white/20 text-white font-bold text-xs py-2 px-4 rounded-xl transition-all border border-white/15 flex items-center justify-center gap-2"
                     >
-                      <Phone className="w-4 h-4" />
+                      <Phone className="w-4 h-4 text-amber-400" />
                       <span>Direct Phone Call</span>
                     </a>
 
-                    {inq.email && (
+                    {inq.email && inq.email !== 'N/A' && (
                       <a
                         href={`mailto:${inq.email}?subject=Regarding your infrastructure inquiry with The Global Enterprises&body=${encodeURIComponent(replyTemplates[0].text(inq))}`}
-                        className="w-full bg-white/10 hover:bg-white/20 text-white font-bold text-xs py-2 px-4 rounded-xl transition-all border border-white/20 flex items-center justify-center gap-2"
+                        className="w-full bg-white/5 hover:bg-white/15 text-white font-medium text-xs py-2 px-4 rounded-xl transition-all border border-white/10 flex items-center justify-center gap-2"
                       >
-                        <Mail className="w-4 h-4 text-amber-400" />
-                        <span>Send Official Email</span>
+                        <Mail className="w-4 h-4 text-purple-400" />
+                        <span>Send Email</span>
                       </a>
                     )}
-
-                    <button
-                      onClick={() => {
-                        setSelectedInquiry(inq);
-                        setEditingNotes(inq.notes || '');
-                        setCustomReplyMessage(replyTemplates[0].text(inq));
-                      }}
-                      className="w-full bg-[#261047] hover:bg-[#32165b] text-amber-300 font-bold text-xs py-2 px-4 rounded-xl border border-amber-400/40 transition-all flex items-center justify-center gap-2 cursor-pointer mt-1"
-                    >
-                      <FileText className="w-4 h-4" />
-                      <span>Quick Templates &amp; Notes</span>
-                    </button>
 
                     <button
                       onClick={(e) => {
@@ -511,7 +547,7 @@ export default function AdminPage() {
                           deleteInquiry(inq.id);
                         }
                       }}
-                      className="text-red-400 hover:text-red-300 text-[11px] font-semibold flex items-center justify-center gap-1 mt-2 cursor-pointer"
+                      className="text-red-400 hover:text-red-300 text-[11px] font-semibold flex items-center justify-center gap-1 mt-1 cursor-pointer"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                       <span>Delete Lead</span>
@@ -526,9 +562,14 @@ export default function AdminPage() {
 
       </div>
 
-      {isSecurityModalOpen && (
-        <div className="fixed inset-0 z-[9999] bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="glass-card max-w-lg w-full p-6 sm:p-8 rounded-3xl border border-amber-400/60 shadow-2xl relative">
+      {isSecurityModalOpen && typeof document !== 'undefined' && createPortal(
+        <div 
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setIsSecurityModalOpen(false);
+          }}
+          className="fixed inset-0 z-[99999] bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-fadeIn"
+        >
+          <div className="glass-card max-w-lg w-full p-6 sm:p-8 rounded-3xl border border-amber-400/60 shadow-2xl relative my-auto">
             
             <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
               <div className="flex items-center gap-2.5">
@@ -539,7 +580,7 @@ export default function AdminPage() {
               </div>
               <button
                 onClick={() => setIsSecurityModalOpen(false)}
-                className="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center font-bold hover:bg-white/20"
+                className="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center font-bold hover:bg-white/20 cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -548,7 +589,7 @@ export default function AdminPage() {
             <div className="grid grid-cols-2 gap-2 mb-6 p-1 rounded-xl bg-[#120626] border border-white/10">
               <button
                 onClick={() => setSecTab('old_pass')}
-                className={`py-2 rounded-lg text-xs font-bold transition-all ${
+                className={`py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   secTab === 'old_pass' ? 'bg-amber-400 text-[#120722]' : 'text-gray-300 hover:text-white'
                 }`}
               >
@@ -556,7 +597,7 @@ export default function AdminPage() {
               </button>
               <button
                 onClick={() => setSecTab('otp')}
-                className={`py-2 rounded-lg text-xs font-bold transition-all ${
+                className={`py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   secTab === 'otp' ? 'bg-amber-400 text-[#120722]' : 'text-gray-300 hover:text-white'
                 }`}
               >
@@ -610,7 +651,7 @@ export default function AdminPage() {
                       <button
                         type="button"
                         onClick={handleSendOTP}
-                        className="btn-gold px-3.5 py-2 rounded-xl text-xs font-bold shrink-0"
+                        className="btn-gold px-3.5 py-2 rounded-xl text-xs font-bold shrink-0 cursor-pointer"
                       >
                         Send OTP
                       </button>
@@ -671,87 +712,275 @@ export default function AdminPage() {
             </form>
 
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
-      {selectedInquiry && (
-        <div className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="glass-card max-w-2xl w-full p-6 sm:p-8 rounded-3xl border border-amber-400/60 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      {selectedInquiry && typeof document !== 'undefined' && createPortal(
+        <div 
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setSelectedInquiry(null);
+          }}
+          className="fixed inset-0 z-[99999] bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-fadeIn"
+        >
+          <div className="glass-card max-w-3xl w-full rounded-3xl border border-amber-400/60 shadow-2xl bg-[#17082e] flex flex-col max-h-[85vh] sm:max-h-[88vh] overflow-hidden my-auto">
             
-            <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+            {/* Pinned Header */}
+            <div className="p-5 sm:p-6 pb-4 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shrink-0 bg-[#17082e]">
               <div>
-                <span className="text-[10px] font-mono text-amber-400 uppercase tracking-widest block">
-                  LEAD ACTION CENTER &bull; {selectedInquiry.id}
-                </span>
-                <h3 className="text-xl font-bold font-heading text-white">
-                  {selectedInquiry.name} ({selectedInquiry.phone})
+                <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                  <span className="text-xs font-mono font-bold text-amber-400 bg-amber-400/10 px-2.5 py-0.5 rounded-lg border border-amber-400/30">
+                    {selectedInquiry.id}
+                  </span>
+                  <span className="text-xs text-[#a895be] font-mono flex items-center gap-1">
+                    <Clock className="w-3 h-3 text-gray-400" />
+                    <span>{new Date(selectedInquiry.createdAt).toLocaleString()}</span>
+                  </span>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-black font-heading text-white flex items-center gap-2">
+                  <span>{selectedInquiry.name}</span>
+                  {selectedInquiry.company && (
+                    <span className="text-xs sm:text-sm font-semibold text-amber-300">
+                      ({selectedInquiry.company})
+                    </span>
+                  )}
                 </h3>
               </div>
-              <button
-                onClick={() => setSelectedInquiry(null)}
-                className="w-9 h-9 rounded-full bg-white/10 text-white flex items-center justify-center font-bold text-lg hover:bg-white/20"
-              >
-                &times;
-              </button>
+
+              <div className="flex items-center gap-3 self-end sm:self-center">
+                <select
+                  value={selectedInquiry.status}
+                  onChange={(e) => {
+                    const newStatus = e.target.value;
+                    updateInquiryStatus(selectedInquiry.id, newStatus);
+                    setSelectedInquiry(prev => ({ ...prev, status: newStatus }));
+                  }}
+                  className={`text-xs font-bold px-3 py-1.5 rounded-xl border cursor-pointer focus:outline-none ${
+                    selectedInquiry.status === 'New' ? 'bg-red-500/20 text-red-300 border-red-500/50' :
+                    selectedInquiry.status === 'In Progress' ? 'bg-amber-500/20 text-amber-300 border-amber-500/50' :
+                    selectedInquiry.status === 'Contacted' ? 'bg-purple-500/20 text-purple-300 border-purple-500/50' :
+                    'bg-emerald-500/20 text-emerald-300 border-emerald-500/50'
+                  }`}
+                >
+                  <option value="New" className="bg-[#120722] text-white">🔴 Status: New</option>
+                  <option value="In Progress" className="bg-[#120722] text-white">🟡 Status: In Progress</option>
+                  <option value="Contacted" className="bg-[#120722] text-white">🟣 Status: Contacted</option>
+                  <option value="Closed" className="bg-[#120722] text-white">🟢 Status: Closed</option>
+                </select>
+
+                <button
+                  onClick={() => setSelectedInquiry(null)}
+                  className="p-2 rounded-xl bg-white/10 text-white hover:bg-amber-400 hover:text-[#10061e] transition-colors cursor-pointer"
+                  aria-label="Close modal"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
             </div>
 
-            <div className="mb-6 space-y-3">
-              <label className="block text-xs font-bold text-amber-300 uppercase tracking-wider">
-                Select Pre-Filled WhatsApp / SMS Response Template:
-              </label>
+            {/* Scrollable Details Body */}
+            <div className="p-5 sm:p-6 overflow-y-auto flex-1 space-y-6">
               
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                {replyTemplates.map((tmpl, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setCustomReplyMessage(tmpl.text(selectedInquiry))}
-                    className="p-2.5 rounded-xl bg-white/5 hover:bg-amber-400/20 border border-white/10 hover:border-amber-400 text-left text-xs font-bold text-white transition-all"
-                  >
-                    {tmpl.title}
-                  </button>
-                ))}
+              {/* Contact Info Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div className="p-3.5 rounded-2xl bg-[#110524] border border-white/10 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 shrink-0">
+                      <Phone className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-gray-400 uppercase tracking-wider block font-medium">Contact Phone</span>
+                      <span className="text-xs sm:text-sm font-mono font-bold text-white">{selectedInquiry.phone}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      onClick={() => handleCopyText(selectedInquiry.phone, 'phone')}
+                      className="p-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300 hover:text-white transition-colors text-xs flex items-center gap-1"
+                      title="Copy Phone Number"
+                    >
+                      {copiedField === 'phone' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                    </button>
+                    <a
+                      href={`tel:${selectedInquiry.phone}`}
+                      className="p-1.5 rounded-lg bg-amber-400/20 hover:bg-amber-400 text-amber-300 hover:text-[#120722] transition-colors"
+                      title="Direct Call"
+                    >
+                      <Phone className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                </div>
+
+                <div className="p-3.5 rounded-2xl bg-[#110524] border border-white/10 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-300 shrink-0">
+                      <Mail className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-gray-400 uppercase tracking-wider block font-medium">Email Address</span>
+                      <span className="text-xs sm:text-sm font-mono text-[#d1c4e9] truncate max-w-[150px] sm:max-w-[200px] block">
+                        {selectedInquiry.email || 'N/A'}
+                      </span>
+                    </div>
+                  </div>
+
+                  {selectedInquiry.email && selectedInquiry.email !== 'N/A' && (
+                    <div className="flex items-center gap-1.5">
+                      <button
+                        onClick={() => handleCopyText(selectedInquiry.email, 'email')}
+                        className="p-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300 hover:text-white transition-colors text-xs flex items-center gap-1"
+                        title="Copy Email"
+                      >
+                        {copiedField === 'email' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                      </button>
+                      <a
+                        href={`mailto:${selectedInquiry.email}?subject=Regarding your infrastructure inquiry with The Global Enterprises&body=${encodeURIComponent(replyTemplates[0].text(selectedInquiry))}`}
+                        className="p-1.5 rounded-lg bg-purple-500/20 hover:bg-purple-500 text-purple-300 hover:text-white transition-colors"
+                        title="Send Email"
+                      >
+                        <Mail className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+                  )}
+                </div>
               </div>
 
-              <textarea
-                rows={4}
-                value={customReplyMessage}
-                onChange={(e) => setCustomReplyMessage(e.target.value)}
-                className="w-full bg-[#120722] border border-white/20 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-amber-400"
-              />
+              {/* Requirement & Service Box */}
+              <div className="p-4 rounded-2xl bg-[#110524] border border-amber-400/30 space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
+                  <div>
+                    <span className="text-[10px] font-bold text-amber-400 uppercase tracking-wider font-mono">
+                      PRIMARY REQUIRED SERVICE:
+                    </span>
+                    <div className="text-sm font-extrabold text-white mt-0.5">
+                      {selectedInquiry.service}
+                    </div>
+                  </div>
 
-              <button
-                onClick={() => openWhatsApp(selectedInquiry.phone, customReplyMessage)}
-                className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-3 rounded-xl shadow-lg flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <Send className="w-4 h-4" />
-                <span>Dispatch to WhatsApp Now ({selectedInquiry.phone})</span>
-              </button>
+                  <div className="flex items-center gap-3 text-xs">
+                    {selectedInquiry.budget && (
+                      <span className="px-2.5 py-1 rounded-lg bg-amber-400/10 border border-amber-400/30 text-amber-300 font-bold">
+                        Budget: {selectedInquiry.budget}
+                      </span>
+                    )}
+                    {selectedInquiry.location && (
+                      <span className="px-2.5 py-1 rounded-lg bg-purple-500/10 border border-purple-500/30 text-purple-300 font-medium flex items-center gap-1">
+                        <MapPin className="w-3 h-3 text-purple-400" />
+                        <span>{selectedInquiry.location}</span>
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-xs font-bold text-gray-200">
+                      Full Requirement / Message:
+                    </span>
+                    <button
+                      onClick={() => handleCopyText(selectedInquiry.message, 'message')}
+                      className="text-[11px] text-amber-300 hover:text-amber-200 flex items-center gap-1 cursor-pointer"
+                    >
+                      {copiedField === 'message' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                      <span>{copiedField === 'message' ? 'Copied!' : 'Copy Text'}</span>
+                    </button>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#d1c4e9] leading-relaxed p-3 rounded-xl bg-[#0b0318] border border-white/5 whitespace-pre-wrap select-text font-normal">
+                    {selectedInquiry.message}
+                  </p>
+                </div>
+              </div>
+
+              {/* Internal Office Notes */}
+              <div className="space-y-2">
+                <label className="block text-xs font-bold text-amber-300 uppercase tracking-wider">
+                  Internal Private Notes (Office Tracking):
+                </label>
+                <textarea
+                  rows={2}
+                  value={editingNotes}
+                  onChange={(e) => setEditingNotes(e.target.value)}
+                  placeholder="Add internal notes on site audits, Quotation sent, BOQ estimates, follow-ups..."
+                  className="w-full bg-[#110524] border border-white/20 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-amber-400"
+                />
+                <button
+                  onClick={() => {
+                    updateInquiryNotes(selectedInquiry.id, editingNotes);
+                    setSelectedInquiry(prev => ({ ...prev, notes: editingNotes }));
+                    handleCopyText(editingNotes, 'notes_saved');
+                  }}
+                  className="btn-glass px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 hover:border-amber-400 cursor-pointer text-amber-300"
+                >
+                  <Check className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>{copiedField === 'notes_saved' ? 'Notes Saved Successfully!' : 'Save Notes'}</span>
+                </button>
+              </div>
+
+              {/* Quick WhatsApp / SMS Dispatcher */}
+              <div className="space-y-3 pt-4 border-t border-white/10">
+                <label className="block text-xs font-bold text-emerald-300 uppercase tracking-wider flex items-center gap-1.5">
+                  <MessageSquare className="w-4 h-4 text-emerald-400" />
+                  <span>Instant WhatsApp Follow-Up:</span>
+                </label>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                  {replyTemplates.map((tmpl, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCustomReplyMessage(tmpl.text(selectedInquiry))}
+                      className="p-2.5 rounded-xl bg-white/5 hover:bg-amber-400/20 border border-white/10 hover:border-amber-400 text-left text-xs font-semibold text-white transition-all cursor-pointer"
+                    >
+                      {tmpl.title}
+                    </button>
+                  ))}
+                </div>
+
+                <textarea
+                  rows={3}
+                  value={customReplyMessage}
+                  onChange={(e) => setCustomReplyMessage(e.target.value)}
+                  className="w-full bg-[#110524] border border-white/20 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-amber-400"
+                />
+
+                <button
+                  onClick={() => openWhatsApp(selectedInquiry.phone, customReplyMessage)}
+                  className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-3 rounded-xl shadow-lg flex items-center justify-center gap-2 cursor-pointer transition-all"
+                >
+                  <Send className="w-4 h-4" />
+                  <span>Send Message on WhatsApp ({selectedInquiry.phone})</span>
+                </button>
+              </div>
+
             </div>
 
-            <div className="space-y-3 pt-4 border-t border-white/10">
-              <label className="block text-xs font-bold text-amber-300 uppercase tracking-wider">
-                Save Internal Admin Notes:
-              </label>
-              <textarea
-                rows={3}
-                value={editingNotes}
-                onChange={(e) => setEditingNotes(e.target.value)}
-                placeholder="Add private office notes regarding site visits, quotation status, procurement..."
-                className="w-full bg-[#120722] border border-white/20 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-amber-400"
-              />
+            {/* Pinned Footer */}
+            <div className="p-4 sm:p-6 pt-3 sm:pt-4 border-t border-white/10 bg-[#120524]/95 backdrop-blur-md flex items-center justify-between gap-4 shrink-0">
               <button
                 onClick={() => {
-                  updateInquiryNotes(selectedInquiry.id, editingNotes);
-                  setSelectedInquiry(null);
+                  if (window.confirm(`Are you sure you want to delete lead ${selectedInquiry.name}?`)) {
+                    deleteInquiry(selectedInquiry.id);
+                    setSelectedInquiry(null);
+                  }
                 }}
-                className="btn-gold w-full py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider"
+                className="text-red-400 hover:text-red-300 text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
               >
-                Save Notes &amp; Close
+                <Trash2 className="w-4 h-4" />
+                <span>Delete Lead</span>
+              </button>
+
+              <button
+                onClick={() => setSelectedInquiry(null)}
+                className="btn-gold px-6 py-2.5 rounded-xl text-xs font-black cursor-pointer shadow-lg"
+              >
+                Close Details
               </button>
             </div>
 
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
     </div>

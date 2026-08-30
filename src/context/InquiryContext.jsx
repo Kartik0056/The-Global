@@ -66,20 +66,47 @@ export function InquiryProvider({ children }) {
 
   const isLoggedIn = Boolean(adminUser && token);
 
+  const logout = useCallback(() => {
+    setToken('');
+    setAdminUser(null);
+    setInquiries([]);
+    setUnreadCount(0);
+    localStorage.removeItem(STORAGE_KEYS.TOKEN);
+    localStorage.removeItem(STORAGE_KEYS.USER);
+    localStorage.removeItem(STORAGE_KEYS.INQUIRIES);
+  }, []);
+
   const syncInquiriesState = useCallback((data) => {
     if (!Array.isArray(data)) return;
     setInquiries(data);
     setUnreadCount(data.filter((item) => !item.read).length);
     try {
       localStorage.setItem(STORAGE_KEYS.INQUIRIES, JSON.stringify(data));
-    } catch (err) {
-      console.error('Failed to cache inquiries to localStorage', err);
+    } catch {
+      // Storage quota exception safe handling
     }
   }, []);
 
   const fetchInquiries = useCallback(async () => {
+    // Only fetch customer inquiries when authorized as admin
+    if (!token) {
+      setInquiries([]);
+      setUnreadCount(0);
+      return;
+    }
+
     try {
-      const res = await fetch(`${API_BASE}/inquiries`);
+      const res = await fetch(`${API_BASE}/inquiries`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (res.status === 401 || res.status === 403) {
+        logout();
+        return;
+      }
+
       if (res.ok) {
         const json = await res.json();
         if (json.success && Array.isArray(json.data)) {
@@ -88,24 +115,25 @@ export function InquiryProvider({ children }) {
         }
       }
     } catch {
-      // Backend unavailable, fallback to local storage
-    }
-
-    try {
-      const cached = localStorage.getItem(STORAGE_KEYS.INQUIRIES);
-      if (cached) {
-        syncInquiriesState(JSON.parse(cached));
+      // Network failure, attempt cache if authenticated
+      try {
+        const cached = localStorage.getItem(STORAGE_KEYS.INQUIRIES);
+        if (cached && token) {
+          syncInquiriesState(JSON.parse(cached));
+        }
+      } catch {
+        // Fallback catch
       }
-    } catch (err) {
-      console.error('Failed to read cached inquiries', err);
     }
-  }, [syncInquiriesState]);
+  }, [token, logout, syncInquiriesState]);
 
   useEffect(() => {
-    fetchInquiries();
-    const interval = setInterval(fetchInquiries, 5000);
-    return () => clearInterval(interval);
-  }, [fetchInquiries]);
+    if (isLoggedIn) {
+      fetchInquiries();
+      const interval = setInterval(fetchInquiries, 8000);
+      return () => clearInterval(interval);
+    }
+  }, [isLoggedIn, fetchInquiries]);
 
   const showToast = useCallback((toast, duration = 6000) => {
     const id = Date.now();
@@ -126,46 +154,26 @@ export function InquiryProvider({ children }) {
         body: JSON.stringify(formData),
       });
 
-      if (res.ok) {
-        const json = await res.json();
-        if (json.success && json.data) {
-          createdInquiry = json.data;
-        }
+      const json = await res.json();
+
+      if (res.ok && json.success && json.data) {
+        createdInquiry = json.data;
+      } else {
+        throw new Error(json.message || 'Failed to submit inquiry.');
       }
-    } catch {
-      // Backend offline fallback
+    } catch (err) {
+      setIsLoading(false);
+      showToast({
+        type: 'user',
+        title: 'Submission Notice',
+        message: err.message || 'Unable to submit at this moment. Please check network connection.',
+      });
+      return null;
     }
-
-    if (!createdInquiry) {
-      createdInquiry = {
-        id: `INQ-${Math.floor(1000 + Math.random() * 9000)}`,
-        name: formData.name,
-        company: formData.company || '',
-        phone: formData.phone,
-        email: formData.email || '',
-        service: formData.service || '',
-        budget: formData.budget || '',
-        location: formData.location || '',
-        message: formData.message || '',
-        status: 'New',
-        read: false,
-        notes: '',
-        createdAt: new Date().toISOString(),
-      };
-    }
-
-    setInquiries((prev) => {
-      const updated = [createdInquiry, ...prev];
-      try {
-        localStorage.setItem(STORAGE_KEYS.INQUIRIES, JSON.stringify(updated));
-      } catch {}
-      return updated;
-    });
-    setUnreadCount((prev) => prev + 1);
 
     showToast({
       type: 'user',
-      title: 'Inquiry Sent Successfully',
+      title: 'Inquiry Received Securely',
       message: `Thank you ${createdInquiry.name}! Our team will contact you at ${createdInquiry.phone}.`,
     });
 
@@ -173,6 +181,9 @@ export function InquiryProvider({ children }) {
       if (soundEnabled) {
         playNotificationChime();
       }
+
+      setInquiries((prev) => [createdInquiry, ...prev]);
+      setUnreadCount((prev) => prev + 1);
 
       showToast({
         type: 'admin',
@@ -199,64 +210,57 @@ export function InquiryProvider({ children }) {
 
       const json = await res.json();
 
-      if (res.ok && json.success) {
+      if (res.ok && json.success && json.token) {
         setToken(json.token);
         setAdminUser(json.admin);
         localStorage.setItem(STORAGE_KEYS.TOKEN, json.token);
         localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(json.admin));
-
-        const pendingUnread = inquiries.filter((i) => !i.read).length;
-        if (pendingUnread > 0) {
-          if (soundEnabled) playNotificationChime();
-          showToast(
-            {
-              type: 'admin',
-              title: 'Welcome Back',
-              message: `You have ${pendingUnread} new lead(s) waiting in your CRM.`,
-            },
-            7000
-          );
-        }
 
         setIsLoading(false);
         return { success: true };
       }
 
       setIsLoading(false);
-      return { success: false, message: json.message || 'Invalid Admin ID or Password' };
+      return { success: false, message: json.message || 'Invalid credentials.' };
     } catch {
       setIsLoading(false);
-      return { success: false, message: 'Invalid credentials or authentication server error.' };
+      return { success: false, message: 'Authentication server unavailable. Please try again later.' };
     }
   };
 
-  const logout = () => {
-    setToken('');
-    setAdminUser(null);
-    localStorage.removeItem(STORAGE_KEYS.TOKEN);
-    localStorage.removeItem(STORAGE_KEYS.USER);
-  };
-
   const requestOTP = async (destination) => {
+    if (!token) {
+      return { success: false, message: 'Admin authentication required to request verification code.' };
+    }
+
     try {
       const res = await fetch(`${API_BASE}/admin/send-otp`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
         body: JSON.stringify({ destination }),
       });
       return await res.json();
     } catch {
-      const dummyOTP = Math.floor(100000 + Math.random() * 900000).toString();
-      return { success: true, message: `OTP sent to ${destination}`, otpDemo: dummyOTP };
+      return { success: false, message: 'Failed to request verification code from server.' };
     }
   };
 
   const changePassword = async (payload) => {
+    if (!token) {
+      return { success: false, message: 'Admin authentication required.' };
+    }
+
     setIsLoading(true);
     try {
       const res = await fetch(`${API_BASE}/admin/change-password`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
         body: JSON.stringify(payload),
       });
       const json = await res.json();
@@ -264,108 +268,118 @@ export function InquiryProvider({ children }) {
       return json;
     } catch {
       setIsLoading(false);
-      return { success: false, message: 'Failed to update password. Ensure backend API is active.' };
+      return { success: false, message: 'Failed to update password. Ensure backend API is operational.' };
     }
   };
 
   const updateInquiryStatus = async (id, status) => {
+    if (!token) return;
+
     setInquiries((prev) => {
       const updated = prev.map((inq) => (inq.id === id ? { ...inq, status } : inq));
-      try {
-        localStorage.setItem(STORAGE_KEYS.INQUIRIES, JSON.stringify(updated));
-      } catch {}
       return updated;
     });
 
     try {
       await fetch(`${API_BASE}/inquiries/${id}`, {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
         body: JSON.stringify({ status }),
       });
-    } catch (err) {
-      console.warn('API update status fallback:', err);
+    } catch {
+      // Offline fallback safe
     }
   };
 
   const updateInquiryNotes = async (id, notes) => {
+    if (!token) return;
+
     setInquiries((prev) => {
       const updated = prev.map((inq) => (inq.id === id ? { ...inq, notes } : inq));
-      try {
-        localStorage.setItem(STORAGE_KEYS.INQUIRIES, JSON.stringify(updated));
-      } catch {}
       return updated;
     });
 
     try {
       await fetch(`${API_BASE}/inquiries/${id}`, {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
         body: JSON.stringify({ notes }),
       });
-    } catch (err) {
-      console.warn('API update notes fallback:', err);
+    } catch {
+      // Offline fallback safe
     }
   };
 
   const markAsRead = async (id) => {
+    if (!token) return;
+
     setInquiries((prev) => {
       const updated = prev.map((inq) => (inq.id === id ? { ...inq, read: true } : inq));
       setUnreadCount(updated.filter((item) => !item.read).length);
-      try {
-        localStorage.setItem(STORAGE_KEYS.INQUIRIES, JSON.stringify(updated));
-      } catch {}
       return updated;
     });
 
     try {
       await fetch(`${API_BASE}/inquiries/${id}`, {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
         body: JSON.stringify({ read: true }),
       });
-    } catch (err) {
-      console.warn('API mark as read fallback:', err);
+    } catch {
+      // Offline fallback safe
     }
   };
 
   const deleteInquiry = async (id) => {
+    if (!token) return;
+
     setInquiries((prev) => {
       const updated = prev.filter((inq) => inq.id !== id);
       setUnreadCount(updated.filter((item) => !item.read).length);
-      try {
-        localStorage.setItem(STORAGE_KEYS.INQUIRIES, JSON.stringify(updated));
-      } catch {}
       return updated;
     });
 
     try {
-      await fetch(`${API_BASE}/inquiries/${id}`, { method: 'DELETE' });
-    } catch (err) {
-      console.warn('API delete fallback:', err);
+      await fetch(`${API_BASE}/inquiries/${id}`, { 
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+    } catch {
+      // Offline fallback safe
     }
   };
 
   const bulkDeleteInquiries = async (ids) => {
-    if (!Array.isArray(ids) || ids.length === 0) return;
+    if (!token || !Array.isArray(ids) || ids.length === 0) return;
 
     setInquiries((prev) => {
       const updated = prev.filter((inq) => !ids.includes(inq.id));
       setUnreadCount(updated.filter((item) => !item.read).length);
-      try {
-        localStorage.setItem(STORAGE_KEYS.INQUIRIES, JSON.stringify(updated));
-      } catch {}
       return updated;
     });
 
     try {
       await fetch(`${API_BASE}/inquiries/bulk-delete`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
         body: JSON.stringify({ ids }),
       });
-    } catch (err) {
-      console.warn('API bulk delete fallback:', err);
+    } catch {
+      // Offline fallback safe
     }
   };
 
@@ -405,6 +419,7 @@ export function InquiryProvider({ children }) {
       isAdminLoginOpen,
       openAdminLogin,
       closeAdminLogin,
+      logout,
     ]
   );
 
@@ -448,7 +463,7 @@ export function InquiryProvider({ children }) {
 
             <button
               onClick={() => setToastNotification(null)}
-              className="text-gray-400 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors"
+              className="text-gray-400 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors cursor-pointer"
               aria-label="Close notification"
             >
               <X className="w-4 h-4" />
@@ -467,4 +482,3 @@ export function useInquiry() {
   }
   return context;
 }
-
