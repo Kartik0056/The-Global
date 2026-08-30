@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import {
   Calendar,
   Users,
@@ -10,10 +10,44 @@ import {
   Shield,
   ArrowRight,
   Zap,
-  Building
+  Building,
+  ChevronLeft,
+  ChevronRight,
+  Clock,
+  Coins,
+  HeartHandshake
 } from 'lucide-react';
 
 export default function AboutSection({ onOpenSchedule }) {
+  const [activeValIndex, setActiveValIndex] = useState(0);
+  const touchStartX = useRef(null);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diffX = touchStartX.current - touchEndX;
+    if (diffX > 40) {
+      // Swiped left -> next
+      setActiveValIndex((prev) => (prev + 1) % coreValues.length);
+    } else if (diffX < -40) {
+      // Swiped right -> prev
+      setActiveValIndex((prev) => (prev - 1 + coreValues.length) % coreValues.length);
+    }
+    touchStartX.current = null;
+  };
+
+  const nextValue = () => {
+    setActiveValIndex((prev) => (prev + 1) % coreValues.length);
+  };
+
+  const prevValue = () => {
+    setActiveValIndex((prev) => (prev - 1 + coreValues.length) % coreValues.length);
+  };
+
   const stats = [
     {
       icon: Calendar,
@@ -50,11 +84,11 @@ export default function AboutSection({ onOpenSchedule }) {
   ];
 
   const coreValues = [
-    { title: 'Quality', statement: "We don't cut corners. Ever." },
-    { title: 'Timeliness', statement: 'We respect your deadlines because we know they matter.' },
-    { title: 'Value', statement: "Fair pricing for exceptional results – that's our promise." },
-    { title: 'Dedication', statement: "We're invested in your success and work closely with you every step of the way." },
-    { title: 'Integrity', statement: 'Straightforward communication and honest practices are non-negotiable.' },
+    { num: '01', title: 'Quality', statement: "We don't cut corners. Ever.", icon: Award },
+    { num: '02', title: 'Timeliness', statement: 'We respect your deadlines because we know they matter.', icon: Clock },
+    { num: '03', title: 'Value', statement: "Fair pricing for exceptional results – that's our promise.", icon: Coins },
+    { num: '04', title: 'Dedication', statement: "We're invested in your success and work closely with you every step of the way.", icon: HeartHandshake },
+    { num: '05', title: 'Integrity', statement: 'Straightforward communication and honest practices are non-negotiable.', icon: Shield },
   ];
 
   return (
@@ -239,7 +273,7 @@ export default function AboutSection({ onOpenSchedule }) {
         </div>
 
         <div className="mb-20">
-          <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
             <div className="section-badge justify-center mb-2">OUR VALUES</div>
             <h3 className="text-2xl sm:text-4xl font-extrabold font-heading text-white tracking-tight mb-2">
               WE&apos;RE REAL PEOPLE WHO CARE ABOUT <span className="text-gold-gradient">DELIVERING REAL RESULTS</span>
@@ -249,22 +283,143 @@ export default function AboutSection({ onOpenSchedule }) {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {coreValues.map((val, idx) => (
-              <div key={idx} className="glass-card p-5 rounded-2xl border border-white/10 hover:border-amber-400/40 transition-all bg-[#17082e] flex flex-col justify-between">
-                <div>
-                  <div className="text-[10px] font-bold text-amber-400 uppercase tracking-widest font-mono mb-2">
-                    VALUE 0{idx + 1}
+          {/* Desktop View: 5 Cards in a Row */}
+          <div className="hidden lg:grid lg:grid-cols-5 gap-4">
+            {coreValues.map((val, idx) => {
+              const Icon = val.icon;
+              return (
+                <div
+                  key={idx}
+                  className="glass-card p-5 rounded-2xl border border-white/10 hover:border-amber-400/40 transition-all duration-300 bg-[#17082e] flex flex-col justify-between group hover:-translate-y-1"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest font-mono">
+                        VALUE {val.num}
+                      </span>
+                      <div className="w-7 h-7 rounded-lg bg-amber-400/10 border border-amber-400/20 flex items-center justify-center text-amber-400 group-hover:bg-amber-400 group-hover:text-[#120722] transition-colors">
+                        <Icon className="w-3.5 h-3.5" />
+                      </div>
+                    </div>
+                    <h5 className="text-lg font-bold font-heading text-white mb-2 group-hover:text-amber-300 transition-colors">
+                      {val.title}
+                    </h5>
+                    <p className="text-xs text-[#d1c4e9] leading-relaxed">
+                      {val.statement}
+                    </p>
                   </div>
-                  <h5 className="text-lg font-bold font-heading text-white mb-2">
-                    {val.title}
-                  </h5>
-                  <p className="text-xs text-[#d1c4e9] leading-relaxed">
-                    {val.statement}
-                  </p>
                 </div>
-              </div>
-            ))}
+              );
+            })}
+          </div>
+
+          {/* Mobile & Tablet View: Single Interactive Box */}
+          <div className="lg:hidden">
+            {/* Quick-Select Tabs Pills */}
+            <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-3 mb-3 scrollbar-none no-scrollbar justify-start sm:justify-center px-1">
+              {coreValues.map((val, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => setActiveValIndex(idx)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 cursor-pointer ${
+                    activeValIndex === idx
+                      ? 'bg-amber-400 text-[#120722] shadow-lg shadow-amber-400/20 font-extrabold scale-[1.02]'
+                      : 'bg-[#1b0a36] text-[#c4b5fd] border border-white/10 hover:border-amber-400/30'
+                  }`}
+                >
+                  <span className="font-mono text-[10px] opacity-80">{val.num}</span>
+                  <span>{val.title}</span>
+                </button>
+              ))}
+            </div>
+
+            {/* The Single Box Container with Swipe Support */}
+            <div
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+              className="glass-card p-6 sm:p-7 rounded-3xl border border-amber-400/30 bg-gradient-to-br from-[#220c42] via-[#17082e] to-[#200a3d] shadow-2xl relative overflow-hidden transition-all duration-300"
+            >
+              {/* Decorative background glow */}
+              <div className="absolute top-0 right-0 w-36 h-36 bg-amber-400/10 rounded-full blur-2xl pointer-events-none"></div>
+
+              {/* Active Value Content */}
+              {(() => {
+                const currentVal = coreValues[activeValIndex];
+                const Icon = currentVal.icon;
+                return (
+                  <div key={activeValIndex} className="relative z-10 flex flex-col justify-between min-h-[175px] animate-fadeIn">
+                    <div>
+                      {/* Top Meta Bar */}
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-[10px] font-bold font-mono tracking-widest uppercase">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                          <span>VALUE {currentVal.num}</span>
+                        </div>
+                        <span className="text-[11px] font-bold font-mono text-[#c4b5fd]/80">
+                          {currentVal.num} / 0{coreValues.length}
+                        </span>
+                      </div>
+
+                      {/* Title and Icon */}
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-11 h-11 rounded-2xl bg-[#2b1050] border border-amber-400/40 flex items-center justify-center text-amber-400 shadow-md shrink-0">
+                          <Icon className="w-5 h-5" />
+                        </div>
+                        <h4 className="text-xl sm:text-2xl font-bold font-heading text-white">
+                          {currentVal.title}
+                        </h4>
+                      </div>
+
+                      {/* Statement */}
+                      <p className="text-sm sm:text-base text-[#dcd1f5] leading-relaxed mb-6 font-medium">
+                        &ldquo;{currentVal.statement}&rdquo;
+                      </p>
+                    </div>
+
+                    {/* Bottom Controls: Dots Indicator + Prev/Next Buttons */}
+                    <div className="pt-4 border-t border-white/10 flex items-center justify-between gap-4">
+                      {/* Dots */}
+                      <div className="flex items-center gap-1.5">
+                        {coreValues.map((_, dotIdx) => (
+                          <button
+                            key={dotIdx}
+                            type="button"
+                            onClick={() => setActiveValIndex(dotIdx)}
+                            aria-label={`Go to value ${dotIdx + 1}`}
+                            className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                              activeValIndex === dotIdx
+                                ? 'w-6 bg-amber-400 shadow-md shadow-amber-400/40'
+                                : 'w-2 bg-white/20 hover:bg-white/40'
+                            }`}
+                          />
+                        ))}
+                      </div>
+
+                      {/* Prev / Next Nav Buttons */}
+                      <div className="flex items-center gap-2">
+                        <button
+                          type="button"
+                          onClick={prevValue}
+                          aria-label="Previous Value"
+                          className="p-2.5 rounded-xl bg-[#240e44] border border-white/15 text-white hover:bg-white/10 active:scale-95 transition-all cursor-pointer"
+                        >
+                          <ChevronLeft className="w-4 h-4" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={nextValue}
+                          aria-label="Next Value"
+                          className="p-2.5 rounded-xl bg-amber-400 text-[#120722] font-bold hover:bg-amber-300 active:scale-95 transition-all shadow-md shadow-amber-400/20 cursor-pointer"
+                        >
+                          <ChevronRight className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })()}
+            </div>
           </div>
         </div>
 
