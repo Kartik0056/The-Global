@@ -94,7 +94,14 @@ export default function Footer() {
             <div className="space-y-3 text-xs text-[#d1c4e9]">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                <span>52/21 Basement, Pocket 52, CR Park, New Delhi-110019</span>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=52%2F21+Basement%2C+Pocket+52%2C+Chittaranjan+Park%2C+New+Delhi%2C+Delhi+110019"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-amber-300 transition-colors"
+                >
+                  52/21 Basement, Pocket 52, CR Park, New Delhi-110019
+                </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-amber-400 shrink-0" />

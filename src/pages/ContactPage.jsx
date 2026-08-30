@@ -110,7 +110,7 @@ export default function ContactPage() {
 
               <div className="flex items-center gap-4">
                 <a
-                  href="https://maps.google.com/?q=CR+Park+New+Delhi"
+                  href="https://www.google.com/maps/search/?api=1&query=52%2F21+Basement%2C+Pocket+52%2C+Chittaranjan+Park%2C+New+Delhi%2C+Delhi+110019"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-glass px-6 py-3 rounded-xl text-xs font-bold flex items-center gap-2 hover:border-amber-400"
@@ -121,6 +121,35 @@ export default function ContactPage() {
               </div>
             </div>
 
+          </div>
+
+          {/* Embedded Interactive Map Viewport */}
+          <div className="mt-10 rounded-3xl overflow-hidden border border-white/15 shadow-2xl bg-[#140828] relative">
+            <div className="p-4 bg-[#1b0a36] border-b border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs">
+              <div className="flex items-center gap-2 text-white font-bold">
+                <MapPin className="w-4 h-4 text-amber-400" />
+                <span>Live Location Pin &bull; 52/21 Pocket 52, CR Park, New Delhi-110019</span>
+              </div>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=52%2F21+Basement%2C+Pocket+52%2C+Chittaranjan+Park%2C+New+Delhi%2C+Delhi+110019"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-amber-300 font-bold hover:underline flex items-center gap-1"
+              >
+                <span>Get Driving Directions</span> &rarr;
+              </a>
+            </div>
+            <iframe
+              title="The Global Enterprises Office Location"
+              src="https://maps.google.com/maps?q=52/21+Pocket+52+Chittaranjan+Park+New+Delhi+110019&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="380"
+              style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) contrast(110%)' }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full"
+            ></iframe>
           </div>
         </div>
       </section>

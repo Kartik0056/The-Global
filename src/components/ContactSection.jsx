@@ -157,22 +157,28 @@ export default function ContactSection() {
               </div>
             </div>
 
-            <div className="glass-card p-5 sm:p-6 rounded-2xl border border-white/10 flex items-start gap-4 hover:border-amber-400/50 transition-all duration-300 group">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=52%2F21+Basement%2C+Pocket+52%2C+Chittaranjan+Park%2C+New+Delhi%2C+Delhi+110019"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-card p-5 sm:p-6 rounded-2xl border border-white/10 flex items-start gap-4 hover:border-amber-400/50 transition-all duration-300 group block"
+            >
               <div className="w-12 h-12 rounded-xl bg-[#28114b] border border-amber-400/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-400 group-hover:text-[#120722] transition-all shadow-md shrink-0">
                 <MapPin className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-amber-400">
-                  VISIT US
+                <div className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-amber-400 flex items-center gap-1">
+                  <span>VISIT US</span>
+                  <span className="text-[9px] text-[#c4b5fd] font-normal underline">(Open Map)</span>
                 </div>
-                <p className="text-sm font-bold text-white mt-0.5 leading-snug">
+                <p className="text-sm font-bold text-white mt-0.5 leading-snug group-hover:text-amber-300 transition-colors">
                   52/21 Basement, Pocket 52, CR Park, New Delhi-110019
                 </p>
                 <p className="text-xs text-[#b8a7dc] mt-0.5">
-                  National Headquarters &amp; Experience Studio
+                  National Headquarters &amp; Experience Studio &rarr;
                 </p>
               </div>
-            </div>
+            </a>
 
             <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-[#240e44] to-[#17082e] border border-amber-400/20 flex items-center gap-3.5">
               <div className="w-10 h-10 rounded-xl bg-amber-400/10 flex items-center justify-center text-amber-400 shrink-0">
