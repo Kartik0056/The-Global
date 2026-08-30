@@ -1,16 +1,16 @@
 import React from 'react';
-import { 
-  Calendar, 
-  Users, 
-  MapPin, 
-  Sparkles, 
-  Quote, 
-  Award, 
-  CheckCircle2, 
-  Shield, 
-  ArrowRight, 
-  Zap, 
-  Building 
+import {
+  Calendar,
+  Users,
+  MapPin,
+  Sparkles,
+  Quote,
+  Award,
+  CheckCircle2,
+  Shield,
+  ArrowRight,
+  Zap,
+  Building
 } from 'lucide-react';
 
 export default function AboutSection({ onOpenSchedule }) {
@@ -24,7 +24,7 @@ export default function AboutSection({ onOpenSchedule }) {
     {
       icon: Users,
       label: 'FOUNDERS',
-      value: 'Mr. Sachin & Mrs. Rajni Arora',
+      value: 'Mr. Sachin Arora',
       sub: 'Visionary leadership & client relationships'
     },
     {
@@ -131,7 +131,7 @@ export default function AboutSection({ onOpenSchedule }) {
               </div>
 
               <h3 className="text-xl sm:text-2xl font-bold font-heading text-white leading-snug mb-4">
-                When <span className="text-amber-400 font-semibold">Mr. Sachin Arora</span> and <span className="text-amber-400 font-semibold">Mrs. Rajni Arora</span> founded <span className="text-white">Global Enterprises</span> in 2017, they had a clear vision: <span className="text-purple-200">to build an entity that truly makes business life easier.</span>
+                When Mr. Sachin Arora and Mrs. Rajni Arora founded <span className="text-white">Global Enterprises</span> in 2017, they had a clear vision: <span className="text-purple-200">to build an entity that truly makes business life easier.</span>
               </h3>
 
               <p className="text-sm sm:text-base text-[#d1c4e9] leading-relaxed mb-4">
@@ -177,7 +177,7 @@ export default function AboutSection({ onOpenSchedule }) {
                   &ldquo;And because we believe in relationships, not just transactions, we offer full turnkey project management and maintenance services to keep everything on track for years to come.&rdquo;
                 </p>
                 <div className="mt-2 text-[10px] font-bold uppercase tracking-widest text-amber-400/80">
-                  &mdash; Founders: Mr. Sachin &amp; Mrs. Rajni Arora
+                  &mdash; Founders: Mr. Sachin Arora
                 </div>
               </div>
             </div>

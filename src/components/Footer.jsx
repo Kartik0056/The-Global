@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  ArrowUp, 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Calendar, 
-  Users 
+import {
+  ArrowUp,
+  Mail,
+  Phone,
+  MapPin,
+  Calendar,
+  Users
 } from 'lucide-react';
 
 export default function Footer() {
@@ -53,7 +53,7 @@ export default function Footer() {
               <span>&bull;</span>
               <div className="flex items-center gap-1.5">
                 <Users className="w-3.5 h-3.5 text-amber-400" />
-                <span>Sachin &amp; Rajni Arora</span>
+                <span>Sachin Arora</span>
               </div>
             </div>
           </div>

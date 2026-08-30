@@ -1,13 +1,13 @@
 import React from 'react';
 import AboutSection from '../components/AboutSection';
-import { 
-  ShieldCheck, 
-  Award, 
-  Calendar, 
-  Users, 
-  MapPin, 
-  CheckCircle, 
-  ArrowRight, 
+import {
+  ShieldCheck,
+  Award,
+  Calendar,
+  Users,
+  MapPin,
+  CheckCircle,
+  ArrowRight,
   Sparkles,
   Building
 } from 'lucide-react';
@@ -65,7 +65,7 @@ export default function AboutPage({ onOpenSchedule }) {
           </h1>
 
           <p className="text-base sm:text-lg text-[#d1c4e9] max-w-3xl mx-auto leading-relaxed">
-            Founded in 2017 by <span className="text-amber-400 font-semibold">Mr. Sachin Arora</span> and <span className="text-amber-400 font-semibold">Mrs. Rajni Arora</span>, Global Enterprises is your one-stop solution for modern workplace technology and secure office spaces.
+            Founded in 2017 by Mr. Sachin Arora and Mrs. Rajni Arora, Global Enterprises is your one-stop solution for modern workplace technology and secure office spaces.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mt-8 text-xs text-[#d8b4fe]">
@@ -89,7 +89,7 @@ export default function AboutPage({ onOpenSchedule }) {
 
       <section className="py-24 bg-[#10061e] border-t border-white/10 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="text-center max-w-2xl mx-auto mb-16">
             <div className="section-badge justify-center mb-2">OUR COMMITMENT</div>
             <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white mb-2">

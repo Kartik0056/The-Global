@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { 
-  ArrowRight, 
-  ShieldCheck, 
+import {
+  ArrowRight,
+  ShieldCheck,
   CheckCircle,
   Search,
   Info,
@@ -141,8 +141,8 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
 
   const filteredProducts = products.filter(p => {
     const matchesFilter = activeFilter === 'all' || p.category === activeFilter;
-    const matchesSearch = p.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          p.specs.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.specs.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesFilter && matchesSearch;
   });
 
@@ -166,11 +166,10 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
               <button
                 key={tab.id}
                 onClick={() => setActiveFilter(tab.id)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                  activeFilter === tab.id
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${activeFilter === tab.id
                     ? 'bg-amber-400 text-[#120722] shadow-lg'
                     : 'bg-white/5 border border-white/10 text-[#d1c4e9] hover:bg-white/10'
-                }`}
+                  }`}
               >
                 {tab.label}
               </button>
@@ -202,7 +201,7 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#140828] via-transparent to-transparent"></div>
-                
+
                 <div className="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-[#10061e]/90 border border-amber-400/40 text-[10px] font-bold text-amber-300 uppercase tracking-widest backdrop-blur-md">
                   {prod.categoryLabel}
                 </div>
@@ -227,7 +226,7 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
                     className="text-xs font-bold text-amber-300 hover:text-amber-200 flex items-center gap-1 cursor-pointer"
                   >
                     <Info className="w-3.5 h-3.5 text-amber-400" />
-                    <span>Technical Datasheet</span>
+                    <span>Know More</span>
                   </button>
 
                   <button
@@ -244,14 +243,14 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
         </div>
 
         {selectedProductModal && typeof document !== 'undefined' && createPortal(
-          <div 
+          <div
             onClick={(e) => {
               if (e.target === e.currentTarget) setSelectedProductModal(null);
             }}
             className="fixed inset-0 z-[99999] flex items-center justify-center p-3 sm:p-6 pt-20 sm:pt-24 pb-6 bg-black/85 backdrop-blur-md animate-fadeIn"
           >
             <div className="relative w-full max-w-2xl glass-card rounded-3xl border border-amber-400/50 bg-[#180933] shadow-2xl max-h-[78vh] sm:max-h-[82vh] flex flex-col overflow-hidden my-auto">
-              
+
               {/* Pinned Header */}
               <div className="p-4 sm:p-6 pb-3 sm:pb-4 border-b border-white/10 flex items-start justify-between gap-4 shrink-0 bg-[#180933]">
                 <div>
@@ -263,7 +262,7 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
                     {selectedProductModal.title}
                   </h3>
                 </div>
-                
+
                 <button
                   onClick={() => setSelectedProductModal(null)}
                   className="p-2 rounded-xl bg-white/10 text-white hover:bg-amber-400 hover:text-[#10061e] transition-colors cursor-pointer shrink-0"
