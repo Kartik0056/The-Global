@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" fill="none">
+  <!-- Singapore Airlines Golden Kris Bird Emblem -->
+  <g transform="translate(14, 12)">
+    <path d="M0 26L22 0L30 7L14 23L38 23L30 30H0V26Z" fill="#F59E0B"/>
+    <path d="M18 0L38 0L28 11L18 0Z" fill="#FDE68A"/>
+  </g>
+  <!-- SINGAPORE AIRLINES Official Wordmark -->
+  <text x="62" y="30" font-family="'Outfit', sans-serif" font-weight="900" font-size="17" fill="#FFFFFF" letter-spacing="1.5">SINGAPORE</text>
+  <text x="62" y="47" font-family="'Outfit', sans-serif" font-weight="800" font-size="14" fill="#F59E0B" letter-spacing="2.5">AIRLINES</text>
+</svg>

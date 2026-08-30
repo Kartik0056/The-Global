@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 60" fill="none">
+  <!-- AIRFRANCE Wordmark in Bold Pure White -->
+  <text x="10" y="41" font-family="'Outfit', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="26" fill="#FFFFFF" letter-spacing="0.5">AIRFRANCE</text>
+  
+  <!-- Official Signature Red Accent Slash positioned with generous clean space to the right of 'E' -->
+  <path d="M245 15H235C233 21 227 34 217 43C214 45.5 210 46.5 206 47H220C228 43 238 29 245 15Z" fill="#ED1C24"/>
+</svg>

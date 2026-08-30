@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <!-- Agile Aircraft Motion Wing Icon -->
+  <g transform="translate(10, 14)">
+    <rect x="0" y="0" width="28" height="28" rx="6" fill="#F59E0B" fill-opacity="0.15" stroke="#F59E0B" stroke-width="2"/>
+    <path d="M5 20L14 7L23 20M9 15H19" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- AGILE AIRPORT SERVICES Text -->
+  <text x="48" y="32" font-family="'Outfit', sans-serif" font-weight="900" font-size="16" fill="#FFFFFF" letter-spacing="1.5">AGILE AIRPORT</text>
+  <text x="49" y="46" font-family="'Outfit', sans-serif" font-weight="800" font-size="10" fill="#F59E0B" letter-spacing="2">SERVICES</text>
+</svg>

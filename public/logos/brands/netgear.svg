@@ -1,3 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
-    <text x="10" y="41" font-family="Arial, sans-serif" font-weight="900" font-size="29" fill="#ffffff" letter-spacing="2">NETGEAR</text>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <!-- Netgear Router Wave Icon -->
+  <g transform="translate(10, 14)">
+    <rect x="2" y="16" width="28" height="12" rx="3" fill="#F59E0B" fill-opacity="0.2" stroke="#F59E0B" stroke-width="2"/>
+    <line x1="8" y1="16" x2="8" y2="6" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+    <line x1="24" y1="16" x2="24" y2="6" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="8" cy="4" r="2" fill="#F59E0B"/>
+    <circle cx="24" cy="4" r="2" fill="#F59E0B"/>
+  </g>
+  <!-- NETGEAR Text -->
+  <text x="50" y="36" font-family="'Outfit', 'Helvetica Neue', sans-serif" font-weight="900" font-size="28" fill="#FFFFFF" letter-spacing="1.5">NETGEAR</text>
+  <path d="M50 40H195C202 40 208 38 214 34" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="51" y="50" font-family="'Outfit', sans-serif" font-weight="700" font-size="7" fill="#cbd5e1" letter-spacing="1.5">ENTERPRISE NETWORK GEAR</text>
+</svg>

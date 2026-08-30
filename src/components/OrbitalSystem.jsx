@@ -119,7 +119,7 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
     {
       id: 'fire',
       title: 'Fire Safety & Thermal Alarm',
-      category: 'LIFE SAFETY',
+      category: 'FIRE SAFETY',
       icon: Flame,
       orbit: 'inner',
       orbitRadius: 155,
@@ -158,14 +158,14 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
         <div className="absolute w-52 h-52 rounded-full bg-amber-500/10 blur-2xl -z-10 pointer-events-none"></div>
 
         <div className="relative z-20 flex flex-col items-center justify-center pointer-events-none">
-          <div className="relative flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-br from-[#1b0736] via-[#100422] to-[#15062c] border-2 border-amber-400/90 shadow-[0_0_40px_rgba(245,158,11,0.6),inset_0_0_20px_rgba(10,3,20,0.9)] overflow-hidden">
-            <div className="absolute inset-1.5 rounded-full border border-dashed border-amber-400/60 animate-spin-slow pointer-events-none"></div>
+          <div className="relative flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-br from-[#2b1052] via-[#15062c] to-[#0e0419] border-2 border-amber-400 shadow-[0_0_40px_rgba(245,158,11,0.7),inset_0_0_20px_rgba(168,85,247,0.4)]">
+            <div className="absolute inset-1 rounded-full border border-dashed border-amber-400/80 animate-spin-slow pointer-events-none"></div>
             
-            <div className="w-13 h-13 sm:w-16 sm:h-16 flex items-center justify-center relative z-10 p-1">
+            <div className="w-16 h-16 sm:w-19 sm:h-19 rounded-full bg-gradient-to-br from-[#ffffff] via-[#fcf8f0] to-[#f5ecda] shadow-[0_0_22px_rgba(245,158,11,0.65),inset_0_0_8px_rgba(217,119,6,0.25)] flex items-center justify-center p-1.5 relative z-10 border border-amber-400/80">
               <img
                 src="/logo.png"
                 alt="The Global Enterprises Logo"
-                className="max-w-full max-h-full object-contain drop-shadow-[0_0_10px_rgba(245,158,11,0.85)]"
+                className="w-full h-full object-contain filter drop-shadow-md"
               />
             </div>
           </div>

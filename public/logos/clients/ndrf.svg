@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <!-- NDRF Rescue Star Icon -->
+  <g transform="translate(10, 14)">
+    <circle cx="15" cy="15" r="14" fill="#EA580C" fill-opacity="0.2" stroke="#EA580C" stroke-width="2"/>
+    <polygon points="15,3 17.5,10 25,10 19,14.5 21,22 15,17.5 9,22 11,14.5 5,10 12.5,10" fill="#F97316"/>
+  </g>
+  <!-- NDRF INDIA Text -->
+  <text x="48" y="34" font-family="'Outfit', sans-serif" font-weight="900" font-size="22" fill="#FFFFFF" letter-spacing="2">NDRF INDIA</text>
+  <text x="49" y="47" font-family="'Outfit', sans-serif" font-weight="800" font-size="8.5" fill="#FDBA74" letter-spacing="1.5">DISASTER RESPONSE FORCE</text>
+</svg>

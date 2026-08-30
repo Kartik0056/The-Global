@@ -1,4 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
-    <rect x="10" y="12" width="180" height="36" rx="6" fill="#dc2626"/>
-    <text x="100" y="39" font-family="Arial, sans-serif" font-weight="900" font-size="28" fill="#ffffff" text-anchor="middle" letter-spacing="3">tyco</text>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <!-- Tyco Fire Protection Shield Icon -->
+  <g transform="translate(10, 14)">
+    <path d="M16 2L4 7V17C4 24.5 9 30.5 16 32C23 30.5 28 24.5 28 17V7L16 2Z" fill="#00629B" fill-opacity="0.2" stroke="#00A3E0" stroke-width="2"/>
+    <path d="M16 8V24M11 15L16 8L21 15" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- tyco italic wordmark -->
+  <g fill="#38BDF8" transform="translate(48, 12)">
+    <path d="M12 4L14 -3H23L21 4H29L27 10H19L17 18C16.5 20.5 17.5 21.5 19.5 21.5C21 21.5 22.5 21 23.5 20.5L22 26C20 27 17.5 27.5 14.5 27.5C8.5 27.5 6 24 7.5 17.5L10 10H5L6.8 4H12Z"/>
+    <path d="M37 4L32 18L39 4H49L38 23L34 29C32 33 28.5 34.5 23 34.5C21 34.5 19 34 17.5 33.5L19.5 27.5C20.5 28 21.5 28.2 23 28.2C25.5 28.2 26.5 27 27.5 25L28.5 23L19.5 4H29.5L34.5 15L40 4H37Z"/>
+    <path d="M70 9L62 13C60.5 10.5 57.5 9.5 54.5 9.5C48 9.5 43.5 14.5 45.5 21C47 26 52 28.5 57.5 28.5C61 28.5 64.5 27 67 24L72.5 29C68 33.5 62 36 55 36C44.5 36 36.5 29.5 34 20.5C31 8.5 39.5 2 52 2C59.5 2 66.5 5 70 9Z"/>
+    <path d="M91 2C101.5 2 107 9 104 19C101 29 92 36 81.5 36C71 36 65.5 29 68.5 19C71.5 9 80.5 2 91 2ZM88.5 9.5C83 9.5 78.5 14 77 19.5C75.5 24.5 78.5 28.5 84 28.5C89.5 28.5 94 24 95.5 19.5C97 14 94 9.5 88.5 9.5Z"/>
+  </g>
+  <text x="50" y="50" font-family="'Outfit', sans-serif" font-weight="700" font-size="7" fill="#cbd5e1" letter-spacing="1.5">FIRE &amp; SECURITY SYSTEMS</text>
+</svg>

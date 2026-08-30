@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <!-- FedEx Official Logo: Pure White Fed + Official Orange Ex with (R) symbol -->
+  <text x="24" y="44" font-family="'Helvetica Neue', 'Arial Black', sans-serif" font-weight="900" font-size="44" fill="#FFFFFF" letter-spacing="-2">Fed</text>
+  <text x="110" y="44" font-family="'Helvetica Neue', 'Arial Black', sans-serif" font-weight="900" font-size="44" fill="#FF6600" letter-spacing="-2">Ex</text>
+  
+  <!-- (R) Symbol -->
+  <g transform="translate(180, 36)">
+    <circle cx="5" cy="5" r="4.5" stroke="#FF6600" stroke-width="1" fill="none"/>
+    <text x="2.8" y="7.8" font-family="'Helvetica Neue', sans-serif" font-size="5.5" font-weight="bold" fill="#FF6600">R</text>
+  </g>
+</svg>

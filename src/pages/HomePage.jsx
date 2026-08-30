@@ -120,8 +120,8 @@ export default function HomePage({ onOpenSchedule }) {
       category: 'SMART LOCKS',
       icon: Lock,
       image: '/images/speedgates.jpg',
-      badge: 'AUTHORIZED QUBO INSTALLER',
-      desc: 'Enterprise keyless entry, remote management, audit logs, and integrated video doorbells for robust premises management. Authorized installer for QUBO (Hero Electronix Pvt. Ltd.).',
+      badge: 'AUTHORIZED DORSET INSTALLER',
+      desc: 'Enterprise keyless entry, remote management, audit logs, and integrated digital locks for robust premises management. Authorized installer and partner for Dorset.',
       features: [
         'Keyless entry, PIN keypads, and biometric locks',
         'Robust remote access configuration & audit trail logs',
@@ -214,23 +214,28 @@ export default function HomePage({ onOpenSchedule }) {
   ];
 
   const clientCommunity = [
-    { name: 'Agile Airport Services', icon: Plane, tag: 'Airport Ground Operations' },
-    { name: 'Air Canada', icon: Plane, tag: 'International Airline' },
-    { name: 'Air France', icon: Plane, tag: 'Global Aviation Fleet' },
-    { name: 'Air India Limited', icon: Plane, tag: 'Flag Carrier Fleet' },
-    { name: 'Akasa Air', icon: Plane, tag: 'Commercial Aviation' },
-    { name: 'British Airways', icon: Plane, tag: 'International Airline' },
-    { name: 'Divine Interiors', icon: Building2, tag: 'Commercial Fit-Outs' },
-    { name: 'Egypt Air', icon: Plane, tag: 'Aviation Fleet Security' },
-    { name: 'Etihad Airways', icon: Plane, tag: 'Global Airline Partner' },
-    { name: 'Singapore Airlines Limited', icon: Plane, tag: 'Premier International Airline' },
+    { name: 'Air India Limited', tag: 'Flag Carrier Fleet', logo: '/logos/clients/airindia.svg' },
+    { name: 'IndiGo (Interglobe)', tag: 'Aviation Infrastructure', logo: '/logos/clients/indigo.svg' },
+    { name: 'British Airways', tag: 'International Commercial Aviation', logo: '/logos/clients/britishairways.svg' },
+    { name: 'Air France', tag: 'Global Aviation Fleet', logo: '/logos/clients/airfrance.svg' },
+    { name: 'Air Canada', tag: 'Commercial Aviation', logo: '/logos/clients/aircanada.svg' },
+    { name: 'Etihad Airways', tag: 'Global Airline Partner', logo: '/logos/clients/etihad.svg' },
+    { name: 'Akasa Air', tag: 'Commercial Airline', logo: '/logos/clients/akasa.svg' },
+    { name: 'Singapore Airlines', tag: 'Premier International Airline', logo: '/logos/clients/singaporeairlines.svg' },
+    { name: 'Egypt Air', tag: 'Aviation Fleet Security', logo: '/logos/clients/egyptair.svg' },
+    { name: 'FedEx Express', tag: 'Global Logistics Security', logo: '/logos/clients/fedex.svg' },
+    { name: 'Rio Tinto India', tag: 'Industrial Facility Safety', logo: '/logos/clients/riotinto.svg' },
+    { name: 'Agile Airport Services', tag: 'Airport Ground Operations', logo: '/logos/clients/agile.svg' },
+    { name: 'Civil Defense', tag: 'Public Safety & Defense', logo: '/logos/clients/civildefense.svg' },
+    { name: 'NDRF India', tag: 'Disaster Response Force', logo: '/logos/clients/ndrf.svg' },
+    { name: 'Divine Interiors', tag: 'Commercial Fit-Outs', logo: '/logos/clients/divine.svg' },
   ];
 
   const brandPartners = [
     { name: 'Hikvision', category: 'CCTV & Video Security', logo: '/logos/brands/hikvision.svg' },
-    { name: 'Vivotech', category: 'Optical Surveillance', logo: '/logos/brands/vivotek.svg' },
+    { name: 'VIVOTEK', category: 'Optical Surveillance (Delta Group)', logo: '/logos/brands/vivotek.svg' },
     { name: 'TYCO', category: 'Fire & Electronic Security', logo: '/logos/brands/tyco.svg' },
-    { name: 'QUBO', category: 'Smart Door Locks (Hero Electronix)', logo: '/logos/brands/qubo.svg' },
+    { name: 'Dorset', category: 'Smart Door Locks & Architectural Hardware', logo: '/logos/brands/dorset.svg' },
     { name: 'Bosch', category: 'Security & PA Systems', logo: '/logos/brands/bosch.svg' },
     { name: 'Honeywell', category: 'Building Automation & Fire', logo: '/logos/brands/honeywell.svg' },
     { name: 'Henrich', category: 'Industrial Networking', logo: '/logos/brands/henrich.svg' },
@@ -257,7 +262,7 @@ export default function HomePage({ onOpenSchedule }) {
       rating: 5
     },
     {
-      quote: 'From QUBO smart locks to complete network and server room integration, Sachin and his team delivered on time and within budget. Highly recommended!',
+      quote: 'From Dorset smart locks to complete network and server room integration, Sachin and his team delivered on time and within budget. Highly recommended!',
       author: 'Director of Operations',
       org: 'NCR Commercial Space',
       rating: 5
@@ -517,9 +522,9 @@ export default function HomePage({ onOpenSchedule }) {
         </div>
       </section>
 
-      <section className="py-24 bg-[#140828] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+      <section className="py-24 bg-[#140828] relative overflow-hidden border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+          <div className="text-center max-w-3xl mx-auto">
             <div className="section-badge justify-center mb-2">SECTION 5 / CLIENT COMMUNITY</div>
             <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight">
               OUR COMMUNITY <span className="text-gold-gradient">OF CLIENTS</span>
@@ -528,40 +533,40 @@ export default function HomePage({ onOpenSchedule }) {
               Trusted by international aviation leaders, corporate enterprises, and premier brands across India.
             </p>
           </div>
+        </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-12">
-            {clientCommunity.map((client, idx) => {
-              const Icon = client.icon;
-              return (
-                <div
-                  key={idx}
-                  className="glass-card p-5 rounded-2xl border border-white/10 hover:border-amber-400/50 transition-all flex flex-col justify-between group bg-[#180830]"
-                >
-                  <div>
-                    <div className="w-9 h-9 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-3 group-hover:scale-110 transition-transform">
-                      <Icon className="w-4 h-4" />
-                    </div>
-                    <div className="text-xs font-bold text-white group-hover:text-amber-300 transition-colors font-heading leading-snug">
-                      {client.name}
-                    </div>
-                  </div>
-                  <div className="text-[10px] text-amber-300/80 font-mono mt-2 pt-2 border-t border-white/10">
-                    {client.tag}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+        <div className="relative w-full overflow-hidden mb-12">
+          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#140828] to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#140828] to-transparent z-10 pointer-events-none"></div>
 
-          <div className="text-center">
-            <button
-              onClick={onOpenSchedule}
-              className="btn-gold px-8 py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-2xl"
-            >
-              <span>Join this list today</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+          <div className="animate-marquee flex items-center gap-4 py-3 hover:[animation-play-state:paused] cursor-pointer">
+            {[...clientCommunity, ...clientCommunity].map((client, idx) => (
+              <div
+                key={idx}
+                className="w-[200px] min-w-[200px] sm:w-[230px] sm:min-w-[230px] h-[90px] sm:h-[100px] glass-card px-6 py-4 rounded-2xl border border-white/10 hover:border-amber-400/60 transition-all duration-300 flex items-center justify-center group bg-[#180830] shrink-0 shadow-xl"
+                title={`${client.name} - ${client.tag}`}
+              >
+                <img
+                  src={client.logo}
+                  alt={`${client.name} Logo`}
+                  className="max-h-9 sm:max-h-11 max-w-[160px] sm:max-w-[180px] object-contain filter drop-shadow group-hover:scale-110 transition-transform duration-300"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                  }}
+                />
+              </div>
+            ))}
           </div>
+        </div>
+
+        <div className="text-center relative z-10">
+          <button
+            onClick={onOpenSchedule}
+            className="btn-gold px-8 py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-2xl"
+          >
+            <span>Join this list today</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
         </div>
       </section>
 
@@ -586,13 +591,13 @@ export default function HomePage({ onOpenSchedule }) {
             {[...brandPartners, ...brandPartners].map((brand, idx) => (
               <div
                 key={idx}
-                className="w-[190px] min-w-[190px] sm:w-[210px] sm:min-w-[210px] h-[85px] sm:h-[95px] glass-card px-6 py-4 rounded-2xl border border-white/10 hover:border-amber-400/60 transition-all duration-300 flex items-center justify-center group bg-[#16082c] shrink-0 shadow-xl"
+                className="w-[200px] min-w-[200px] sm:w-[230px] sm:min-w-[230px] h-[90px] sm:h-[100px] glass-card px-6 py-4 rounded-2xl border border-white/10 hover:border-amber-400/60 transition-all duration-300 flex items-center justify-center group bg-[#16082c] shrink-0 shadow-xl"
                 title={brand.name}
               >
                 <img
                   src={brand.logo}
                   alt={`${brand.name} Logo`}
-                  className="max-h-9 sm:max-h-11 max-w-[150px] sm:max-w-[165px] object-contain filter drop-shadow group-hover:scale-110 transition-transform duration-300"
+                  className="max-h-10 sm:max-h-12 max-w-[160px] sm:max-w-[185px] object-contain filter drop-shadow group-hover:scale-105 transition-transform duration-300"
                   onError={(e) => {
                     e.target.style.display = 'none';
                   }}

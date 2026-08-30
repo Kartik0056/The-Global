@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <!-- Etihad Golden Faceted Prism -->
+  <g transform="translate(10, 14)">
+    <polygon points="14,0 24,10 14,20 4,10" fill="#F59E0B" opacity="0.95"/>
+    <polygon points="24,10 32,18 24,26 16,18" fill="#FDE68A" opacity="0.9"/>
+    <polygon points="4,10 12,18 4,26 -4,18" fill="#D97706" opacity="0.9"/>
+  </g>
+  <!-- ETIHAD AIRWAYS Text -->
+  <text x="50" y="34" font-family="'Outfit', sans-serif" font-weight="900" font-size="22" fill="#FFFFFF" letter-spacing="2">ETIHAD</text>
+  <text x="51" y="47" font-family="'Outfit', sans-serif" font-weight="700" font-size="8.5" fill="#F59E0B" letter-spacing="3.5">AIRWAYS</text>
+</svg>

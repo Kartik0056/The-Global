@@ -40,7 +40,7 @@ export default function Navbar({ onOpenSchedule }) {
       icon: Video,
       image: '/images/cctv.jpg',
       badge: '4K CCTV & ACCESS CONTROL',
-      desc: '4K CCTV surveillance, body-worn cameras, access control systems, and QUBO smart door locks.',
+      desc: '4K CCTV surveillance, body-worn cameras, access control systems, and Dorset smart door locks.',
       points: ['Strategic 4K Camera Placement', 'LTE Body-Worn Video Equipment', 'Biometric Access & Smart Locks']
     },
     {

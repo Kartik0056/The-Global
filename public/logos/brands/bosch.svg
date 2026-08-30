@@ -1,5 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
-    <circle cx="30" cy="30" r="18" stroke="#ef4444" stroke-width="3.5" fill="none"/>
-    <rect x="22" y="18" width="16" height="24" rx="2" stroke="#ef4444" stroke-width="3" fill="none"/>
-    <text x="60" y="41" font-family="Arial, sans-serif" font-weight="900" font-size="30" fill="#ffffff" letter-spacing="2">BOSCH</text>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <!-- Bosch Red Magneto Armature Symbol -->
+  <g transform="translate(10, 12)">
+    <circle cx="18" cy="18" r="16" stroke="#EA0016" stroke-width="3.5" fill="none"/>
+    <rect x="12" y="7" width="12" height="22" rx="2" stroke="#EA0016" stroke-width="3" fill="none"/>
+  </g>
+  <!-- BOSCH Bold Uppercase Text -->
+  <text x="56" y="38" font-family="'Helvetica Neue', 'Arial Black', sans-serif" font-weight="900" font-size="28" fill="#EA0016" letter-spacing="2">BOSCH</text>
+  <text x="57" y="49" font-family="'Outfit', sans-serif" font-weight="700" font-size="7.5" fill="#cbd5e1" letter-spacing="1.5">SECURITY &amp; SOUND</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 60" fill="none">
+  <!-- Air India Official Rebrand / Jharokha Window Icon -->
+  <g transform="translate(14, 12)">
+    <!-- Golden & Red Indian Arch / Window Motif -->
+    <path d="M4 26C4 14 14 4 26 4C30 4 34 6 37 9L32 13C30 11 28 10 26 10C17 10 11 17 11 26H4Z" fill="#E11D48"/>
+    <path d="M12 26C12 19 18 14 25 14C28 14 30 15 32 17L28 20C27 19 26 18.5 25 18.5C21 18.5 17.5 22 17.5 26H12Z" fill="#F59E0B"/>
+    <polygon points="30,2 36,2 33,16 27,16" fill="#E11D48"/>
+  </g>
+  <!-- AIR INDIA Text in Heavy Condensed Sans -->
+  <text x="60" y="40" font-family="'Plus Jakarta Sans', 'Outfit', 'Helvetica Neue', sans-serif" font-weight="900" font-size="28" fill="#E11D48" letter-spacing="2">AIR INDIA</text>
+</svg>

@@ -90,7 +90,7 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
       id: 'p4',
       title: 'Commercial Addressable Fire Safety Command Hub',
       category: 'fire',
-      categoryLabel: 'LIFE SAFETY',
+      categoryLabel: 'FIRE SAFETY',
       image: '/images/firesafety.jpg',
       specs: 'Optical Thermal Detection • Civil Defense Certified • Auto HVAC/Door Cut-off',
       detailedSpecs: [
@@ -159,7 +159,7 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
               { id: 'cctv', label: 'Surveillance' },
               { id: 'access', label: 'Access Control' },
               { id: 'av', label: 'Smart AV' },
-              { id: 'fire', label: 'Life Safety' },
+              { id: 'fire', label: 'Fire Safety' },
               { id: 'workspace', label: 'Ergonomics' },
               { id: 'turnkey', label: 'Managed AMC' }
             ].map(tab => (

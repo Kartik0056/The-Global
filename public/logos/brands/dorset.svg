@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <!-- Dorset Lock Icon -->
+  <g transform="translate(8, 12)">
+    <rect x="0" y="10" width="28" height="24" rx="5" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="2.5"/>
+    <path d="M7 10V6C7 2.7 10.1 0 14 0C17.9 0 21 2.7 21 6V10" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="14" cy="20" r="2.5" fill="#f59e0b"/>
+    <path d="M14 22.5V28" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  
+  <!-- "dorsët" Logo Text -->
+  <text x="44" y="11" font-family="'Outfit', sans-serif" font-weight="800" font-size="7" fill="#f59e0b" letter-spacing="1.8">EVERY DOOR DESERVES A</text>
+  <text x="44" y="38" font-family="'Outfit', 'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="28" fill="#ffffff" letter-spacing="0.5">dorsët</text>
+  <text x="44" y="51" font-family="'Outfit', sans-serif" font-weight="700" font-size="6.5" fill="#cbd5e1" letter-spacing="1.5">MORE SAFE. MORE SECURE.</text>
+</svg>

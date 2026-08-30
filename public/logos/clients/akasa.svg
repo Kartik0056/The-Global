@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <!-- Akasa Air Rising A Wing -->
+  <g transform="translate(10, 14)">
+    <path d="M0 24C6 12 16 2 28 0C22 8 18 16 16 24H0Z" fill="#F97316"/>
+    <path d="M12 24C16 16 22 8 32 4C28 11 26 18 25 24H12Z" fill="#EA580C"/>
+  </g>
+  <!-- akasa AIR Text -->
+  <text x="50" y="38" font-family="'Outfit', sans-serif" font-weight="800" font-size="24">
+    <tspan fill="#FFFFFF">akasa</tspan>
+    <tspan fill="#F97316" font-weight="900"> AIR</tspan>
+  </text>
+  <text x="51" y="49" font-family="'Outfit', sans-serif" font-weight="700" font-size="7.5" fill="#CBD5E1" letter-spacing="1.5">COMMERCIAL AVIATION</text>
+</svg>

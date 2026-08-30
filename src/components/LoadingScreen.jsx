@@ -12,9 +12,9 @@ import {
 
 const equipmentList = [
   { icon: Video, label: '4K CCTV & Optical Surveillance', category: 'SURVEILLANCE' },
-  { icon: Lock, label: 'QUBO Smart Door Locks', category: 'ACCESS CONTROL' },
+  { icon: Lock, label: 'Dorset Smart Door Locks', category: 'ACCESS CONTROL' },
   { icon: Scan, label: 'Optical Speedgates & Turnstiles', category: 'PERIMETER' },
-  { icon: Flame, label: 'Addressable Fire Alarm Systems', category: 'LIFE SAFETY' },
+  { icon: Flame, label: 'Addressable Fire Alarm Systems', category: 'FIRE SAFETY' },
   { icon: Server, label: 'Enterprise Network & IT Infrastructure', category: 'CONNECTIVITY' },
   { icon: Tv, label: 'Boardroom AV & Video Conferencing', category: 'COLLABORATION' },
   { icon: ShieldCheck, label: 'Unified Enterprise Security', category: 'INTEGRATION' }

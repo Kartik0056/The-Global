@@ -78,7 +78,7 @@ export const servicesData = [
         ]
       },
       {
-        name: 'Smart Door Locks (Authorized QUBO Partner)',
+        name: 'Smart Door Locks (Authorized Dorset Partner)',
         points: [
           'Enterprise Smart Door Lock Systems: Keyless entry, remote management, and audit logs for enhanced security and efficiency.',
           'Smart Lock Integration: Professional deployment into existing infrastructure, optimizing security protocols.',
@@ -198,7 +198,7 @@ export const servicesData = [
     subHeadline: 'Protecting Your Assets and Ensuring Business Continuity',
     introTitle: 'Fire Detection, Water Leakage Systems & Rodent Control',
     intro: "Protecting your assets and ensuring business continuity. Secure your company's future for the long run with real, unmatched foresight. We deploy cutting-edge alarm panels, automated fire suppression, sensor-based leak detection, and corporate rodent management to eliminate operational downtime and safeguard critical infrastructure.",
-    closingBadge: 'CERTIFIED LIFE SAFETY & RISK MANAGEMENT',
+    closingBadge: 'CERTIFIED FIRE SAFETY & RISK MANAGEMENT',
     closingHeadline: 'Ensure long-term resilience. Consult our experts for a complete risk management plan.',
     closingCta: 'Get Started Today',
     coreOfferings: [

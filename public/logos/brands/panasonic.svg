@@ -1,3 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
-    <text x="10" y="40" font-family="Arial, sans-serif" font-weight="900" font-size="28" fill="#60a5fa" letter-spacing="1">Panasonic</text>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <!-- Panasonic Audio/Display Icon -->
+  <g transform="translate(10, 14)">
+    <rect x="0" y="2" width="30" height="26" rx="4" fill="#3B82F6" fill-opacity="0.2" stroke="#60A5FA" stroke-width="2.5"/>
+    <polygon points="12,9 22,15 12,21" fill="#60A5FA"/>
+  </g>
+  <!-- Panasonic Bold Text -->
+  <text x="50" y="36" font-family="'Helvetica Neue', 'Arial Black', sans-serif" font-weight="900" font-size="27" fill="#60A5FA" letter-spacing="1">Panasonic</text>
+  <text x="51" y="48" font-family="'Outfit', sans-serif" font-weight="700" font-size="7.5" fill="#E2E8F0" letter-spacing="1.5">COMMUNICATIONS &amp; AV</text>
+</svg>

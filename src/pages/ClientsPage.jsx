@@ -22,7 +22,7 @@ export default function ClientsPage({ onOpenSchedule }) {
       badge: 'Verified Logistics Partner'
     },
     {
-      quote: 'From QUBO smart locks to 4K boardrooms and network cabling, the craftsmanship and attention to detail from Sachin and his team are exemplary.',
+      quote: 'From Dorset smart locks to 4K boardrooms and network cabling, the craftsmanship and attention to detail from Sachin and his team are exemplary.',
       author: 'Chief Operating Officer',
       org: 'NCR Corporate Technology Hub',
       badge: 'Verified Corporate Partner'

@@ -8,6 +8,7 @@ import OrbitalSystem from './OrbitalSystem';
 
 export default function Hero({ onOpenSchedule }) {
   const [activeTab, setActiveTab] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   const heroSpotlights = [
     {
@@ -49,7 +50,7 @@ export default function Hero({ onOpenSchedule }) {
     {
       id: 'firesafety',
       title: 'Certified Fire Alarm Systems',
-      category: 'LIFE SAFETY',
+      category: 'FIRE SAFETY',
       badge: 'UL / CE CERTIFIED',
       image: '/images/firesafety.jpg',
       specs: ['Optical Thermal Smoke Sensing', 'Addressable Central Control Hub', 'Direct Emergency Egress Link'],
@@ -58,11 +59,12 @@ export default function Hero({ onOpenSchedule }) {
   ];
 
   useEffect(() => {
+    if (isHovered) return;
     const timer = setInterval(() => {
       setActiveTab((prev) => (prev + 1) % heroSpotlights.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, [heroSpotlights.length]);
+  }, [heroSpotlights.length, isHovered]);
 
   const current = heroSpotlights[activeTab];
 
@@ -156,7 +158,11 @@ export default function Hero({ onOpenSchedule }) {
           </div>
         </div>
 
-        <div className="glass-card rounded-3xl border border-white/20 overflow-hidden shadow-2xl p-5 sm:p-7 bg-[#1b0a36]/90 backdrop-blur-2xl">
+        <div 
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className="glass-card rounded-3xl border border-white/20 overflow-hidden shadow-2xl p-5 sm:p-7 bg-[#1b0a36]/90 backdrop-blur-2xl"
+        >
           <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-5 border-b border-white/10 no-scrollbar">
             {heroSpotlights.map((item, idx) => (
               <button

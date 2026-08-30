@@ -1,10 +1,10 @@
 import React from 'react';
-import { 
-  Plane, 
-  Truck, 
-  Factory, 
-  Shield, 
-  AlertOctagon, 
+import {
+  Plane,
+  Truck,
+  Factory,
+  Shield,
+  AlertOctagon,
   CheckCircle,
   Award,
   Building2,
@@ -13,16 +13,21 @@ import {
 
 export default function ClientsSection({ onOpenSchedule }) {
   const communityClients = [
-    { name: 'Agile Airport Services', icon: Plane, sector: 'Airport Ground Operations' },
-    { name: 'Air Canada', icon: Plane, sector: 'International Commercial Aviation' },
-    { name: 'Air France', icon: Plane, sector: 'Global Airline Fleet' },
-    { name: 'Air India Limited', icon: Plane, sector: 'National Flag Carrier' },
-    { name: 'Akasa Air', icon: Plane, sector: 'Commercial Airline' },
-    { name: 'British Airways', icon: Plane, sector: 'International Flag Carrier' },
-    { name: 'Divine Interiors', icon: Building2, sector: 'Commercial Space Design' },
-    { name: 'Egypt Air', icon: Plane, sector: 'International Aviation' },
-    { name: 'Etihad Airways', icon: Plane, sector: 'Global Airline Fleet' },
-    { name: 'Singapore Airlines Limited', icon: Plane, sector: 'Premier Global Airline' },
+    { name: 'Air India Limited', sector: 'National Flag Carrier', logo: '/logos/clients/airindia.svg' },
+    { name: 'Interglobe Aviation (IndiGo)', sector: 'Aviation Infrastructure', logo: '/logos/clients/indigo.svg' },
+    { name: 'British Airways', sector: 'International Flag Carrier', logo: '/logos/clients/britishairways.svg' },
+    { name: 'Air France', sector: 'Global Airline Fleet', logo: '/logos/clients/airfrance.svg' },
+    { name: 'Air Canada', sector: 'International Commercial Aviation', logo: '/logos/clients/aircanada.svg' },
+    { name: 'Etihad Airways', sector: 'Global Airline Fleet', logo: '/logos/clients/etihad.svg' },
+    { name: 'Akasa Air', sector: 'Commercial Airline', logo: '/logos/clients/akasa.svg' },
+    { name: 'Singapore Airlines Limited', sector: 'Premier Global Airline', logo: '/logos/clients/singaporeairlines.svg' },
+    { name: 'Egypt Air', sector: 'International Aviation', logo: '/logos/clients/egyptair.svg' },
+    { name: 'FedEx Express', sector: 'Global Logistics Security', logo: '/logos/clients/fedex.svg' },
+    { name: 'Rio Tinto India', sector: 'Industrial Enterprise', logo: '/logos/clients/riotinto.svg' },
+    { name: 'Agile Airport Services', sector: 'Airport Ground Operations', logo: '/logos/clients/agile.svg' },
+    { name: 'Civil Defense', sector: 'Government Agency', logo: '/logos/clients/civildefense.svg' },
+    { name: 'National Disaster Response Force (NDRF)', sector: 'Disaster Response', logo: '/logos/clients/ndrf.svg' },
+    { name: 'Divine Interiors', sector: 'Commercial Space Design', logo: '/logos/clients/divine.svg' },
   ];
 
   const featuredEnterpriseClients = [
@@ -87,28 +92,29 @@ export default function ClientsSection({ onOpenSchedule }) {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-16">
-          {communityClients.map((client, idx) => {
-            const Icon = client.icon;
-            return (
+        <div className="relative w-full overflow-hidden mb-16">
+          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#120722] to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#120722] to-transparent z-10 pointer-events-none"></div>
+
+          <div className="animate-marquee flex items-center gap-4 py-3 hover:[animation-play-state:paused] cursor-pointer">
+            {[...communityClients, ...communityClients].map((client, idx) => (
               <div
                 key={idx}
-                className="glass-card p-5 rounded-2xl border border-white/10 hover:border-amber-400/50 transition-all flex flex-col justify-between group bg-[#16082c]"
+                className="w-[200px] min-w-[200px] sm:w-[230px] sm:min-w-[230px] h-[90px] sm:h-[100px] glass-card px-6 py-4 rounded-2xl border border-white/10 hover:border-amber-400/60 transition-all duration-300 flex items-center justify-center group bg-[#16082c] shrink-0 shadow-xl"
+                title={`${client.name} - ${client.sector}`}
               >
-                <div>
-                  <div className="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 mb-3 group-hover:scale-110 transition-transform">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <h4 className="text-sm font-bold text-white group-hover:text-amber-300 transition-colors font-heading">
-                    {client.name}
-                  </h4>
-                </div>
-                <div className="mt-3 pt-2 border-t border-white/10 text-[10px] text-amber-300/80 font-mono">
-                  {client.sector}
-                </div>
+                <img
+                  src={client.logo}
+                  alt={`${client.name} Logo`}
+                  className="max-h-9 sm:max-h-11 max-w-[160px] sm:max-w-[180px] object-contain filter drop-shadow group-hover:scale-110 transition-transform duration-300"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                  }}
+                />
               </div>
-            );
-          })}
+            ))}
+          </div>
+
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">

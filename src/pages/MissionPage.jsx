@@ -44,7 +44,7 @@ export default function MissionPage({ onOpenSchedule }) {
     },
     {
       title: 'Intelligent HVAC & Fire Interlocks',
-      desc: 'Automated thermal linkage instantly halts ventilation in affected zones, saving energy and preserving life safety.'
+      desc: 'Automated thermal linkage instantly halts ventilation in affected zones, saving energy and preserving fire safety.'
     }
   ];
 
