@@ -1,11 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
-  <!-- Divine Interiors Architectural Monogram -->
-  <g transform="translate(10, 14)">
-    <rect x="0" y="0" width="28" height="28" rx="5" fill="#A855F7" fill-opacity="0.2" stroke="#A855F7" stroke-width="2"/>
-    <path d="M7 22V8L14 3L21 8V22H7Z" stroke="#C084FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M14 11V22" stroke="#C084FC" stroke-width="1.5"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 75" width="100%" height="100%">
+  <!-- DI Arch Monogram -->
+  <g transform="translate(15, 10)">
+    <!-- Outer Arch (D) in Luxury Magenta / Violet -->
+    <path d="M8,4 C22,4 32,14 32,27 C32,40 22,50 8,50 L0,50 L0,4 Z" fill="none" stroke="#D946EF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- Inner Column (I) in Bright Violet / White -->
+    <line x1="16" y1="12" x2="16" y2="42" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
+    <circle cx="16" cy="7" r="2.5" fill="#FBB02F" />
   </g>
-  <!-- DIVINE INTERIORS Text -->
-  <text x="48" y="32" font-family="'Outfit', sans-serif" font-weight="900" font-size="18" fill="#FFFFFF" letter-spacing="1.5">DIVINE</text>
-  <text x="49" y="46" font-family="'Outfit', sans-serif" font-weight="800" font-size="9" fill="#C084FC" letter-spacing="2.5">INTERIORS</text>
+
+  <!-- Divine Interior Text -->
+  <g transform="translate(68, 8)">
+    <text x="0" y="28" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="22" letter-spacing="2.5">DIVINE</text>
+    <text x="0" y="48" fill="#D946EF" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="13" letter-spacing="4">INTERIORS</text>
+  </g>
 </svg>

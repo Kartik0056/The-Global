@@ -1,10 +1,60 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
-  <!-- NDRF Rescue Star Icon -->
-  <g transform="translate(10, 14)">
-    <circle cx="15" cy="15" r="14" fill="#EA580C" fill-opacity="0.2" stroke="#EA580C" stroke-width="2"/>
-    <polygon points="15,3 17.5,10 25,10 19,14.5 21,22 15,17.5 9,22 11,14.5 5,10 12.5,10" fill="#F97316"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 115" width="100%" height="100%">
+  <!-- 1. Top Ashoka Lions Capital (Gold) -->
+  <g fill="#FBB02F" stroke="#F59E0B" stroke-width="0.5">
+    <!-- Center Lion -->
+    <path d="M80,6 C77,6 75,9 75,13 C75,16 77,18 80,18 C83,18 85,16 85,13 C85,9 83,6 80,6 Z" />
+    <path d="M77,18 L74,27 L86,27 L83,18 Z" />
+    <!-- Left Lion -->
+    <path d="M72,10 C70,10 68,12 68,15 C68,18 70,19 72,19 C74,19 75,18 75,15 C75,12 74,10 72,10 Z" />
+    <path d="M70,19 L66,27 L74,27 L75,19 Z" />
+    <!-- Right Lion -->
+    <path d="M88,10 C86,10 85,12 85,15 C85,18 86,19 88,19 C90,19 92,18 92,15 C92,12 90,10 88,10 Z" />
+    <path d="M85,19 L86,27 L94,27 L90,19 Z" />
+    <!-- Base Abacus of Ashok Pillar -->
+    <rect x="64" y="27" width="32" height="4" rx="1.5" fill="#FBB02F" />
+    <circle cx="80" cy="29" r="1.5" fill="#1E3A8A" />
   </g>
-  <!-- NDRF INDIA Text -->
-  <text x="48" y="34" font-family="'Outfit', sans-serif" font-weight="900" font-size="22" fill="#FFFFFF" letter-spacing="2">NDRF INDIA</text>
-  <text x="49" y="47" font-family="'Outfit', sans-serif" font-weight="800" font-size="8.5" fill="#FDBA74" letter-spacing="1.5">DISASTER RESPONSE FORCE</text>
+
+  <!-- 2. Central Circular Gear Crest & Tricolor Shield -->
+  <g transform="translate(80, 52)">
+    <!-- Outer Gear Wheel (Gold) -->
+    <circle cx="0" cy="0" r="22" fill="none" stroke="#FBB02F" stroke-width="3" stroke-dasharray="3 1.5" />
+    <!-- Inner Red/Saffron Ring -->
+    <circle cx="0" cy="0" r="19" fill="#17082c" stroke="#F97316" stroke-width="2.5" />
+    <!-- Blue Lifebuoy / Chakra Core -->
+    <circle cx="0" cy="0" r="14" fill="#0284C7" stroke="#FFFFFF" stroke-width="1.5" />
+    <circle cx="0" cy="0" r="9" fill="#FFFFFF" />
+    <!-- Center Orange Core -->
+    <circle cx="0" cy="0" r="5.5" fill="#F97316" />
+    <circle cx="0" cy="0" r="2.5" fill="#FFFFFF" />
+    
+    <!-- Radiating Crest Rays (Tricolor Gold Accents) -->
+    <path d="M0,-19 L0,-14 M0,19 L0,14 M-19,0 L-14,0 M19,0 L14,0 M-13,-13 L-10,-10 M13,13 L10,10 M-13,13 L-10,10 M13,-13 L10,-10" stroke="#FFFFFF" stroke-width="1.2" />
+  </g>
+
+  <!-- 3. Dynamic Water Waves & Mountain Peaks (Cyan / Sky Blue) -->
+  <g fill="none" stroke-linecap="round">
+    <!-- Mountain Peaks Silhouette -->
+    <path d="M44,68 L54,42 L64,68 L70,48 L80,68" stroke="#0284C7" stroke-width="2" />
+    <path d="M80,68 L90,48 L96,68 L106,42 L116,68" stroke="#0284C7" stroke-width="2" />
+    
+    <!-- Water Waves -->
+    <path d="M38,72 Q48,65 58,72 T78,72 T98,72 T118,72 T126,68" stroke="#38BDF8" stroke-width="2.5" />
+    <path d="M34,77 Q46,70 58,77 T82,77 T106,77 T124,73" stroke="#0284C7" stroke-width="2" />
+  </g>
+
+  <!-- 4. NDRF INDIA Banner Ribbon at Bottom -->
+  <g transform="translate(80, 89)">
+    <!-- Blue Ribbon Background -->
+    <path d="M-60,0 L60,0 L54,16 L-54,16 Z" fill="#0284C7" stroke="#38BDF8" stroke-width="1" />
+    <!-- Ribbon Ends -->
+    <polygon points="-60,0 -54,16 -66,12" fill="#0369A1" />
+    <polygon points="60,0 54,16 66,12" fill="#0369A1" />
+    
+    <!-- Yellow Bold Text: NDRF - INDIA -->
+    <text x="0" y="12" fill="#FBB02F" font-family="Arial, 'Montserrat', sans-serif" font-weight="900" font-size="12" text-anchor="middle" letter-spacing="1.5">NDRF - INDIA</text>
+  </g>
+
+  <!-- 5. Hindi Motto at Base (Gold) -->
+  <text x="80" y="111" fill="#FBB02F" font-family="'Noto Sans Devanagari', 'Mangal', sans-serif" font-weight="700" font-size="7.5" text-anchor="middle" letter-spacing="0.5">आपदा सेवा सदैव समर्पित</text>
 </svg>

@@ -95,11 +95,11 @@ export default function Hero({ onOpenSchedule }) {
             </div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-[4.2rem] font-extrabold font-heading text-white leading-[1.1] sm:leading-[1.08] tracking-tight mb-4 sm:mb-5 drop-shadow-md">
-              Next-Gen <br className="hidden sm:inline" />
-              Workspace <br className="hidden sm:inline" />
-              Solutions,{' '}
+              Your Workplace. <br className="hidden sm:inline" />
+              Our Expertise. <br className="hidden sm:inline" />
+             
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 drop-shadow-[0_4px_25px_rgba(245,158,11,0.4)]">
-                Here And Now.
+                One Integrated Solution.
               </span>
             </h1>
 

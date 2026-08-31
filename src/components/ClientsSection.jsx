@@ -1,4 +1,5 @@
 import React from 'react';
+import DraggableMarquee from './DraggableMarquee';
 import {
   Plane,
   Truck,
@@ -96,8 +97,10 @@ export default function ClientsSection({ onOpenSchedule }) {
           <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#120722] to-transparent z-10 pointer-events-none"></div>
           <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#120722] to-transparent z-10 pointer-events-none"></div>
 
-          <div className="animate-marquee flex items-center gap-4 py-3 hover:[animation-play-state:paused] cursor-pointer">
-            {[...communityClients, ...communityClients].map((client, idx) => (
+          <DraggableMarquee
+            items={communityClients}
+            speed={1.25}
+            renderItem={(client, idx) => (
               <div
                 key={idx}
                 className="w-[200px] min-w-[200px] sm:w-[230px] sm:min-w-[230px] h-[90px] sm:h-[100px] glass-card px-6 py-4 rounded-2xl border border-white/10 hover:border-amber-400/60 transition-all duration-300 flex items-center justify-center group bg-[#16082c] shrink-0 shadow-xl"
@@ -106,15 +109,15 @@ export default function ClientsSection({ onOpenSchedule }) {
                 <img
                   src={client.logo}
                   alt={`${client.name} Logo`}
-                  className="max-h-9 sm:max-h-11 max-w-[160px] sm:max-w-[180px] object-contain filter drop-shadow group-hover:scale-110 transition-transform duration-300"
+                  draggable={false}
+                  className="max-h-9 sm:max-h-11 max-w-[160px] sm:max-w-[180px] object-contain filter drop-shadow group-hover:scale-110 transition-transform duration-300 pointer-events-none"
                   onError={(e) => {
                     e.target.style.display = 'none';
                   }}
                 />
               </div>
-            ))}
-          </div>
-
+            )}
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">

@@ -53,7 +53,23 @@ export default function Footer() {
               <span>&bull;</span>
               <div className="flex items-center gap-1.5">
                 <Users className="w-3.5 h-3.5 text-amber-400" />
-                <span>Sachin Arora</span>
+                <a
+                  href="https://www.linkedin.com/in/sachin-arora"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-amber-400 transition-colors"
+                >
+                  Sachin Arora
+                </a>
+                <span>&amp;</span>
+                <a
+                  href="https://www.linkedin.com/in/vasu-arora"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-amber-400 transition-colors"
+                >
+                  Vasu Arora
+                </a>
               </div>
             </div>
           </div>

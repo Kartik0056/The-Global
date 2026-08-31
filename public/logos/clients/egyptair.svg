@@ -1,10 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
-  <!-- Egypt Air Horus Wing Symbol -->
-  <g transform="translate(10, 14)">
-    <circle cx="15" cy="15" r="14" fill="#1E3A8A"/>
-    <path d="M6 10C11 10 21 6 25 4C23 10 19 15 13 20L9 18L14 13L8 13V10H6Z" fill="#F59E0B"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 85" width="100%" height="100%">
+  <!-- Horus Falcon Head Emblem -->
+  <g fill="#FDB813" transform="translate(245, 8)">
+    <path d="M0,8 C8,-2 22,-3 35,4 C45,10 52,21 54,32 C54,34 50,37 46,37 C42,37 38,33 36,30 C30,22 22,17 12,17 C6,17 2,20 0,22 Z" />
+    <path d="M12,24 C22,24 30,30 33,38 C35,44 32,50 26,52 C20,54 13,50 10,44 C7,38 8,30 12,24 Z" fill="#FFFFFF" />
+    <path d="M18,31 C22,31 25,34 25,38 C25,42 22,45 18,45 C14,45 11,42 11,38 C11,34 14,31 18,31 Z" fill="#0284C7" />
+    <path d="M38,36 C44,36 49,41 49,47 C49,53 44,57 37,56 C31,55 26,50 27,44 C27,40 32,36 38,36 Z" />
   </g>
-  <!-- EGYPTAIR Text -->
-  <text x="50" y="38" font-family="'Outfit', sans-serif" font-weight="900" font-size="24" fill="#FFFFFF" letter-spacing="1.5">EGYPTAIR</text>
-  <text x="51" y="49" font-family="'Outfit', sans-serif" font-weight="700" font-size="7.5" fill="#38BDF8" letter-spacing="1.5">INTERNATIONAL FLEET</text>
+
+  <!-- EGYPTAIR Text in Bold Slanted Clean White -->
+  <g fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-style="italic">
+    <text x="15" y="44" font-size="36" letter-spacing="2">EGYPTAIR</text>
+  </g>
+
+  <!-- Golden Divider Line -->
+  <line x1="15" y1="53" x2="305" y2="53" stroke="#FDB813" stroke-width="2.5" stroke-linecap="round" />
+
+  <!-- Star Alliance & Emblem -->
+  <g fill="#E2E8F0" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="10.5" letter-spacing="3">
+    <text x="65" y="72">STAR ALLIANCE</text>
+  </g>
+  <!-- Star Alliance 5-point Star Cluster -->
+  <g fill="#E2E8F0" transform="translate(225, 61) scale(0.65)">
+    <polygon points="12,0 14,8 22,8 15,13 18,21 12,16 6,21 9,13 2,8 10,8" />
+  </g>
 </svg>

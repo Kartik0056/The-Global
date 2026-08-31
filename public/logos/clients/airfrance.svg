@@ -1,7 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 60" fill="none">
-  <!-- AIRFRANCE Wordmark in Bold Pure White -->
-  <text x="10" y="41" font-family="'Outfit', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="26" fill="#FFFFFF" letter-spacing="0.5">AIRFRANCE</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 90" width="100%" height="100%">
+  <g fill="#FFFFFF">
+    <!-- A -->
+    <path d="M 28,75 L 56,15 L 72,15 L 100,75 L 83,75 L 76,59 L 52,59 L 45,75 Z M 57,47 L 71,47 L 64,31 Z" />
+    
+    <!-- I -->
+    <path d="M 115,15 L 131,15 L 131,75 L 115,75 Z" />
+    
+    <!-- R -->
+    <path d="M 148,15 L 183,15 C 196,15 204,22 204,33 C 204,42 197,48 187,50 L 207,75 L 188,75 L 171,53 L 164,53 L 164,75 L 148,75 Z M 164,28 L 164,41 L 181,41 C 187,41 190,38 190,34.5 C 190,31 187,28 181,28 Z" />
+    
+    <!-- F -->
+    <path d="M 226,15 L 273,15 L 273,28 L 242,28 L 242,39 L 268,39 L 268,52 L 242,52 L 242,75 L 226,75 Z" />
+    
+    <!-- R -->
+    <path d="M 288,15 L 323,15 C 336,15 344,22 344,33 C 344,42 337,48 327,50 L 347,75 L 328,75 L 311,53 L 304,53 L 304,75 L 288,75 Z M 304,28 L 304,41 L 321,41 C 327,41 330,38 330,34.5 C 330,31 327,28 321,28 Z" />
+    
+    <!-- A -->
+    <path d="M 358,75 L 386,15 L 402,15 L 430,75 L 413,75 L 406,59 L 382,59 L 375,75 Z M 387,47 L 401,47 L 394,31 Z" />
+    
+    <!-- N -->
+    <path d="M 446,15 L 462,15 L 493,55 L 493,15 L 508,15 L 508,75 L 492,75 L 461,35 L 461,75 L 446,75 Z" />
+    
+    <!-- C -->
+    <path d="M 577,32 L 563,39 C 559,31 552,27 542,27 C 529,27 520,37 520,45 C 520,53 529,63 542,63 C 552,63 559,59 563,51 L 577,58 C 570,70 558,77 542,77 C 520,77 503,63 503,45 C 503,27 520,13 542,13 C 558,13 570,20 577,32 Z" />
+    
+    <!-- E -->
+    <path d="M 593,15 L 638,15 L 638,28 L 609,28 L 609,39 L 634,39 L 634,51 L 609,51 L 609,62 L 639,62 L 639,75 L 593,75 Z" />
+  </g>
   
-  <!-- Official Signature Red Accent Slash positioned with generous clean space to the right of 'E' -->
-  <path d="M245 15H235C233 21 227 34 217 43C214 45.5 210 46.5 206 47H220C228 43 238 29 245 15Z" fill="#ED1C24"/>
+  <!-- Red Accent Ribbon -->
+  <polygon points="656,75 675,75 706,15 687,15" fill="#ED0022" />
 </svg>
