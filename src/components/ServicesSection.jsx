@@ -7,12 +7,16 @@ import {
   Zap,
   Layers,
   Shield,
-  CheckCircle
+  CheckCircle,
+  ChevronRight,
+  ChevronLeft
 } from 'lucide-react';
 import { servicesData } from '../data/servicesData';
 
 export default function ServicesSection({ onOpenSchedule }) {
   const [activeTab, setActiveTab] = useState(0);
+  const [showFloatingMenu, setShowFloatingMenu] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const location = useLocation();
   const [searchParams] = useSearchParams();
 
@@ -42,6 +46,37 @@ export default function ServicesSection({ onOpenSchedule }) {
     }
   }, [location.search, location.hash, searchParams]);
 
+  // Track scroll position to show floating left drawer ONLY on desktop screens when scrolled deeply down
+  useEffect(() => {
+    const handleScroll = () => {
+      // Only active on desktop (lg and above >= 1024px)
+      if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+        if (showFloatingMenu) setShowFloatingMenu(false);
+        return;
+      }
+
+      const el = document.getElementById('services-interactive');
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      
+      // Show ONLY when user has scrolled deeply into the capabilities/middle section (rect.top < -350)
+      if (rect.top < -350 && rect.bottom > 300) {
+        setShowFloatingMenu(true);
+      } else {
+        setShowFloatingMenu(false);
+        setIsDrawerOpen(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+    handleScroll();
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []);
+
   const handleTabChange = useCallback((idx) => {
     setActiveTab(idx);
   }, []);
@@ -64,23 +99,25 @@ export default function ServicesSection({ onOpenSchedule }) {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mb-8">
+        {/* Top 6 Services Grid Tabs */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 mb-8">
           {servicesData.map((s, idx) => {
             const Icon = s.icon;
             const isSelected = activeTab === idx;
             return (
               <button
                 key={s.id}
-                onClick={() => setActiveTab(idx)}
-                className={`p-3.5 rounded-2xl text-left transition-all cursor-pointer border flex flex-col justify-between ${
+                type="button"
+                onClick={() => handleTabChange(idx)}
+                className={`p-3.5 rounded-2xl text-left transition-all duration-300 ease-out cursor-pointer border flex flex-col justify-between group transform ${
                   isSelected
-                    ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-[#10061e] border-amber-300 font-extrabold shadow-xl scale-102'
-                    : 'bg-[#180933]/90 text-[#c4b5fd] border-white/10 hover:border-amber-400/40 hover:text-white'
+                    ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-[#10061e] border-amber-300 font-extrabold shadow-xl scale-[1.02]'
+                    : 'bg-[#180933]/90 text-[#c4b5fd] border-white/10 hover:border-amber-400/40 hover:text-white hover:bg-[#230e3f] hover:scale-[1.03]'
                 }`}
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] font-mono opacity-80 uppercase">0{idx + 1}</span>
-                  <Icon className={`w-4 h-4 ${isSelected ? 'text-[#10061e]' : 'text-amber-400'}`} />
+                  <Icon className={`w-4 h-4 transition-transform group-hover:scale-110 ${isSelected ? 'text-[#10061e]' : 'text-amber-400'}`} />
                 </div>
                 <div className="text-xs font-bold font-heading line-clamp-2">
                   {s.shortTitle}
@@ -90,7 +127,8 @@ export default function ServicesSection({ onOpenSchedule }) {
           })}
         </div>
 
-        <div className="glass-card rounded-3xl border border-white/15 overflow-hidden shadow-2xl p-6 sm:p-10 bg-gradient-to-br from-[#1b0a36] via-[#140828] to-[#1c0b38]">
+        {/* Main Detailed Service Content Card */}
+        <div className="glass-card rounded-3xl border border-white/15 overflow-hidden shadow-2xl p-6 sm:p-10 bg-gradient-to-br from-[#1b0a36] via-[#140828] to-[#1c0b38] min-h-[580px]">
           <div className="mb-8 pb-8 border-b border-white/10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-lg bg-amber-400/10 border border-amber-400/30 text-amber-300 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider mb-2.5">
@@ -246,6 +284,104 @@ export default function ServicesSection({ onOpenSchedule }) {
           </div>
         </div>
       </div>
+
+      {/* Floating Quick Service Switcher Drawer on Left Edge (Appears only on Desktop when Scrolled Down) */}
+      {showFloatingMenu && (
+        <div 
+          className="hidden lg:flex fixed left-0 top-1/2 -translate-y-1/2 z-50 items-center transition-all duration-300"
+          onMouseEnter={() => setIsDrawerOpen(true)}
+          onMouseLeave={() => setIsDrawerOpen(false)}
+        >
+          {/* Peeking Floating Tab with Arrow */}
+          <div
+            onClick={() => setIsDrawerOpen(prev => !prev)}
+            className={`group cursor-pointer flex flex-col items-center justify-center gap-2 py-4 px-2 rounded-r-2xl bg-[#1d0a38]/95 border-y border-r border-amber-400/70 shadow-[0_0_25px_rgba(245,158,11,0.5)] backdrop-blur-xl transition-all duration-300 select-none ${
+              isDrawerOpen ? 'opacity-0 pointer-events-none -translate-x-full' : 'opacity-100 translate-x-0 hover:px-2.5'
+            }`}
+            title="Hover to switch services"
+          >
+            <div className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></div>
+            <span 
+              className="text-[10px] font-black uppercase font-mono text-amber-300 tracking-[0.2em]"
+              style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+            >
+              SERVICES
+            </span>
+            <ChevronRight className="w-4 h-4 text-amber-400 group-hover:translate-x-0.5 transition-transform animate-bounce" />
+          </div>
+
+          {/* Slide-out Menu Panel */}
+          <div
+            className={`absolute left-0 top-1/2 -translate-y-1/2 w-64 sm:w-72 p-3.5 rounded-r-3xl bg-[#16082c]/98 border-y-2 border-r-2 border-amber-400/70 shadow-[0_15px_45px_rgba(0,0,0,0.85),0_0_30px_rgba(245,158,11,0.35)] backdrop-blur-2xl transition-all duration-300 ease-out origin-left flex flex-col gap-2 ${
+              isDrawerOpen 
+                ? 'opacity-100 translate-x-0 pointer-events-auto scale-100' 
+                : 'opacity-0 -translate-x-full pointer-events-none scale-95'
+            }`}
+          >
+            <div className="flex items-center justify-between px-2 pb-2 border-b border-white/10 text-xs font-bold text-amber-300">
+              <div className="flex items-center gap-1.5 uppercase tracking-wider text-[11px]">
+                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                <span>Quick Service Switcher</span>
+              </div>
+              <ChevronLeft 
+                onClick={() => setIsDrawerOpen(false)}
+                className="w-4 h-4 text-white/50 hover:text-white cursor-pointer" 
+              />
+            </div>
+
+            <div className="flex flex-col gap-1.5 max-h-[70vh] overflow-y-auto no-scrollbar py-1">
+              {servicesData.map((s, idx) => {
+                const Icon = s.icon;
+                const isSelected = activeTab === idx;
+                return (
+                  <button
+                    key={s.id}
+                    type="button"
+                    onClick={() => {
+                      setActiveTab(idx);
+                      setIsDrawerOpen(false);
+                      const el = document.getElementById('services-interactive');
+                      if (el) {
+                        const y = el.getBoundingClientRect().top + window.pageYOffset - 85;
+                        window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+                      }
+                    }}
+                    className={`p-2.5 rounded-xl text-left transition-all duration-300 ease-out cursor-pointer border flex items-center justify-between group transform ${
+                      isSelected
+                        ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-[#10061e] border-amber-300 font-extrabold shadow-lg scale-[1.03] translate-x-1'
+                        : 'bg-[#120722]/90 text-[#c4b5fd] border-white/10 hover:border-amber-400/60 hover:text-white hover:bg-[#251044] hover:scale-[1.04] hover:translate-x-1 shadow-sm'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110 ${
+                        isSelected 
+                          ? 'bg-[#10061e] text-amber-400' 
+                          : 'bg-white/5 border border-white/10 text-amber-400 group-hover:border-amber-400/50'
+                      }`}>
+                        <Icon className="w-3.5 h-3.5" />
+                      </div>
+                      <div className="min-w-0">
+                        <div className={`text-[9px] font-mono uppercase ${
+                          isSelected ? 'text-[#10061e]/80' : 'text-amber-400/80'
+                        }`}>
+                          0{idx + 1}
+                        </div>
+                        <div className="text-xs font-bold font-heading truncate">
+                          {s.shortTitle}
+                        </div>
+                      </div>
+                    </div>
+
+                    <ArrowRight className={`w-3.5 h-3.5 shrink-0 transition-transform ${
+                      isSelected ? 'text-[#10061e]' : 'text-white/30 group-hover:text-amber-300 group-hover:translate-x-0.5'
+                    }`} />
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
