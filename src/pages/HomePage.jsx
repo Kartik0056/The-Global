@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Hero from '../components/Hero';
 import DraggableMarquee from '../components/DraggableMarquee';
+import TestimonialSlider from '../components/TestimonialSlider';
 import { Link } from 'react-router-dom';
 import {
   ShieldCheck,
@@ -609,48 +610,19 @@ export default function HomePage({ onOpenSchedule }) {
         </div>
       </section>
 
-      <section className="py-24 bg-[#140828] relative">
+      <section className="py-20 sm:py-24 bg-[#140828] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
             <div className="section-badge justify-center mb-2">SECTION 7 / TESTIMONIALS</div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-white">
               SEE WHAT OUR <span className="text-gold-gradient">SATISFIED CLIENTS ARE SAYING</span>
             </h2>
+            <p className="text-xs sm:text-sm text-[#d1c4e9] mt-2">
+              Verified corporate reviews across aviation, logistics, and industrial safety infrastructure.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {clientTestimonials.map((t, idx) => (
-              <div
-                key={idx}
-                className="glass-card p-7 rounded-3xl border border-white/10 flex flex-col justify-between hover:border-amber-400/40 transition-all bg-[#17082f]"
-              >
-                <div>
-                  <div className="flex items-center gap-1 text-amber-400 mb-4">
-                    {[...Array(t.rating)].map((_, sIdx) => (
-                      <Star key={sIdx} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
-
-                  <p className="text-xs sm:text-sm italic text-[#e9d5ff] leading-relaxed mb-6">
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-white/10">
-                  <div className="text-xs font-bold text-white">
-                    {t.author}
-                  </div>
-                  <div className="text-[11px] text-[#b8a7dc]">
-                    {t.org}
-                  </div>
-                  <div className="text-[10px] text-emerald-400 font-mono mt-1 flex items-center gap-1">
-                    <CheckCircle className="w-3 h-3" />
-                    <span>Verified Client</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <TestimonialSlider />
         </div>
       </section>
 

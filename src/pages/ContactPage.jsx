@@ -41,18 +41,29 @@ export default function ContactPage() {
             Reach our national engineering directors at CR Park, New Delhi or submit your workspace specifications for an itemized BOQ estimate.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-5 text-xs text-[#d8b4fe]">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
-              <Phone className="w-4 h-4 text-amber-400" />
-              <span>+91 98999 33768</span>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mt-5 text-[11px] sm:text-xs text-[#d8b4fe]">
+            {/* Top row on small screens (2 items) */}
+            <div className="flex items-center justify-center gap-2 sm:gap-4 w-full sm:w-auto">
+              <a
+                href="tel:+919899933768"
+                className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-amber-400/40 transition-colors backdrop-blur-md shrink-0"
+              >
+                <Phone className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <span className="whitespace-nowrap">+91 98999 33768</span>
+              </a>
+              <a
+                href="mailto:globalenterprises010@gmail.com"
+                className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-amber-400/40 transition-colors backdrop-blur-md shrink-0 max-w-[195px] sm:max-w-none"
+              >
+                <Mail className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <span className="truncate sm:overflow-visible">globalenterprises010@gmail.com</span>
+              </a>
             </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
-              <Mail className="w-4 h-4 text-amber-400" />
-              <span>globalenterprises010@gmail.com</span>
-            </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
-              <Clock className="w-4 h-4 text-emerald-400" />
-              <span>HQ Open: Mon - Sat 9:00 AM - 7:00 PM IST</span>
+
+            {/* Bottom row on small screens (1 item) */}
+            <div className="flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md shrink-0">
+              <Clock className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <span className="whitespace-nowrap">HQ Open: Mon – Sat 9:00 AM – 7:00 PM IST</span>
             </div>
           </div>
         </div>

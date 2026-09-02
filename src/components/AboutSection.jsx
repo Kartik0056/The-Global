@@ -97,18 +97,14 @@ export default function AboutSection({ onOpenSchedule }) {
       <div className="absolute bottom-10 right-0 w-[500px] h-[500px] bg-amber-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4">
-          <div>
-            <div className="section-badge mb-2">ABOUT GLOBAL ENTERPRISES</div>
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight">
-              OUR STORY &amp; <span className="text-gold-gradient">VISION</span>
-            </h2>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="px-4 py-2 rounded-xl bg-[#230e3d] border border-amber-400/30 text-amber-300 font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-lg">
-              <Award className="w-4 h-4 text-amber-400" />
-              <span>One-Stop Enterprise Partner</span>
-            </div>
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+          <div className="section-badge justify-center mb-2">ABOUT GLOBAL ENTERPRISES</div>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight">
+            OUR STORY &amp; <span className="text-gold-gradient">VISION</span>
+          </h2>
+          <div className="inline-flex items-center gap-2 mt-3 px-3.5 py-1.5 rounded-xl bg-[#230e3d] border border-amber-400/30 text-amber-300 font-bold text-xs uppercase tracking-wider shadow-lg">
+            <Award className="w-4 h-4 text-amber-400" />
+            <span>One-Stop Enterprise Partner</span>
           </div>
         </div>
 
@@ -319,11 +315,10 @@ export default function AboutSection({ onOpenSchedule }) {
                     key={idx}
                     type="button"
                     onClick={() => setActiveValIndex(idx)}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 cursor-pointer ${
-                      activeValIndex === idx
-                        ? 'bg-amber-400 text-[#120722] shadow-lg shadow-amber-400/20 font-extrabold scale-[1.02]'
-                        : 'bg-[#1b0a36] text-[#c4b5fd] border border-white/10 hover:border-amber-400/30'
-                    }`}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 cursor-pointer ${activeValIndex === idx
+                      ? 'bg-amber-400 text-[#120722] shadow-lg shadow-amber-400/20 font-extrabold scale-[1.02]'
+                      : 'bg-[#1b0a36] text-[#c4b5fd] border border-white/10 hover:border-amber-400/30'
+                      }`}
                   >
                     <Icon className="w-3.5 h-3.5" />
                     <span>{val.title}</span>
@@ -374,11 +369,10 @@ export default function AboutSection({ onOpenSchedule }) {
                             type="button"
                             onClick={() => setActiveValIndex(dotIdx)}
                             aria-label={`Go to value ${dotIdx + 1}`}
-                            className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                              activeValIndex === dotIdx
-                                ? 'w-6 bg-amber-400 shadow-md shadow-amber-400/40'
-                                : 'w-2 bg-white/20 hover:bg-white/40'
-                            }`}
+                            className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${activeValIndex === dotIdx
+                              ? 'w-6 bg-amber-400 shadow-md shadow-amber-400/40'
+                              : 'w-2 bg-white/20 hover:bg-white/40'
+                              }`}
                           />
                         ))}
                       </div>

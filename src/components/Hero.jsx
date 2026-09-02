@@ -130,20 +130,24 @@ export default function Hero({ onOpenSchedule }) {
               </a>
             </div>
 
-            <div className="flex flex-wrap items-center gap-y-3 gap-x-6 text-xs sm:text-sm text-[#d8b4fe]">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-400 shadow-[0_0_10px_#f59e0b]"></span>
-                <span className="font-bold text-white">10+ Years</span>
-                <span className="text-[#c4b5fd]">of Serving</span>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-6 text-xs sm:text-sm text-[#d8b4fe]">
+              {/* Row 1 on mobile: 2 items */}
+              <div className="flex items-center gap-4 sm:gap-6 flex-wrap sm:flex-nowrap">
+                <div className="flex items-center gap-2 shrink-0">
+                  <span className="w-2.5 h-2.5 rounded-full bg-amber-400 shadow-[0_0_10px_#f59e0b]"></span>
+                  <span className="font-bold text-white">10+ Years</span>
+                  <span className="text-[#c4b5fd]">of Serving</span>
+                </div>
+
+                <div className="flex items-center gap-2 shrink-0">
+                  <span className="w-2.5 h-2.5 rounded-full bg-amber-400 shadow-[0_0_10px_#f59e0b]"></span>
+                  <span className="font-bold text-white">All-in-one</span>
+                  <span className="text-[#c4b5fd]">Solutions</span>
+                </div>
               </div>
 
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-400 shadow-[0_0_10px_#f59e0b]"></span>
-                <span className="font-bold text-white">All-in-one</span>
-                <span className="text-[#c4b5fd]">Integration Solutions</span>
-              </div>
-
-              <div className="flex items-center gap-2">
+              {/* Row 2 on mobile: 1 item */}
+              <div className="flex items-center gap-2 shrink-0">
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-400 shadow-[0_0_10px_#f59e0b]"></span>
                 <span className="font-bold text-white">Trusted by</span>
                 <span className="text-[#c4b5fd]">200+ Businesses</span>

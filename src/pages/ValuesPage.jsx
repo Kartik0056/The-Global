@@ -1,8 +1,8 @@
 import React from 'react';
 import ValuesSection from '../components/ValuesSection';
-import { 
-  Award, 
-  CheckCircle2, 
+import {
+  Award,
+  CheckCircle2,
   ShieldCheck,
   Clock,
   Eye,
@@ -106,7 +106,7 @@ export default function ValuesPage() {
 
       <section className="py-14 sm:py-16 bg-[#10061e] border-t border-white/10 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="section-badge justify-center mb-2">FIELD EXECUTION</div>
             <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white">

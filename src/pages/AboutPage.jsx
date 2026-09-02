@@ -68,18 +68,23 @@ export default function AboutPage({ onOpenSchedule }) {
             Founded in 2017 by Mr. Sachin Arora and Mrs. Rajni Arora, Global Enterprises is your one-stop solution for modern workplace technology and secure office spaces.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-5 text-xs text-[#d8b4fe]">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
-              <Calendar className="w-4 h-4 text-amber-400" />
-              <span>Established 2017</span>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mt-5 text-[11px] sm:text-xs text-[#d8b4fe]">
+            {/* Top row on small screens (2 items) */}
+            <div className="flex items-center justify-center gap-2 sm:gap-4 w-full sm:w-auto">
+              <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md shrink-0">
+                <Calendar className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <span className="whitespace-nowrap">Established 2017</span>
+              </div>
+              <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md shrink-0">
+                <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <span className="whitespace-nowrap">CR Park, New Delhi</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
-              <MapPin className="w-4 h-4 text-amber-400" />
-              <span>CR Park, New Delhi</span>
-            </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 backdrop-blur-md">
-              <CheckCircle className="w-4 h-4 text-emerald-400" />
-              <span>Trusted by 200+ Businesses</span>
+
+            {/* Bottom row on small screens (1 item) */}
+            <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md shrink-0">
+              <CheckCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <span className="whitespace-nowrap">Trusted by 200+ Businesses</span>
             </div>
           </div>
         </div>

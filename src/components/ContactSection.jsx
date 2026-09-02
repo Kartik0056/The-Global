@@ -115,43 +115,43 @@ export default function ContactSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div className="lg:col-span-5 flex flex-col gap-3.5">
-            <div className="glass-card p-5 sm:p-6 rounded-2xl border border-white/10 flex items-start gap-4 hover:border-amber-400/50 transition-all duration-300 group">
-              <div className="w-12 h-12 rounded-xl bg-[#28114b] border border-amber-400/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-400 group-hover:text-[#120722] transition-all shadow-md shrink-0">
-                <Mail className="w-5 h-5" />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+          <div className="lg:col-span-5 flex flex-col gap-3">
+            <div className="glass-card p-4 sm:p-5 rounded-2xl border border-white/10 flex items-start gap-3.5 hover:border-amber-400/50 transition-all duration-300 group">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#28114b] border border-amber-400/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-400 group-hover:text-[#120722] transition-all shadow-md shrink-0">
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <div className="overflow-hidden">
+              <div className="overflow-hidden min-w-0">
                 <div className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-amber-400">
                   EMAIL US
                 </div>
                 <a
                   href="mailto:globalenterprises010@gmail.com"
-                  className="text-sm sm:text-base font-bold text-white hover:text-amber-300 transition-colors break-all mt-0.5 block"
+                  className="text-xs sm:text-sm md:text-base font-bold text-white hover:text-amber-300 transition-colors break-words mt-0.5 block leading-snug"
                 >
                   globalenterprises010@gmail.com
                 </a>
-                <p className="text-xs text-[#b8a7dc] mt-0.5">
+                <p className="text-[11px] sm:text-xs text-[#b8a7dc] mt-0.5">
                   Guaranteed response within 2 hours
                 </p>
               </div>
             </div>
 
-            <div className="glass-card p-5 sm:p-6 rounded-2xl border border-white/10 flex items-start gap-4 hover:border-amber-400/50 transition-all duration-300 group">
-              <div className="w-12 h-12 rounded-xl bg-[#28114b] border border-amber-400/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-400 group-hover:text-[#120722] transition-all shadow-md shrink-0">
-                <Phone className="w-5 h-5" />
+            <div className="glass-card p-4 sm:p-5 rounded-2xl border border-white/10 flex items-start gap-3.5 hover:border-amber-400/50 transition-all duration-300 group">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#28114b] border border-amber-400/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-400 group-hover:text-[#120722] transition-all shadow-md shrink-0">
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <div className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-amber-400">
                   CALL US
                 </div>
                 <a
                   href="tel:+919899933768"
-                  className="text-base sm:text-lg font-bold text-white hover:text-amber-300 transition-colors mt-0.5 block"
+                  className="text-sm sm:text-base font-bold text-white hover:text-amber-300 transition-colors mt-0.5 block leading-snug"
                 >
                   +91 98999 33768
                 </a>
-                <p className="text-xs text-[#b8a7dc] mt-0.5">
+                <p className="text-[11px] sm:text-xs text-[#b8a7dc] mt-0.5">
                   Mon &ndash; Sat from 9:00 AM to 7:00 PM IST
                 </p>
               </div>
@@ -161,30 +161,30 @@ export default function ContactSection() {
               href="https://www.google.com/maps/search/?api=1&query=52%2F21+Basement%2C+Pocket+52%2C+Chittaranjan+Park%2C+New+Delhi%2C+Delhi+110019"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-card p-5 sm:p-6 rounded-2xl border border-white/10 flex items-start gap-4 hover:border-amber-400/50 transition-all duration-300 group block"
+              className="glass-card p-4 sm:p-5 rounded-2xl border border-white/10 flex items-start gap-3.5 hover:border-amber-400/50 transition-all duration-300 group block"
             >
-              <div className="w-12 h-12 rounded-xl bg-[#28114b] border border-amber-400/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-400 group-hover:text-[#120722] transition-all shadow-md shrink-0">
-                <MapPin className="w-5 h-5" />
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#28114b] border border-amber-400/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-400 group-hover:text-[#120722] transition-all shadow-md shrink-0">
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <div className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-amber-400 flex items-center gap-1">
                   <span>VISIT US</span>
                   <span className="text-[9px] text-[#c4b5fd] font-normal underline">(Open Map)</span>
                 </div>
-                <p className="text-sm font-bold text-white mt-0.5 leading-snug group-hover:text-amber-300 transition-colors">
+                <p className="text-xs sm:text-sm font-bold text-white mt-0.5 leading-snug group-hover:text-amber-300 transition-colors">
                   52/21 Basement, Pocket 52, CR Park, New Delhi-110019
                 </p>
-                <p className="text-xs text-[#b8a7dc] mt-0.5">
+                <p className="text-[11px] sm:text-xs text-[#b8a7dc] mt-0.5">
                   National Headquarters &amp; Experience Studio &rarr;
                 </p>
               </div>
             </a>
 
-            <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-[#240e44] to-[#17082e] border border-amber-400/20 flex items-center gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-amber-400/10 flex items-center justify-center text-amber-400 shrink-0">
-                <ShieldCheck className="w-5 h-5" />
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-br from-[#240e44] to-[#17082e] border border-amber-400/20 flex items-center gap-3">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-400/10 flex items-center justify-center text-amber-400 shrink-0">
+                <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <div className="text-xs text-[#d1c4e9] leading-relaxed">
+              <div className="text-[11px] sm:text-xs text-[#d1c4e9] leading-relaxed">
                 <span className="font-bold text-white">Full NDA Confidentiality:</span> All project proposals, layout blueprints, and security telemetry data remain strictly protected under Indian NDA compliance.
               </div>
             </div>

@@ -1,10 +1,10 @@
 import React from 'react';
-import { 
-  Award, 
-  Clock, 
-  Eye, 
-  Coins, 
-  HeartHandshake, 
+import {
+  Award,
+  Clock,
+  Eye,
+  Coins,
+  HeartHandshake,
   ShieldCheck,
   Check
 } from 'lucide-react';
@@ -20,9 +20,9 @@ export default function ValuesSection() {
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight mb-3">
             THAT DRIVE <span className="text-gold-gradient">EVERYTHING WE DO</span>
           </h2>
-          <div className="inline-block px-3 py-1 rounded-full bg-[#240e44] border border-amber-400/30 text-amber-300 font-bold text-xs tracking-widest uppercase">
+          {/* <div className="inline-block px-3 py-1 rounded-full bg-[#240e44] border border-amber-400/30 text-amber-300 font-bold text-xs tracking-widest uppercase">
             OUR CORE VALUES
-          </div>
+          </div> */}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
