@@ -94,7 +94,7 @@ export default function ValuesPage() {
               <CheckCircle2 className="w-4 h-4 text-amber-400" />
               <span>We don&apos;t cut corners. Ever.</span>
             </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 backdrop-blur-md">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
               <ShieldCheck className="w-4 h-4 text-emerald-400" />
               <span>100% On-Time Milestone Record</span>
             </div>

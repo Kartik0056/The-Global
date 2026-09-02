@@ -93,8 +93,8 @@ export default function ServicesSection({ onOpenSchedule }) {
         <div className="glass-card rounded-3xl border border-white/15 overflow-hidden shadow-2xl p-6 sm:p-10 bg-gradient-to-br from-[#1b0a36] via-[#140828] to-[#1c0b38]">
           <div className="mb-8 pb-8 border-b border-white/10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 rounded-lg bg-amber-400/10 border border-amber-400/30 text-amber-300 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-2.5">
-                <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400 shrink-0" />
+              <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-lg bg-amber-400/10 border border-amber-400/30 text-amber-300 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider mb-2.5">
+                <Sparkles className="w-3 h-3 text-amber-400 shrink-0" />
                 <span className="leading-snug">{current.subHeadline}</span>
               </div>
               <h3 className="text-lg sm:text-2xl lg:text-3xl font-extrabold font-heading text-white tracking-tight leading-snug mb-2 sm:mb-3">

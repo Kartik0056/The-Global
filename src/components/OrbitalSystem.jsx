@@ -129,7 +129,37 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
     }
   ];
 
-  const activeOrHovered = hoveredNode || nodes.find(n => n.id === activeNodeId) || null;
+  const isNodeActive = (node) => {
+    if (!activeNodeId) return false;
+    const active = String(activeNodeId).toLowerCase();
+    const nid = String(node.id).toLowerCase();
+    
+    if (active === nid) return true;
+    // Map speedgates / access control to single speedgate node
+    if ((active === 'speedgates' || active === 'access' || active === 'access_control') && nid === 'speedgate') {
+      return true;
+    }
+    // Map fire safety to single fire node
+    if ((active === 'firesafety' || active === 'fire' || active === 'fire_safety') && nid === 'fire') {
+      return true;
+    }
+    // Map workspace / interior fitout to single furniture node
+    if ((active === 'workspace' || active === 'furniture' || active === 'fitout' || active === 'interior') && nid === 'furniture') {
+      return true;
+    }
+    // Map cctv / surveillance to single cctv node
+    if ((active === 'cctv' || active === 'security' || active === 'surveillance') && nid === 'cctv') {
+      return true;
+    }
+    // Map av to single av node
+    if ((active === 'av' || active === 'audio_video' || active === 'conferencing') && nid === 'av') {
+      return true;
+    }
+    
+    return false;
+  };
+
+  const activeOrHovered = hoveredNode || nodes.find(n => isNodeActive(n)) || null;
 
   // Tooltip placement relative to node coordinates
   const getTooltipPositionClass = (x, y) => {
@@ -207,25 +237,26 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
             strokeDasharray="6 8"
           />
 
-          {activeOrHovered && (() => {
-            const isOuter = activeOrHovered.orbit === 'outer';
+          {nodes.filter(n => isNodeActive(n) || (hoveredNode && hoveredNode.id === n.id)).map(activeNode => {
+            const isOuter = activeNode.orbit === 'outer';
             const calcAngle = isOuter
-              ? (activeOrHovered.baseAngle + rotationAngle) % 360
-              : (activeOrHovered.baseAngle - rotationAngle) % 360;
+              ? (activeNode.baseAngle + rotationAngle) % 360
+              : (activeNode.baseAngle - rotationAngle) % 360;
             const rad = ((calcAngle - 90) * Math.PI) / 180;
             return (
               <line
+                key={activeNode.id}
                 x1="270"
                 y1="270"
-                x2={270 + activeOrHovered.orbitRadius * Math.cos(rad) * 0.9}
-                y2={270 + activeOrHovered.orbitRadius * Math.sin(rad) * 0.9}
+                x2={270 + activeNode.orbitRadius * Math.cos(rad) * 0.9}
+                y2={270 + activeNode.orbitRadius * Math.sin(rad) * 0.9}
                 stroke="#f59e0b"
-                strokeWidth="2"
+                strokeWidth="2.5"
                 strokeDasharray="4 3"
                 className="animate-pulse"
               />
             );
-          })()}
+          })}
         </svg>
 
         {nodes.map((node) => {
@@ -238,7 +269,7 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
           const x = node.orbitRadius * Math.cos(angleInRadians);
           const y = node.orbitRadius * Math.sin(angleInRadians);
           const isHovered = hoveredNode?.id === node.id;
-          const isSelected = activeNodeId === node.id;
+          const isSelected = isNodeActive(node);
           const IconComponent = node.icon;
 
           return (
