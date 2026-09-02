@@ -38,46 +38,46 @@ export default function AboutPage({ onOpenSchedule }) {
 
   return (
     <div className="pt-20">
-      <div className="relative min-h-[420px] sm:min-h-[460px] flex items-center justify-center overflow-hidden border-b border-white/10">
+      <div className="relative min-h-[280px] sm:min-h-[320px] flex items-center justify-center overflow-hidden border-b border-white/10">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/headquarters.jpg"
             alt="Global Enterprises Headquarters"
             className="w-full h-full object-cover object-center opacity-30 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0e041b]/95 via-[#140828]/85 to-[#140828]"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0d041a]/95 via-[#120722]/85 to-[#120722]"></div>
           <div className="absolute inset-0 bg-tech-grid opacity-60"></div>
         </div>
 
         <div className="bg-glow-orb w-[500px] h-[500px] bg-purple-700/20 -top-20 left-1/4"></div>
         <div className="bg-glow-orb w-[500px] h-[500px] bg-amber-500/15 bottom-0 right-1/4"></div>
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center py-16">
-          <div className="inline-flex items-center gap-2 mb-4 px-3.5 py-1.5 rounded-full bg-[#261047]/90 border border-amber-400/40 backdrop-blur-md">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center py-10 sm:py-12">
+          <div className="inline-flex items-center gap-2 mb-2.5 px-3 py-1 rounded-full bg-[#261047]/90 border border-amber-400/40 backdrop-blur-md">
             <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-            <span className="text-xs font-black tracking-[0.2em] text-amber-300 uppercase">
+            <span className="text-[11px] font-black tracking-[0.2em] text-amber-300 uppercase">
               ABOUT GLOBAL ENTERPRISES
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-black font-heading text-white tracking-tight leading-[1.1] mb-5">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-white tracking-tight leading-tight mb-3">
             MAKING BUSINESS LIFE <span className="text-gold-gradient">EASIER</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-[#d1c4e9] max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-[#d1c4e9] max-w-3xl mx-auto leading-relaxed">
             Founded in 2017 by Mr. Sachin Arora and Mrs. Rajni Arora, Global Enterprises is your one-stop solution for modern workplace technology and secure office spaces.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mt-8 text-xs text-[#d8b4fe]">
-            <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-5 text-xs text-[#d8b4fe]">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
               <Calendar className="w-4 h-4 text-amber-400" />
               <span>Established 2017</span>
             </div>
-            <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
               <MapPin className="w-4 h-4 text-amber-400" />
               <span>CR Park, New Delhi</span>
             </div>
-            <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 backdrop-blur-md">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 backdrop-blur-md">
               <CheckCircle className="w-4 h-4 text-emerald-400" />
               <span>Trusted by 200+ Businesses</span>
             </div>
@@ -121,13 +121,13 @@ export default function AboutPage({ onOpenSchedule }) {
             })}
           </div>
 
-          <div className="mt-16 glass-card p-8 rounded-3xl border border-amber-400/30 bg-gradient-to-r from-[#240e44] via-[#16082b] to-[#240e44] shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div className="mt-12 sm:mt-16 glass-card p-6 sm:p-8 rounded-3xl border border-amber-400/30 bg-gradient-to-r from-[#240e44] via-[#16082b] to-[#240e44] shadow-2xl flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 lg:gap-8">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider text-amber-400">
                 <MapPin className="w-4 h-4" />
                 <span>HEADQUARTERS &bull; CR PARK, NEW DELHI</span>
               </div>
-              <h3 className="text-2xl font-bold font-heading text-white">
+              <h3 className="text-xl sm:text-2xl font-bold font-heading text-white">
                 Visit Our Office in New Delhi
               </h3>
               <p className="text-xs sm:text-sm text-[#d1c4e9] max-w-2xl leading-relaxed">
@@ -135,12 +135,12 @@ export default function AboutPage({ onOpenSchedule }) {
               </p>
             </div>
 
-            <div className="flex items-center gap-4 shrink-0">
+            <div className="flex items-center gap-4 shrink-0 w-full sm:w-auto">
               <button
                 onClick={onOpenSchedule}
-                className="btn-gold px-7 py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-xl cursor-pointer"
+                className="btn-gold px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center justify-center gap-2 shadow-xl cursor-pointer w-full sm:w-auto"
               >
-                <span>Schedule a meeting</span>
+                <span>Schedule a Meeting</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>

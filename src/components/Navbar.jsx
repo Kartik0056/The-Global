@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useInquiry } from '../context/InquiryContext';
-import { 
-  Menu, 
-  X, 
-  ArrowUpRight, 
-  PhoneCall, 
+import {
+  Menu,
+  X,
+  ArrowUpRight,
+  PhoneCall,
   ChevronDown,
   Video,
   Tv,
@@ -27,7 +27,7 @@ export default function Navbar({ onOpenSchedule }) {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [activeMenuService, setActiveMenuService] = useState(0);
-  
+
   const dropdownTimeoutRef = useRef(null);
   const dropdownContainerRef = useRef(null);
   const location = useLocation();
@@ -113,10 +113,27 @@ export default function Navbar({ onOpenSchedule }) {
     }, 220);
   };
 
+  // Lock background scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   // Close dropdown on route change
   useEffect(() => {
     setServicesDropdownOpen(false);
     setMobileMenuOpen(false);
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
   }, [location.pathname]);
 
   // Click outside listener
@@ -131,8 +148,8 @@ export default function Navbar({ onOpenSchedule }) {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-[#120722]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl">
-      <nav className="w-full px-3 sm:px-5 lg:px-6 2xl:px-8 py-2 sm:py-2.5 relative max-w-[1800px] mx-auto">
+    <header className={`fixed top-0 left-0 right-0 w-full transition-all duration-300 ${mobileMenuOpen ? 'h-[100dvh] inset-0 z-[999999] bg-[#0c0317] flex flex-col overflow-hidden' : 'h-auto bg-[#120722]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl z-50'}`}>
+      <nav className={`w-full px-3 sm:px-5 lg:px-6 2xl:px-8 py-2 sm:py-2.5 relative max-w-[1800px] mx-auto shrink-0 ${mobileMenuOpen ? 'border-b border-white/10' : ''}`}>
         <div className="w-full flex items-center justify-between gap-1.5 sm:gap-3">
           <Link to="/" className="flex items-center gap-2 sm:gap-2.5 group shrink-0">
             <div className="relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-xl sm:rounded-2xl bg-white/95 border-2 border-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.45)] group-hover:scale-105 transition-all duration-300 overflow-hidden p-0.5 shrink-0">
@@ -153,27 +170,25 @@ export default function Navbar({ onOpenSchedule }) {
           </Link>
 
           <div className="hidden xl:flex items-center gap-2 2xl:gap-3.5 flex-nowrap font-bold">
-            <Link 
-              to="/" 
-              className={`text-[11px] 2xl:text-xs font-bold transition-colors py-1 whitespace-nowrap relative group ${
-                location.pathname === '/' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
-              }`}
+            <Link
+              to="/"
+              className={`text-[11px] 2xl:text-xs font-bold transition-colors py-1 whitespace-nowrap relative group ${location.pathname === '/' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
+                }`}
             >
               Home
               <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-400 transition-all ${location.pathname === '/' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </Link>
 
-            <Link 
-              to="/about" 
-              className={`text-[11px] 2xl:text-xs font-bold transition-colors py-1 whitespace-nowrap relative group ${
-                location.pathname === '/about' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
-              }`}
+            <Link
+              to="/about"
+              className={`text-[11px] 2xl:text-xs font-bold transition-colors py-1 whitespace-nowrap relative group ${location.pathname === '/about' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
+                }`}
             >
               About Us
               <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-400 transition-all ${location.pathname === '/about' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </Link>
 
-            <div 
+            <div
               ref={dropdownContainerRef}
               className="relative py-1"
               onMouseEnter={handleMouseEnter}
@@ -182,9 +197,8 @@ export default function Navbar({ onOpenSchedule }) {
               <div className="flex items-center">
                 <Link
                   to="/services"
-                  className={`text-[11px] 2xl:text-xs font-bold transition-colors flex items-center gap-0.5 cursor-pointer py-1 whitespace-nowrap ${
-                    location.pathname === '/services' || servicesDropdownOpen ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
-                  }`}
+                  className={`text-[11px] 2xl:text-xs font-bold transition-colors flex items-center gap-0.5 cursor-pointer py-1 whitespace-nowrap ${location.pathname === '/services' || servicesDropdownOpen ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
+                    }`}
                 >
                   <span>What We Do</span>
                 </Link>
@@ -202,7 +216,7 @@ export default function Navbar({ onOpenSchedule }) {
               </div>
 
               {servicesDropdownOpen && (
-                <div 
+                <div
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                   className="fixed top-full left-0 right-0 w-full bg-[#110620] border-y border-amber-400/40 shadow-[0_30px_70px_rgba(0,0,0,0.98)] z-50 animate-fadeIn px-6 sm:px-12 lg:px-16 py-7 before:absolute before:-top-4 before:left-0 before:right-0 before:h-4 before:content-['']"
@@ -225,11 +239,10 @@ export default function Navbar({ onOpenSchedule }) {
                                 to={`/services?service=${item.id}`}
                                 onMouseEnter={() => setActiveMenuService(idx)}
                                 onClick={() => setServicesDropdownOpen(false)}
-                                className={`p-3 rounded-2xl border transition-all duration-300 flex items-start gap-3 group/item ${
-                                  isHovered 
-                                    ? 'bg-gradient-to-r from-amber-400/20 to-purple-600/20 border-amber-400 shadow-lg translate-x-1' 
-                                    : 'bg-[#180830]/80 border-white/10 hover:border-white/20'
-                                }`}
+                                className={`p-3 rounded-2xl border transition-all duration-300 flex items-start gap-3 group/item ${isHovered
+                                  ? 'bg-gradient-to-r from-amber-400/20 to-purple-600/20 border-amber-400 shadow-lg translate-x-1'
+                                  : 'bg-[#180830]/80 border-white/10 hover:border-white/20'
+                                  }`}
                               >
                                 <div className={`p-2 rounded-xl transition-colors ${isHovered ? 'bg-amber-400 text-[#120722]' : 'bg-white/10 text-amber-400'}`}>
                                   <Icon className="w-4 h-4" />
@@ -269,7 +282,7 @@ export default function Navbar({ onOpenSchedule }) {
                             className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-[#120722]/95 via-[#120722]/20 to-transparent pointer-events-none"></div>
-                          
+
                           <div className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-xl bg-[#120722]/95 border border-amber-400/60 text-[9px] font-extrabold text-amber-300 uppercase tracking-widest backdrop-blur-md shadow-lg">
                             {currentPreview.badge}
                           </div>
@@ -309,51 +322,46 @@ export default function Navbar({ onOpenSchedule }) {
               )}
             </div>
 
-            <Link 
-              to="/capabilities" 
-              className={`text-[11px] 2xl:text-xs font-bold transition-colors py-1 whitespace-nowrap relative group ${
-                location.pathname === '/capabilities' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
-              }`}
+            <Link
+              to="/capabilities"
+              className={`text-[11px] 2xl:text-xs font-bold transition-colors py-1 whitespace-nowrap relative group ${location.pathname === '/capabilities' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
+                }`}
             >
               Capabilities
               <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-400 transition-all ${location.pathname === '/capabilities' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </Link>
 
-            <Link 
-              to="/values" 
-              className={`text-[11px] 2xl:text-xs font-bold transition-colors py-1 whitespace-nowrap relative group ${
-                location.pathname === '/values' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
-              }`}
+            <Link
+              to="/values"
+              className={`text-[11px] 2xl:text-xs font-bold transition-colors py-1 whitespace-nowrap relative group ${location.pathname === '/values' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
+                }`}
             >
               Core Values
               <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-400 transition-all ${location.pathname === '/values' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </Link>
 
-            <Link 
-              to="/mission" 
-              className={`text-[11px] 2xl:text-xs font-bold transition-colors py-1 whitespace-nowrap relative group ${
-                location.pathname === '/mission' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
-              }`}
+            <Link
+              to="/mission"
+              className={`text-[11px] 2xl:text-xs font-bold transition-colors py-1 whitespace-nowrap relative group ${location.pathname === '/mission' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
+                }`}
             >
               Mission
               <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-400 transition-all ${location.pathname === '/mission' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </Link>
 
-            <Link 
-              to="/clients" 
-              className={`text-[11px] 2xl:text-xs font-bold transition-colors py-1 whitespace-nowrap relative group ${
-                location.pathname === '/clients' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
-              }`}
+            <Link
+              to="/clients"
+              className={`text-[11px] 2xl:text-xs font-bold transition-colors py-1 whitespace-nowrap relative group ${location.pathname === '/clients' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
+                }`}
             >
               Client Trust
               <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-400 transition-all ${location.pathname === '/clients' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </Link>
 
-            <Link 
-              to="/contact" 
-              className={`text-[11px] 2xl:text-xs font-bold transition-colors py-1 whitespace-nowrap relative group ${
-                location.pathname === '/contact' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
-              }`}
+            <Link
+              to="/contact"
+              className={`text-[11px] 2xl:text-xs font-bold transition-colors py-1 whitespace-nowrap relative group ${location.pathname === '/contact' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
+                }`}
             >
               Contact
               <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-400 transition-all ${location.pathname === '/contact' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
@@ -408,191 +416,189 @@ export default function Navbar({ onOpenSchedule }) {
             </button>
           </div>
         </div>
-
-        {mobileMenuOpen && (
-          <div className="xl:hidden bg-[#110520] border-t border-amber-400/30 px-4 sm:px-6 py-5 transition-all animate-fadeIn mt-2 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.9)] max-h-[82vh] overflow-y-auto">
-            <div className="flex flex-col space-y-3 text-sm">
-              <Link
-                to="/"
-                onClick={() => setMobileMenuOpen(false)}
-                className={`py-2 px-3 rounded-xl border font-bold flex items-center justify-between ${
-                  location.pathname === '/' 
-                    ? 'bg-amber-400/20 text-amber-300 border-amber-400/50' 
-                    : 'bg-[#180930] text-[#d1c4e9] border-white/5 hover:text-white'
-                }`}
-              >
-                <span>Home</span>
-                <ChevronRight className="w-4 h-4 text-amber-400" />
-              </Link>
-
-              <Link
-                to="/about"
-                onClick={() => setMobileMenuOpen(false)}
-                className={`py-2 px-3 rounded-xl border font-bold flex items-center justify-between ${
-                  location.pathname === '/about' 
-                    ? 'bg-amber-400/20 text-amber-300 border-amber-400/50' 
-                    : 'bg-[#180930] text-[#d1c4e9] border-white/5 hover:text-white'
-                }`}
-              >
-                <span>About Us</span>
-                <ChevronRight className="w-4 h-4 text-amber-400" />
-              </Link>
-
-              <div className="rounded-xl border border-white/10 bg-[#180930] overflow-hidden">
-                <div className="flex items-center justify-between py-2.5 px-3">
-                  <Link
-                    to="/services"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`font-bold flex items-center gap-2 ${
-                      location.pathname === '/services' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-white'
-                    }`}
-                  >
-                    <Zap className="w-4 h-4 text-amber-400" />
-                    <span>What We Do (6 Services)</span>
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                    className="p-1 rounded-lg bg-white/5 text-amber-400 hover:text-white"
-                  >
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180' : ''}`} />
-                  </button>
-                </div>
-
-                {mobileServicesOpen && (
-                  <div className="p-2 pt-0 space-y-1.5 border-t border-white/10 bg-[#120722]/90">
-                    {servicesMegaMenu.map((item) => {
-                      const Icon = item.icon;
-                      return (
-                        <Link
-                          key={item.id}
-                          to={`/services?service=${item.id}`}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/5 hover:bg-amber-400/20 active:bg-amber-400/30 text-xs text-[#d1c4e9] hover:text-white transition-colors cursor-pointer"
-                        >
-                          <Icon className="w-4 h-4 text-amber-400 shrink-0" />
-                          <span className="font-semibold text-white truncate">{item.title}</span>
-                        </Link>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-
-              <Link
-                to="/capabilities"
-                onClick={() => setMobileMenuOpen(false)}
-                className={`py-2 px-3 rounded-xl border font-bold flex items-center justify-between ${
-                  location.pathname === '/capabilities' 
-                    ? 'bg-amber-400/20 text-amber-300 border-amber-400/50' 
-                    : 'bg-[#180930] text-[#d1c4e9] border-white/5 hover:text-white'
-                }`}
-              >
-                <span>Capabilities</span>
-                <ChevronRight className="w-4 h-4 text-amber-400" />
-              </Link>
-
-              <Link
-                to="/values"
-                onClick={() => setMobileMenuOpen(false)}
-                className={`py-2 px-3 rounded-xl border font-bold flex items-center justify-between ${
-                  location.pathname === '/values' 
-                    ? 'bg-amber-400/20 text-amber-300 border-amber-400/50' 
-                    : 'bg-[#180930] text-[#d1c4e9] border-white/5 hover:text-white'
-                }`}
-              >
-                <span>Core Values</span>
-                <ChevronRight className="w-4 h-4 text-amber-400" />
-              </Link>
-
-              <Link
-                to="/mission"
-                onClick={() => setMobileMenuOpen(false)}
-                className={`py-2 px-3 rounded-xl border font-bold flex items-center justify-between ${
-                  location.pathname === '/mission' 
-                    ? 'bg-amber-400/20 text-amber-300 border-amber-400/50' 
-                    : 'bg-[#180930] text-[#d1c4e9] border-white/5 hover:text-white'
-                }`}
-              >
-                <span>Mission</span>
-                <ChevronRight className="w-4 h-4 text-amber-400" />
-              </Link>
-
-              <Link
-                to="/clients"
-                onClick={() => setMobileMenuOpen(false)}
-                className={`py-2 px-3 rounded-xl border font-bold flex items-center justify-between ${
-                  location.pathname === '/clients' 
-                    ? 'bg-amber-400/20 text-amber-300 border-amber-400/50' 
-                    : 'bg-[#180930] text-[#d1c4e9] border-white/5 hover:text-white'
-                }`}
-              >
-                <span>Client Trust</span>
-                <ChevronRight className="w-4 h-4 text-amber-400" />
-              </Link>
-
-              <Link
-                to="/contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className={`py-2 px-3 rounded-xl border font-bold flex items-center justify-between ${
-                  location.pathname === '/contact' 
-                    ? 'bg-amber-400/20 text-amber-300 border-amber-400/50' 
-                    : 'bg-[#180930] text-[#d1c4e9] border-white/5 hover:text-white'
-                }`}
-              >
-                <span>Contact</span>
-                <ChevronRight className="w-4 h-4 text-amber-400" />
-              </Link>
-
-              <Link
-                to="/admin"
-                onClick={(e) => {
-                  setMobileMenuOpen(false);
-                  if (!isLoggedIn) {
-                    e.preventDefault();
-                    openAdminLogin();
-                  }
-                }}
-                className="py-2.5 px-3 rounded-xl border border-amber-400/40 bg-[#261047] font-bold text-amber-300 flex items-center justify-between cursor-pointer"
-              >
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-amber-400" />
-                  <span>{isLoggedIn ? 'Admin CRM Portal' : 'Admin Login'}</span>
-                </div>
-                {unreadCount > 0 && (
-                  <span className="px-2 py-0.5 rounded-full bg-red-500 text-white text-[10px] font-black">
-                    {unreadCount} New Leads
-                  </span>
-                )}
-              </Link>
-
-              <div className="pt-2 flex flex-col gap-2">
-                <a
-                  href="tel:+919899933768"
-                  className="flex items-center justify-center gap-2 p-3 rounded-xl bg-[#1b0a36] border border-amber-400/40 text-xs text-amber-300 font-bold shadow-md"
-                >
-                  <PhoneCall className="w-4 h-4 text-amber-400" />
-                  <span>Direct Call: +91 98999 33768</span>
-                </a>
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenSchedule();
-                  }}
-                  className="btn-gold w-full py-3 rounded-xl text-xs font-extrabold flex items-center justify-center gap-2 shadow-xl cursor-pointer"
-                >
-                  <Calendar className="w-4 h-4" />
-                  <span>Schedule a meeting</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
       </nav>
 
+      {mobileMenuOpen && (
+        <div className="xl:hidden flex-1 w-full bg-[#0c0317] px-4 sm:px-6 py-5 overflow-y-auto flex flex-col justify-between shadow-inner relative animate-mobile-menu">
+          {/* Ambient Glows */}
+          <div className="bg-glow-orb w-[260px] h-[260px] bg-purple-600/15 top-10 right-0 pointer-events-none"></div>
+          <div className="bg-glow-orb w-[220px] h-[220px] bg-amber-500/10 bottom-20 left-0 pointer-events-none"></div>
+
+          <div className="flex flex-col space-y-2 text-sm pb-10 relative z-10">
+            <Link
+              to="/"
+              onClick={() => setMobileMenuOpen(false)}
+              style={{ animationDelay: '30ms' }}
+              className={`animate-nav-item py-3 px-4 rounded-xl border font-bold flex items-center justify-between transition-all duration-300 ${location.pathname === '/'
+                ? 'bg-gradient-to-r from-amber-400/25 to-purple-600/25 text-amber-300 border-amber-400/60 shadow-lg translate-x-1'
+                : 'bg-[#180930]/90 text-[#d1c4e9] border-white/5 hover:text-white hover:border-amber-400/30 hover:bg-[#1f0b3e]'
+                }`}
+            >
+              <span>Home</span>
+              <span className={`w-1.5 h-1.5 rounded-full ${location.pathname === '/' ? 'bg-amber-400 shadow-[0_0_8px_#f59e0b]' : 'bg-white/20'}`}></span>
+            </Link>
+
+            <Link
+              to="/about"
+              onClick={() => setMobileMenuOpen(false)}
+              style={{ animationDelay: '70ms' }}
+              className={`animate-nav-item py-3 px-4 rounded-xl border font-bold flex items-center justify-between transition-all duration-300 ${location.pathname === '/about'
+                ? 'bg-gradient-to-r from-amber-400/25 to-purple-600/25 text-amber-300 border-amber-400/60 shadow-lg translate-x-1'
+                : 'bg-[#180930]/90 text-[#d1c4e9] border-white/5 hover:text-white hover:border-amber-400/30 hover:bg-[#1f0b3e]'
+                }`}
+            >
+              <span>About Us</span>
+              <span className={`w-1.5 h-1.5 rounded-full ${location.pathname === '/about' ? 'bg-amber-400 shadow-[0_0_8px_#f59e0b]' : 'bg-white/20'}`}></span>
+            </Link>
+
+            <div style={{ animationDelay: '110ms' }} className="animate-nav-item rounded-xl border border-white/10 bg-[#180930]/90 overflow-hidden">
+              <div className="flex items-center justify-between py-3 px-4">
+                <Link
+                  to="/services"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`font-bold flex items-center gap-2 ${location.pathname === '/services' ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-white'
+                    }`}
+                >
+                  <Zap className="w-4 h-4 text-amber-400" />
+                  <span>What We Do</span>
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                  className="p-1.5 rounded-lg bg-white/5 text-amber-400 hover:text-white active:scale-95 transition-transform"
+                >
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+                </button>
+              </div>
+
+              {mobileServicesOpen && (
+                <div className="p-2 pt-0 space-y-1.5 border-t border-white/10 bg-[#120722]/95 animate-fadeIn">
+                  {servicesMegaMenu.map((item, mIdx) => {
+                    const Icon = item.icon;
+                    return (
+                      <Link
+                        key={item.id}
+                        to={`/services?service=${item.id}`}
+                        onClick={() => setMobileMenuOpen(false)}
+                        style={{ animationDelay: `${mIdx * 30}ms` }}
+                        className="animate-nav-item flex items-center gap-2.5 p-2.5 rounded-xl bg-white/5 hover:bg-amber-400/20 active:bg-amber-400/30 text-xs text-[#d1c4e9] hover:text-white transition-all duration-200 cursor-pointer"
+                      >
+                        <Icon className="w-4 h-4 text-amber-400 shrink-0" />
+                        <span className="font-semibold text-white truncate">{item.title}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            <Link
+              to="/capabilities"
+              onClick={() => setMobileMenuOpen(false)}
+              style={{ animationDelay: '150ms' }}
+              className={`animate-nav-item py-3 px-4 rounded-xl border font-bold flex items-center justify-between transition-all duration-300 ${location.pathname === '/capabilities'
+                ? 'bg-gradient-to-r from-amber-400/25 to-purple-600/25 text-amber-300 border-amber-400/60 shadow-lg translate-x-1'
+                : 'bg-[#180930]/90 text-[#d1c4e9] border-white/5 hover:text-white hover:border-amber-400/30 hover:bg-[#1f0b3e]'
+                }`}
+            >
+              <span>Capabilities</span>
+              <span className={`w-1.5 h-1.5 rounded-full ${location.pathname === '/capabilities' ? 'bg-amber-400 shadow-[0_0_8px_#f59e0b]' : 'bg-white/20'}`}></span>
+            </Link>
+
+            <Link
+              to="/values"
+              onClick={() => setMobileMenuOpen(false)}
+              style={{ animationDelay: '190ms' }}
+              className={`animate-nav-item py-3 px-4 rounded-xl border font-bold flex items-center justify-between transition-all duration-300 ${location.pathname === '/values'
+                ? 'bg-gradient-to-r from-amber-400/25 to-purple-600/25 text-amber-300 border-amber-400/60 shadow-lg translate-x-1'
+                : 'bg-[#180930]/90 text-[#d1c4e9] border-white/5 hover:text-white hover:border-amber-400/30 hover:bg-[#1f0b3e]'
+                }`}
+            >
+              <span>Core Values</span>
+              <span className={`w-1.5 h-1.5 rounded-full ${location.pathname === '/values' ? 'bg-amber-400 shadow-[0_0_8px_#f59e0b]' : 'bg-white/20'}`}></span>
+            </Link>
+
+            <Link
+              to="/mission"
+              onClick={() => setMobileMenuOpen(false)}
+              style={{ animationDelay: '230ms' }}
+              className={`animate-nav-item py-3 px-4 rounded-xl border font-bold flex items-center justify-between transition-all duration-300 ${location.pathname === '/mission'
+                ? 'bg-gradient-to-r from-amber-400/25 to-purple-600/25 text-amber-300 border-amber-400/60 shadow-lg translate-x-1'
+                : 'bg-[#180930]/90 text-[#d1c4e9] border-white/5 hover:text-white hover:border-amber-400/30 hover:bg-[#1f0b3e]'
+                }`}
+            >
+              <span>Mission</span>
+              <span className={`w-1.5 h-1.5 rounded-full ${location.pathname === '/mission' ? 'bg-amber-400 shadow-[0_0_8px_#f59e0b]' : 'bg-white/20'}`}></span>
+            </Link>
+
+            <Link
+              to="/clients"
+              onClick={() => setMobileMenuOpen(false)}
+              style={{ animationDelay: '270ms' }}
+              className={`animate-nav-item py-3 px-4 rounded-xl border font-bold flex items-center justify-between transition-all duration-300 ${location.pathname === '/clients'
+                ? 'bg-gradient-to-r from-amber-400/25 to-purple-600/25 text-amber-300 border-amber-400/60 shadow-lg translate-x-1'
+                : 'bg-[#180930]/90 text-[#d1c4e9] border-white/5 hover:text-white hover:border-amber-400/30 hover:bg-[#1f0b3e]'
+                }`}
+            >
+              <span>Client Trust</span>
+              <span className={`w-1.5 h-1.5 rounded-full ${location.pathname === '/clients' ? 'bg-amber-400 shadow-[0_0_8px_#f59e0b]' : 'bg-white/20'}`}></span>
+            </Link>
+
+            <Link
+              to="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              style={{ animationDelay: '310ms' }}
+              className={`animate-nav-item py-3 px-4 rounded-xl border font-bold flex items-center justify-between transition-all duration-300 ${location.pathname === '/contact'
+                ? 'bg-gradient-to-r from-amber-400/25 to-purple-600/25 text-amber-300 border-amber-400/60 shadow-lg translate-x-1'
+                : 'bg-[#180930]/90 text-[#d1c4e9] border-white/5 hover:text-white hover:border-amber-400/30 hover:bg-[#1f0b3e]'
+                }`}
+            >
+              <span>Contact</span>
+              <span className={`w-1.5 h-1.5 rounded-full ${location.pathname === '/contact' ? 'bg-amber-400 shadow-[0_0_8px_#f59e0b]' : 'bg-white/20'}`}></span>
+            </Link>
+
+            <Link
+              to="/admin"
+              onClick={(e) => {
+                setMobileMenuOpen(false);
+                if (!isLoggedIn) {
+                  e.preventDefault();
+                  openAdminLogin();
+                }
+              }}
+              style={{ animationDelay: '350ms' }}
+              className="animate-nav-item py-3 px-4 rounded-xl border border-amber-400/40 bg-[#261047] font-bold text-amber-300 flex items-center justify-between cursor-pointer shadow-md hover:border-amber-400 transition-all duration-300"
+            >
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-amber-400" />
+                <span>{isLoggedIn ? 'Admin CRM Portal' : 'Admin Login'}</span>
+              </div>
+              {unreadCount > 0 && (
+                <span className="px-2 py-0.5 rounded-full bg-red-500 text-white text-[10px] font-black animate-pulse">
+                  {unreadCount} New Leads
+                </span>
+              )}
+            </Link>
+
+            <div style={{ animationDelay: '390ms' }} className="animate-nav-item pt-3 flex flex-col gap-2">
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenSchedule();
+                }}
+                className="btn-gold w-full py-3.5 rounded-xl text-xs font-extrabold flex items-center justify-center gap-2 shadow-xl cursor-pointer"
+              >
+                <Calendar className="w-4 h-4" />
+                <span>Schedule a Meeting</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {servicesDropdownOpen && (
-        <div 
+        <div
           className="fixed inset-0 top-[60px] bg-black/50 backdrop-blur-[2px] z-40"
           onClick={() => setServicesDropdownOpen(false)}
         ></div>

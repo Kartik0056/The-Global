@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import Hero from '../components/Hero';
 import DraggableMarquee from '../components/DraggableMarquee';
 import { Link } from 'react-router-dom';
-import { 
-  ShieldCheck, 
-  ArrowRight, 
+import {
+  ShieldCheck,
+  ArrowRight,
   Sparkles,
-  Zap, 
-  Building2, 
+  Zap,
+  Building2,
   CheckCircle,
   CheckCircle2,
   Award,
@@ -305,7 +305,7 @@ export default function HomePage({ onOpenSchedule }) {
     if (selectedEstimatorServices.includes('av')) baseRate += 60;
     if (selectedEstimatorServices.includes('workspace')) baseRate += 120;
     if (selectedEstimatorServices.includes('turnkey')) baseRate += 30;
-    
+
     const est = (estimateArea * baseRate);
     return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(est);
   };
@@ -347,7 +347,7 @@ export default function HomePage({ onOpenSchedule }) {
         <div className="bg-glow-orb w-[500px] h-[500px] bg-amber-500/10 bottom-10 left-0"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
+
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
               <div className="section-badge mb-2">SECTION 3 / ENTERPRISE PORTFOLIO</div>
@@ -363,7 +363,7 @@ export default function HomePage({ onOpenSchedule }) {
               to="/services"
               className="btn-gold px-6 py-3 rounded-xl text-xs font-extrabold flex items-center gap-2 w-fit shadow-xl"
             >
-              <span>View All 6 Dedicated Service Pages</span>
+              <span>View All Services</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -377,11 +377,10 @@ export default function HomePage({ onOpenSchedule }) {
                   <button
                     key={item.id}
                     onClick={() => setActiveSolutionTab(idx)}
-                    className={`p-3 rounded-2xl text-left transition-all cursor-pointer border ${
-                      isSelected
-                        ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-[#10061e] border-amber-300 font-extrabold shadow-lg scale-102'
-                        : 'bg-[#120722]/80 text-[#c4b5fd] border-white/10 hover:border-amber-400/40 hover:text-white'
-                    }`}
+                    className={`p-3 rounded-2xl text-left transition-all cursor-pointer border ${isSelected
+                      ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-[#10061e] border-amber-300 font-extrabold shadow-lg scale-102'
+                      : 'bg-[#120722]/80 text-[#c4b5fd] border-white/10 hover:border-amber-400/40 hover:text-white'
+                      }`}
                   >
                     <div className="flex items-center justify-between mb-1">
                       <span className="text-[10px] uppercase tracking-wider opacity-80 font-mono">
@@ -425,7 +424,7 @@ export default function HomePage({ onOpenSchedule }) {
                   <h3 className="text-2xl sm:text-3xl font-bold font-heading text-white mb-3">
                     {currentSolution.title}
                   </h3>
-                  
+
                   <p className="text-xs sm:text-sm text-[#d1c4e9] leading-relaxed mb-5 bg-[#140828] p-4 rounded-2xl border border-white/10">
                     {currentSolution.desc}
                   </p>
@@ -448,7 +447,7 @@ export default function HomePage({ onOpenSchedule }) {
                     onClick={onOpenSchedule}
                     className="btn-gold px-6 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 cursor-pointer shadow-lg shrink-0"
                   >
-                    <span>Book a demo</span>
+                    <span>Inquire</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -474,7 +473,7 @@ export default function HomePage({ onOpenSchedule }) {
             {whyChooseUs.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div 
+                <div
                   key={idx}
                   className="glass-card p-6 sm:p-7 rounded-3xl border border-white/10 hover:border-amber-400/50 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-2 bg-[#16082c]"
                 >
@@ -514,9 +513,9 @@ export default function HomePage({ onOpenSchedule }) {
             </p>
             <button
               onClick={onOpenSchedule}
-              className="btn-gold px-8 py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-xl"
+              className="btn-gold px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-xl"
             >
-              <span>Get a free quote today</span>
+              <span>Get a Quote</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
@@ -527,7 +526,7 @@ export default function HomePage({ onOpenSchedule }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
           <div className="text-center max-w-3xl mx-auto">
             <div className="section-badge justify-center mb-2">SECTION 5 / CLIENT COMMUNITY</div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white tracking-tight">
               OUR COMMUNITY <span className="text-gold-gradient">OF CLIENTS</span>
             </h2>
             <p className="text-xs sm:text-sm text-[#d1c4e9] mt-2">
@@ -537,16 +536,13 @@ export default function HomePage({ onOpenSchedule }) {
         </div>
 
         <div className="relative w-full overflow-hidden mb-12">
-          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#140828] to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#140828] to-transparent z-10 pointer-events-none"></div>
-
           <DraggableMarquee
             items={clientCommunity}
             speed={1.25}
             renderItem={(client, idx) => (
               <div
                 key={idx}
-                className="w-[200px] min-w-[200px] sm:w-[230px] sm:min-w-[230px] h-[90px] sm:h-[100px] glass-card px-6 py-4 rounded-2xl border border-white/10 hover:border-amber-400/60 transition-all duration-300 flex items-center justify-center group bg-[#180830] shrink-0 shadow-xl"
+                className="w-[200px] min-w-[200px] sm:w-[230px] sm:min-w-[230px] h-[90px] sm:h-[100px] px-6 py-4 rounded-2xl border border-white/10 hover:border-amber-400/60 transition-all duration-300 flex items-center justify-center group bg-[#180830]/80 backdrop-blur-md shrink-0 shadow-lg"
                 title={`${client.name} - ${client.tag}`}
               >
                 <img
@@ -566,9 +562,9 @@ export default function HomePage({ onOpenSchedule }) {
         <div className="text-center relative z-10">
           <button
             onClick={onOpenSchedule}
-            className="btn-gold px-8 py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-2xl"
+            className="btn-gold px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-2xl"
           >
-            <span>Join this list today</span>
+            <span>Join Us Now</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
@@ -578,7 +574,7 @@ export default function HomePage({ onOpenSchedule }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
           <div className="text-center max-w-3xl mx-auto">
             <div className="section-badge justify-center mb-2">SECTION 6 / BRAND ECOSYSTEM</div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-white tracking-tight">
               OUR TRUSTED <span className="text-gold-gradient">BRAND PARTNERS</span>
             </h2>
             <p className="text-xs sm:text-sm text-[#d1c4e9] mt-2">
@@ -588,9 +584,6 @@ export default function HomePage({ onOpenSchedule }) {
         </div>
 
         <div className="relative w-full overflow-hidden">
-          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#10061e] to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#10061e] to-transparent z-10 pointer-events-none"></div>
-
           <DraggableMarquee
             items={brandPartners}
             speed={1.25}
@@ -598,7 +591,7 @@ export default function HomePage({ onOpenSchedule }) {
             renderItem={(brand, idx) => (
               <div
                 key={idx}
-                className="w-[200px] min-w-[200px] sm:w-[230px] sm:min-w-[230px] h-[90px] sm:h-[100px] glass-card px-6 py-4 rounded-2xl border border-white/10 hover:border-amber-400/60 transition-all duration-300 flex items-center justify-center group bg-[#16082c] shrink-0 shadow-xl"
+                className="w-[200px] min-w-[200px] sm:w-[230px] sm:min-w-[230px] h-[90px] sm:h-[100px] px-6 py-4 rounded-2xl border border-white/10 hover:border-amber-400/60 transition-all duration-300 flex items-center justify-center group bg-[#16082c]/80 backdrop-blur-md shrink-0 shadow-lg"
                 title={brand.name}
               >
                 <img
@@ -663,9 +656,9 @@ export default function HomePage({ onOpenSchedule }) {
 
       <section className="py-24 bg-[#10061e] border-t border-white/10 relative">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-12">
             <div className="section-badge justify-center mb-2">SECTION 8 / FAQ</div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white">
+            <h2 className="text-xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-white">
               FREQUENTLY ASKED <span className="text-gold-gradient">QUESTIONS (FAQ)</span>
             </h2>
           </div>
@@ -707,7 +700,7 @@ export default function HomePage({ onOpenSchedule }) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-5">
               <div className="section-badge mb-2">INSTANT BUDGET ESTIMATOR</div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white leading-tight mb-4">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-white leading-tight mb-3">
                 CALCULATE YOUR <span className="text-gold-gradient">FACILITY SCOPE</span>
               </h2>
               <p className="text-xs sm:text-sm text-[#d1c4e9] leading-relaxed mb-6">
@@ -782,11 +775,10 @@ export default function HomePage({ onOpenSchedule }) {
                           key={svc.id}
                           type="button"
                           onClick={() => toggleEstimatorService(svc.id)}
-                          className={`p-2.5 rounded-xl text-left text-xs font-bold transition-all cursor-pointer border ${
-                            isSelected
-                              ? 'bg-amber-400 text-[#10061e] border-amber-300 shadow'
-                              : 'bg-[#120722] text-[#c4b5fd] border-white/10 hover:border-amber-400/30'
-                          }`}
+                          className={`p-2.5 rounded-xl text-left text-xs font-bold transition-all cursor-pointer border ${isSelected
+                            ? 'bg-amber-400 text-[#10061e] border-amber-300 shadow'
+                            : 'bg-[#120722] text-[#c4b5fd] border-white/10 hover:border-amber-400/30'
+                            }`}
                         >
                           <div className="truncate">{svc.label}</div>
                         </button>
@@ -804,7 +796,7 @@ export default function HomePage({ onOpenSchedule }) {
                       {calculateEstimate()}*
                     </div>
                     <div className="text-[10px] text-[#9c8eb9]">
-                      *Includes certified hardware, labor, wiring &amp; compliance testing.
+                      *Includes certified hardware, labor, wiring &amp; compliance testing. Final pricing may vary based on site conditions, specifications, and selected systems.
                     </div>
                   </div>
 
@@ -812,7 +804,7 @@ export default function HomePage({ onOpenSchedule }) {
                     onClick={onOpenSchedule}
                     className="btn-gold px-6 py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 cursor-pointer shadow-xl shrink-0"
                   >
-                    <span>Request Exact BOQ</span>
+                    <span>Inquire for Exact Pricing</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -829,11 +821,11 @@ export default function HomePage({ onOpenSchedule }) {
             <span>GLOBAL ENTERPRISES &bull; CR PARK, NEW DELHI</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight mb-4">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white tracking-tight mb-3">
             Your Workplace. Our Expertise., <span className="text-gold-gradient">One Integrated Solution.</span>
           </h2>
 
-          <p className="text-sm sm:text-base text-[#d1c4e9] max-w-2xl mx-auto leading-relaxed mb-8">
+          <p className="text-xs sm:text-sm md:text-base text-[#d1c4e9] max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8">
             Consult directly with our engineering team to design, deploy, and maintain an integrated workplace environment.
           </p>
 

@@ -11,16 +11,16 @@ import {
 
 export default function ValuesSection() {
   return (
-    <section id="values" className="relative py-28 bg-[#120722] bg-tech-grid overflow-hidden">
+    <section id="values" className="relative py-12 sm:py-16 bg-[#120722] bg-tech-grid overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-purple-800/10 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <div className="section-badge justify-center mb-3">03 / CORE VALUES</div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+          <div className="section-badge justify-center mb-2">03 / CORE VALUES</div>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight mb-3">
             THAT DRIVE <span className="text-gold-gradient">EVERYTHING WE DO</span>
           </h2>
-          <div className="inline-block px-4 py-1.5 rounded-full bg-[#240e44] border border-amber-400/30 text-amber-300 font-bold text-xs sm:text-sm tracking-widest uppercase">
+          <div className="inline-block px-3 py-1 rounded-full bg-[#240e44] border border-amber-400/30 text-amber-300 font-bold text-xs tracking-widest uppercase">
             OUR CORE VALUES
           </div>
         </div>

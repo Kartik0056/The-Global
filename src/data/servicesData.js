@@ -19,7 +19,7 @@ export const servicesData = [
     intro: "Imagine feeling completely secure, no matter where you are. We make that happen. We're your friendly professionals for security and safety installations, so you can relax knowing your workplace is protected.",
     closingBadge: 'EXPERT INSTALLATION & AMC SUPPORT',
     closingHeadline: 'Peace of mind starts here. Expert security and monitoring installations.',
-    closingCta: 'Get Started Today',
+    closingCta: 'Get Started',
     coreOfferings: [
       {
         name: 'Complete Corporate Surveillance & Monitoring Solutions',
@@ -96,7 +96,7 @@ export const servicesData = [
       'A plan tailored just for you will be created.',
       'All installation and support will be handled, so you don\'t have to worry.'
     ],
-    ctaText: 'Get a Callback'
+    ctaText: 'Schedule a Meeting'
   },
   {
     id: 'audio_video',
@@ -110,7 +110,7 @@ export const servicesData = [
     intro: 'Consider audio-visual (AV) solutions as means to assist businesses to communicate and connect more effectively. They range from video conferencing, digital signage, and sound systems. To any business, these solutions make meetings easier to understand, presentations more captivating, and customer experiences more memorable. Whether a small office requiring an effective video calling system or a big retail store desiring to display offers, AV solutions enable effective transmission of information. We offer integrated solutions that allow for effective and clear communication, whether in the same room or on different continents.',
     closingBadge: 'PREMIER AUDIO-VISUAL INTEGRATION',
     closingHeadline: "India's Premier Audio-Visual Solutions. Powering Productivity & Immersive Experiences.",
-    closingCta: 'Learn More Now',
+    closingCta: 'Get Started',
     coreOfferings: [
       {
         name: 'Video Conferencing Systems & Display Presentation',
@@ -186,7 +186,7 @@ export const servicesData = [
       'Government buildings',
       'Auditoriums'
     ],
-    ctaText: 'Schedule A Meeting Today'
+    ctaText: 'Schedule a Meeting'
   },
   {
     id: 'fire_safety_rodent',
@@ -200,7 +200,7 @@ export const servicesData = [
     intro: "Protecting your assets and ensuring business continuity. Secure your company's future for the long run with real, unmatched foresight. We deploy cutting-edge alarm panels, automated fire suppression, sensor-based leak detection, and corporate rodent management to eliminate operational downtime and safeguard critical infrastructure.",
     closingBadge: 'CERTIFIED FIRE SAFETY & RISK MANAGEMENT',
     closingHeadline: 'Ensure long-term resilience. Consult our experts for a complete risk management plan.',
-    closingCta: 'Get Started Today',
+    closingCta: 'Get Started',
     coreOfferings: [
       {
         name: 'Fire Detection & Extinguishing Systems',
@@ -267,7 +267,7 @@ export const servicesData = [
     intro: "These days, if your internet's down, your business is down. It's not just about having a connection; it's about having a reliable one. Everything runs through it – your data, your tools, how you talk to customers. You need a network that lets you move around, handle a lot of traffic, and just works, all the time. No one wants to deal with constant outages. That's where we come in. We're really good at building networks. We set up everything right, making sure it's running smoothly. Frankly, it's about making sure your team can get stuff done and your clients are happy. Because at the end of the day, that's what matters, right?",
     closingBadge: 'ENTERPRISE IT & CONNECTIVITY',
     closingHeadline: 'Secure, Reliable, and Efficient. IT Solutions That Ensure Success.',
-    closingCta: 'Get a Free Consultation',
+    closingCta: 'Get Started',
     coreOfferings: [
       {
         name: 'Core Network Services',
@@ -327,7 +327,7 @@ export const servicesData = [
       'Tech that grows with your business: Our solutions are designed to scale, adapting to your evolving needs without holding you back.',
       'Focus on what you do best: Spend less time worrying about IT and more time dedicated to your core business goals.'
     ],
-    ctaText: 'Schedule a meeting today'
+    ctaText: 'Schedule a Meeting'
   },
   {
     id: 'fitout_leasehold',
@@ -341,7 +341,7 @@ export const servicesData = [
     intro: "Ever walked into an office and just felt good? We believe your workspace should be a place where you and your team can grow, be productive, and actually enjoy being there. That's why we're here to take the stress out of creating the most positive office environment. We are your friendly office makeover team. We'll handle all the nitty-gritty details, so you can focus on what you do best – running your business.",
     closingBadge: 'OFFICE INTERIORS & LEASEHOLD FIT-OUT',
     closingHeadline: 'Maximise Productivity with Office Interior, Fit-Out, and Leasehold Services.',
-    closingCta: 'Get Started Today',
+    closingCta: 'Get Started',
     coreOfferings: [
       {
         name: 'Physical Space Solutions: Structural & Interior Finishing',
@@ -412,7 +412,7 @@ export const servicesData = [
       'Quality & Precision Focused: Commercial-grade materials, ergonomic craftsmanship, and certified safety standards.',
       'Collaborative Client Approach: Tailored layouts designed around your unique team workflow and culture.'
     ],
-    ctaText: 'Schedule a meeting today'
+    ctaText: 'Schedule a Meeting'
   },
   {
     id: 'injection_moulding',
@@ -426,7 +426,7 @@ export const servicesData = [
     intro: "Whether you're a Fortune 500 company, a growing SMB, or a government facility, we understand the unique demands of professional environments. Our injection moulding expertise can help you meet compliance requirements, improve operational efficiency, and maintain the professional standards your organization requires.",
     closingBadge: 'PRECISION PLASTICS & MANUFACTURING',
     closingHeadline: "We're Nice to Work With. Manufacturing shouldn't be a headache. We're responsive, flexible, and genuinely care about your project's success.",
-    closingCta: "Let's Work Together",
+    closingCta: 'Get Started',
     coreOfferings: [
       {
         name: 'What We Can Do For You',
@@ -481,6 +481,6 @@ export const servicesData = [
       'Modern Equipment: We are constantly upgrading our machines and technology. Better equipment means better parts for you.',
       "We're Nice to Work With: Manufacturing shouldn't be a headache. We're responsive, flexible, and genuinely care about your project's success."
     ],
-    ctaText: 'Schedule a meeting today'
+    ctaText: 'Schedule a Meeting'
   }
 ];

@@ -1,8 +1,8 @@
 import React from 'react';
 import ClientsSection from '../components/ClientsSection';
-import { 
-  Shield, 
-  Award, 
+import {
+  Shield,
+  Award,
   ArrowRight,
   Star
 } from 'lucide-react';
@@ -31,7 +31,7 @@ export default function ClientsPage({ onOpenSchedule }) {
 
   return (
     <div className="pt-20">
-      <div className="relative min-h-[420px] sm:min-h-[460px] flex items-center justify-center overflow-hidden border-b border-white/10">
+      <div className="relative min-h-[280px] sm:min-h-[320px] flex items-center justify-center overflow-hidden border-b border-white/10">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/firesafety.jpg"
@@ -45,28 +45,28 @@ export default function ClientsPage({ onOpenSchedule }) {
         <div className="bg-glow-orb w-[500px] h-[500px] bg-purple-700/20 -top-20 left-1/3"></div>
         <div className="bg-glow-orb w-[500px] h-[500px] bg-amber-500/15 bottom-0 right-1/4"></div>
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center py-16">
-          <div className="inline-flex items-center gap-2 mb-4 px-3.5 py-1.5 rounded-full bg-[#261047]/90 border border-amber-400/40 backdrop-blur-md">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center py-10 sm:py-12">
+          <div className="inline-flex items-center gap-2 mb-2.5 px-3 py-1 rounded-full bg-[#261047]/90 border border-amber-400/40 backdrop-blur-md">
             <Shield className="w-3.5 h-3.5 text-amber-400" />
-            <span className="text-xs font-black tracking-[0.2em] text-amber-300 uppercase">
+            <span className="text-[11px] font-black tracking-[0.2em] text-amber-300 uppercase">
               CLIENT COMMUNITY &amp; TRUST
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-black font-heading text-white tracking-tight leading-[1.1] mb-5">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-white tracking-tight leading-tight mb-3">
             OUR COMMUNITY <span className="text-gold-gradient">OF CLIENTS</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-[#d1c4e9] max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-[#d1c4e9] max-w-3xl mx-auto leading-relaxed">
             Proudly serving leading airlines (<span className="text-white font-semibold">Air India, IndiGo, British Airways, Air Canada, Air France, Etihad, Akasa Air, Egypt Air, Singapore Airlines</span>), corporations (<span className="text-white font-semibold">FedEx Express, Rio Tinto India</span>), and national safety forces (<span className="text-white font-semibold">Civil Defense &amp; NDRF</span>).
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mt-8 text-xs text-[#d8b4fe]">
-            <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-5 text-xs text-[#d8b4fe]">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
               <Award className="w-4 h-4 text-amber-400" />
               <span>200+ Enterprise Installations</span>
             </div>
-            <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 backdrop-blur-md">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
               <Shield className="w-4 h-4 text-emerald-400" />
               <span>Aviation &amp; Defense Trusted</span>
             </div>
@@ -76,12 +76,12 @@ export default function ClientsPage({ onOpenSchedule }) {
 
       <ClientsSection onOpenSchedule={onOpenSchedule} />
 
-      <section className="py-24 bg-[#140828] border-t border-white/10 relative">
+      <section className="py-14 sm:py-16 bg-[#140828] border-t border-white/10 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto mb-16">
+
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="section-badge justify-center mb-2">SATISFIED CLIENTS</div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white">
+            <h2 className="text-2xl sm:text-4xl font-extrabold font-heading text-white">
               SEE WHAT OUR SATISFIED <span className="text-gold-gradient">CLIENTS ARE SAYING</span>
             </h2>
           </div>
@@ -122,19 +122,19 @@ export default function ClientsPage({ onOpenSchedule }) {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-r from-[#220c3d] via-[#16082b] to-[#220c3d] border-t border-amber-400/30 text-center">
+      <section className="py-12 sm:py-16 bg-gradient-to-r from-[#220c3d] via-[#16082b] to-[#220c3d] border-t border-amber-400/30 text-center">
         <div className="max-w-4xl mx-auto px-4">
-          <h3 className="text-2xl sm:text-4xl font-black font-heading text-white mb-3">
+          <h3 className="text-xl sm:text-3xl lg:text-4xl font-black font-heading text-white mb-3">
             Ready to enhance your workplace security and efficiency?
           </h3>
-          <p className="text-sm text-[#d1c4e9] max-w-xl mx-auto mb-8">
+          <p className="text-xs sm:text-sm text-[#d1c4e9] max-w-xl mx-auto mb-6">
             Join over 200+ thriving enterprises, airlines, and corporate facilities.
           </p>
           <button
             onClick={onOpenSchedule}
-            className="btn-gold px-8 py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-2xl cursor-pointer"
+            className="btn-gold px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-2xl cursor-pointer"
           >
-            <span>Join this list today</span>
+            <span>Join Us Now</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

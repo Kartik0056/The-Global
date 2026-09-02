@@ -92,15 +92,15 @@ export default function AboutSection({ onOpenSchedule }) {
   ];
 
   return (
-    <section id="about" className="relative py-28 bg-[#140827] overflow-hidden">
+    <section id="about" className="relative py-12 sm:py-16 bg-[#140827] overflow-hidden">
       <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-purple-900/20 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-10 right-0 w-[500px] h-[500px] bg-amber-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4">
           <div>
-            <div className="section-badge mb-3">ABOUT GLOBAL ENTERPRISES</div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight">
+            <div className="section-badge mb-2">ABOUT GLOBAL ENTERPRISES</div>
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight">
               OUR STORY &amp; <span className="text-gold-gradient">VISION</span>
             </h2>
           </div>
@@ -112,7 +112,7 @@ export default function AboutSection({ onOpenSchedule }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-14">
           <div className="lg:col-span-5 relative flex flex-col justify-between">
             <div className="relative rounded-3xl overflow-hidden border border-white/20 h-full min-h-[440px] bg-[#1a0b32] group shadow-2xl">
               <img
@@ -293,13 +293,8 @@ export default function AboutSection({ onOpenSchedule }) {
                   className="glass-card p-5 rounded-2xl border border-white/10 hover:border-amber-400/40 transition-all duration-300 bg-[#17082e] flex flex-col justify-between group hover:-translate-y-1"
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest font-mono">
-                        VALUE {val.num}
-                      </span>
-                      <div className="w-7 h-7 rounded-lg bg-amber-400/10 border border-amber-400/20 flex items-center justify-center text-amber-400 group-hover:bg-amber-400 group-hover:text-[#120722] transition-colors">
-                        <Icon className="w-3.5 h-3.5" />
-                      </div>
+                    <div className="w-8 h-8 rounded-xl bg-amber-400/10 border border-amber-400/25 flex items-center justify-center text-amber-400 group-hover:bg-amber-400 group-hover:text-[#120722] transition-colors mb-3">
+                      <Icon className="w-4 h-4" />
                     </div>
                     <h5 className="text-lg font-bold font-heading text-white mb-2 group-hover:text-amber-300 transition-colors">
                       {val.title}
@@ -317,21 +312,24 @@ export default function AboutSection({ onOpenSchedule }) {
           <div className="lg:hidden">
             {/* Quick-Select Tabs Pills */}
             <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-3 mb-3 scrollbar-none no-scrollbar justify-start sm:justify-center px-1">
-              {coreValues.map((val, idx) => (
-                <button
-                  key={idx}
-                  type="button"
-                  onClick={() => setActiveValIndex(idx)}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 cursor-pointer ${
-                    activeValIndex === idx
-                      ? 'bg-amber-400 text-[#120722] shadow-lg shadow-amber-400/20 font-extrabold scale-[1.02]'
-                      : 'bg-[#1b0a36] text-[#c4b5fd] border border-white/10 hover:border-amber-400/30'
-                  }`}
-                >
-                  <span className="font-mono text-[10px] opacity-80">{val.num}</span>
-                  <span>{val.title}</span>
-                </button>
-              ))}
+              {coreValues.map((val, idx) => {
+                const Icon = val.icon;
+                return (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => setActiveValIndex(idx)}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 cursor-pointer ${
+                      activeValIndex === idx
+                        ? 'bg-amber-400 text-[#120722] shadow-lg shadow-amber-400/20 font-extrabold scale-[1.02]'
+                        : 'bg-[#1b0a36] text-[#c4b5fd] border border-white/10 hover:border-amber-400/30'
+                    }`}
+                  >
+                    <Icon className="w-3.5 h-3.5" />
+                    <span>{val.title}</span>
+                  </button>
+                );
+              })}
             </div>
 
             {/* The Single Box Container with Swipe Support */}
@@ -350,17 +348,6 @@ export default function AboutSection({ onOpenSchedule }) {
                 return (
                   <div key={activeValIndex} className="relative z-10 flex flex-col justify-between min-h-[175px] animate-fadeIn">
                     <div>
-                      {/* Top Meta Bar */}
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-[10px] font-bold font-mono tracking-widest uppercase">
-                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
-                          <span>VALUE {currentVal.num}</span>
-                        </div>
-                        <span className="text-[11px] font-bold font-mono text-[#c4b5fd]/80">
-                          {currentVal.num} / 0{coreValues.length}
-                        </span>
-                      </div>
-
                       {/* Title and Icon */}
                       <div className="flex items-center gap-3 mb-3">
                         <div className="w-11 h-11 rounded-2xl bg-[#2b1050] border border-amber-400/40 flex items-center justify-center text-amber-400 shadow-md shrink-0">
@@ -452,12 +439,12 @@ export default function AboutSection({ onOpenSchedule }) {
           <p className="text-xs sm:text-sm text-[#d1c4e9] leading-relaxed mb-6">
             As technology evolves and workplace needs change, we&apos;re committed to staying ahead. We&apos;re constantly exploring new approaches to help your business breathe in an ever-changing world. Let&apos;s help you create an environment where your business can truly flourish.
           </p>
-          <div className="p-6 rounded-2xl bg-[#1b0a36] border border-amber-400/30 inline-block">
+          <div className="p-4 sm:p-6 rounded-2xl bg-[#1b0a36] border border-amber-400/30 inline-block">
             <button
               onClick={onOpenSchedule}
-              className="btn-gold px-8 py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 cursor-pointer shadow-xl"
+              className="btn-gold px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 cursor-pointer shadow-xl"
             >
-              <span>Schedule a meeting today</span>
+              <span>Schedule a Meeting</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

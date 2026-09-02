@@ -1,9 +1,9 @@
 import React from 'react';
 import MissionSection from '../components/MissionSection';
-import { 
-  Target, 
-  Leaf, 
-  Layers, 
+import {
+  Target,
+  Leaf,
+  Layers,
   ArrowRight
 } from 'lucide-react';
 
@@ -50,7 +50,7 @@ export default function MissionPage({ onOpenSchedule }) {
 
   return (
     <div className="pt-20">
-      <div className="relative min-h-[420px] sm:min-h-[460px] flex items-center justify-center overflow-hidden border-b border-white/10">
+      <div className="relative min-h-[280px] sm:min-h-[320px] flex items-center justify-center overflow-hidden border-b border-white/10">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/hero_bg.jpg"
@@ -64,28 +64,28 @@ export default function MissionPage({ onOpenSchedule }) {
         <div className="bg-glow-orb w-[500px] h-[500px] bg-purple-700/20 -top-20 right-1/3"></div>
         <div className="bg-glow-orb w-[500px] h-[500px] bg-amber-500/15 bottom-0 left-1/4"></div>
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center py-16">
-          <div className="inline-flex items-center gap-2 mb-4 px-3.5 py-1.5 rounded-full bg-[#261047]/90 border border-amber-400/40 backdrop-blur-md">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center py-10 sm:py-12">
+          <div className="inline-flex items-center gap-2 mb-2.5 px-3 py-1 rounded-full bg-[#261047]/90 border border-amber-400/40 backdrop-blur-md">
             <Target className="w-3.5 h-3.5 text-amber-400" />
-            <span className="text-xs font-black tracking-[0.2em] text-amber-300 uppercase">
+            <span className="text-[11px] font-black tracking-[0.2em] text-amber-300 uppercase">
               04 &bull; PURPOSE &amp; SUSTAINABILITY ROADMAP
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-black font-heading text-white tracking-tight leading-[1.1] mb-5">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-white tracking-tight leading-tight mb-3">
             OUR <span className="text-gold-gradient">MISSION &amp; VISION</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-[#d1c4e9] max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-[#d1c4e9] max-w-3xl mx-auto leading-relaxed">
             Providing a single accountable one-stop solution for all technological and office infrastructure needs by combining cutting-edge innovations with sustainable, lifecycle-tested execution.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mt-8 text-xs text-[#d8b4fe]">
-            <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-5 text-xs text-[#d8b4fe]">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
               <Layers className="w-4 h-4 text-amber-400" />
               <span>Quality &amp; Variety</span>
             </div>
-            <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 backdrop-blur-md">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
               <Leaf className="w-4 h-4 text-emerald-400" />
               <span>Sustainable Eco-Practices</span>
             </div>
@@ -95,10 +95,10 @@ export default function MissionPage({ onOpenSchedule }) {
 
       <MissionSection onOpenSchedule={onOpenSchedule} />
 
-      <section className="py-24 bg-[#10061e] border-t border-white/10 relative">
+      <section className="py-14 sm:py-16 bg-[#10061e] border-t border-white/10 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto mb-16">
+
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="section-badge justify-center mb-2">FUTURE-READY ENGINEERING</div>
             <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">
               VISION 2030: <span className="text-gold-gradient">SMART AUTONOMOUS SPACES</span>
@@ -118,7 +118,7 @@ export default function MissionPage({ onOpenSchedule }) {
                   <span className="text-[10px] font-black uppercase tracking-widest text-amber-400 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30">
                     {v.horizon}
                   </span>
-                  
+
                   <h3 className="text-xl font-bold font-heading text-white mt-4 mb-2">
                     {v.title}
                   </h3>
@@ -141,9 +141,9 @@ export default function MissionPage({ onOpenSchedule }) {
 
       <section className="py-24 bg-[#140828] border-t border-white/10 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
+
             <div className="lg:col-span-5">
               <div className="section-badge mb-2">ENVIRONMENTAL STEWARDSHIP</div>
               <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white leading-tight mb-4">
@@ -157,7 +157,7 @@ export default function MissionPage({ onOpenSchedule }) {
                 onClick={onOpenSchedule}
                 className="btn-gold px-7 py-3.5 rounded-xl font-bold text-xs flex items-center gap-2 cursor-pointer shadow-xl"
               >
-                <span>Inquire for Green Facility Audit</span>
+                <span>Inquire</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>

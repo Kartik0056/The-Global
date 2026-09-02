@@ -23,19 +23,22 @@ export default function ServicesSection({ onOpenSchedule }) {
     const s = serviceParam.toLowerCase();
     let targetIdx = -1;
 
-    if (['security', 'security_monitoring', 'cctv', 'surveillance'].includes(s)) targetIdx = 0;
-    else if (['av', 'audio_video', 'audio', 'video'].includes(s)) targetIdx = 1;
-    else if (['firesafety', 'fire_safety', 'fire_safety_rodent', 'fire', 'leakage'].includes(s)) targetIdx = 2;
-    else if (['network', 'network_connectivity', 'connectivity', 'it'].includes(s)) targetIdx = 3;
-    else if (['fitout', 'fitout_leasehold', 'interiors', 'workspace', 'leasehold'].includes(s)) targetIdx = 4;
-    else if (['injection', 'injection_moulding', 'moulding', 'manufacturing'].includes(s)) targetIdx = 5;
+    if (['security', 'security_monitoring', 'cctv', 'surveillance', 'access', 'access_control', 'speedgates', 'smart_locks', 'smartlock', 'attendance'].includes(s)) targetIdx = 0;
+    else if (['av', 'audio_video', 'audio', 'video', 'epabx', 'conference', 'conferencing', 'display', 'av_solutions'].includes(s)) targetIdx = 1;
+    else if (['firesafety', 'fire_safety', 'fire_safety_rodent', 'fire', 'leakage', 'rodent', 'fire_detection'].includes(s)) targetIdx = 2;
+    else if (['network', 'network_connectivity', 'connectivity', 'it', 'networking', 'network_integration', 'cabling'].includes(s)) targetIdx = 3;
+    else if (['fitout', 'fitout_leasehold', 'interiors', 'workspace', 'leasehold', 'leasehold_fitout', 'leasehold_improvements', 'furniture'].includes(s)) targetIdx = 4;
+    else if (['injection', 'injection_moulding', 'moulding', 'manufacturing', 'plastics'].includes(s)) targetIdx = 5;
 
     if (targetIdx !== -1) {
       setActiveTab(targetIdx);
-      const el = document.getElementById('services-interactive');
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      setTimeout(() => {
+        const el = document.getElementById('services-interactive');
+        if (el) {
+          const y = el.getBoundingClientRect().top + window.pageYOffset - 90;
+          window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+        }
+      }, 150);
     }
   }, [location.search, location.hash, searchParams]);
 
@@ -46,22 +49,22 @@ export default function ServicesSection({ onOpenSchedule }) {
   const current = useMemo(() => servicesData[activeTab] || servicesData[0], [activeTab]);
 
   return (
-    <section id="services-interactive" className="relative py-24 bg-[#120722] bg-tech-grid overflow-hidden">
+    <section id="services-interactive" className="relative py-12 sm:py-16 bg-[#120722] bg-tech-grid overflow-hidden">
       <div className="bg-glow-orb w-[600px] h-[600px] bg-purple-700/15 top-1/4 -right-40"></div>
       <div className="bg-glow-orb w-[500px] h-[500px] bg-amber-500/10 bottom-20 -left-20"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="section-badge justify-center mb-3">SERVICES DIRECTORY</div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+          <div className="section-badge justify-center mb-2">SERVICES DIRECTORY</div>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight mb-3">
             OUR SPECIALIZED <span className="text-gold-gradient">SERVICE DOMAINS</span>
           </h2>
-          <p className="text-sm sm:text-base text-[#d1c4e9]">
+          <p className="text-xs sm:text-sm text-[#d1c4e9]">
             Select any domain below to explore detailed offerings, technical capabilities, and tailored solutions.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mb-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mb-8">
           {servicesData.map((s, idx) => {
             const Icon = s.icon;
             const isSelected = activeTab === idx;
@@ -90,15 +93,15 @@ export default function ServicesSection({ onOpenSchedule }) {
         <div className="glass-card rounded-3xl border border-white/15 overflow-hidden shadow-2xl p-6 sm:p-10 bg-gradient-to-br from-[#1b0a36] via-[#140828] to-[#1c0b38]">
           <div className="mb-8 pb-8 border-b border-white/10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-wider mb-3">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                <span>{current.subHeadline}</span>
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 rounded-lg bg-amber-400/10 border border-amber-400/30 text-amber-300 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-2.5">
+                <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400 shrink-0" />
+                <span className="leading-snug">{current.subHeadline}</span>
               </div>
-              <h3 className="text-2xl sm:text-4xl font-extrabold font-heading text-white tracking-tight leading-snug mb-3">
+              <h3 className="text-lg sm:text-2xl lg:text-3xl font-extrabold font-heading text-white tracking-tight leading-snug mb-2 sm:mb-3">
                 {current.headline}
               </h3>
               {current.introTitle && (
-                <h4 className="text-sm sm:text-base font-bold text-amber-300 mb-2">
+                <h4 className="text-xs sm:text-sm lg:text-base font-bold text-amber-300 mb-2 leading-snug">
                   {current.introTitle}
                 </h4>
               )}
@@ -109,7 +112,7 @@ export default function ServicesSection({ onOpenSchedule }) {
 
             <button
               onClick={onOpenSchedule}
-              className="btn-gold px-7 py-3.5 rounded-xl text-xs sm:text-sm font-extrabold flex items-center gap-2 cursor-pointer shadow-xl shrink-0 self-start lg:self-center"
+              className="btn-gold px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-extrabold flex items-center gap-2 cursor-pointer shadow-xl shrink-0 self-start lg:self-center"
             >
               <span>{current.ctaText}</span>
               <ArrowRight className="w-4 h-4" />
@@ -118,15 +121,15 @@ export default function ServicesSection({ onOpenSchedule }) {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-10">
             <div className="lg:col-span-8 space-y-5">
-              <div className="text-xs font-extrabold uppercase tracking-widest text-amber-400 mb-3 flex items-center gap-2">
+              <div className="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-amber-400 mb-3 flex items-center gap-2">
                 <Layers className="w-4 h-4" />
                 <span>CORE SERVICE CAPABILITIES</span>
               </div>
 
               {current.coreOfferings.map((offering, oIdx) => (
-                <div key={oIdx} className="p-5 sm:p-6 rounded-2xl bg-[#140828] border border-white/10 space-y-4">
+                <div key={oIdx} className="p-4 sm:p-6 rounded-2xl bg-[#140828] border border-white/10 space-y-3.5 sm:space-y-4">
                   <div>
-                    <h4 className="text-base sm:text-lg font-bold font-heading text-white text-gold-gradient">
+                    <h4 className="text-sm sm:text-base lg:text-lg font-bold font-heading text-white text-gold-gradient">
                       {offering.name}
                     </h4>
                     {offering.subtitle && (

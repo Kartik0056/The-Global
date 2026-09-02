@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -13,6 +14,7 @@ export default function Hero({ onOpenSchedule }) {
   const heroSpotlights = [
     {
       id: 'cctv',
+      serviceSlug: 'security_monitoring',
       title: '4K Optical Surveillance Systems',
       category: 'SECURITY SYSTEMS',
       badge: '4K UHD / AI TRACKING',
@@ -22,6 +24,7 @@ export default function Hero({ onOpenSchedule }) {
     },
     {
       id: 'speedgates',
+      serviceSlug: 'security_monitoring',
       title: 'Optical Speed Gates & Turnstiles',
       category: 'ACCESS CONTROL',
       badge: 'BIOMETRIC / RFID',
@@ -31,6 +34,7 @@ export default function Hero({ onOpenSchedule }) {
     },
     {
       id: 'av',
+      serviceSlug: 'audio_video',
       title: 'Boardroom & Conference Collaboration',
       category: 'AUDIO-VISUAL',
       badge: '4K CONFERENCING',
@@ -40,6 +44,7 @@ export default function Hero({ onOpenSchedule }) {
     },
     {
       id: 'workspace',
+      serviceSlug: 'fitout_leasehold',
       title: 'Ergonomic Workspace Fit-Outs',
       category: 'INTERIOR FIT-OUT',
       badge: 'BIFMA CERTIFIED',
@@ -49,6 +54,7 @@ export default function Hero({ onOpenSchedule }) {
     },
     {
       id: 'firesafety',
+      serviceSlug: 'fire_safety',
       title: 'Certified Fire Alarm Systems',
       category: 'FIRE SAFETY',
       badge: 'UL / CE CERTIFIED',
@@ -94,7 +100,7 @@ export default function Hero({ onOpenSchedule }) {
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-[4.2rem] font-extrabold font-heading text-white leading-[1.1] sm:leading-[1.08] tracking-tight mb-4 sm:mb-5 drop-shadow-md">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4rem] font-extrabold font-heading text-white leading-[1.15] sm:leading-[1.08] tracking-tight mb-3 sm:mb-5 drop-shadow-md">
               Your Workplace. <br className="hidden sm:inline" />
               Our Expertise. <br className="hidden sm:inline" />
              
@@ -103,22 +109,22 @@ export default function Hero({ onOpenSchedule }) {
               </span>
             </h1>
 
-            <p className="text-sm sm:text-lg text-[#d1c4e9] max-w-2xl leading-relaxed mb-6 sm:mb-8 font-normal">
+            <p className="text-xs sm:text-base lg:text-lg text-[#d1c4e9] max-w-2xl leading-relaxed mb-6 sm:mb-8 font-normal">
               One accountable partner for the systems that keep your workplace secure, connected, and productive &mdash; designed, installed, and maintained under one roof.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-8 sm:mb-9">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-6 sm:mb-9">
               <button
                 onClick={onOpenSchedule}
-                className="btn-gold px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl text-sm sm:text-base flex items-center justify-center gap-2.5 cursor-pointer group font-bold shadow-2xl w-full sm:w-auto"
+                className="btn-gold px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm md:text-base flex items-center justify-center gap-2 cursor-pointer group font-bold shadow-2xl w-full sm:w-auto"
               >
-                <span>Schedule a meeting</span>
+                <span>Schedule a Meeting</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
 
               <a
                 href="#services"
-                className="btn-glass px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl text-sm sm:text-base font-bold flex items-center justify-center gap-2 hover:border-amber-400 w-full sm:w-auto"
+                className="btn-glass px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm md:text-base font-bold flex items-center justify-center gap-2 hover:border-amber-400 w-full sm:w-auto"
               >
                 <span>Explore our services</span>
               </a>
@@ -233,12 +239,13 @@ export default function Hero({ onOpenSchedule }) {
                   <span>Request Consultation</span>
                   <ChevronRight className="w-3.5 h-3.5" />
                 </button>
-                <a
-                  href="#services"
-                  className="text-xs font-bold text-amber-300 hover:text-amber-200 underline underline-offset-4"
+                <Link
+                  to={`/services?service=${current.serviceSlug}`}
+                  className="text-xs font-bold text-amber-300 hover:text-amber-200 underline underline-offset-4 flex items-center gap-1 transition-colors"
                 >
-                  View Details &rarr;
-                </a>
+                  <span>View Details</span>
+                  <span>&rarr;</span>
+                </Link>
               </div>
             </div>
           </div>

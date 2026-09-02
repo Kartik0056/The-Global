@@ -295,3 +295,34 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Mobile Menu Animations */
+@keyframes mobileMenuSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-mobile-menu {
+  animation: mobileMenuSlideDown 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes mobileNavItemFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-nav-item {
+  animation: mobileNavItemFadeIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

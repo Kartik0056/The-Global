@@ -75,35 +75,32 @@ export default function ClientsSection({ onOpenSchedule }) {
   ];
 
   return (
-    <section id="clients" className="relative py-28 bg-[#120722] bg-tech-grid overflow-hidden">
+    <section id="clients" className="relative py-12 sm:py-16 bg-[#120722] bg-tech-grid overflow-hidden">
       <div className="bg-glow-orb w-[600px] h-[600px] bg-amber-500/10 -top-20 -right-20"></div>
       <div className="bg-glow-orb w-[600px] h-[600px] bg-purple-700/15 bottom-0 left-10"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="section-badge justify-center mb-3">OUR CLIENTS &amp; PARTNERS</div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+          <div className="section-badge justify-center mb-2">OUR CLIENTS &amp; PARTNERS</div>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight mb-3">
             OUR COMMUNITY <span className="text-gold-gradient">OF CLIENTS</span>
           </h2>
-          <div className="inline-block px-4 py-1.5 rounded-full bg-[#240e44] border border-amber-400/30 text-amber-300 font-bold text-xs sm:text-sm tracking-widest uppercase mb-4">
-            WHY CLIENTS TRUST US
+          <div className="inline-block px-3 py-1 text-amber-300 font-bold text-xs tracking-widest uppercase mb-3">
+            WHY CLIENTS TRUST US ?
           </div>
-          <p className="text-base sm:text-lg text-[#d1c4e9]">
+          <p className="text-xs sm:text-sm text-[#d1c4e9]">
             We are proud to work with leading organizations across India &ndash; from growing businesses to established airlines, industrial corporations, and public services.
           </p>
         </div>
 
-        <div className="relative w-full overflow-hidden mb-16">
-          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#120722] to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#120722] to-transparent z-10 pointer-events-none"></div>
-
+        <div className="relative w-full overflow-hidden mb-12">
           <DraggableMarquee
             items={communityClients}
             speed={1.25}
             renderItem={(client, idx) => (
               <div
                 key={idx}
-                className="w-[200px] min-w-[200px] sm:w-[230px] sm:min-w-[230px] h-[90px] sm:h-[100px] glass-card px-6 py-4 rounded-2xl border border-white/10 hover:border-amber-400/60 transition-all duration-300 flex items-center justify-center group bg-[#16082c] shrink-0 shadow-xl"
+                className="w-[200px] min-w-[200px] sm:w-[230px] sm:min-w-[230px] h-[90px] sm:h-[100px] px-6 py-4 rounded-2xl border border-white/10 hover:border-amber-400/60 transition-all duration-300 flex items-center justify-center group bg-[#16082c]/80 backdrop-blur-md shrink-0 shadow-lg"
                 title={`${client.name} - ${client.sector}`}
               >
                 <img
@@ -201,7 +198,7 @@ export default function ClientsSection({ onOpenSchedule }) {
                 onClick={onOpenSchedule}
                 className="btn-gold w-full py-3 rounded-xl font-bold text-xs flex items-center justify-center gap-2 cursor-pointer shadow-lg"
               >
-                <span>Join this list today</span>
+                <span>Join Us Now</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>

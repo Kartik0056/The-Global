@@ -147,12 +147,12 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
   });
 
   return (
-    <section className="py-20 bg-[#120722] relative overflow-hidden">
+    <section className="py-12 sm:py-16 bg-[#120722] relative overflow-hidden">
       <div className="bg-glow-orb w-[600px] h-[600px] bg-purple-700/15 top-1/4 -left-20"></div>
       <div className="bg-glow-orb w-[600px] h-[600px] bg-amber-500/10 bottom-1/4 -right-20"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-10 pb-6 border-b border-white/10">
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-5 border-b border-white/10">
           <div className="flex flex-wrap items-center gap-2">
             {[
               { id: 'all', label: 'All Products' },

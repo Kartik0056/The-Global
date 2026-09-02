@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useInquiry } from '../context/InquiryContext';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Send, 
-  CheckCircle2, 
-  Clock, 
-  ShieldCheck, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  CheckCircle2,
+  Clock,
+  ShieldCheck,
   Building2,
   FileSpreadsheet
 } from 'lucide-react';
@@ -90,7 +90,7 @@ export default function ContactSection() {
 
     setLoading(false);
     setIsSubmitted(true);
-    
+
     confetti({
       particleCount: 70,
       spread: 65,
@@ -100,17 +100,17 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative py-28 bg-[#140828] overflow-hidden">
+    <section id="contact" className="relative py-12 sm:py-16 bg-[#140828] overflow-hidden">
       <div className="bg-glow-orb w-[600px] h-[600px] bg-amber-500/10 -top-20 -right-20"></div>
       <div className="bg-glow-orb w-[600px] h-[600px] bg-purple-700/20 bottom-0 left-10"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="section-badge justify-center mb-3">ENTERPRISE CONSULTATION</div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+          <div className="section-badge justify-center mb-2">ENTERPRISE CONSULTATION</div>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight mb-3">
             LET&apos;S ARCHITECT YOUR <span className="text-gold-gradient">IDEAL WORKSPACE</span>
           </h2>
-          <p className="text-base sm:text-lg text-[#d1c4e9]">
+          <p className="text-xs sm:text-sm text-[#d1c4e9]">
             Speak with our turnkey workspace architects and security engineering directors today.
           </p>
         </div>
@@ -203,7 +203,7 @@ export default function ContactSection() {
                   <p className="text-sm text-gray-300 max-w-md mb-6 leading-relaxed">
                     Thank you, <span className="text-amber-400 font-semibold">{formData.fullName || 'there'}</span>. Our technical director will evaluate your space requirements and contact you at <span className="text-white font-medium">{formData.email}</span> within 2 hours.
                   </p>
-                  
+
                   <div className="w-full max-w-md p-4 rounded-2xl bg-[#120722]/80 border border-white/10 text-left text-xs space-y-1.5 mb-8">
                     <div className="text-gray-300"><strong className="text-white">Service:</strong> {formData.service}</div>
                     <div className="text-gray-300"><strong className="text-white">Facility:</strong> {formData.facilityType} ({formData.estimatedArea})</div>
@@ -407,7 +407,7 @@ export default function ContactSection() {
                         <div className="w-5 h-5 border-2 border-[#120722] border-t-transparent rounded-full animate-spin"></div>
                       ) : (
                         <>
-                          <span>Submit Turnkey Project Proposal</span>
+                          <span>Submit</span>
                           <Send className="w-4 h-4" />
                         </>
                       )}

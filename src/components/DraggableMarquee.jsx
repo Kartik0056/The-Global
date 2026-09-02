@@ -168,7 +168,12 @@ export default function DraggableMarquee({ items, renderItem, speed = 1.25, dire
       className={`flex items-center gap-4 overflow-x-hidden select-none py-3 ${
         isGrabbing ? 'cursor-grabbing' : 'cursor-grab'
       } ${className}`}
-      style={{ WebkitOverflowScrolling: 'touch', scrollBehavior: 'auto' }}
+      style={{
+        WebkitOverflowScrolling: 'touch',
+        scrollBehavior: 'auto',
+        maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+        WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)'
+      }}
     >
       {duplicatedItems.map((item, index) => renderItem(item, index))}
     </div>

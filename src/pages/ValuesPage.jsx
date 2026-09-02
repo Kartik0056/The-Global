@@ -59,7 +59,7 @@ export default function ValuesPage() {
 
   return (
     <div className="pt-20">
-      <div className="relative min-h-[420px] sm:min-h-[460px] flex items-center justify-center overflow-hidden border-b border-white/10">
+      <div className="relative min-h-[280px] sm:min-h-[320px] flex items-center justify-center overflow-hidden border-b border-white/10">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/workspace.jpg"
@@ -73,28 +73,28 @@ export default function ValuesPage() {
         <div className="bg-glow-orb w-[500px] h-[500px] bg-purple-700/20 -top-20 left-1/4"></div>
         <div className="bg-glow-orb w-[500px] h-[500px] bg-amber-500/15 bottom-0 right-1/4"></div>
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center py-16">
-          <div className="inline-flex items-center gap-2 mb-4 px-3.5 py-1.5 rounded-full bg-[#261047]/90 border border-amber-400/40 backdrop-blur-md">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center py-10 sm:py-12">
+          <div className="inline-flex items-center gap-2 mb-2.5 px-3 py-1 rounded-full bg-[#261047]/90 border border-amber-400/40 backdrop-blur-md">
             <Award className="w-3.5 h-3.5 text-amber-400" />
-            <span className="text-xs font-black tracking-[0.2em] text-amber-300 uppercase">
+            <span className="text-[11px] font-black tracking-[0.2em] text-amber-300 uppercase">
               03 &bull; PRINCIPLES THAT DEFINE US
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-black font-heading text-white tracking-tight leading-[1.1] mb-5">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-white tracking-tight leading-tight mb-3">
             OUR <span className="text-gold-gradient">CORE VALUES</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-[#d1c4e9] max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-[#d1c4e9] max-w-3xl mx-auto leading-relaxed">
             The 6 non-negotiable standards that drive every single project deliverable: <span className="text-white font-semibold">Quality, Timeliness, Transparency, Value, Dedication,</span> and <span className="text-white font-semibold">Integrity</span>.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mt-8 text-xs text-[#d8b4fe]">
-            <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-5 text-xs text-[#d8b4fe]">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
               <CheckCircle2 className="w-4 h-4 text-amber-400" />
               <span>We don&apos;t cut corners. Ever.</span>
             </div>
-            <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 backdrop-blur-md">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 backdrop-blur-md">
               <ShieldCheck className="w-4 h-4 text-emerald-400" />
               <span>100% On-Time Milestone Record</span>
             </div>
@@ -104,10 +104,10 @@ export default function ValuesPage() {
 
       <ValuesSection />
 
-      <section className="py-24 bg-[#10061e] border-t border-white/10 relative">
+      <section className="py-14 sm:py-16 bg-[#10061e] border-t border-white/10 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="section-badge justify-center mb-2">FIELD EXECUTION</div>
             <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white">
               VALUES IN ACTION: <span className="text-gold-gradient">HOW WE DELIVER</span>
