@@ -14,42 +14,42 @@ import {
 export default function ValuesPage() {
   const valueBreakdowns = [
     {
-      title: '01 / Quality',
+      title: 'Quality',
       subtitle: 'Zero Compromise on Components',
       icon: Award,
       desc: 'We strictly source OEM-certified hardware, heavy-gauge steel mountings, fire-rated cabling, and BIFMA Level 3 commercial furniture.',
       onSitePractice: 'Mandatory 100% load testing and optical telemetry verification prior to client handover.'
     },
     {
-      title: '02 / Timeliness',
+      title: 'Timeliness',
       subtitle: 'Respect for Business Deadlines',
       icon: Clock,
       desc: 'We understand that workspace delays cost money. Our project managers track milestones via real-time Gantt tracking.',
       onSitePractice: '100% on-time milestone record with zero unscheduled disruption to existing enterprise operations.'
     },
     {
-      title: '03 / Transparency',
+      title: 'Transparency',
       subtitle: 'Itemized Honest BOQs',
       icon: Eye,
       desc: 'No hidden clauses or surprise change orders. Every line-item specification is documented clearly before execution begins.',
       onSitePractice: 'Transparent billing and real-time client access to hardware test reports and material origin certificates.'
     },
     {
-      title: '04 / Value',
+      title: 'Value',
       subtitle: 'Long-Term Lifecycle Efficiency',
       icon: Coins,
       desc: 'True value is measured over years, not just initial invoice cost. We select energy-efficient, durable infrastructure with lower total cost of ownership (TCO).',
       onSitePractice: 'Energy Star certified AV systems and low-power IoT optical sensors that cut utility costs.'
     },
     {
-      title: '05 / Dedication',
+      title: 'Dedication',
       subtitle: 'Deep Partnership Beyond Handover',
       icon: HeartHandshake,
       desc: 'We don’t abandon clients post-installation. Our turnkey AMC contracts provide ongoing proactive care and direct access to senior directors.',
       onSitePractice: 'Guaranteed 4-hour on-site technician response SLA for all enterprise AMC partners.'
     },
     {
-      title: '06 / Integrity',
+      title: 'Integrity',
       subtitle: 'Uncompromising Ethical Principles',
       icon: ShieldCheck,
       desc: 'Honest advice even when it means recommending a more economical solution. Complete NDA confidentiality on all facility blueprints.',
