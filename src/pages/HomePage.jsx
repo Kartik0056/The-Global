@@ -43,6 +43,7 @@ export default function HomePage({ onOpenSchedule }) {
     {
       id: 'cctv',
       title: 'Corporate Surveillance & Monitoring',
+      headline: 'Complete Corporate Surveillance & 24/7 Security',
       subtitle: 'IP, HD & STANDALONE CCTV SYSTEMS',
       category: 'SURVEILLANCE',
       icon: Video,
@@ -58,6 +59,7 @@ export default function HomePage({ onOpenSchedule }) {
     {
       id: 'body_worn',
       title: 'Body-Worn Cameras',
+      headline: 'Airline-Grade Body Cameras & Evidence Security',
       subtitle: 'FIELD DEPLOYMENT & STORAGE',
       category: 'BODY CAMERAS',
       icon: Shield,
@@ -73,6 +75,7 @@ export default function HomePage({ onOpenSchedule }) {
     {
       id: 'fire_safety',
       title: 'Fire Safety, Leakage & Rodent Control',
+      headline: 'Addressable Fire Alarms, Sprinklers & Leakage Protection',
       subtitle: 'DETECTION, SUPPRESSION & RESILIENCE',
       category: 'FIRE SAFETY',
       icon: Flame,
@@ -88,6 +91,7 @@ export default function HomePage({ onOpenSchedule }) {
     {
       id: 'av_solutions',
       title: 'Audio & Video Solutions',
+      headline: 'Smart Boardrooms, Video Walls & Immersive AV',
       subtitle: 'CONFERENCING, DISPLAY & EPABX',
       category: 'SMART AV',
       icon: Tv,
@@ -103,6 +107,7 @@ export default function HomePage({ onOpenSchedule }) {
     {
       id: 'access_control',
       title: 'Access Control Systems',
+      headline: 'Biometric Readers, RFID & Zoned Visitor Management',
       subtitle: 'CARD READERS & BIOMETRICS',
       category: 'ACCESS CONTROL',
       icon: Scan,
@@ -118,6 +123,7 @@ export default function HomePage({ onOpenSchedule }) {
     {
       id: 'smart_locks',
       title: 'Smart Door Locks',
+      headline: 'Dorset Smart Locks & Keyless Digital Access',
       subtitle: 'ENTERPRISE KEYLESS ENTRY',
       category: 'SMART LOCKS',
       icon: Lock,
@@ -133,6 +139,7 @@ export default function HomePage({ onOpenSchedule }) {
     {
       id: 'public_access',
       title: 'Public Access & Attendance Systems',
+      headline: 'Speed Gates, Turnstiles & Digital Shift Attendance',
       subtitle: 'TIME TRACKING & TURNSTILES',
       category: 'ATTENDANCE',
       icon: Users,
@@ -148,6 +155,7 @@ export default function HomePage({ onOpenSchedule }) {
     {
       id: 'epabx',
       title: 'EPABX',
+      headline: 'Enterprise EPABX Routing & Free Internal Calling',
       subtitle: 'OFFICE COMMUNICATIONS',
       category: 'EPABX',
       icon: PhoneCall,
@@ -163,6 +171,7 @@ export default function HomePage({ onOpenSchedule }) {
     {
       id: 'leasehold_fitout',
       title: 'Leasehold Improvements',
+      headline: 'Turnkey Leasehold Interiors, Partitions & Acoustic Finishing',
       subtitle: 'OFFICE INTERIORS & FINISHING',
       category: 'INTERIOR FIT-OUT',
       icon: Armchair,
@@ -178,6 +187,7 @@ export default function HomePage({ onOpenSchedule }) {
     {
       id: 'network_integration',
       title: 'Network Integration',
+      headline: 'High-Speed Server Rooms, Cabling & Core Network Integration',
       subtitle: 'CORE IT & INFRASTRUCTURE',
       category: 'NETWORKING',
       icon: Server,
@@ -419,11 +429,12 @@ export default function HomePage({ onOpenSchedule }) {
 
               <div className="lg:col-span-6 flex flex-col justify-between h-full">
                 <div>
-                  <div className="text-[10px] font-extrabold uppercase tracking-widest text-amber-400 mb-1">
-                    ENTERPRISE SOLUTION NODE
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-amber-400/10 border border-amber-400/30 text-amber-300 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider mb-2">
+                    <Sparkles className="w-3 h-3 text-amber-400 shrink-0" />
+                    <span>{currentSolution.badge || currentSolution.category}</span>
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold font-heading text-white mb-3">
-                    {currentSolution.title}
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold font-heading text-white mb-3 tracking-tight leading-snug">
+                    {currentSolution.headline || currentSolution.title}
                   </h3>
 
                   <p className="text-xs sm:text-sm text-[#d1c4e9] leading-relaxed mb-5 bg-[#140828] p-4 rounded-2xl border border-white/10">
