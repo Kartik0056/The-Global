@@ -312,7 +312,7 @@ export default function ServicesSection({ onOpenSchedule }) {
 
           {/* Slide-out Menu Panel */}
           <div
-            className={`absolute left-0 top-1/2 -translate-y-1/2 w-64 sm:w-72 p-3.5 rounded-r-3xl bg-[#16082c]/98 border-y-2 border-r-2 border-amber-400/70 shadow-[0_15px_45px_rgba(0,0,0,0.85),0_0_30px_rgba(245,158,11,0.35)] backdrop-blur-2xl transition-all duration-300 ease-out origin-left flex flex-col gap-2 ${
+            className={`absolute left-0 top-1/2 -translate-y-1/2 w-64 sm:w-72 p-3.5 rounded-r-3xl bg-[#16082c]/98 border-y-2 border-r-2 border-amber-400/70 shadow-[0_15px_45px_rgba(0,0,0,0.85),0_0_30px_rgba(245,158,11,0.35)] backdrop-blur-2xl transition-all duration-300 ease-out origin-left flex flex-col gap-2 overflow-visible ${
               isDrawerOpen 
                 ? 'opacity-100 translate-x-0 pointer-events-auto scale-100' 
                 : 'opacity-0 -translate-x-full pointer-events-none scale-95'
@@ -329,7 +329,7 @@ export default function ServicesSection({ onOpenSchedule }) {
               />
             </div>
 
-            <div className="flex flex-col gap-1.5 max-h-[70vh] overflow-y-auto no-scrollbar py-1">
+            <div className="flex flex-col gap-2 py-1 overflow-visible">
               {servicesData.map((s, idx) => {
                 const Icon = s.icon;
                 const isSelected = activeTab === idx;
@@ -346,23 +346,23 @@ export default function ServicesSection({ onOpenSchedule }) {
                         window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
                       }
                     }}
-                    className={`p-2.5 rounded-xl text-left transition-all duration-300 ease-out cursor-pointer border flex items-center justify-between group transform ${
+                    className={`relative p-2.5 rounded-xl text-left transition-all duration-300 ease-out cursor-pointer border flex items-center justify-between group ${
                       isSelected
-                        ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-[#10061e] border-amber-300 font-extrabold shadow-lg scale-[1.03] translate-x-1'
-                        : 'bg-[#120722]/90 text-[#c4b5fd] border-white/10 hover:border-amber-400/60 hover:text-white hover:bg-[#251044] hover:scale-[1.04] hover:translate-x-1 shadow-sm'
+                        ? 'bg-gradient-to-r from-amber-400 via-amber-400 to-amber-500 text-[#10061e] border-amber-200 font-extrabold shadow-[6px_4px_22px_rgba(245,158,11,0.65),0_0_15px_rgba(245,158,11,0.35)] scale-[1.04] translate-x-4 sm:translate-x-5 z-20 ring-1 ring-amber-300/60'
+                        : 'bg-[#120722]/90 text-[#c4b5fd] border-white/10 hover:border-amber-400/70 hover:text-white hover:bg-[#251044] hover:scale-[1.03] hover:translate-x-3.5 hover:z-10 hover:shadow-[5px_4px_18px_rgba(0,0,0,0.6)] shadow-sm'
                     }`}
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
                       <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110 ${
                         isSelected 
-                          ? 'bg-[#10061e] text-amber-400' 
+                          ? 'bg-[#10061e] text-amber-400 shadow-sm' 
                           : 'bg-white/5 border border-white/10 text-amber-400 group-hover:border-amber-400/50'
                       }`}>
                         <Icon className="w-3.5 h-3.5" />
                       </div>
                       <div className="min-w-0">
                         <div className={`text-[9px] font-mono uppercase ${
-                          isSelected ? 'text-[#10061e]/80' : 'text-amber-400/80'
+                          isSelected ? 'text-[#10061e]/80 font-bold' : 'text-amber-400/80'
                         }`}>
                           0{idx + 1}
                         </div>
@@ -373,7 +373,7 @@ export default function ServicesSection({ onOpenSchedule }) {
                     </div>
 
                     <ArrowRight className={`w-3.5 h-3.5 shrink-0 transition-transform ${
-                      isSelected ? 'text-[#10061e]' : 'text-white/30 group-hover:text-amber-300 group-hover:translate-x-0.5'
+                      isSelected ? 'text-[#10061e] translate-x-0.5' : 'text-white/30 group-hover:text-amber-300 group-hover:translate-x-1'
                     }`} />
                   </button>
                 );

@@ -167,8 +167,8 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
                 key={tab.id}
                 onClick={() => setActiveFilter(tab.id)}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${activeFilter === tab.id
-                    ? 'bg-amber-400 text-[#120722] shadow-lg'
-                    : 'bg-white/5 border border-white/10 text-[#d1c4e9] hover:bg-white/10'
+                  ? 'bg-amber-400 text-[#120722] shadow-lg'
+                  : 'bg-white/5 border border-white/10 text-[#d1c4e9] hover:bg-white/10'
                   }`}
               >
                 {tab.label}
@@ -233,7 +233,7 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
                     onClick={onOpenSchedule}
                     className="btn-gold px-3.5 py-1.5 rounded-lg text-xs font-extrabold flex items-center gap-1 cursor-pointer"
                   >
-                    <span>Inquire BOQ</span>
+                    <span>Inquire</span>
                     <ArrowRight className="w-3 h-3" />
                   </button>
                 </div>
