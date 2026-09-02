@@ -133,7 +133,7 @@ export default function AboutPage({ onOpenSchedule }) {
                 <span>HEADQUARTERS &bull; CR PARK, NEW DELHI</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold font-heading text-white">
-                Visit Our Office in New Delhi
+                Visit Our Head Office in New Delhi
               </h3>
               <p className="text-xs sm:text-sm text-[#d1c4e9] max-w-2xl leading-relaxed">
                 52/21 Basement, Pocket 52, CR Park, New Delhi-110019. Let&apos;s discuss your workspace technology, security, and interior design requirements.
