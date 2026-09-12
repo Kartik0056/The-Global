@@ -35,6 +35,13 @@
 html, body {
   scroll-behavior: smooth;
   cursor: var(--custom-cursor-default);
+  overflow-anchor: none;
+}
+
+#services-interactive,
+.glass-card,
+[data-tab-content] {
+  overflow-anchor: none;
 }
 
 a, button, [role="button"], input[type="button"], input[type="submit"], select, .cursor-pointer {
@@ -325,4 +332,28 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 
 .animate-nav-item {
   animation: mobileNavItemFadeIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom Dropdown & Scrollbar utilities */
+[role="listbox"] {
+  overflow-x: hidden !important;
+}
+
+[role="listbox"]::-webkit-scrollbar {
+  width: 5px;
+  height: 0px;
+}
+
+[role="listbox"]::-webkit-scrollbar-track {
+  background: rgba(22, 8, 41, 0.8);
+  border-radius: 9999px;
+}
+
+[role="listbox"]::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.45);
+  border-radius: 9999px;
+}
+
+[role="listbox"]::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 158, 11, 0.75);
 }

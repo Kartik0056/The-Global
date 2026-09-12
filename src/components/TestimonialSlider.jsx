@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { 
   Star, 
   ChevronLeft, 
@@ -13,7 +14,7 @@ import {
 const testimonialsData = [
   {
     id: 1,
-    quote: "The Global Enterprises completely transformed our flight terminal surveillance. Their single-accountable turnkey model eliminated vendor friction entirely, delivering 4K coverage across all critical departure zones.",
+    quote: "Global Enterprises completely transformed our flight terminal surveillance. Their single-accountable turnkey model eliminated vendor friction entirely, delivering 4K coverage across all critical departure zones.",
     author: "Rajeev Menon",
     role: "Senior Director of Aviation Security",
     org: "Interglobe Aviation (IndiGo Fleet)",
@@ -320,20 +321,29 @@ export default function TestimonialSlider() {
       </div>
 
       {/* Pagination Dots Indicator */}
-      <div className="flex items-center justify-center gap-2 mt-6">
-        {testimonialsData.map((_, dotIdx) => (
-          <button
-            key={dotIdx}
-            type="button"
-            onClick={() => scrollToCard(dotIdx)}
-            aria-label={`Go to slide ${dotIdx + 1}`}
-            className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-              activeIndex === dotIdx
-                ? 'w-7 bg-amber-400 shadow-[0_0_10px_#f59e0b]'
-                : 'w-2 bg-white/20 hover:bg-white/40'
-            }`}
-          />
-        ))}
+      <div className="flex items-center justify-center gap-1.5 mt-6">
+        {testimonialsData.map((_, dotIdx) => {
+          const isActive = activeIndex === dotIdx;
+          return (
+            <button
+              key={dotIdx}
+              type="button"
+              onClick={() => scrollToCard(dotIdx)}
+              aria-label={`Go to slide ${dotIdx + 1}`}
+              className="relative h-3 flex items-center justify-center cursor-pointer px-0.5"
+            >
+              {isActive ? (
+                <motion.div
+                  layoutId="activeTestimonialDot"
+                  className="h-2 w-7 bg-amber-400 rounded-full shadow-[0_0_12px_#f59e0b]"
+                  transition={{ type: "spring", stiffness: 420, damping: 32 }}
+                />
+              ) : (
+                <div className="h-2 w-2 bg-white/25 hover:bg-white/50 rounded-full transition-colors" />
+              )}
+            </button>
+          );
+        })}
       </div>
     </div>
   );

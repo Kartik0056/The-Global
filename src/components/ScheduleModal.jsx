@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { X, Calendar, CheckCircle2, ArrowRight } from 'lucide-react';
 import { useInquiry } from '../context/InquiryContext';
 import confetti from 'canvas-confetti';
+import CustomSelect from './CustomSelect';
 
 export default function ScheduleModal({ isOpen, onClose }) {
   const { submitInquiry } = useInquiry();
@@ -158,16 +159,16 @@ export default function ScheduleModal({ isOpen, onClose }) {
                   <label className="block text-xs font-medium text-gray-200 mb-1.5">
                     Time Slot
                   </label>
-                  <select
+                  <CustomSelect
                     value={meetingData.timeSlot}
                     onChange={(e) => setMeetingData({ ...meetingData, timeSlot: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#120722] border border-white/15 text-white focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 text-xs transition-all cursor-pointer"
-                  >
-                    <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
-                    <option value="11:00 AM - 12:00 PM">11:00 AM - 12:00 PM</option>
-                    <option value="02:00 PM - 03:00 PM">02:00 PM - 03:00 PM</option>
-                    <option value="04:00 PM - 05:00 PM">04:00 PM - 05:00 PM</option>
-                  </select>
+                    options={[
+                      '10:00 AM - 11:00 AM',
+                      '11:00 AM - 12:00 PM',
+                      '02:00 PM - 03:00 PM',
+                      '04:00 PM - 05:00 PM'
+                    ]}
+                  />
                 </div>
               </div>
 
@@ -175,19 +176,20 @@ export default function ScheduleModal({ isOpen, onClose }) {
                 <label className="block text-xs font-medium text-gray-200 mb-1.5">
                   Consultation Focus
                 </label>
-                <select
+                <CustomSelect
                   value={meetingData.topic}
                   onChange={(e) => setMeetingData({ ...meetingData, topic: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#120722] border border-white/15 text-white focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 text-xs transition-all cursor-pointer"
-                >
-                  <option value="Security & Monitoring Systems">Security & Monitoring Systems</option>
-                  <option value="Audio & Video Solutions">Audio & Video Solutions</option>
-                  <option value="Fire Safety, Leakage & Rodent Management">Fire Safety, Leakage & Rodent Management</option>
-                  <option value="Network & Connectivity Services">Network & Connectivity Services</option>
-                  <option value="Fit-out & Leasehold Improvement Services">Fit-out & Leasehold Improvement Services</option>
-                  <option value="Injection Moulding Solutions">Injection Moulding Solutions</option>
-                  <option value="Turnkey Integrated Workspace Solutions">Turnkey Integrated Workspace Solutions</option>
-                </select>
+                  direction="up"
+                  options={[
+                    'Security & Monitoring Systems',
+                    'Audio & Video Solutions',
+                    'Fire Safety, Leakage & Rodent Management',
+                    'Network & Connectivity Services',
+                    'Fit-out & Leasehold Improvement Services',
+                    'Injection Moulding Solutions',
+                    'Turnkey Integrated Workspace Solutions'
+                  ]}
+                />
               </div>
 
               <div className="pt-2">

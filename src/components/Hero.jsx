@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { 
-  ArrowRight, 
-  CheckCircle2, 
+import {
+  ArrowRight,
+  CheckCircle2,
   ChevronRight
 } from 'lucide-react';
 import OrbitalSystem from './OrbitalSystem';
@@ -85,7 +86,7 @@ export default function Hero({ onOpenSchedule }) {
   const current = heroSpotlights[activeTab];
 
   return (
-    <section id="home" className="relative min-h-screen pt-36 lg:pt-40 pb-24 flex flex-col justify-center overflow-hidden">
+    <section id="home" className="relative pt-14 sm:pt-16 lg:pt-[66px] pb-8 sm:pb-10 flex flex-col overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
           src="/images/hero_bg.jpg"
@@ -101,40 +102,40 @@ export default function Hero({ onOpenSchedule }) {
       <div className="bg-glow-orb w-[700px] h-[700px] bg-amber-500/15 top-40 -right-20"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-14">
-          <div className="lg:col-span-7 flex flex-col justify-center text-left">
-            <div className="inline-flex items-center gap-2 mb-4 px-2.5 sm:px-3 py-1 rounded-lg bg-[#251044]/90 border border-amber-400/40 max-w-full backdrop-blur-md">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start mb-6 sm:mb-8">
+          <div className="lg:col-span-7 flex flex-col justify-start text-left">
+            <div className="inline-flex items-center gap-2 mb-3 sm:mb-3.5 px-2.5 sm:px-3 py-1 rounded-lg bg-[#251044]/90 border border-amber-400/40 max-w-full backdrop-blur-md">
               <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-amber-400 animate-pulse shrink-0"></span>
               <span className="text-[10px] sm:text-xs font-bold tracking-[0.12em] sm:tracking-[0.18em] text-amber-300 uppercase font-heading truncate">
-                THE GLOBAL ENTERPRISES &bull; SMART SOLUTIONS, SECURE SPACES
+                GLOBAL ENTERPRISES &bull; SMART SOLUTIONS, SECURE SPACES
               </span>
             </div>
 
-            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4rem] font-extrabold font-heading text-white leading-[1.15] sm:leading-[1.08] tracking-tight mb-3 sm:mb-5 drop-shadow-md">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[3.75rem] font-extrabold font-heading text-white leading-[1.15] sm:leading-[1.08] tracking-tight mb-2.5 sm:mb-4 drop-shadow-md">
               Your Workplace. <br className="hidden sm:inline" />
               Our Expertise. <br className="hidden sm:inline" />
-             
+
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 drop-shadow-[0_4px_25px_rgba(245,158,11,0.4)]">
                 One Integrated Solution.
               </span>
             </h1>
 
-            <p className="text-xs sm:text-base lg:text-lg text-[#d1c4e9] max-w-2xl leading-relaxed mb-6 sm:mb-8 font-normal">
+            <p className="text-xs sm:text-sm md:text-base text-[#d1c4e9] max-w-2xl leading-relaxed mb-5 sm:mb-6 font-normal">
               One accountable partner for the systems that keep your workplace secure, connected, and productive &mdash; designed, installed, and maintained under one roof.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-6 sm:mb-9">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 mb-5 sm:mb-6">
               <button
                 onClick={onOpenSchedule}
-                className="btn-gold px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm md:text-base flex items-center justify-center gap-2 cursor-pointer group font-bold shadow-2xl w-full sm:w-auto"
+                className="btn-gold px-4.5 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer group font-bold shadow-lg w-full sm:w-auto"
               >
                 <span>Schedule a Meeting</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </button>
 
               <a
                 href="#services"
-                className="btn-glass px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm md:text-base font-bold flex items-center justify-center gap-2 hover:border-amber-400 w-full sm:w-auto"
+                className="btn-glass px-4.5 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 hover:border-amber-400 w-full sm:w-auto"
               >
                 <span>Explore our services</span>
               </a>
@@ -169,20 +170,20 @@ export default function Hero({ onOpenSchedule }) {
             <OrbitalSystem
               activeNodeId={heroSpotlights[activeTab]?.id}
               onSelectNode={(nodeId) => {
-                const foundIndex = heroSpotlights.findIndex(s => 
-                  s.id === nodeId || 
+                const foundIndex = heroSpotlights.findIndex(s =>
+                  s.id === nodeId ||
                   (nodeId === 'security' && s.id === 'security') ||
-                  (nodeId === 'speedgate' && s.id === 'security') || 
-                  (nodeId === 'lock' && s.id === 'security') || 
-                  (nodeId === 'cctv' && s.id === 'security') || 
-                  (nodeId === 'defense' && s.id === 'security') || 
-                  (nodeId === 'av' && s.id === 'av') || 
-                  (nodeId === 'fire' && s.id === 'firesafety') || 
-                  (nodeId === 'integration' && s.id === 'network') || 
-                  (nodeId === 'network' && s.id === 'network') || 
-                  (nodeId === 'furniture' && s.id === 'fitout') || 
-                  (nodeId === 'fitout' && s.id === 'fitout') || 
-                  (nodeId === 'moulding' && s.id === 'injection') || 
+                  (nodeId === 'speedgate' && s.id === 'security') ||
+                  (nodeId === 'lock' && s.id === 'security') ||
+                  (nodeId === 'cctv' && s.id === 'security') ||
+                  (nodeId === 'defense' && s.id === 'security') ||
+                  (nodeId === 'av' && s.id === 'av') ||
+                  (nodeId === 'fire' && s.id === 'firesafety') ||
+                  (nodeId === 'integration' && s.id === 'network') ||
+                  (nodeId === 'network' && s.id === 'network') ||
+                  (nodeId === 'furniture' && s.id === 'fitout') ||
+                  (nodeId === 'fitout' && s.id === 'fitout') ||
+                  (nodeId === 'moulding' && s.id === 'injection') ||
                   (nodeId === 'injection' && s.id === 'injection')
                 );
                 if (foundIndex !== -1) {
@@ -193,23 +194,40 @@ export default function Hero({ onOpenSchedule }) {
           </div>
         </div>
 
-        <div 
+        <div
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className="glass-card rounded-3xl border border-white/20 overflow-hidden shadow-2xl p-5 sm:p-7 bg-[#1b0a36]/90 backdrop-blur-2xl"
+          className="glass-card rounded-2xl sm:rounded-3xl border border-white/20 overflow-hidden shadow-2xl p-4 sm:p-5 bg-[#1b0a36]/90 backdrop-blur-2xl"
         >
-          <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-5 border-b border-white/10 no-scrollbar">
+          <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pt-1 sm:pt-1.5 pb-2 sm:pb-2.5 mb-3.5 border-b border-white/10 no-scrollbar">
             {heroSpotlights.map((item, idx) => (
               <button
                 key={item.id}
-                onClick={() => setActiveTab(idx)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer flex items-center gap-2 ${
+                type="button"
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={(e) => {
+                  e.currentTarget.blur();
+                  const currentY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+                  setActiveTab(idx);
+                  window.scrollTo({ top: currentY, behavior: 'instant' });
+                  requestAnimationFrame(() => {
+                    window.scrollTo({ top: currentY, behavior: 'instant' });
+                  });
+                }}
+                className={`relative px-3 sm:px-3.5 py-1.5 rounded-lg sm:rounded-xl text-[10px] sm:text-[11px] font-bold tracking-wider uppercase transition-colors whitespace-nowrap cursor-pointer flex items-center gap-1.5 ${
                   activeTab === idx
-                    ? 'bg-amber-400 text-[#120722] shadow-[0_0_18px_rgba(245,158,11,0.5)] scale-105'
+                    ? 'text-[#120722]'
                     : 'bg-white/5 text-[#c4b5fd] hover:text-white hover:bg-white/10'
                 }`}
               >
-                <span>{item.category}</span>
+                {activeTab === idx && (
+                  <motion.div
+                    layoutId="activeHeroSpotlightPill"
+                    className="absolute inset-0 bg-amber-400 rounded-lg sm:rounded-xl shadow-[0_0_14px_rgba(245,158,11,0.4)] pointer-events-none"
+                    transition={{ type: "spring", stiffness: 420, damping: 32 }}
+                  />
+                )}
+                <span className="relative z-10">{item.category}</span>
               </button>
             ))}
           </div>
@@ -221,7 +239,7 @@ export default function Hero({ onOpenSchedule }) {
                 alt={current.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
-              
+
               <div className="absolute inset-0 bg-gradient-to-t from-[#120722]/90 via-transparent to-transparent pointer-events-none"></div>
 
               <div className="absolute top-3 left-3 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#120722]/90 border border-amber-400/50 backdrop-blur-md shadow-lg">

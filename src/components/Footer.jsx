@@ -15,24 +15,24 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#0b0316] border-t border-white/10 pt-16 pb-12 overflow-hidden text-sm">
+    <footer className="relative bg-[#0b0316] border-t border-white/10 pt-10 pb-8 overflow-hidden text-sm">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-purple-900/10 blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-8 border-b border-white/10">
           <div className="lg:col-span-4 flex flex-col justify-between">
             <div>
               <Link to="/" className="flex items-center gap-3 mb-4">
                 <div className="relative flex items-center justify-center w-12 h-12 rounded-2xl bg-white/95 border-2 border-[#f59e0b] shadow-[0_0_20px_rgba(245,158,11,0.45)] overflow-hidden p-0.5 shrink-0">
                   <img
                     src="/logo.png"
-                    alt="The Global Enterprises Logo"
+                    alt="Global Enterprises Logo"
                     className="w-full h-full object-contain"
                   />
                 </div>
                 <div>
                   <span className="text-base font-black tracking-wider text-white font-heading uppercase block">
-                    The Global Enterprises
+                    Global Enterprises
                   </span>
                   <span className="text-[10px] tracking-[0.16em] text-amber-400 font-semibold uppercase block">
                     Smart Solutions, Secure Spaces
@@ -137,7 +137,7 @@ export default function Footer() {
 
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8e7ea8]">
           <div>
-            &copy; {new Date().getFullYear()} The Global Enterprises. All rights reserved. &bull; Smart Solutions, Secure Spaces.
+            &copy; {new Date().getFullYear()} Global Enterprises. All rights reserved. &bull; Smart Solutions, Secure Spaces.
           </div>
 
           <button

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import {
   ArrowRight,
@@ -165,13 +166,35 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
             ].map(tab => (
               <button
                 key={tab.id}
-                onClick={() => setActiveFilter(tab.id)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${activeFilter === tab.id
-                  ? 'bg-amber-400 text-[#120722] shadow-lg'
-                  : 'bg-white/5 border border-white/10 text-[#d1c4e9] hover:bg-white/10'
-                  }`}
+                type="button"
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={(e) => {
+                  e.currentTarget.blur();
+                  const currentY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+                  setActiveFilter(tab.id);
+                  window.scrollTo({ top: currentY, behavior: 'instant' });
+                  requestAnimationFrame(() => {
+                    window.scrollTo({ top: currentY, behavior: 'instant' });
+                  });
+                }}
+                className={`relative px-4 py-2 rounded-xl text-xs font-bold transition-colors cursor-pointer ${
+                  activeFilter === tab.id
+                    ? 'text-[#120722] z-10'
+                    : 'bg-white/5 border border-white/10 text-[#d1c4e9] hover:bg-white/10'
+                }`}
               >
-                {tab.label}
+                {activeFilter === tab.id && (
+                  <motion.div
+                    layoutId="activeCapabilitiesFilterPill"
+                    className="absolute inset-0 bg-amber-400 rounded-xl shadow-[0_0_15px_rgba(245,158,11,0.4)] pointer-events-none"
+                    transition={{
+                      type: "spring",
+                      stiffness: 420,
+                      damping: 32
+                    }}
+                  />
+                )}
+                <span className="relative z-10">{tab.label}</span>
               </button>
             ))}
           </div>

@@ -15,7 +15,7 @@ export default function ContactPage() {
         <div className="absolute inset-0 z-0">
           <img
             src="/images/headquarters.jpg"
-            alt="The Global Enterprises Executive Consultation Headquarters"
+            alt="Global Enterprises Executive Consultation Headquarters"
             className="w-full h-full object-cover object-center opacity-30 scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0d041a]/95 via-[#120722]/85 to-[#120722]"></div>
@@ -119,7 +119,7 @@ export default function ContactPage() {
               </a>
             </div>
             <iframe
-              title="The Global Enterprises Office Location"
+              title="Global Enterprises Office Location"
               src="https://maps.google.com/maps?q=52/21+Pocket+52+Chittaranjan+Park+New+Delhi+110019&t=&z=16&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="380"

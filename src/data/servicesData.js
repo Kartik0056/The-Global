@@ -309,7 +309,7 @@ export const servicesData = [
           'VOIP Implementation: Cost-effective voice solutions for enhanced communication.',
           'Reliable Point-to-Point Links: High-bandwidth wireless connections for remote locations.',
           'Advanced EPABX Systems: Streamlined call management and communication tools.',
-          'Infrastructure Support: Server room design and implementation for optimal performance.'
+          'Infrastructure Support: Server room design, rack wire dressing, and implementation for optimal performance.'
         ],
         tagTitle: 'Voice & Remote Connectivity:',
         tags: [
@@ -407,7 +407,7 @@ export const servicesData = [
         ]
       }
     ],
-    benefitsTitle: 'The Global Enterprises Difference',
+    benefitsTitle: 'Global Enterprises Difference',
     benefits: [
       'Comprehensive Space Solutions: End-to-end design, architectural space planning, and turnkey project delivery.',
       'Expert, Efficient Execution: Minimizing workplace disruption with disciplined, on-time project management.',

@@ -160,15 +160,15 @@ export default function ValuesPage() {
           <div className="mt-16 glass-card p-8 rounded-3xl border border-amber-400/40 bg-gradient-to-r from-[#200c3b] via-[#16082b] to-[#200c3b] shadow-2xl text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-wider mb-4">
               <Shield className="w-4 h-4 text-amber-400" />
-              <span>FOUNDERS&apos; ETHICAL GOVERNANCE DECLARATION</span>
+              <span>FOUNDER&apos;S ETHICAL GOVERNANCE DECLARATION</span>
             </div>
 
             <p className="text-base sm:text-lg italic text-[#e9d5ff] leading-relaxed mb-6 font-medium">
-              &ldquo;We guarantee that every camera, every speed gate, every fire sensor, and every workstation supplied by The Global Enterprises is authentic, certified, and maintained with our direct personal reputation on the line.&rdquo;
+              &ldquo;We guarantee that every camera, every speed gate, every fire sensor, and every workstation supplied by Global Enterprises is authentic, certified, and maintained with our direct personal reputation on the line.&rdquo;
             </p>
 
             <div className="text-xs font-bold text-amber-400 uppercase tracking-widest">
-              &mdash; Mr. Sachin Arora &amp; Mrs. Rajni Arora (Founders &amp; Managing Directors)
+              &mdash; Mr. Sachin Arora (Founder &amp; Managing Director)
             </div>
           </div>
 

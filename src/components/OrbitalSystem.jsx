@@ -161,21 +161,38 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
 
   const activeOrHovered = hoveredNode || nodes.find(n => isNodeActive(n)) || null;
 
-  // Tooltip placement relative to node coordinates
+  // Dynamic tooltip placement: always opens inward into the spacious orbital circle
   const getTooltipPositionClass = (x, y) => {
-    if (y > 40) {
-      return "top-full mt-3 left-1/2 -translate-x-1/2";
-    } else if (y < -40) {
-      return "bottom-full mb-3 left-1/2 -translate-x-1/2";
-    } else if (x > 0) {
-      return "left-full ml-3 top-1/2 -translate-y-1/2";
+    if (y < -30) {
+      // Top half: ALWAYS open downward into the circle so it never overlaps top/navbar
+      if (x > 50) {
+        return "top-full mt-2.5 right-0"; // opens down, aligns right edge to extend inward left
+      } else if (x < -50) {
+        return "top-full mt-2.5 left-0"; // opens down, aligns left edge to extend inward right
+      } else {
+        return "top-full mt-2.5 left-1/2 -translate-x-1/2"; // opens down centered
+      }
+    } else if (y > 30) {
+      // Bottom half: ALWAYS open upward into the circle so it never overflows bottom
+      if (x > 50) {
+        return "bottom-full mb-2.5 right-0"; // opens up, aligns right edge to extend inward left
+      } else if (x < -50) {
+        return "bottom-full mb-2.5 left-0"; // opens up, aligns left edge to extend inward right
+      } else {
+        return "bottom-full mb-2.5 left-1/2 -translate-x-1/2"; // opens up centered
+      }
     } else {
-      return "right-full mr-3 top-1/2 -translate-y-1/2";
+      // Near vertical center: open horizontally inward towards the circle center
+      if (x > 0) {
+        return "right-full mr-2.5 top-1/2 -translate-y-1/2"; // right edge node -> open to the left
+      } else {
+        return "left-full ml-2.5 top-1/2 -translate-y-1/2"; // left edge node -> open to the right
+      }
     }
   };
 
   return (
-    <div className="w-full flex items-center justify-center overflow-visible py-4">
+    <div className="w-full flex items-center justify-center overflow-visible py-0 sm:py-1">
       <div 
         className="relative w-full max-w-[540px] aspect-square mx-auto flex items-center justify-center select-none scale-[0.62] xs:scale-75 sm:scale-85 md:scale-95 lg:scale-100 origin-center transition-transform"
         onMouseEnter={() => setIsPaused(true)}
@@ -194,7 +211,7 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
             <div className="w-16 h-16 sm:w-19 sm:h-19 rounded-full bg-gradient-to-br from-[#ffffff] via-[#fcf8f0] to-[#f5ecda] shadow-[0_0_22px_rgba(245,158,11,0.65),inset_0_0_8px_rgba(217,119,6,0.25)] flex items-center justify-center p-1.5 relative z-10 border border-amber-400/80">
               <img
                 src="/logo.png"
-                alt="The Global Enterprises Logo"
+                alt="Global Enterprises Logo"
                 className="w-full h-full object-contain filter drop-shadow-md"
               />
             </div>
@@ -300,12 +317,12 @@ export default function OrbitalSystem({ activeNodeId, onSelectNode }) {
 
                 {isHovered && (
                   <div 
-                    className={`absolute w-52 p-2.5 rounded-xl bg-[#1a0933]/95 border border-amber-400/80 shadow-[0_15px_35px_rgba(0,0,0,0.95)] backdrop-blur-2xl pointer-events-none z-50 animate-fadeIn text-left flex items-center gap-2.5 ${getTooltipPositionClass(x, y)}`}
+                    className={`absolute w-48 sm:w-52 p-2 sm:p-2.5 rounded-xl bg-[#1a0933]/98 border border-amber-400/80 shadow-[0_15px_35px_rgba(0,0,0,0.95)] backdrop-blur-2xl pointer-events-none z-[120] animate-fadeIn text-left flex items-center gap-2.5 ${getTooltipPositionClass(x, y)}`}
                   >
                     <img
                       src={node.image}
                       alt={node.title}
-                      className="w-11 h-11 rounded-lg object-cover border border-white/20 shrink-0"
+                      className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg object-cover border border-white/20 shrink-0"
                     />
                     <div className="min-w-0">
                       <div className="text-[9px] font-extrabold uppercase tracking-wider text-amber-400 truncate">

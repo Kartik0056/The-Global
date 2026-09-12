@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { 
   CheckCircle2, 
@@ -19,10 +20,11 @@ export default function ServicesSection({ onOpenSchedule }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const location = useLocation();
   const [searchParams] = useSearchParams();
+  const initialHandledRef = useRef(false);
 
   useEffect(() => {
-    const serviceParam = searchParams.get('service') || location.hash.replace('#', '') || '';
-    if (!serviceParam) return;
+    const serviceParam = searchParams.get('service') || '';
+    if (!serviceParam || initialHandledRef.current) return;
 
     const s = serviceParam.toLowerCase();
     let targetIdx = -1;
@@ -35,6 +37,7 @@ export default function ServicesSection({ onOpenSchedule }) {
     else if (['injection', 'injection_moulding', 'moulding', 'manufacturing', 'plastics'].includes(s)) targetIdx = 5;
 
     if (targetIdx !== -1) {
+      initialHandledRef.current = true;
       setActiveTab(targetIdx);
       setTimeout(() => {
         const el = document.getElementById('services-interactive');
@@ -44,7 +47,7 @@ export default function ServicesSection({ onOpenSchedule }) {
         }
       }, 150);
     }
-  }, [location.search, location.hash, searchParams]);
+  }, [searchParams]);
 
   // Track scroll position to show floating left drawer ONLY on desktop screens when scrolled deeply down
   useEffect(() => {
@@ -78,13 +81,23 @@ export default function ServicesSection({ onOpenSchedule }) {
   }, []);
 
   const handleTabChange = useCallback((idx) => {
+    const savedY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
     setActiveTab(idx);
+
+    // Keep screen position completely locked so no shifting occurs
+    window.scrollTo({ top: savedY, behavior: 'instant' });
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: savedY, behavior: 'instant' });
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: savedY, behavior: 'instant' });
+      });
+    });
   }, []);
 
   const current = useMemo(() => servicesData[activeTab] || servicesData[0], [activeTab]);
 
   return (
-    <section id="services-interactive" className="relative py-12 sm:py-16 bg-[#120722] bg-tech-grid overflow-hidden">
+    <section id="services-interactive" className="relative py-12 sm:py-16 bg-[#120722] bg-tech-grid overflow-hidden" style={{ overflowAnchor: 'none' }}>
       <div className="bg-glow-orb w-[600px] h-[600px] bg-purple-700/15 top-1/4 -right-40"></div>
       <div className="bg-glow-orb w-[500px] h-[500px] bg-amber-500/10 bottom-20 -left-20"></div>
 
@@ -94,9 +107,30 @@ export default function ServicesSection({ onOpenSchedule }) {
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight mb-3">
             OUR SPECIALIZED <span className="text-gold-gradient">SERVICE DOMAINS</span>
           </h2>
-          <p className="text-xs sm:text-sm text-[#d1c4e9]">
+          <p className="text-xs sm:text-sm text-[#d1c4e9] mb-3">
             Select any domain below to explore detailed offerings, technical capabilities, and tailored solutions.
           </p>
+
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#230d42] border border-amber-400/35 text-xs text-[#d1c4e9] shadow-md">
+            <span className="text-[10px] font-extrabold uppercase tracking-wider text-amber-400 font-mono bg-amber-400/15 px-2 py-0.5 rounded border border-amber-400/30">
+              AMC Available
+            </span>
+            <span className="hidden sm:inline">All systems backed by 24/7 preventative maintenance &amp; 4-hr SLA.</span>
+            <button
+              type="button"
+              onClick={() => {
+                const el = document.getElementById('amc-tiers');
+                if (el) {
+                  const y = el.getBoundingClientRect().top + window.pageYOffset - 85;
+                  window.scrollTo({ top: y, behavior: 'smooth' });
+                }
+              }}
+              className="font-bold text-amber-300 hover:text-amber-200 underline underline-offset-2 cursor-pointer flex items-center gap-1"
+            >
+              <span>View AMC Plans</span>
+              <ArrowRight className="w-3 h-3" />
+            </button>
+          </div>
         </div>
 
         {/* Top 6 Services Grid Tabs */}
@@ -108,18 +142,33 @@ export default function ServicesSection({ onOpenSchedule }) {
               <button
                 key={s.id}
                 type="button"
-                onClick={() => handleTabChange(idx)}
-                className={`p-3.5 rounded-2xl text-left transition-all duration-300 ease-out cursor-pointer border flex flex-col justify-between group transform ${
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={(e) => {
+                  e.currentTarget.blur();
+                  handleTabChange(idx);
+                }}
+                className={`relative p-3.5 rounded-2xl text-left transition-colors duration-200 cursor-pointer border flex flex-col justify-between group ${
                   isSelected
-                    ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-[#10061e] border-amber-300 font-extrabold shadow-xl scale-[1.02]'
-                    : 'bg-[#180933]/90 text-[#c4b5fd] border-white/10 hover:border-amber-400/40 hover:text-white hover:bg-[#230e3f] hover:scale-[1.03]'
+                    ? 'border-transparent text-[#10061e] font-extrabold z-10'
+                    : 'bg-[#180933]/90 text-[#c4b5fd] border-white/10 hover:border-amber-400/40 hover:text-white hover:bg-[#230e3f]'
                 }`}
               >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] font-mono opacity-80 uppercase">0{idx + 1}</span>
+                {isSelected && (
+                  <motion.div
+                    layoutId="activeServiceDomainTabPill"
+                    className="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-500 rounded-2xl border border-amber-300 shadow-[0_0_20px_rgba(245,158,11,0.45)] pointer-events-none"
+                    transition={{
+                      type: "spring",
+                      stiffness: 420,
+                      damping: 32
+                    }}
+                  />
+                )}
+                <div className="relative z-10 flex items-center justify-between mb-2">
+                  <span className={`text-[10px] font-mono uppercase ${isSelected ? 'text-[#10061e]/85 font-bold' : 'opacity-80'}`}>0{idx + 1}</span>
                   <Icon className={`w-4 h-4 transition-transform group-hover:scale-110 ${isSelected ? 'text-[#10061e]' : 'text-amber-400'}`} />
                 </div>
-                <div className="text-xs font-bold font-heading line-clamp-2">
+                <div className={`relative z-10 text-xs font-bold font-heading line-clamp-2 ${isSelected ? 'text-[#10061e]' : ''}`}>
                   {s.shortTitle}
                 </div>
               </button>
@@ -128,7 +177,7 @@ export default function ServicesSection({ onOpenSchedule }) {
         </div>
 
         {/* Main Detailed Service Content Card */}
-        <div className="glass-card rounded-3xl border border-white/15 overflow-hidden shadow-2xl p-6 sm:p-10 bg-gradient-to-br from-[#1b0a36] via-[#140828] to-[#1c0b38] min-h-[580px]">
+        <div className="glass-card rounded-3xl border border-white/15 overflow-hidden shadow-2xl p-6 sm:p-10 bg-gradient-to-br from-[#1b0a36] via-[#140828] to-[#1c0b38] min-h-[580px]" style={{ overflowAnchor: 'none' }}>
           <div className="mb-8 pb-8 border-b border-white/10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-lg bg-amber-400/10 border border-amber-400/30 text-amber-300 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider mb-2.5">
@@ -360,22 +409,30 @@ export default function ServicesSection({ onOpenSchedule }) {
                   <button
                     key={s.id}
                     type="button"
-                    onClick={() => {
-                      setActiveTab(idx);
+                    onMouseDown={(e) => e.preventDefault()}
+                    onClick={(e) => {
+                      e.currentTarget.blur();
                       setIsDrawerOpen(false);
-                      const el = document.getElementById('services-interactive');
-                      if (el) {
-                        const y = el.getBoundingClientRect().top + window.pageYOffset - 85;
-                        window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
-                      }
+                      handleTabChange(idx);
                     }}
-                    className={`relative p-2.5 rounded-xl text-left transition-all duration-300 ease-out cursor-pointer border flex items-center justify-between group ${
+                    className={`relative p-2.5 rounded-xl text-left transition-colors duration-200 cursor-pointer border flex items-center justify-between group ${
                       isSelected
-                        ? 'bg-gradient-to-r from-amber-400 via-amber-400 to-amber-500 text-[#10061e] border-amber-200 font-extrabold shadow-[6px_4px_22px_rgba(245,158,11,0.65),0_0_15px_rgba(245,158,11,0.35)] scale-[1.04] translate-x-4 sm:translate-x-5 z-20 ring-1 ring-amber-300/60'
+                        ? 'border-transparent text-[#10061e] font-extrabold z-20 translate-x-4 sm:translate-x-5'
                         : 'bg-[#120722]/90 text-[#c4b5fd] border-white/10 hover:border-amber-400/70 hover:text-white hover:bg-[#251044] hover:scale-[1.03] hover:translate-x-3.5 hover:z-10 hover:shadow-[5px_4px_18px_rgba(0,0,0,0.6)] shadow-sm'
                     }`}
                   >
-                    <div className="flex items-center gap-2.5 min-w-0">
+                    {isSelected && (
+                      <motion.div
+                        layoutId="activeDrawerServiceTabPill"
+                        className="absolute inset-0 bg-gradient-to-r from-amber-400 via-amber-400 to-amber-500 rounded-xl shadow-[6px_4px_22px_rgba(245,158,11,0.65),0_0_15px_rgba(245,158,11,0.35)] pointer-events-none ring-1 ring-amber-300/60"
+                        transition={{
+                          type: "spring",
+                          stiffness: 420,
+                          damping: 32
+                        }}
+                      />
+                    )}
+                    <div className="relative z-10 flex items-center gap-2.5 min-w-0">
                       <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110 ${
                         isSelected 
                           ? 'bg-[#10061e] text-amber-400 shadow-sm' 
@@ -395,7 +452,7 @@ export default function ServicesSection({ onOpenSchedule }) {
                       </div>
                     </div>
 
-                    <ArrowRight className={`w-3.5 h-3.5 shrink-0 transition-transform ${
+                    <ArrowRight className={`relative z-10 w-3.5 h-3.5 shrink-0 transition-transform ${
                       isSelected ? 'text-[#10061e] translate-x-0.5' : 'text-white/30 group-hover:text-amber-300 group-hover:translate-x-1'
                     }`} />
                   </button>

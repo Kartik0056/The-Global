@@ -12,6 +12,7 @@ import {
   FileSpreadsheet
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import CustomSelect from './CustomSelect';
 
 export default function ContactSection() {
   const { submitInquiry } = useInquiry();
@@ -314,72 +315,48 @@ export default function ContactSection() {
                       <label className="block text-xs font-semibold text-gray-200 mb-1.5">
                         Primary Service Required
                       </label>
-                      <select
+                      <CustomSelect
                         name="service"
                         value={formData.service}
                         onChange={handleChange}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#120722] border border-white/15 text-white focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 text-xs transition-all cursor-pointer"
-                      >
-                        {servicesList.map((svc, sIdx) => (
-                          <option key={sIdx} value={svc} className="bg-[#120722] text-white">
-                            {svc}
-                          </option>
-                        ))}
-                      </select>
+                        options={servicesList}
+                      />
                     </div>
 
                     <div>
                       <label className="block text-xs font-semibold text-gray-200 mb-1.5">
                         Facility / Space Type
                       </label>
-                      <select
+                      <CustomSelect
                         name="facilityType"
                         value={formData.facilityType}
                         onChange={handleChange}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#120722] border border-white/15 text-white focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 text-xs transition-all cursor-pointer"
-                      >
-                        {facilityTypes.map((fac, fIdx) => (
-                          <option key={fIdx} value={fac} className="bg-[#120722] text-white">
-                            {fac}
-                          </option>
-                        ))}
-                      </select>
+                        options={facilityTypes}
+                      />
                     </div>
 
                     <div>
                       <label className="block text-xs font-semibold text-gray-200 mb-1.5">
                         Estimated Facility Area
                       </label>
-                      <select
+                      <CustomSelect
                         name="estimatedArea"
                         value={formData.estimatedArea}
                         onChange={handleChange}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#120722] border border-white/15 text-white focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 text-xs transition-all cursor-pointer"
-                      >
-                        {areaRanges.map((area, aIdx) => (
-                          <option key={aIdx} value={area} className="bg-[#120722] text-white">
-                            {area}
-                          </option>
-                        ))}
-                      </select>
+                        options={areaRanges}
+                      />
                     </div>
 
                     <div>
                       <label className="block text-xs font-semibold text-gray-200 mb-1.5">
                         Estimated Budget Range
                       </label>
-                      <select
+                      <CustomSelect
                         name="budget"
                         value={formData.budget}
                         onChange={handleChange}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#120722] border border-white/15 text-white focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 text-xs transition-all cursor-pointer"
-                      >
-                        {budgetOptions.map((bgt, bIdx) => (
-                          <option key={bIdx} value={bgt} className="bg-[#120722] text-white">
-                            {bgt}
-                          </option>
-                        ))}
-                      </select>
+                        options={budgetOptions}
+                      />
                     </div>
                   </div>
 

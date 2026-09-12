@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { useInquiry } from '../context/InquiryContext';
 import {
@@ -155,13 +156,13 @@ export default function Navbar({ onOpenSchedule }) {
             <div className="relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-xl sm:rounded-2xl bg-white/95 border-2 border-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.45)] group-hover:scale-105 transition-all duration-300 overflow-hidden p-0.5 shrink-0">
               <img
                 src="/logo.png"
-                alt="The Global Enterprises Logo"
+                alt="Global Enterprises Logo"
                 className="w-full h-full object-contain"
               />
             </div>
             <div className="hidden md:flex flex-col">
               <span className="text-xs sm:text-sm 2xl:text-base font-black tracking-wider text-white font-heading uppercase group-hover:text-amber-300 transition-colors whitespace-nowrap">
-                The Global Enterprises
+                Global Enterprises
               </span>
               <span className="text-[8px] sm:text-[9px] tracking-[0.16em] text-amber-400 font-extrabold uppercase whitespace-nowrap">
                 Smart Solutions, Secure Spaces
@@ -176,7 +177,15 @@ export default function Navbar({ onOpenSchedule }) {
                 }`}
             >
               Home
-              <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-400 transition-all ${location.pathname === '/' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+              {location.pathname === '/' ? (
+                <motion.span
+                  layoutId="activeNavbarUnderline"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-amber-400 rounded-full shadow-[0_0_8px_#f59e0b]"
+                  transition={{ type: "spring", stiffness: 420, damping: 32 }}
+                />
+              ) : (
+                <span className="absolute bottom-0 left-0 h-0.5 bg-amber-400 w-0 group-hover:w-full transition-all"></span>
+              )}
             </Link>
 
             <Link
@@ -185,7 +194,15 @@ export default function Navbar({ onOpenSchedule }) {
                 }`}
             >
               About Us
-              <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-400 transition-all ${location.pathname === '/about' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+              {location.pathname === '/about' ? (
+                <motion.span
+                  layoutId="activeNavbarUnderline"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-amber-400 rounded-full shadow-[0_0_8px_#f59e0b]"
+                  transition={{ type: "spring", stiffness: 420, damping: 32 }}
+                />
+              ) : (
+                <span className="absolute bottom-0 left-0 h-0.5 bg-amber-400 w-0 group-hover:w-full transition-all"></span>
+              )}
             </Link>
 
             <div
@@ -197,10 +214,19 @@ export default function Navbar({ onOpenSchedule }) {
               <div className="flex items-center">
                 <Link
                   to="/services"
-                  className={`text-[11px] 2xl:text-xs font-bold transition-colors flex items-center gap-0.5 cursor-pointer py-1 whitespace-nowrap ${location.pathname === '/services' || servicesDropdownOpen ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
+                  className={`text-[11px] 2xl:text-xs font-bold transition-colors flex items-center gap-0.5 cursor-pointer py-1 whitespace-nowrap relative group ${location.pathname === '/services' || servicesDropdownOpen ? 'text-amber-400' : 'text-[#d1c4e9] hover:text-amber-300'
                     }`}
                 >
                   <span>What We Do</span>
+                  {(location.pathname === '/services' || servicesDropdownOpen) ? (
+                    <motion.span
+                      layoutId="activeNavbarUnderline"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-amber-400 rounded-full shadow-[0_0_8px_#f59e0b]"
+                      transition={{ type: "spring", stiffness: 420, damping: 32 }}
+                    />
+                  ) : (
+                    <span className="absolute bottom-0 left-0 h-0.5 bg-amber-400 w-0 group-hover:w-full transition-all"></span>
+                  )}
                 </Link>
                 <button
                   type="button"
@@ -239,15 +265,22 @@ export default function Navbar({ onOpenSchedule }) {
                                 to={`/services?service=${item.id}`}
                                 onMouseEnter={() => setActiveMenuService(idx)}
                                 onClick={() => setServicesDropdownOpen(false)}
-                                className={`p-3 rounded-2xl border transition-all duration-300 flex items-start gap-3 group/item ${isHovered
-                                  ? 'bg-gradient-to-r from-amber-400/20 to-purple-600/20 border-amber-400 shadow-lg translate-x-1'
+                                className={`relative p-3 rounded-2xl border transition-colors duration-200 flex items-start gap-3 group/item ${isHovered
+                                  ? 'border-amber-400 shadow-lg translate-x-1'
                                   : 'bg-[#180830]/80 border-white/10 hover:border-white/20'
                                   }`}
                               >
-                                <div className={`p-2 rounded-xl transition-colors ${isHovered ? 'bg-amber-400 text-[#120722]' : 'bg-white/10 text-amber-400'}`}>
+                                {isHovered && (
+                                  <motion.div
+                                    layoutId="activeMegaMenuPill"
+                                    className="absolute inset-0 bg-gradient-to-r from-amber-400/20 via-purple-600/20 to-amber-400/10 border border-amber-400 rounded-2xl pointer-events-none -z-0"
+                                    transition={{ type: "spring", stiffness: 420, damping: 32 }}
+                                  />
+                                )}
+                                <div className={`relative z-10 p-2 rounded-xl transition-colors ${isHovered ? 'bg-amber-400 text-[#120722]' : 'bg-white/10 text-amber-400'}`}>
                                   <Icon className="w-4 h-4" />
                                 </div>
-                                <div className="flex-1 min-w-0">
+                                <div className="relative z-10 flex-1 min-w-0">
                                   <div className="text-xs font-bold text-white group-hover/item:text-amber-300 truncate">
                                     {item.title}
                                   </div>
@@ -328,7 +361,15 @@ export default function Navbar({ onOpenSchedule }) {
                 }`}
             >
               Capabilities
-              <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-400 transition-all ${location.pathname === '/capabilities' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+              {location.pathname === '/capabilities' ? (
+                <motion.span
+                  layoutId="activeNavbarUnderline"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-amber-400 rounded-full shadow-[0_0_8px_#f59e0b]"
+                  transition={{ type: "spring", stiffness: 420, damping: 32 }}
+                />
+              ) : (
+                <span className="absolute bottom-0 left-0 h-0.5 bg-amber-400 w-0 group-hover:w-full transition-all"></span>
+              )}
             </Link>
 
             <Link
@@ -337,7 +378,15 @@ export default function Navbar({ onOpenSchedule }) {
                 }`}
             >
               Core Values
-              <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-400 transition-all ${location.pathname === '/values' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+              {location.pathname === '/values' ? (
+                <motion.span
+                  layoutId="activeNavbarUnderline"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-amber-400 rounded-full shadow-[0_0_8px_#f59e0b]"
+                  transition={{ type: "spring", stiffness: 420, damping: 32 }}
+                />
+              ) : (
+                <span className="absolute bottom-0 left-0 h-0.5 bg-amber-400 w-0 group-hover:w-full transition-all"></span>
+              )}
             </Link>
 
             <Link
@@ -346,7 +395,15 @@ export default function Navbar({ onOpenSchedule }) {
                 }`}
             >
               Mission
-              <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-400 transition-all ${location.pathname === '/mission' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+              {location.pathname === '/mission' ? (
+                <motion.span
+                  layoutId="activeNavbarUnderline"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-amber-400 rounded-full shadow-[0_0_8px_#f59e0b]"
+                  transition={{ type: "spring", stiffness: 420, damping: 32 }}
+                />
+              ) : (
+                <span className="absolute bottom-0 left-0 h-0.5 bg-amber-400 w-0 group-hover:w-full transition-all"></span>
+              )}
             </Link>
 
             <Link
@@ -355,7 +412,15 @@ export default function Navbar({ onOpenSchedule }) {
                 }`}
             >
               Client Trust
-              <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-400 transition-all ${location.pathname === '/clients' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+              {location.pathname === '/clients' ? (
+                <motion.span
+                  layoutId="activeNavbarUnderline"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-amber-400 rounded-full shadow-[0_0_8px_#f59e0b]"
+                  transition={{ type: "spring", stiffness: 420, damping: 32 }}
+                />
+              ) : (
+                <span className="absolute bottom-0 left-0 h-0.5 bg-amber-400 w-0 group-hover:w-full transition-all"></span>
+              )}
             </Link>
 
             <Link
@@ -364,7 +429,15 @@ export default function Navbar({ onOpenSchedule }) {
                 }`}
             >
               Contact
-              <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-400 transition-all ${location.pathname === '/contact' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+              {location.pathname === '/contact' ? (
+                <motion.span
+                  layoutId="activeNavbarUnderline"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-amber-400 rounded-full shadow-[0_0_8px_#f59e0b]"
+                  transition={{ type: "spring", stiffness: 420, damping: 32 }}
+                />
+              ) : (
+                <span className="absolute bottom-0 left-0 h-0.5 bg-amber-400 w-0 group-hover:w-full transition-all"></span>
+              )}
             </Link>
           </div>
 

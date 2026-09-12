@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import { useInquiry } from '../context/InquiryContext';
 import { 
@@ -99,7 +100,7 @@ export default function AdminPage() {
   const replyTemplates = [
     {
       title: 'Initial Acknowledgement',
-      text: (inq) => `Hello ${inq.name}, thank you for reaching out to The Global Enterprises regarding your inquiry for ${inq.service}. We have received your details and our senior engineering team will contact you shortly.`
+      text: (inq) => `Hello ${inq.name}, thank you for reaching out to Global Enterprises regarding your inquiry for ${inq.service}. We have received your details and our senior engineering team will contact you shortly.`
     },
     {
       title: 'Schedule Technical Audit',
@@ -349,15 +350,36 @@ export default function AdminPage() {
             ].map(tab => (
               <button
                 key={tab.key}
-                onClick={() => setActiveTab(tab.key)}
-                className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                type="button"
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={(e) => {
+                  e.currentTarget.blur();
+                  const currentY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+                  setActiveTab(tab.key);
+                  window.scrollTo({ top: currentY, behavior: 'instant' });
+                  requestAnimationFrame(() => {
+                    window.scrollTo({ top: currentY, behavior: 'instant' });
+                  });
+                }}
+                className={`relative px-3.5 py-2 rounded-xl text-xs font-bold transition-colors flex items-center gap-1.5 cursor-pointer ${
                   activeTab === tab.key
-                    ? 'bg-amber-400 text-[#120722] shadow-lg font-black'
+                    ? 'text-[#120722] font-black z-10'
                     : 'bg-white/5 border border-white/10 text-[#d1c4e9] hover:bg-white/10'
                 }`}
               >
-                <span>{tab.label}</span>
-                <span className={`px-1.5 py-0.5 rounded-md text-[10px] font-mono ${
+                {activeTab === tab.key && (
+                  <motion.div
+                    layoutId="activeAdminLeadTabPill"
+                    className="absolute inset-0 bg-amber-400 rounded-xl shadow-lg pointer-events-none"
+                    transition={{
+                      type: "spring",
+                      stiffness: 420,
+                      damping: 32
+                    }}
+                  />
+                )}
+                <span className="relative z-10">{tab.label}</span>
+                <span className={`relative z-10 px-1.5 py-0.5 rounded-md text-[10px] font-mono ${
                   activeTab === tab.key ? 'bg-[#120722] text-amber-300' : 'bg-white/10 text-white'
                 }`}>
                   {tab.count}
@@ -532,7 +554,7 @@ export default function AdminPage() {
 
                     {inq.email && inq.email !== 'N/A' && (
                       <a
-                        href={`mailto:${inq.email}?subject=Regarding your infrastructure inquiry with The Global Enterprises&body=${encodeURIComponent(replyTemplates[0].text(inq))}`}
+                        href={`mailto:${inq.email}?subject=Regarding your infrastructure inquiry with Global Enterprises&body=${encodeURIComponent(replyTemplates[0].text(inq))}`}
                         className="w-full bg-white/5 hover:bg-white/15 text-white font-medium text-xs py-2 px-4 rounded-xl transition-all border border-white/10 flex items-center justify-center gap-2"
                       >
                         <Mail className="w-4 h-4 text-purple-400" />
@@ -836,7 +858,7 @@ export default function AdminPage() {
                         {copiedField === 'email' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                       </button>
                       <a
-                        href={`mailto:${selectedInquiry.email}?subject=Regarding your infrastructure inquiry with The Global Enterprises&body=${encodeURIComponent(replyTemplates[0].text(selectedInquiry))}`}
+                        href={`mailto:${selectedInquiry.email}?subject=Regarding your infrastructure inquiry with Global Enterprises&body=${encodeURIComponent(replyTemplates[0].text(selectedInquiry))}`}
                         className="p-1.5 rounded-lg bg-purple-500/20 hover:bg-purple-500 text-purple-300 hover:text-white transition-colors"
                         title="Send Email"
                       >

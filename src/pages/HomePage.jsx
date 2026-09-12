@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import Hero from '../components/Hero';
 import DraggableMarquee from '../components/DraggableMarquee';
 import TestimonialSlider from '../components/TestimonialSlider';
@@ -263,7 +264,7 @@ export default function HomePage({ onOpenSchedule }) {
 
   const clientTestimonials = [
     {
-      quote: 'The Global Enterprises transformed our flight operations security with robust body-worn cameras and CCTV systems. Their single-point turnkey accountability eliminated vendor friction entirely.',
+      quote: 'Global Enterprises transformed our flight operations security with robust body-worn cameras and CCTV systems. Their single-point turnkey accountability eliminated vendor friction entirely.',
       author: 'Senior Infrastructure Director',
       org: 'Aviation Fleet Partner',
       rating: 5
@@ -326,18 +327,18 @@ export default function HomePage({ onOpenSchedule }) {
     <div className="relative">
       <Hero onOpenSchedule={onOpenSchedule} />
 
-      <section className="py-8 sm:py-10 bg-gradient-to-r from-[#17082e] via-[#210c40] to-[#17082e] border-y border-amber-400/30 relative overflow-hidden shadow-2xl">
+      <section className="py-4 sm:py-5 bg-gradient-to-r from-[#17082e] via-[#210c40] to-[#17082e] border-y border-amber-400/30 relative overflow-hidden shadow-2xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-              <div className="w-12 h-12 rounded-2xl bg-amber-400/20 border border-amber-400/40 flex items-center justify-center text-amber-400 font-bold shrink-0 shadow-lg">
-                <Sparkles className="w-6 h-6 text-amber-400" />
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <div className="flex flex-col sm:flex-row items-center gap-3.5 sm:gap-5">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-amber-400/20 border border-amber-400/40 flex items-center justify-center text-amber-400 font-bold shrink-0 shadow-lg">
+                <Sparkles className="w-5 h-5 text-amber-400" />
               </div>
               <div>
-                <div className="text-sm sm:text-lg font-black font-heading text-white tracking-wide">
+                <div className="text-xs sm:text-base font-black font-heading text-white tracking-wide">
                   10+ Years of Serving &nbsp;|&nbsp; All-in-one Integration Solutions &nbsp;|&nbsp; Trusted by 200+ Businesses
                 </div>
-                <div className="text-xs text-[#c4b5fd] mt-0.5 font-medium">
+                <div className="text-[11px] sm:text-xs text-[#c4b5fd] mt-0.5 font-medium">
                   Next-Gen Workspace Solutions engineered and maintained under one accountable roof.
                 </div>
               </div>
@@ -345,7 +346,7 @@ export default function HomePage({ onOpenSchedule }) {
 
             <button
               onClick={onOpenSchedule}
-              className="btn-gold px-6 py-3 rounded-xl text-xs font-extrabold flex items-center gap-2 cursor-pointer shadow-xl shrink-0"
+              className="btn-gold px-5 py-2.5 rounded-xl text-xs font-extrabold flex items-center gap-2 cursor-pointer shadow-xl shrink-0"
             >
               <span>Schedule a meeting</span>
               <ArrowRight className="w-4 h-4" />
@@ -354,53 +355,74 @@ export default function HomePage({ onOpenSchedule }) {
         </div>
       </section>
 
-      <section id="comprehensive-solutions" className="py-24 bg-[#120722] bg-tech-grid relative overflow-hidden">
+      <section id="comprehensive-solutions" className="py-10 sm:py-12 bg-[#120722] bg-tech-grid relative overflow-hidden">
         <div className="bg-glow-orb w-[600px] h-[600px] bg-purple-700/15 top-20 right-0"></div>
         <div className="bg-glow-orb w-[500px] h-[500px] bg-amber-500/10 bottom-10 left-0"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-5 sm:mb-6 gap-4">
             <div>
-              <div className="section-badge mb-2">SECTION 3 / ENTERPRISE PORTFOLIO</div>
-              <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight">
+              <div className="section-badge mb-1.5">SECTION 3 / ENTERPRISE PORTFOLIO</div>
+              <h2 className="text-2xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">
                 OUR COMPREHENSIVE <span className="text-gold-gradient">SOLUTIONS</span>
               </h2>
-              <p className="text-sm sm:text-base text-[#d1c4e9] mt-3 max-w-3xl">
+              <p className="text-xs sm:text-sm text-[#d1c4e9] mt-2 max-w-3xl">
                 Integrated corporate solutions for security, communication, and productivity.
               </p>
             </div>
 
             <Link
               to="/services"
-              className="btn-gold px-6 py-3 rounded-xl text-xs font-extrabold flex items-center gap-2 w-fit shadow-xl"
+              className="btn-gold px-5 py-2.5 rounded-xl text-xs font-extrabold flex items-center gap-2 w-fit shadow-xl"
             >
               <span>View All Services</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
-          <div className="glass-card rounded-3xl border border-white/15 overflow-hidden shadow-2xl p-5 sm:p-8 bg-[#180933]/90 backdrop-blur-2xl">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 mb-8">
+          <div className="glass-card rounded-2xl sm:rounded-3xl border border-white/15 overflow-hidden shadow-2xl p-4 sm:p-6 bg-[#180933]/90 backdrop-blur-2xl">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 mb-5">
               {comprehensiveSolutions.map((item, idx) => {
                 const Icon = item.icon;
                 const isSelected = activeSolutionTab === idx;
                 return (
                   <button
                     key={item.id}
-                    onClick={() => setActiveSolutionTab(idx)}
-                    className={`p-3 rounded-2xl text-left transition-all cursor-pointer border ${isSelected
-                      ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-[#10061e] border-amber-300 font-extrabold shadow-lg scale-102'
+                    type="button"
+                    onMouseDown={(e) => e.preventDefault()}
+                    onClick={(e) => {
+                      e.currentTarget.blur();
+                      const currentY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+                      setActiveSolutionTab(idx);
+                      window.scrollTo({ top: currentY, behavior: 'instant' });
+                      requestAnimationFrame(() => {
+                        window.scrollTo({ top: currentY, behavior: 'instant' });
+                      });
+                    }}
+                    className={`relative p-3 rounded-2xl text-left transition-colors duration-200 cursor-pointer border ${isSelected
+                      ? 'border-transparent text-[#10061e] font-extrabold z-10'
                       : 'bg-[#120722]/80 text-[#c4b5fd] border-white/10 hover:border-amber-400/40 hover:text-white'
                       }`}
                   >
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-[10px] uppercase tracking-wider opacity-80 font-mono">
+                    {isSelected && (
+                      <motion.div
+                        layoutId="activeSolutionTabPill"
+                        className="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-500 rounded-2xl border border-amber-300 shadow-[0_0_20px_rgba(245,158,11,0.45)] pointer-events-none"
+                        transition={{
+                          type: "spring",
+                          stiffness: 420,
+                          damping: 32
+                        }}
+                      />
+                    )}
+                    <div className="relative z-10 flex items-center justify-between mb-1">
+                      <span className={`text-[10px] uppercase tracking-wider font-mono ${isSelected ? 'text-[#10061e]/85 font-bold' : 'opacity-80'}`}>
                         {idx < 9 ? `0${idx + 1}` : idx + 1}
                       </span>
                       <Icon className={`w-3.5 h-3.5 ${isSelected ? 'text-[#10061e]' : 'text-amber-400'}`} />
                     </div>
-                    <div className="text-xs font-bold font-heading truncate">
+                    <div className={`relative z-10 text-xs font-bold font-heading truncate ${isSelected ? 'text-[#10061e]' : ''}`}>
                       {item.title}
                     </div>
                   </button>
@@ -470,36 +492,36 @@ export default function HomePage({ onOpenSchedule }) {
         </div>
       </section>
 
-      <section className="py-24 bg-[#10061e] border-y border-white/10 relative">
+      <section className="py-10 sm:py-12 bg-[#10061e] border-y border-white/10 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="section-badge justify-center mb-2">SECTION 4 / THE DIFFERENCE</div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white tracking-tight">
+          <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
+            <div className="section-badge justify-center mb-1.5">SECTION 4 / THE DIFFERENCE</div>
+            <h2 className="text-2xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">
               WHY CHOOSE <span className="text-gold-gradient">GLOBAL ENTERPRISES?</span>
             </h2>
-            <div className="inline-block mt-3 px-4 py-1.5 rounded-full bg-[#200c3b] border border-amber-400/30 text-amber-300 font-bold text-xs sm:text-sm tracking-wide uppercase">
+            <div className="inline-block mt-2.5 px-3.5 py-1 rounded-full bg-[#200c3b] border border-amber-400/30 text-amber-300 font-bold text-xs tracking-wide uppercase">
               Because You Deserve More Than Just a Vendor.
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-6 sm:mb-8">
             {whyChooseUs.map((item, idx) => {
               const Icon = item.icon;
               return (
                 <div
                   key={idx}
-                  className="glass-card p-6 sm:p-7 rounded-3xl border border-white/10 hover:border-amber-400/50 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-2 bg-[#16082c]"
+                  className="glass-card p-5 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/10 hover:border-amber-400/50 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1.5 bg-[#16082c]"
                 >
                   <div>
-                    <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 text-amber-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                      <Icon className="w-6 h-6" />
+                    <div className="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/30 text-amber-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                      <Icon className="w-5 h-5" />
                     </div>
 
                     <div className="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-1 font-mono">
                       PILLAR 0{idx + 1}
                     </div>
 
-                    <h3 className="text-lg font-bold font-heading text-white mb-3 group-hover:text-amber-300 transition-colors">
+                    <h3 className="text-base font-bold font-heading text-white mb-2 group-hover:text-amber-300 transition-colors">
                       {item.title}
                     </h3>
 
@@ -508,7 +530,7 @@ export default function HomePage({ onOpenSchedule }) {
                     </p>
                   </div>
 
-                  <div className="pt-4 mt-5 border-t border-white/10 flex items-center gap-1.5 text-[11px] font-bold text-amber-400">
+                  <div className="pt-3 mt-4 border-t border-white/10 flex items-center gap-1.5 text-[11px] font-bold text-amber-400">
                     <Check className="w-3.5 h-3.5" />
                     <span>Verified Value</span>
                   </div>
@@ -517,16 +539,16 @@ export default function HomePage({ onOpenSchedule }) {
             })}
           </div>
 
-          <div className="p-8 rounded-3xl bg-gradient-to-r from-[#280f47] via-[#1a0b32] to-[#280f47] border border-amber-400/40 text-center max-w-3xl mx-auto shadow-2xl">
-            <h3 className="text-2xl font-bold font-heading text-white mb-2">
+          <div className="p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#280f47] via-[#1a0b32] to-[#280f47] border border-amber-400/40 text-center max-w-3xl mx-auto shadow-2xl">
+            <h3 className="text-xl sm:text-2xl font-bold font-heading text-white mb-1.5">
               Experience the Global Enterprises difference.
             </h3>
-            <p className="text-xs sm:text-sm text-[#d1c4e9] mb-6 max-w-xl mx-auto">
+            <p className="text-xs sm:text-sm text-[#d1c4e9] mb-4 max-w-xl mx-auto">
               Contact our directors to assess your facility and receive an itemized, transparent proposal.
             </p>
             <button
               onClick={onOpenSchedule}
-              className="btn-gold px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-xl"
+              className="btn-gold px-6 sm:px-7 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-xl"
             >
               <span>Get a Quote</span>
               <ArrowRight className="w-4 h-4" />
@@ -535,34 +557,34 @@ export default function HomePage({ onOpenSchedule }) {
         </div>
       </section>
 
-      <section className="py-24 bg-[#140828] relative overflow-hidden border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+      <section className="py-10 sm:py-12 bg-[#140828] relative overflow-hidden border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-5 sm:mb-6">
           <div className="text-center max-w-3xl mx-auto">
-            <div className="section-badge justify-center mb-2">SECTION 5 / CLIENT COMMUNITY</div>
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white tracking-tight">
+            <div className="section-badge justify-center mb-1.5">SECTION 5 / CLIENT COMMUNITY</div>
+            <h2 className="text-2xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">
               OUR COMMUNITY <span className="text-gold-gradient">OF CLIENTS</span>
             </h2>
-            <p className="text-xs sm:text-sm text-[#d1c4e9] mt-2">
+            <p className="text-xs sm:text-sm text-[#d1c4e9] mt-1.5">
               Trusted by international aviation leaders, corporate enterprises, and premier brands across India.
             </p>
           </div>
         </div>
 
-        <div className="relative w-full overflow-hidden mb-12">
+        <div className="relative w-full overflow-hidden mb-6 sm:mb-8">
           <DraggableMarquee
             items={clientCommunity}
             speed={1.25}
             renderItem={(client, idx) => (
               <div
                 key={idx}
-                className="w-[200px] min-w-[200px] sm:w-[230px] sm:min-w-[230px] h-[90px] sm:h-[100px] px-6 py-4 rounded-2xl border border-white/10 hover:border-amber-400/60 transition-all duration-300 flex items-center justify-center group bg-[#180830]/80 backdrop-blur-md shrink-0 shadow-lg"
+                className="w-[180px] min-w-[180px] sm:w-[210px] sm:min-w-[210px] h-[80px] sm:h-[90px] px-5 py-3 rounded-2xl border border-white/10 hover:border-amber-400/60 transition-all duration-300 flex items-center justify-center group bg-[#180830]/80 backdrop-blur-md shrink-0 shadow-lg"
                 title={`${client.name} - ${client.tag}`}
               >
                 <img
                   src={client.logo}
                   alt={`${client.name} Logo`}
                   draggable={false}
-                  className="max-h-9 sm:max-h-11 max-w-[160px] sm:max-w-[180px] object-contain filter drop-shadow group-hover:scale-110 transition-transform duration-300 pointer-events-none"
+                  className="max-h-8 sm:max-h-10 max-w-[150px] sm:max-w-[170px] object-contain filter drop-shadow group-hover:scale-110 transition-transform duration-300 pointer-events-none"
                   onError={(e) => {
                     e.target.style.display = 'none';
                   }}
@@ -575,7 +597,7 @@ export default function HomePage({ onOpenSchedule }) {
         <div className="text-center relative z-10">
           <button
             onClick={onOpenSchedule}
-            className="btn-gold px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-2xl"
+            className="btn-gold px-6 sm:px-7 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-2xl"
           >
             <span>Join Us Now</span>
             <ArrowRight className="w-4 h-4" />
@@ -583,14 +605,14 @@ export default function HomePage({ onOpenSchedule }) {
         </div>
       </section>
 
-      <section className="py-20 bg-[#10061e] border-y border-white/10 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+      <section className="py-8 sm:py-10 bg-[#10061e] border-y border-white/10 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-5 sm:mb-6">
           <div className="text-center max-w-3xl mx-auto">
-            <div className="section-badge justify-center mb-2">SECTION 6 / BRAND ECOSYSTEM</div>
+            <div className="section-badge justify-center mb-1.5">SECTION 6 / BRAND ECOSYSTEM</div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-white tracking-tight">
               OUR TRUSTED <span className="text-gold-gradient">BRAND PARTNERS</span>
             </h2>
-            <p className="text-xs sm:text-sm text-[#d1c4e9] mt-2">
+            <p className="text-xs sm:text-sm text-[#d1c4e9] mt-1.5">
               Offering a comprehensive selection of products from leading brands, including:
             </p>
           </div>
@@ -604,14 +626,14 @@ export default function HomePage({ onOpenSchedule }) {
             renderItem={(brand, idx) => (
               <div
                 key={idx}
-                className="w-[200px] min-w-[200px] sm:w-[230px] sm:min-w-[230px] h-[90px] sm:h-[100px] px-6 py-4 rounded-2xl border border-white/10 hover:border-amber-400/60 transition-all duration-300 flex items-center justify-center group bg-[#16082c]/80 backdrop-blur-md shrink-0 shadow-lg"
+                className="w-[180px] min-w-[180px] sm:w-[210px] sm:min-w-[210px] h-[80px] sm:h-[90px] px-5 py-3 rounded-2xl border border-white/10 hover:border-amber-400/60 transition-all duration-300 flex items-center justify-center group bg-[#16082c]/80 backdrop-blur-md shrink-0 shadow-lg"
                 title={brand.name}
               >
                 <img
                   src={brand.logo}
                   alt={`${brand.name} Logo`}
                   draggable={false}
-                  className="max-h-10 sm:max-h-12 max-w-[160px] sm:max-w-[185px] object-contain filter drop-shadow group-hover:scale-105 transition-transform duration-300 pointer-events-none"
+                  className="max-h-9 sm:max-h-11 max-w-[150px] sm:max-w-[170px] object-contain filter drop-shadow group-hover:scale-105 transition-transform duration-300 pointer-events-none"
                   onError={(e) => {
                     e.target.style.display = 'none';
                   }}
@@ -622,14 +644,14 @@ export default function HomePage({ onOpenSchedule }) {
         </div>
       </section>
 
-      <section className="py-20 sm:py-24 bg-[#140828] relative">
+      <section className="py-10 sm:py-12 bg-[#140828] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-            <div className="section-badge justify-center mb-2">SECTION 7 / TESTIMONIALS</div>
+          <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6">
+            <div className="section-badge justify-center mb-1.5">SECTION 7 / TESTIMONIALS</div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-white">
               SEE WHAT OUR <span className="text-gold-gradient">SATISFIED CLIENTS ARE SAYING</span>
             </h2>
-            <p className="text-xs sm:text-sm text-[#d1c4e9] mt-2">
+            <p className="text-xs sm:text-sm text-[#d1c4e9] mt-1.5">
               Verified corporate reviews across aviation, logistics, and industrial safety infrastructure.
             </p>
           </div>
@@ -638,16 +660,16 @@ export default function HomePage({ onOpenSchedule }) {
         </div>
       </section>
 
-      <section className="py-24 bg-[#10061e] border-t border-white/10 relative">
+      <section className="py-10 sm:py-12 bg-[#10061e] border-t border-white/10 relative">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 sm:mb-12">
-            <div className="section-badge justify-center mb-2">SECTION 8 / FAQ</div>
+          <div className="text-center mb-5 sm:mb-6">
+            <div className="section-badge justify-center mb-1.5">SECTION 8 / FAQ</div>
             <h2 className="text-xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-white">
               FREQUENTLY ASKED <span className="text-gold-gradient">QUESTIONS (FAQ)</span>
             </h2>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-3.5">
             {faqItems.map((faq, idx) => {
               const isOpen = openFaq === idx;
               return (
@@ -657,17 +679,17 @@ export default function HomePage({ onOpenSchedule }) {
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? -1 : idx)}
-                    className="w-full p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-white/5"
+                    className="w-full p-4 sm:p-4.5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-white/5"
                   >
-                    <span className="text-sm sm:text-base font-bold text-white flex items-start gap-2.5">
+                    <span className="text-xs sm:text-sm font-bold text-white flex items-start gap-2.5">
                       <span className="text-amber-400 font-mono font-bold">Q:</span>
                       <span>{faq.q}</span>
                     </span>
-                    <ChevronDown className={`w-5 h-5 text-amber-400 shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-4 h-4 text-amber-400 shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
                   </button>
 
                   {isOpen && (
-                    <div className="px-5 pb-5 text-xs sm:text-sm text-[#d1c4e9] leading-relaxed border-t border-white/5 pt-3">
+                    <div className="px-4 pb-4 sm:px-4.5 sm:pb-4.5 text-xs text-[#d1c4e9] leading-relaxed border-t border-white/5 pt-2.5">
                       <span className="text-emerald-400 font-mono font-bold mr-1.5">A:</span>
                       {faq.a}
                     </div>
@@ -679,19 +701,19 @@ export default function HomePage({ onOpenSchedule }) {
         </div>
       </section>
 
-      <section className="py-20 bg-[#120722] border-t border-white/10 relative overflow-hidden">
+      <section className="py-10 sm:py-12 bg-[#120722] border-t border-white/10 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
             <div className="lg:col-span-5">
-              <div className="section-badge mb-2">INSTANT BUDGET ESTIMATOR</div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-white leading-tight mb-3">
+              <div className="section-badge mb-1.5">INSTANT BUDGET ESTIMATOR</div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-white leading-tight mb-2.5">
                 CALCULATE YOUR <span className="text-gold-gradient">FACILITY SCOPE</span>
               </h2>
-              <p className="text-xs sm:text-sm text-[#d1c4e9] leading-relaxed mb-6">
+              <p className="text-xs sm:text-sm text-[#d1c4e9] leading-relaxed mb-4 sm:mb-5">
                 Select your required technology and architectural modules along with your facility size for an indicative turnkey budget estimate.
               </p>
 
-              <div className="space-y-3 text-xs text-[#c4b5fd]">
+              <div className="space-y-2.5 text-xs text-[#c4b5fd]">
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-amber-400" />
                   <span>Itemized Bill of Quantities (BOQ) with zero hidden fees</span>
@@ -708,10 +730,10 @@ export default function HomePage({ onOpenSchedule }) {
             </div>
 
             <div className="lg:col-span-7">
-              <div className="glass-card p-6 sm:p-8 rounded-3xl border border-amber-400/40 bg-[#1b0a36] shadow-2xl">
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
-                  <div className="flex items-center gap-2 text-sm font-extrabold text-white">
-                    <Calculator className="w-5 h-5 text-amber-400" />
+              <div className="glass-card p-5 sm:p-6 rounded-2xl sm:rounded-3xl border border-amber-400/40 bg-[#1b0a36] shadow-2xl">
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
+                  <div className="flex items-center gap-2 text-xs sm:text-sm font-extrabold text-white">
+                    <Calculator className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
                     <span>Indicative Turnkey Estimator</span>
                   </div>
                   <span className="text-[10px] font-mono text-amber-300 bg-amber-400/10 px-2.5 py-1 rounded-full border border-amber-400/30">
@@ -719,8 +741,8 @@ export default function HomePage({ onOpenSchedule }) {
                   </span>
                 </div>
 
-                <div className="mb-6">
-                  <div className="flex justify-between text-xs font-bold text-white mb-2">
+                <div className="mb-4">
+                  <div className="flex justify-between text-xs font-bold text-white mb-1.5">
                     <span>Approx. Facility Area:</span>
                     <span className="text-amber-400 font-mono text-sm">{estimateArea.toLocaleString()} SQ. FT</span>
                   </div>
@@ -740,8 +762,8 @@ export default function HomePage({ onOpenSchedule }) {
                   </div>
                 </div>
 
-                <div className="mb-6">
-                  <label className="block text-[11px] font-bold text-[#d1c4e9] uppercase tracking-wider mb-2">
+                <div className="mb-4">
+                  <label className="block text-[10px] sm:text-[11px] font-bold text-[#d1c4e9] uppercase tracking-wider mb-2">
                     Select Required Systems:
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -759,7 +781,7 @@ export default function HomePage({ onOpenSchedule }) {
                           key={svc.id}
                           type="button"
                           onClick={() => toggleEstimatorService(svc.id)}
-                          className={`p-2.5 rounded-xl text-left text-xs font-bold transition-all cursor-pointer border ${isSelected
+                          className={`p-2 sm:p-2.5 rounded-xl text-left text-xs font-bold transition-all cursor-pointer border ${isSelected
                             ? 'bg-amber-400 text-[#10061e] border-amber-300 shadow'
                             : 'bg-[#120722] text-[#c4b5fd] border-white/10 hover:border-amber-400/30'
                             }`}
@@ -771,22 +793,22 @@ export default function HomePage({ onOpenSchedule }) {
                   </div>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-[#120722] border border-amber-400/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="p-4 sm:p-4.5 rounded-2xl bg-[#120722] border border-amber-400/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3.5">
                   <div>
                     <div className="text-[10px] font-extrabold uppercase tracking-widest text-amber-400">
                       INDICATIVE TURNKEY SCOPE
                     </div>
-                    <div className="text-2xl sm:text-3xl font-black font-heading text-white mt-0.5">
+                    <div className="text-xl sm:text-2xl font-black font-heading text-white mt-0.5">
                       {calculateEstimate()}*
                     </div>
-                    <div className="text-[10px] text-[#9c8eb9]">
+                    <div className="text-[9px] sm:text-[10px] text-[#9c8eb9]">
                       *Includes certified hardware, labor, wiring &amp; compliance testing. Final pricing may vary based on site conditions, specifications, and selected systems.
                     </div>
                   </div>
 
                   <button
                     onClick={onOpenSchedule}
-                    className="btn-gold px-6 py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 cursor-pointer shadow-xl shrink-0"
+                    className="btn-gold px-5 py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2 cursor-pointer shadow-xl shrink-0"
                   >
                     <span>Inquire for Exact Pricing</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -798,32 +820,32 @@ export default function HomePage({ onOpenSchedule }) {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-r from-[#290e4f] via-[#16082b] to-[#290e4f] border-t border-amber-400/30 text-center relative overflow-hidden">
+      <section className="py-10 sm:py-12 bg-gradient-to-r from-[#290e4f] via-[#16082b] to-[#290e4f] border-t border-amber-400/30 text-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 relative z-10">
-          <div className="inline-flex items-center gap-2 mb-4 px-3.5 py-1.5 rounded-full bg-[#3b156e] border border-amber-400/40 text-amber-300 text-xs font-black uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 mb-3 px-3 py-1 rounded-full bg-[#3b156e] border border-amber-400/40 text-amber-300 text-[10px] sm:text-xs font-black uppercase tracking-widest">
             <Sparkles className="w-3.5 h-3.5 text-amber-400" />
             <span>GLOBAL ENTERPRISES &bull; CR PARK, NEW DELHI</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white tracking-tight mb-3">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-white tracking-tight mb-2.5">
             Your Workplace. Our Expertise., <span className="text-gold-gradient">One Integrated Solution.</span>
           </h2>
 
-          <p className="text-xs sm:text-sm md:text-base text-[#d1c4e9] max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8">
+          <p className="text-xs sm:text-sm text-[#d1c4e9] max-w-2xl mx-auto leading-relaxed mb-5 sm:mb-6">
             Consult directly with our engineering team to design, deploy, and maintain an integrated workplace environment.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-3">
             <Link
               to="/about"
-              className="btn-glass px-7 py-3.5 rounded-xl text-xs sm:text-sm font-bold"
+              className="btn-glass px-6 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold"
             >
               About Global Enterprises
             </Link>
 
             <button
               onClick={onOpenSchedule}
-              className="btn-gold px-8 py-3.5 rounded-xl text-xs sm:text-sm font-extrabold flex items-center gap-2 cursor-pointer shadow-2xl"
+              className="btn-gold px-6 sm:px-7 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-extrabold flex items-center gap-2 cursor-pointer shadow-2xl"
             >
               <span>Schedule a meeting</span>
               <ArrowRight className="w-4 h-4" />

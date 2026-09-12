@@ -87,7 +87,7 @@ export default function LoadingScreen({ onFinish }) {
         {/* Brand Badge */}
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-[10px] font-mono font-bold tracking-widest uppercase mb-8 shadow-[0_0_15px_rgba(245,158,11,0.2)]">
           <Sparkles className="w-3 h-3 text-amber-400 animate-spin-slow" />
-          <span>THE GLOBAL ENTERPRISES</span>
+          <span>GLOBAL ENTERPRISES</span>
         </div>
 
         {/* Central Security Scanner & Dynamic Icon Stage */}

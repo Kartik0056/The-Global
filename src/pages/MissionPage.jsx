@@ -104,7 +104,7 @@ export default function MissionPage({ onOpenSchedule }) {
               VISION 2030: <span className="text-gold-gradient">SMART AUTONOMOUS SPACES</span>
             </h2>
             <p className="text-sm text-[#d1c4e9] mt-2">
-              How The Global Enterprises is pioneering the next evolution of connected commercial facilities.
+              How Global Enterprises is pioneering the next evolution of connected commercial facilities.
             </p>
           </div>
 

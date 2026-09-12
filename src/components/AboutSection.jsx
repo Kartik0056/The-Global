@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { motion } from 'framer-motion';
 import {
   Calendar,
   Users,
@@ -314,14 +315,35 @@ export default function AboutSection({ onOpenSchedule }) {
                   <button
                     key={idx}
                     type="button"
-                    onClick={() => setActiveValIndex(idx)}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 cursor-pointer ${activeValIndex === idx
-                      ? 'bg-amber-400 text-[#120722] shadow-lg shadow-amber-400/20 font-extrabold scale-[1.02]'
-                      : 'bg-[#1b0a36] text-[#c4b5fd] border border-white/10 hover:border-amber-400/30'
-                      }`}
+                    onMouseDown={(e) => e.preventDefault()}
+                    onClick={(e) => {
+                      e.currentTarget.blur();
+                      const currentY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+                      setActiveValIndex(idx);
+                      window.scrollTo({ top: currentY, behavior: 'instant' });
+                      requestAnimationFrame(() => {
+                        window.scrollTo({ top: currentY, behavior: 'instant' });
+                      });
+                    }}
+                    className={`relative px-3 py-1.5 rounded-xl text-xs font-bold transition-colors shrink-0 flex items-center gap-1.5 cursor-pointer ${
+                      activeValIndex === idx
+                        ? 'text-[#120722] z-10'
+                        : 'bg-[#1b0a36] text-[#c4b5fd] border border-white/10 hover:border-amber-400/30'
+                    }`}
                   >
-                    <Icon className="w-3.5 h-3.5" />
-                    <span>{val.title}</span>
+                    {activeValIndex === idx && (
+                      <motion.div
+                        layoutId="activeCoreValuePill"
+                        className="absolute inset-0 bg-amber-400 rounded-xl shadow-lg shadow-amber-400/20 pointer-events-none"
+                        transition={{
+                          type: "spring",
+                          stiffness: 420,
+                          damping: 32
+                        }}
+                      />
+                    )}
+                    <Icon className={`w-3.5 h-3.5 relative z-10 ${activeValIndex === idx ? 'text-[#120722]' : 'text-amber-400'}`} />
+                    <span className="relative z-10">{val.title}</span>
                   </button>
                 );
               })}

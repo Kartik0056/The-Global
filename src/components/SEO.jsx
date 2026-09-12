@@ -5,7 +5,7 @@ const BASE_URL = 'https://globalenterprises.in';
 
 const pageSEOMap = {
   '/': {
-    title: 'The Global Enterprises | Integrated Workspace & Security Solutions',
+    title: 'Global Enterprises | Integrated Workspace & Security Solutions',
     description: 'Global Enterprises is a single-window partner providing CCTV surveillance, access control, boardroom audio-video, fire safety systems, and office fit-outs across India.',
     image: '/images/headquarters.jpg',
     type: 'website',
@@ -13,7 +13,7 @@ const pageSEOMap = {
     pageName: 'Home'
   },
   '/about': {
-    title: 'About Us | The Global Enterprises',
+    title: 'About Us | Global Enterprises',
     description: 'Founded in 2012 by Sachin and Rajni Arora, Global Enterprises delivers turnkey technology integration, security infrastructure, and office environments from CR Park, New Delhi.',
     image: '/images/headquarters.jpg',
     type: 'article',
@@ -21,7 +21,7 @@ const pageSEOMap = {
     pageName: 'About Us'
   },
   '/services': {
-    title: 'Workspace, Security & IT Infrastructure Services | The Global Enterprises',
+    title: 'Workspace, Security & IT Infrastructure Services | Global Enterprises',
     description: 'Explore our 6 core services: Security & Monitoring Systems, Audio & Video Solutions, Fire Safety & Rodent Management, Network & Connectivity, Office Fit-outs, and Injection Moulding.',
     image: '/images/cctv.jpg',
     type: 'website',
@@ -29,7 +29,7 @@ const pageSEOMap = {
     pageName: 'Services'
   },
   '/capabilities': {
-    title: 'Hardware & Systems Catalog | The Global Enterprises',
+    title: 'Hardware & Systems Catalog | Global Enterprises',
     description: 'Specifications for commercial 4K CCTV cameras, optical speed gates, addressable fire alarm panels, boardroom display systems, and ergonomic modular workstations.',
     image: '/images/speedgates.jpg',
     type: 'website',
@@ -37,7 +37,7 @@ const pageSEOMap = {
     pageName: 'Hardware & Systems Matrix'
   },
   '/values': {
-    title: 'Our Core Values | The Global Enterprises',
+    title: 'Our Core Values | Global Enterprises',
     description: 'The five operating principles that guide our everyday client work: Quality, Timeliness, Fair Value, Dedication, and Honest Integrity.',
     image: '/images/workspace.jpg',
     type: 'article',
@@ -45,7 +45,7 @@ const pageSEOMap = {
     pageName: 'Core Values'
   },
   '/mission': {
-    title: 'Our Mission & Vision | The Global Enterprises',
+    title: 'Our Mission & Vision | Global Enterprises',
     description: 'Building long-term client partnerships through turnkey project execution, reliable ongoing maintenance, and sustainable workspace engineering.',
     image: '/images/hero_bg.jpg',
     type: 'article',
@@ -53,7 +53,7 @@ const pageSEOMap = {
     pageName: 'Mission & Vision'
   },
   '/clients': {
-    title: 'Our Community of Clients | The Global Enterprises',
+    title: 'Our Community of Clients | Global Enterprises',
     description: 'See the airlines, corporations, logistics providers, and public institutions across India that trust Global Enterprises for workspace infrastructure and security.',
     image: '/images/firesafety.jpg',
     type: 'website',
@@ -61,7 +61,7 @@ const pageSEOMap = {
     pageName: 'Clients'
   },
   '/contact': {
-    title: 'Contact Us | The Global Enterprises',
+    title: 'Contact Us | Global Enterprises',
     description: 'Get in touch with our engineering and project teams in CR Park, New Delhi for site assessments, service inquiries, and project consultations.',
     image: '/images/headquarters.jpg',
     type: 'website',
@@ -69,7 +69,7 @@ const pageSEOMap = {
     pageName: 'Contact Us'
   },
   '/admin': {
-    title: 'Admin Sign In | The Global Enterprises',
+    title: 'Admin Sign In | Global Enterprises',
     description: 'Administrative portal for Global Enterprises team members.',
     image: '/images/headquarters.jpg',
     type: 'website',
@@ -102,7 +102,7 @@ export default function SEO() {
 
     // 3. Primary Meta Tags
     setMetaTag('name', 'description', seo.description);
-    setMetaTag('name', 'author', 'The Global Enterprises');
+    setMetaTag('name', 'author', 'Global Enterprises');
 
     // Robots directive based on indexability
     if (seo.isIndexable) {
@@ -117,7 +117,7 @@ export default function SEO() {
     setMetaTag('property', 'og:url', currentUrl);
     setMetaTag('property', 'og:type', seo.type);
     setMetaTag('property', 'og:image', imageUrl);
-    setMetaTag('property', 'og:site_name', 'The Global Enterprises');
+    setMetaTag('property', 'og:site_name', 'Global Enterprises');
     setMetaTag('property', 'og:locale', 'en_IN');
 
     // 5. Twitter Card Meta Tags

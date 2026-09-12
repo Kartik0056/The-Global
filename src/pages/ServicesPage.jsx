@@ -28,7 +28,7 @@ export default function ServicesPage({ onOpenSchedule }) {
       a: 'Using a single vendor simplifies project coordination, eliminates finger-pointing between contractors, and ensures smooth integration across security, IT, and interior fit-outs.'
     },
     {
-      q: 'What is included in The Global Enterprises Turnkey AMC contract?',
+      q: 'What is included in a Global Enterprises Turnkey AMC contract?',
       a: 'Our Turnkey AMC includes scheduled preventative maintenance, sensor calibration, optical lens cleaning, emergency technician dispatch, and dedicated account management.'
     },
     {
@@ -122,7 +122,7 @@ export default function ServicesPage({ onOpenSchedule }) {
 
       <ServicesSection onOpenSchedule={onOpenSchedule} />
 
-      <section className="py-12 sm:py-16 bg-[#10061e] border-t border-white/10 relative">
+      <section id="amc-tiers" className="py-12 sm:py-16 bg-[#10061e] border-t border-white/10 relative">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
