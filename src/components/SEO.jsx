@@ -14,7 +14,7 @@ const pageSEOMap = {
   },
   '/about': {
     title: 'About Us | The Global Enterprises',
-    description: 'Founded in 2017 by Sachin and Rajni Arora, Global Enterprises delivers turnkey technology integration, security infrastructure, and office environments from CR Park, New Delhi.',
+    description: 'Founded in 2012 by Sachin and Rajni Arora, Global Enterprises delivers turnkey technology integration, security infrastructure, and office environments from CR Park, New Delhi.',
     image: '/images/headquarters.jpg',
     type: 'article',
     isIndexable: true,

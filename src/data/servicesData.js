@@ -78,7 +78,7 @@ export const servicesData = [
         ]
       },
       {
-        name: 'Smart Door Locks (Authorized Dorset Partner)',
+        name: 'Smart Door Locks',
         points: [
           'Enterprise Smart Door Lock Systems: Keyless entry, remote management, and audit logs for enhanced security and efficiency.',
           'Smart Lock Integration: Professional deployment into existing infrastructure, optimizing security protocols.',
@@ -203,7 +203,7 @@ export const servicesData = [
     closingCta: 'Get Started',
     coreOfferings: [
       {
-        name: 'Fire Detection & Extinguishing Systems',
+        name: 'Fire Alarm Systems',
         subtitle: 'Protecting Your Assets and Ensuring Business Continuity',
         points: [
           'Advanced Early Warning Systems: We deploy cutting-edge alarm panels and highly sensitive smoke detectors designed for rapid detection in large corporate environments. This minimizes downtime and protects critical infrastructure, ensuring uninterrupted operations.',
@@ -214,10 +214,12 @@ export const servicesData = [
         subgroups: [
           {
             title: 'Conventional Fire Alarm Systems',
+            badge: 'COST-EFFECTIVE & ROBUST',
             desc: 'Designed specifically for Indian building power conditions, SMB offices, residential complexes, and educational institutions to reduce false alarms cost-effectively.'
           },
           {
             title: 'Addressable Fire Alarm Systems',
+            badge: 'HIGH-PRECISION PINPOINT',
             desc: 'Pinpoint location identification of fire alarm signals for hospitals, industrial plants, high-rises, and complex commercial facilities.'
           }
         ],
@@ -266,7 +268,7 @@ export const servicesData = [
     introTitle: 'High-Velocity Connectivity, Seamlessly Delivered.',
     intro: "These days, if your internet's down, your business is down. It's not just about having a connection; it's about having a reliable one. Everything runs through it – your data, your tools, how you talk to customers. You need a network that lets you move around, handle a lot of traffic, and just works, all the time. No one wants to deal with constant outages. That's where we come in. We're really good at building networks. We set up everything right, making sure it's running smoothly. Frankly, it's about making sure your team can get stuff done and your clients are happy. Because at the end of the day, that's what matters, right?",
     closingBadge: 'ENTERPRISE IT & CONNECTIVITY',
-    closingHeadline: 'Secure, Reliable, and Efficient. IT Solutions That Ensure Success.',
+    closingHeadline: 'Fast, Reliable, and Efficient. IT Solutions That Ensure Success.',
     closingCta: 'Get Started',
     coreOfferings: [
       {
@@ -275,21 +277,21 @@ export const servicesData = [
         points: [
           'Strategic Network Planning: We design robust IP addressing and wireless networks for seamless connectivity and scalability.',
           'Expert Deployment: Our certified engineers handle all aspects of implementation, ensuring minimal disruption.',
-          'Optimised Configuration: Routers, switches, and access points are configured for peak performance and security.'
+          'Optimised Configuration: Switches, patch panels, DVR integration, and access points are configured for peak performance and stable uptime.'
         ],
         subgroupTitle: 'Core Network Infrastructure:',
         subgroups: [
           {
-            title: 'IP Addressing & Wi-Fi Heatmaps',
-            desc: 'Subnet planning, VLAN segmentation, and enterprise Wi-Fi coverage maps.'
+            title: 'Switches & Patch Panels',
+            desc: 'Layer 2/3 managed switches, patch panel termination, and structured rack wire dressing for peak throughput.'
           },
           {
-            title: 'Managed Switches & Routers',
-            desc: 'Layer 2/3 managed switches and enterprise routers configured for peak throughput and firewall security.'
+            title: 'Wi-Fi & Wireless Access Points',
+            desc: 'Seamless roaming high-speed Wi-Fi access points, subnet planning, and coverage across all office floors.'
           },
           {
-            title: 'Wireless Access Points',
-            desc: 'Seamless roaming high-speed Wi-Fi access points across all office floors.'
+            title: 'DVR & Wire Connections',
+            desc: 'Clean structured cabling, patch cords, and reliable network connectivity for DVR, NVR, and workplace hardware.'
           }
         ],
         tagTitle: 'Network Standards:',
@@ -297,7 +299,7 @@ export const servicesData = [
           'Enterprise Wi-Fi 6/6E Planning',
           'VLAN & QoS Segmentation',
           'Layer 2/3 Managed Switching',
-          'Enterprise Firewall Security'
+          'Patch Panels & DVR Cabling'
         ]
       },
       {
@@ -322,7 +324,7 @@ export const servicesData = [
     benefits: [
       'Making things run faster: We build systems that work together seamlessly, boosting productivity without any frustrating delays.',
       'Cutting down on those communication costs: We implement cost-effective smartphone and internet solutions, optimising your budget.',
-      'Knowing your data is secure: We provide robust network defenses, ensuring the protection of your sensitive data.',
+      'Clean & organized wire connections: We provide structured patch panel dressing and stable cabling to eliminate signal drops and clutter.',
       'Staying consistently connected: We develop reliable networks that minimise downtime and maintain uninterrupted online access.',
       'Tech that grows with your business: Our solutions are designed to scale, adapting to your evolving needs without holding you back.',
       'Focus on what you do best: Spend less time worrying about IT and more time dedicated to your core business goals.'

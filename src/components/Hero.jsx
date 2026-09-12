@@ -13,54 +13,64 @@ export default function Hero({ onOpenSchedule }) {
 
   const heroSpotlights = [
     {
-      id: 'cctv',
+      id: 'security',
       serviceSlug: 'security_monitoring',
-      title: '4K Optical Surveillance Systems',
-      category: 'SECURITY SYSTEMS',
-      badge: '4K UHD / AI TRACKING',
+      title: '4K Optical Surveillance & Smart Access',
+      category: 'SECURITY & MONITORING',
+      badge: '4K CCTV & ACCESS CONTROL',
       image: '/images/cctv.jpg',
-      specs: ['3840x2160 Ultra-HD Starlight', 'Real-Time Intrusion Detection', 'Central VMS & Cloud Backup'],
-      tagline: '24/7 visual monitoring and perimeter protection.'
-    },
-    {
-      id: 'speedgates',
-      serviceSlug: 'security_monitoring',
-      title: 'Optical Speed Gates & Turnstiles',
-      category: 'ACCESS CONTROL',
-      badge: 'BIOMETRIC / RFID',
-      image: '/images/speedgates.jpg',
-      specs: ['0.2s Facial Recognition Entry', 'Anti-Tailgating Sensor Array', 'Emergency Auto-Open Protocol'],
-      tagline: 'Secure, high-throughput visitor and staff management.'
+      specs: ['3840x2160 Ultra-HD Starlight CCTV', 'Biometric Speed Gates & Turnstiles', 'Dorset Smart Locks & Cloud VMS'],
+      tagline: '24/7 visual surveillance, access control, and perimeter protection.'
     },
     {
       id: 'av',
       serviceSlug: 'audio_video',
       title: 'Boardroom & Conference Collaboration',
-      category: 'AUDIO-VISUAL',
-      badge: '4K CONFERENCING',
+      category: 'AUDIO & VIDEO',
+      badge: '4K CONFERENCING & PA',
       image: '/images/av_room.jpg',
-      specs: ['Ceiling Beamforming Audio Array', 'Wireless Screen Sharing', 'Acoustic Soundproofing Treatment'],
-      tagline: 'Conference rooms, video walls, and meeting technology.'
-    },
-    {
-      id: 'workspace',
-      serviceSlug: 'fitout_leasehold',
-      title: 'Ergonomic Workspace Fit-Outs',
-      category: 'INTERIOR FIT-OUT',
-      badge: 'BIFMA CERTIFIED',
-      image: '/images/workspace.jpg',
-      specs: ['Motorized Sit-to-Stand Desks', 'Acoustic Glass Partitions', 'Modular Expandable Layouts'],
-      tagline: 'Workspaces designed for comfort, collaboration, and productivity.'
+      specs: ['Ceiling Beamforming Audio Array', 'Wireless Screen Sharing & Presentation', 'Digital Signage & Sound Systems'],
+      tagline: 'Smart boardrooms, video conferencing walls, and public address systems.'
     },
     {
       id: 'firesafety',
-      serviceSlug: 'fire_safety',
-      title: 'Certified Fire Alarm Systems',
-      category: 'FIRE SAFETY',
-      badge: 'UL / CE CERTIFIED',
+      serviceSlug: 'fire_safety_rodent',
+      title: 'Certified Fire Alarm & Hazard Systems',
+      category: 'FIRE SAFETY & RESILIENCE',
+      badge: 'NBC 2016 COMPLIANT',
       image: '/images/firesafety.jpg',
-      specs: ['Optical Thermal Smoke Sensing', 'Addressable Central Control Hub', 'Direct Emergency Egress Link'],
-      tagline: 'Early detection, addressable panels, and certified compliance.'
+      specs: ['Optical Thermal Smoke Detection', 'Addressable Fire Panels & Sprinklers', 'Water Leak Sensing & Rodent Control'],
+      tagline: 'Early warning detection, automated suppression, and complete code compliance.'
+    },
+    {
+      id: 'network',
+      serviceSlug: 'network_connectivity',
+      title: 'High-Speed Enterprise Network & IT',
+      category: 'NETWORK & CONNECTIVITY',
+      badge: 'ENTERPRISE IT & WI-FI 6',
+      image: '/images/headquarters.jpg',
+      specs: ['Enterprise Wi-Fi 6 & Managed Switching', 'VoIP Telephony & Wireless P2P Links', 'High-Density Server Room Infrastructure'],
+      tagline: 'Scalable wireless network architecture, high-bandwidth links, and clean cabling.'
+    },
+    {
+      id: 'fitout',
+      serviceSlug: 'fitout_leasehold',
+      title: 'Ergonomic Workspace Fit-Outs',
+      category: 'FIT-OUT & INTERIORS',
+      badge: 'WORKSPACE FIT-OUT',
+      image: '/images/workspace.jpg',
+      specs: ['Modular Workstations & Ergonomic Furniture', 'Acoustic Glass Partitions & Ceilings', 'Full MEP, Lighting & Commercial Flooring'],
+      tagline: 'Workspaces designed for comfort, collaboration, and productivity.'
+    },
+    {
+      id: 'injection',
+      serviceSlug: 'injection_moulding',
+      title: 'Precision Injection Moulding Solutions',
+      category: 'INJECTION MOULDING',
+      badge: 'PRECISION MANUFACTURING',
+      image: '/images/injection_moulding.jpg',
+      specs: ['Job Work on Existing Client Moulds', 'Design for Manufacturing & Prototyping', 'Certified Precision Quality Control'],
+      tagline: 'Agile injection moulding job work and custom end-to-end product manufacturing.'
     }
   ];
 
@@ -159,7 +169,22 @@ export default function Hero({ onOpenSchedule }) {
             <OrbitalSystem
               activeNodeId={heroSpotlights[activeTab]?.id}
               onSelectNode={(nodeId) => {
-                const foundIndex = heroSpotlights.findIndex(s => s.id === nodeId || (nodeId === 'speedgate' && s.id === 'speedgates') || (nodeId === 'fire' && s.id === 'firesafety') || (nodeId === 'furniture' && s.id === 'workspace') || (nodeId === 'defense' && s.id === 'cctv') || (nodeId === 'lock' && s.id === 'speedgates'));
+                const foundIndex = heroSpotlights.findIndex(s => 
+                  s.id === nodeId || 
+                  (nodeId === 'security' && s.id === 'security') ||
+                  (nodeId === 'speedgate' && s.id === 'security') || 
+                  (nodeId === 'lock' && s.id === 'security') || 
+                  (nodeId === 'cctv' && s.id === 'security') || 
+                  (nodeId === 'defense' && s.id === 'security') || 
+                  (nodeId === 'av' && s.id === 'av') || 
+                  (nodeId === 'fire' && s.id === 'firesafety') || 
+                  (nodeId === 'integration' && s.id === 'network') || 
+                  (nodeId === 'network' && s.id === 'network') || 
+                  (nodeId === 'furniture' && s.id === 'fitout') || 
+                  (nodeId === 'fitout' && s.id === 'fitout') || 
+                  (nodeId === 'moulding' && s.id === 'injection') || 
+                  (nodeId === 'injection' && s.id === 'injection')
+                );
                 if (foundIndex !== -1) {
                   setActiveTab(foundIndex);
                 }

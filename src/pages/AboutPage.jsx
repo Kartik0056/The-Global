@@ -65,7 +65,7 @@ export default function AboutPage({ onOpenSchedule }) {
           </h1>
 
           <p className="text-sm sm:text-base text-[#d1c4e9] max-w-3xl mx-auto leading-relaxed">
-            Founded in 2017 by Mr. Sachin Arora and Mrs. Rajni Arora, Global Enterprises is your one-stop solution for modern workplace technology and secure office spaces.
+            Founded in 2012 by Mr. Sachin Arora and Mrs. Rajni Arora, Global Enterprises is your one-stop solution for modern workplace technology and secure office spaces.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mt-5 text-[11px] sm:text-xs text-[#d8b4fe]">
@@ -73,7 +73,7 @@ export default function AboutPage({ onOpenSchedule }) {
             <div className="flex items-center justify-center gap-2 sm:gap-4 w-full sm:w-auto">
               <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md shrink-0">
                 <Calendar className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <span className="whitespace-nowrap">Established 2017</span>
+                <span className="whitespace-nowrap">Established 2012</span>
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md shrink-0">
                 <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />

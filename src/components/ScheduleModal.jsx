@@ -11,7 +11,7 @@ export default function ScheduleModal({ isOpen, onClose }) {
     phone: '',
     date: '',
     timeSlot: '11:00 AM - 12:00 PM',
-    topic: 'Integrated Workspace Architecture'
+    topic: 'Security & Monitoring Systems'
   });
   const [isBooked, setIsBooked] = useState(false);
 
@@ -180,12 +180,13 @@ export default function ScheduleModal({ isOpen, onClose }) {
                   onChange={(e) => setMeetingData({ ...meetingData, topic: e.target.value })}
                   className="w-full px-3.5 py-2.5 rounded-xl bg-[#120722] border border-white/15 text-white focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 text-xs transition-all cursor-pointer"
                 >
-                  <option value="Integrated Workspace Architecture">Integrated Workspace Architecture</option>
-                  <option value="4K Surveillance & Access Systems">4K Surveillance & Access Systems</option>
-                  <option value="Fire Safety & Compliance Audit">Fire Safety & Compliance Audit</option>
-                  <option value="Turnkey Office Fit-Out Project">Turnkey Office Fit-Out Project</option>
-                  <option value="Network & VoIP Infrastructure">Network & VoIP Infrastructure</option>
+                  <option value="Security & Monitoring Systems">Security & Monitoring Systems</option>
+                  <option value="Audio & Video Solutions">Audio & Video Solutions</option>
+                  <option value="Fire Safety, Leakage & Rodent Management">Fire Safety, Leakage & Rodent Management</option>
+                  <option value="Network & Connectivity Services">Network & Connectivity Services</option>
+                  <option value="Fit-out & Leasehold Improvement Services">Fit-out & Leasehold Improvement Services</option>
                   <option value="Injection Moulding Solutions">Injection Moulding Solutions</option>
+                  <option value="Turnkey Integrated Workspace Solutions">Turnkey Integrated Workspace Solutions</option>
                 </select>
               </div>
 

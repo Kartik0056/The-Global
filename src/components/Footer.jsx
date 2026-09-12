@@ -48,7 +48,7 @@ export default function Footer() {
             <div className="flex items-center gap-4 text-xs text-[#d1c4e9]">
               <div className="flex items-center gap-1.5">
                 <Calendar className="w-3.5 h-3.5 text-amber-400" />
-                <span>Est. 2017</span>
+                <span>Est. 2012</span>
               </div>
               <span>&bull;</span>
               <div className="flex items-center gap-1.5">
@@ -79,12 +79,12 @@ export default function Footer() {
               Our Capabilities
             </h4>
             <ul className="space-y-2.5 text-xs text-[#d1c4e9]">
-              <li><Link to="/services" className="hover:text-amber-300 transition-colors">Security &amp; Monitoring Systems</Link></li>
-              <li><Link to="/services" className="hover:text-amber-300 transition-colors">Audio &amp; Video Solutions</Link></li>
-              <li><Link to="/services" className="hover:text-amber-300 transition-colors">Fire Safety &amp; Rodent Management</Link></li>
-              <li><Link to="/services" className="hover:text-amber-300 transition-colors">Network &amp; Connectivity Services</Link></li>
-              <li><Link to="/services" className="hover:text-amber-300 transition-colors">Fit-out &amp; Leasehold Improvements</Link></li>
-              <li><Link to="/services" className="hover:text-amber-300 transition-colors">Injection Moulding Solutions</Link></li>
+              <li><Link to="/services?service=security_monitoring" className="hover:text-amber-300 transition-colors">Security &amp; Monitoring Systems</Link></li>
+              <li><Link to="/services?service=audio_video" className="hover:text-amber-300 transition-colors">Audio &amp; Video Solutions</Link></li>
+              <li><Link to="/services?service=fire_safety_rodent" className="hover:text-amber-300 transition-colors">Fire Safety &amp; Rodent Management</Link></li>
+              <li><Link to="/services?service=network_connectivity" className="hover:text-amber-300 transition-colors">Network &amp; Connectivity Services</Link></li>
+              <li><Link to="/services?service=fitout_leasehold" className="hover:text-amber-300 transition-colors">Fit-out &amp; Leasehold Improvements</Link></li>
+              <li><Link to="/services?service=injection_moulding" className="hover:text-amber-300 transition-colors">Injection Moulding Solutions</Link></li>
             </ul>
           </div>
 

@@ -52,7 +52,7 @@ export default function AboutSection({ onOpenSchedule }) {
     {
       icon: Calendar,
       label: 'ESTABLISHED',
-      value: '2017',
+      value: '2012',
       sub: 'Years of continuous industry excellence'
     },
     {
@@ -143,7 +143,7 @@ export default function AboutSection({ onOpenSchedule }) {
                   </span>
                   <span className="text-[10px] font-bold text-emerald-400 flex items-center gap-1 bg-emerald-950/70 border border-emerald-500/30 px-2.5 py-0.5 rounded">
                     <CheckCircle2 className="w-3 h-3" />
-                    Est. 2017 &bull; New Delhi
+                    Est. 2012 &bull; New Delhi
                   </span>
                 </div>
                 <p className="text-xs text-[#d1c4e9] leading-snug">
@@ -161,7 +161,7 @@ export default function AboutSection({ onOpenSchedule }) {
               </div>
 
               <h3 className="text-xl sm:text-2xl font-bold font-heading text-white leading-snug mb-4">
-                When Mr. Sachin Arora and Mrs. Rajni Arora founded <span className="text-white">Global Enterprises</span> in 2017, they had a clear vision: <span className="text-purple-200">to build an entity that truly makes business life easier.</span>
+                When Mr. Sachin Arora and Mrs. Rajni Arora founded <span className="text-white">Global Enterprises</span> in 2012, they had a clear vision: <span className="text-purple-200">to build an entity that truly makes business life easier.</span>
               </h3>
 
               <p className="text-sm sm:text-base text-[#d1c4e9] leading-relaxed mb-4">

@@ -30,13 +30,14 @@ import {
   PhoneCall,
   Server,
   Users,
-  Check
+  Check,
+  Boxes
 } from 'lucide-react';
 
 export default function HomePage({ onOpenSchedule }) {
   const [activeSolutionTab, setActiveSolutionTab] = useState(0);
   const [estimateArea, setEstimateArea] = useState(10000);
-  const [selectedEstimatorServices, setSelectedEstimatorServices] = useState(['cctv', 'speedgates', 'fire']);
+  const [selectedEstimatorServices, setSelectedEstimatorServices] = useState(['cctv', 'av', 'fire']);
   const [openFaq, setOpenFaq] = useState(0);
 
   const comprehensiveSolutions = [
@@ -193,11 +194,11 @@ export default function HomePage({ onOpenSchedule }) {
       icon: Server,
       image: '/images/headquarters.jpg',
       badge: 'RELIABLE EFFICIENT NETWORKS',
-      desc: 'We build reliable, efficient networks. Implementing core infrastructure to seamless voice and data solutions, we handle everything: connectivity, server rooms, and, ensuring your business stays connected and secure.',
+      desc: 'We build reliable, efficient networks. Implementing core infrastructure from switches and patch panel cabling to Wi-Fi and DVR integration, ensuring your business stays seamlessly connected.',
       features: [
-        'We build reliable, efficient networks for business',
-        'Core infrastructure to seamless voice and data solutions',
-        'Connectivity, server rooms, and secure operations'
+        'Managed switches, patch panels & clean wire connections',
+        'High-speed Wi-Fi access points & DVR network cabling',
+        'Server room rack dressing & reliable EPABX connectivity'
       ]
     }
   ];
@@ -310,12 +311,12 @@ export default function HomePage({ onOpenSchedule }) {
 
   const calculateEstimate = () => {
     let baseRate = 0;
-    if (selectedEstimatorServices.includes('cctv')) baseRate += 45;
-    if (selectedEstimatorServices.includes('speedgates')) baseRate += 55;
-    if (selectedEstimatorServices.includes('fire')) baseRate += 40;
+    if (selectedEstimatorServices.includes('cctv') || selectedEstimatorServices.includes('security')) baseRate += 45;
     if (selectedEstimatorServices.includes('av')) baseRate += 60;
-    if (selectedEstimatorServices.includes('workspace')) baseRate += 120;
-    if (selectedEstimatorServices.includes('turnkey')) baseRate += 30;
+    if (selectedEstimatorServices.includes('fire')) baseRate += 40;
+    if (selectedEstimatorServices.includes('network') || selectedEstimatorServices.includes('turnkey')) baseRate += 35;
+    if (selectedEstimatorServices.includes('workspace') || selectedEstimatorServices.includes('fitout')) baseRate += 120;
+    if (selectedEstimatorServices.includes('moulding') || selectedEstimatorServices.includes('injection')) baseRate += 50;
 
     const est = (estimateArea * baseRate);
     return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(est);
@@ -745,12 +746,12 @@ export default function HomePage({ onOpenSchedule }) {
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {[
-                      { id: 'cctv', label: 'CCTV & Body-Worn' },
-                      { id: 'speedgates', label: 'Access & Smart Locks' },
-                      { id: 'fire', label: 'Fire Safety Systems' },
-                      { id: 'av', label: 'Audio & Video Suites' },
-                      { id: 'workspace', label: 'Leasehold Improvements' },
-                      { id: 'turnkey', label: 'Network Integration' },
+                      { id: 'cctv', label: '1. Security & Surveillance' },
+                      { id: 'av', label: '2. Audio & Video Suites' },
+                      { id: 'fire', label: '3. Fire Safety & Rodent' },
+                      { id: 'network', label: '4. Network & Connectivity' },
+                      { id: 'workspace', label: '5. Fit-out & Leasehold' },
+                      { id: 'moulding', label: '6. Injection Moulding' },
                     ].map((svc) => {
                       const isSelected = selectedEstimatorServices.includes(svc.id);
                       return (

@@ -187,15 +187,38 @@ export default function ServicesSection({ onOpenSchedule }) {
                   </ul>
 
                   {offering.subgroups && (
-                    <div className="pt-3 border-t border-white/10">
-                      <div className="text-[11px] font-bold uppercase tracking-wider text-amber-400 mb-2">
-                        {offering.subgroupTitle || 'Key Deployments & Options:'}
+                    <div className="pt-4 border-t border-white/10">
+                      <div className="text-xs font-bold uppercase tracking-wider text-amber-400 mb-3 flex items-center gap-2">
+                        <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                        <span>{offering.subgroupTitle || 'Key Deployments & Options:'}</span>
                       </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                      <div className={`grid grid-cols-1 ${offering.subgroups.length === 2 ? 'sm:grid-cols-2 gap-3.5' : 'sm:grid-cols-3 gap-2.5'}`}>
                         {offering.subgroups.map((sub, sIdx) => (
-                          <div key={sIdx} className="p-3 rounded-xl bg-[#10061e]/90 border border-white/10 flex flex-col justify-between">
-                            <span className="font-bold text-white text-xs block mb-1">{sub.title}</span>
-                            <span className="text-[#c4b5fd] text-[11px] leading-snug">{sub.desc}</span>
+                          <div 
+                            key={sIdx} 
+                            className={`p-4 rounded-2xl border transition-all duration-300 flex flex-col justify-between group/sub ${
+                              offering.subgroups.length === 2
+                                ? 'bg-gradient-to-br from-[#230e3f] via-[#1a0833] to-[#120524] border-amber-400/40 hover:border-amber-400/80 shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_25px_rgba(245,158,11,0.2)] hover:-translate-y-1 ring-1 ring-amber-400/20'
+                                : 'p-3 rounded-xl bg-[#10061e]/90 border-white/10 hover:border-amber-400/40'
+                            }`}
+                          >
+                            <div>
+                              <div className="flex items-center justify-between gap-2 mb-2">
+                                <span className="font-bold text-white text-xs sm:text-sm font-heading group-hover/sub:text-amber-300 transition-colors">
+                                  {sub.title}
+                                </span>
+                                {sub.badge ? (
+                                  <span className="text-[9px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-md bg-amber-400/15 border border-amber-400/40 text-amber-300 shrink-0">
+                                    {sub.badge}
+                                  </span>
+                                ) : (
+                                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400/80 shadow-[0_0_6px_#f59e0b] shrink-0"></span>
+                                )}
+                              </div>
+                              <p className="text-[#d8cceb] text-xs leading-relaxed font-normal">
+                                {sub.desc}
+                              </p>
+                            </div>
                           </div>
                         ))}
                       </div>

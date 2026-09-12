@@ -32,12 +32,12 @@ export default function ContactSection() {
   const [loading, setLoading] = useState(false);
 
   const servicesList = [
-    'Security & Monitoring Systems (4K CCTV & AI)',
-    'Biometric Access Control & Optical Speed Gates',
-    'Certified Fire Safety & Detection Systems',
-    'Audio-Visual Collaboration & Conference Setup',
-    'Modular Workstations & Demountable Glass Walls',
-    'Complete Turnkey Workspace Architecture'
+    'Security & Monitoring Systems (4K CCTV & Access Control)',
+    'Audio & Video Solutions (Conferencing & PA Systems)',
+    'Fire Safety, Leakage & Rodent Management',
+    'Network & Connectivity Services (IT Infrastructure & VoIP)',
+    'Fit-out & Leasehold Improvement Services (Interiors & MEP)',
+    'Injection Moulding Solutions (Job Work & Custom Moulds)'
   ];
 
   const facilityTypes = [
