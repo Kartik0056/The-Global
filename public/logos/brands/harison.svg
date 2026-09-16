@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" fill="none">
+  <!-- Harison Brand Logo -->
+  <g transform="translate(12, 11)">
+    <!-- Security Padlock Icon -->
+    <rect x="2" y="14" width="28" height="24" rx="4" fill="#D32F2F" stroke="#E11D48" stroke-width="2"/>
+    <path d="M7 14 V8 C7 3, 25 3, 25 8 V14" fill="none" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- Keyhole -->
+    <circle cx="16" cy="23" r="2.5" fill="#FFFFFF"/>
+    <polygon points="14.5,23 17.5,23 18,31 14,31" fill="#FFFFFF"/>
+  </g>
+  <!-- HARISON Text -->
+  <text x="56" y="34" font-family="'Outfit', 'Helvetica Neue', 'Arial Black', sans-serif" font-weight="900" font-size="24" fill="#FFFFFF" letter-spacing="2">HARISON</text>
+  <text x="57" y="47" font-family="'Outfit', sans-serif" font-weight="700" font-size="8" fill="#F59E0B" letter-spacing="1.8">SECURITY LOCKS &amp; HARDWARE</text>
+</svg>

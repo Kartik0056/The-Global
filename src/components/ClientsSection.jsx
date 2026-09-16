@@ -14,27 +14,32 @@ import {
 
 export default function ClientsSection({ onOpenSchedule }) {
   const communityClients = [
-    { name: 'Air India Limited', sector: 'National Flag Carrier', logo: '/logos/clients/airindia.svg' },
-    { name: 'Interglobe Aviation (IndiGo)', sector: 'Aviation Infrastructure', logo: '/logos/clients/indigo.svg' },
-    { name: 'British Airways', sector: 'International Flag Carrier', logo: '/logos/clients/britishairways.svg' },
+    { name: 'Interglobe Aviation Limited (Indigo)', sector: 'Aviation Infrastructure', logo: '/logos/clients/indigo.svg' },
+    { name: 'Fedex Express Transportation', sector: 'Global Logistics & Supply Chain', logo: '/logos/clients/fedex.svg' },
+    { name: 'Air India', sector: 'National Flag Carrier', logo: '/logos/clients/airindia.svg' },
+    { name: 'Cosmo First Limited', sector: 'Specialty Films & Chemicals', logo: '/logos/clients/cosmofirst.svg' },
+    { name: 'Etihad', sector: 'Global Airline Fleet', logo: '/logos/clients/etihad.svg' },
+    { name: 'Impetus Technologies India Pvt. Ltd.', sector: 'Enterprise Cloud & Big Data', logo: '/logos/clients/impetus.svg' },
+    { name: 'Gulf Air', sector: 'International Aviation Fleet', logo: '/logos/clients/gulfair.svg' },
+    { name: 'Qatar AirWays', sector: 'International Commercial Airline', logo: '/logos/clients/qatarairways.jpg' },
+    { name: 'Aadharshila India', sector: 'Social & Education Infrastructure', logo: '/logos/clients/aadharshila.svg' },
     { name: 'Air France', sector: 'Global Airline Fleet', logo: '/logos/clients/airfrance.svg' },
-    { name: 'Air Canada', sector: 'International Commercial Aviation', logo: '/logos/clients/aircanada.svg' },
-    { name: 'Etihad Airways', sector: 'Global Airline Fleet', logo: '/logos/clients/etihad.svg' },
+    { name: 'KLM', sector: 'Royal Dutch Airlines', logo: '/logos/clients/klm.svg' },
     { name: 'Akasa Air', sector: 'Commercial Airline', logo: '/logos/clients/akasa.svg' },
-    { name: 'Singapore Airlines Limited', sector: 'Premier Global Airline', logo: '/logos/clients/singaporeairlines.svg' },
-    { name: 'Egypt Air', sector: 'International Aviation', logo: '/logos/clients/egyptair.svg' },
-    { name: 'FedEx Express', sector: 'Global Logistics Security', logo: '/logos/clients/fedex.svg' },
-    { name: 'Rio Tinto India', sector: 'Industrial Enterprise', logo: '/logos/clients/riotinto.svg' },
     { name: 'Agile Airport Services', sector: 'Airport Ground Operations', logo: '/logos/clients/agile.svg' },
-    { name: 'Civil Defense', sector: 'Government Agency', logo: '/logos/clients/civildefense.svg' },
-    { name: 'National Disaster Response Force (NDRF)', sector: 'Disaster Response', logo: '/logos/clients/ndrf.svg' },
+    { name: 'Rio Tinto', sector: 'Industrial Enterprise', logo: '/logos/clients/riotinto.svg' },
     { name: 'Divine Interiors', sector: 'Commercial Space Design', logo: '/logos/clients/divine.svg' },
+    { name: 'Aadharshila India', sector: 'Infrastructure Development', logo: '/logos/clients/aadharshila.svg' },
+    { name: 'Civil Defence', sector: 'Public Safety Agency', logo: '/logos/clients/civildefense.svg' },
+    { name: 'Scoot Air', sector: 'International Airline', logo: '/logos/clients/scoot.svg' },
+    { name: 'Rafi Ahmed Kidwai National Postal Acadamy', sector: 'Central Training Academy', logo: '/logos/clients/raknpa.jpg' },
+    { name: 'National Disaster Response Force (NDRF)', sector: 'Disaster Response Force', logo: '/logos/clients/ndrf.svg' },
   ];
 
   const featuredEnterpriseClients = [
     {
       category: 'Aviation Infrastructure',
-      name: 'Interglobe Aviation (IndiGo)',
+      name: 'Interglobe Aviation Limited (Indigo)',
       icon: Plane,
       image: '/images/cctv.jpg',
       desc: 'LTE body-worn cameras, operations command centers & airport workspace security technology.',
@@ -42,7 +47,7 @@ export default function ClientsSection({ onOpenSchedule }) {
     },
     {
       category: 'Global Logistics Security',
-      name: 'FedEx Express',
+      name: 'Fedex Express Transportation',
       icon: Truck,
       image: '/images/speedgates.jpg',
       desc: 'Continuous tracking, access control barriers, distribution hub surveillance & rapid maintenance support.',
@@ -50,7 +55,7 @@ export default function ClientsSection({ onOpenSchedule }) {
     },
     {
       category: 'Industrial Enterprise',
-      name: 'Rio Tinto India',
+      name: 'Rio Tinto',
       icon: Factory,
       image: '/images/headquarters.jpg',
       desc: 'Industrial facility safety, integrated access architecture & hazardous zone optical monitoring nodes.',
@@ -58,7 +63,7 @@ export default function ClientsSection({ onOpenSchedule }) {
     },
     {
       category: 'Government Agency',
-      name: 'Civil Defense',
+      name: 'Civil Defence',
       icon: Shield,
       image: '/images/firesafety.jpg',
       desc: 'Emergency response coordination systems, fire safety, automated alerting & emergency gear deployment.',
@@ -107,7 +112,9 @@ export default function ClientsSection({ onOpenSchedule }) {
                   src={client.logo}
                   alt={`${client.name} Logo`}
                   draggable={false}
-                  className="max-h-9 sm:max-h-11 max-w-[160px] sm:max-w-[180px] object-contain filter drop-shadow group-hover:scale-110 transition-transform duration-300 pointer-events-none"
+                  className={`max-h-9 sm:max-h-11 max-w-[160px] sm:max-w-[180px] object-contain filter drop-shadow group-hover:scale-110 transition-transform duration-300 pointer-events-none rounded-md ${
+                    client.logo.includes('raknpa') ? 'bg-white p-0.5 rounded-full shadow-md' : ''
+                  }`}
                   onError={(e) => {
                     e.target.style.display = 'none';
                   }}

@@ -38,7 +38,7 @@ export default function ClientsPage({ onOpenSchedule }) {
           </h1>
 
           <p className="text-sm sm:text-base text-[#d1c4e9] max-w-3xl mx-auto leading-relaxed">
-            Proudly serving leading airlines (<span className="text-white font-semibold">Air India, IndiGo, British Airways, Air Canada, Air France, Etihad, Akasa Air, Egypt Air, Singapore Airlines</span>), corporations (<span className="text-white font-semibold">FedEx Express, Rio Tinto India</span>), and national safety forces (<span className="text-white font-semibold">Civil Defense &amp; NDRF</span>).
+            Proudly serving leading aviation leaders (<span className="text-white font-semibold">Interglobe Aviation Limited (Indigo), Air India, Etihad, Gulf Air, Qatar AirWays, Air France, KLM, Akasa Air, Scoot Air, Agile Airport Services</span>), corporations (<span className="text-white font-semibold">Fedex Express Transportation, Cosmo First Limited, Impetus Technologies India Pvt. Ltd., Rio Tinto, Divine Interiors, Aadharshila India</span>), and national safety forces &amp; academies (<span className="text-white font-semibold">Civil Defence, Rafi Ahmed Kidwai National Postal Acadamy, National Disaster Response Force (NDRF)</span>).
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-5 text-xs text-[#d8b4fe]">

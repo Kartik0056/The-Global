@@ -32,7 +32,7 @@ export default function AboutPage({ onOpenSchedule }) {
     {
       icon: Award,
       title: 'Proven Client Trust',
-      desc: 'Trusted by IndiGo, FedEx Express, Rio Tinto India, Civil Defense, NDRF, and over 200+ thriving businesses across India.'
+      desc: 'Trusted by Interglobe Aviation Limited (Indigo), Fedex Express Transportation, Rio Tinto, Civil Defence, National Disaster Response Force, and over 200+ thriving businesses across India.'
     }
   ];
 

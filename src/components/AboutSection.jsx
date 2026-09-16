@@ -438,7 +438,7 @@ export default function AboutSection({ onOpenSchedule }) {
             </h3>
 
             <p className="text-xs sm:text-sm text-[#d1c4e9] leading-relaxed mb-4">
-              We&apos;re incredibly proud to work with amazing organisations across India &ndash; from growing startups to established corporations like <span className="text-white font-semibold">Interglobe Aviation (Indigo)</span>, <span className="text-white font-semibold">FedEx Express</span>, and <span className="text-white font-semibold">Rio Tinto India</span>, as well as vital government services like <span className="text-white font-semibold">Civil Defense</span> and the <span className="text-white font-semibold">National Disaster Response Force (NDRF)</span>.
+              We&apos;re incredibly proud to work with amazing organisations across India &ndash; from growing startups to established corporations like <span className="text-white font-semibold">Interglobe Aviation Limited (Indigo)</span>, <span className="text-white font-semibold">Fedex Express Transportation</span>, and <span className="text-white font-semibold">Rio Tinto</span>, as well as vital government services like <span className="text-white font-semibold">Civil Defence</span>, <span className="text-white font-semibold">Rafi Ahmed Kidwai National Postal Acadamy</span>, and the <span className="text-white font-semibold">National Disaster Response Force</span>.
             </p>
 
             <p className="text-xs sm:text-sm text-[#c4b5fd] leading-relaxed">

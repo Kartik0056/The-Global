@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 60" fill="none">
+  <!-- Rafi Ahmed Kidwai National Postal Academy (RAKNPA) Emblem & Typography -->
+  <g transform="translate(10, 10)">
+    <!-- Postal Crest Shield / Wing Icon -->
+    <rect x="0" y="0" width="38" height="38" rx="8" fill="#D32F2F" fill-opacity="0.2" stroke="#D32F2F" stroke-width="2"/>
+    <!-- Winged Letter / Post Wings -->
+    <path d="M8 26 L19 12 L30 26 Z" fill="#F59E0B"/>
+    <path d="M11 26 L19 17 L27 26 Z" fill="#FFFFFF"/>
+    <!-- Central Post Emblem Dot -->
+    <circle cx="19" cy="22" r="2.5" fill="#D32F2F"/>
+  </g>
+  <!-- RAKNPA / NATIONAL POSTAL ACADEMY Text -->
+  <text x="58" y="27" font-family="'Outfit', 'Inter', sans-serif" font-weight="900" font-size="15" fill="#FFFFFF" letter-spacing="1.5">RAKNPA</text>
+  <text x="58" y="40" font-family="'Outfit', 'Inter', sans-serif" font-weight="700" font-size="8.5" fill="#FCA5A5" letter-spacing="1">NATIONAL POSTAL ACADEMY</text>
+  <text x="58" y="49" font-family="'Outfit', 'Inter', sans-serif" font-weight="600" font-size="6.8" fill="#F59E0B" letter-spacing="0.8">GOVT. OF INDIA</text>
+</svg>

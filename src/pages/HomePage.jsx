@@ -71,7 +71,7 @@ export default function HomePage({ onOpenSchedule }) {
       features: [
         'Hands-on staff training for operational confidence',
         'Secure encrypted video archival and footage management',
-        'Trusted by Air India, Etihad, IndiGo & British Airways'
+        'Trusted by Interglobe Aviation Limited (Indigo), Fedex Express Transportation, Air India & Etihad'
       ]
     },
     {
@@ -228,38 +228,41 @@ export default function HomePage({ onOpenSchedule }) {
   ];
 
   const clientCommunity = [
-    { name: 'Air India Limited', tag: 'Flag Carrier Fleet', logo: '/logos/clients/airindia.svg' },
-    { name: 'IndiGo (Interglobe)', tag: 'Aviation Infrastructure', logo: '/logos/clients/indigo.svg' },
-    { name: 'British Airways', tag: 'International Commercial Aviation', logo: '/logos/clients/britishairways.svg' },
+    { name: 'Interglobe Aviation Limited (Indigo)', tag: 'Aviation Infrastructure', logo: '/logos/clients/indigo.svg' },
+    { name: 'Fedex Express Transportation', tag: 'Global Logistics & Supply Chain', logo: '/logos/clients/fedex.svg' },
+    { name: 'Air India', tag: 'National Flag Carrier Fleet', logo: '/logos/clients/airindia.svg' },
+    { name: 'Cosmo First Limited', tag: 'Specialty Films & Chemicals', logo: '/logos/clients/cosmofirst.svg' },
+    { name: 'Etihad', tag: 'Global Airline Fleet', logo: '/logos/clients/etihad.svg' },
+    { name: 'Impetus Technologies India Pvt. Ltd.', tag: 'Enterprise Cloud & Big Data', logo: '/logos/clients/impetus.svg' },
+    { name: 'Gulf Air', tag: 'International Aviation Fleet', logo: '/logos/clients/gulfair.svg' },
+    { name: 'Qatar AirWays', tag: 'International Commercial Airline', logo: '/logos/clients/qatarairways.jpg' },
+    { name: 'Aadharshila India', tag: 'Social & Education Infrastructure', logo: '/logos/clients/aadharshila.svg' },
     { name: 'Air France', tag: 'Global Aviation Fleet', logo: '/logos/clients/airfrance.svg' },
-    { name: 'Air Canada', tag: 'Commercial Aviation', logo: '/logos/clients/aircanada.svg' },
-    { name: 'Etihad Airways', tag: 'Global Airline Partner', logo: '/logos/clients/etihad.svg' },
+    { name: 'KLM', tag: 'Royal Dutch Airlines', logo: '/logos/clients/klm.svg' },
     { name: 'Akasa Air', tag: 'Commercial Airline', logo: '/logos/clients/akasa.svg' },
-    { name: 'Singapore Airlines', tag: 'Premier International Airline', logo: '/logos/clients/singaporeairlines.svg' },
-    { name: 'Egypt Air', tag: 'Aviation Fleet Security', logo: '/logos/clients/egyptair.svg' },
-    { name: 'FedEx Express', tag: 'Global Logistics Security', logo: '/logos/clients/fedex.svg' },
-    { name: 'Rio Tinto India', tag: 'Industrial Facility Safety', logo: '/logos/clients/riotinto.svg' },
     { name: 'Agile Airport Services', tag: 'Airport Ground Operations', logo: '/logos/clients/agile.svg' },
-    { name: 'Civil Defense', tag: 'Public Safety & Defense', logo: '/logos/clients/civildefense.svg' },
-    { name: 'NDRF India', tag: 'Disaster Response Force', logo: '/logos/clients/ndrf.svg' },
-    { name: 'Divine Interiors', tag: 'Commercial Fit-Outs', logo: '/logos/clients/divine.svg' },
+    { name: 'Rio Tinto', tag: 'Industrial Facility Safety', logo: '/logos/clients/riotinto.svg' },
+    { name: 'Divine Interiors', tag: 'Commercial Space Design', logo: '/logos/clients/divine.svg' },
+    { name: 'Aadharshila India', tag: 'Infrastructure Development', logo: '/logos/clients/aadharshila.svg' },
+    { name: 'Civil Defence', tag: 'Public Safety & Defense', logo: '/logos/clients/civildefense.svg' },
+    { name: 'Scoot Air', tag: 'International Airline', logo: '/logos/clients/scoot.svg' },
+    { name: 'Rafi Ahmed Kidwai National Postal Acadamy', tag: 'Central Training Academy', logo: '/logos/clients/raknpa.jpg' },
+    { name: 'National Disaster Response Force (NDRF)', tag: 'Disaster Response Force', logo: '/logos/clients/ndrf.svg' },
   ];
 
   const brandPartners = [
-    { name: 'Hikvision', category: 'CCTV & Video Security', logo: '/logos/brands/hikvision.svg' },
-    { name: 'VIVOTEK', category: 'Optical Surveillance (Delta Group)', logo: '/logos/brands/vivotek.svg' },
-    { name: 'TYCO', category: 'Fire & Electronic Security', logo: '/logos/brands/tyco.svg' },
-    { name: 'Dorset', category: 'Smart Door Locks & Architectural Hardware', logo: '/logos/brands/dorset.svg' },
-    { name: 'Bosch', category: 'Security & PA Systems', logo: '/logos/brands/bosch.svg' },
+    { name: 'Hikvision (Ptama Hikvision)', category: 'CCTV & Video Security', logo: '/logos/brands/hikvision.svg' },
+    { name: 'Prama (Prama Hikvision)', category: 'Indigenous Security & Surveillance', logo: '/logos/brands/prama.png' },
+    { name: 'Sparsh (Smariddhi Automations)', category: 'Surveillance Electronics', logo: '/logos/brands/sparsh.png' },
     { name: 'Honeywell', category: 'Building Automation & Fire', logo: '/logos/brands/honeywell.svg' },
-    { name: 'Henrich', category: 'Industrial Networking', logo: '/logos/brands/henrich.svg' },
-    { name: 'Sparsh', category: 'Surveillance Electronics', logo: '/logos/brands/sparsh.svg' },
-    { name: 'Panasonic', category: 'Display & Communications', logo: '/logos/brands/panasonic.svg' },
-    { name: 'Polycab', category: 'Wires & Structured Cables', logo: '/logos/brands/polycab.svg' },
-    { name: 'Ahuja', category: 'Public Address & Audio', logo: '/logos/brands/ahuja.svg' },
-    { name: 'AKG', category: 'Professional Microphones', logo: '/logos/brands/akg.svg' },
-    { name: 'D-Link', category: 'Networking & Switches', logo: '/logos/brands/dlink.svg' },
-    { name: 'Netgear', category: 'Enterprise Network Gear', logo: '/logos/brands/netgear.svg' },
+    { name: 'Bosch', category: 'Security & PA Systems', logo: '/logos/brands/bosch.svg' },
+    { name: 'Ahuja', category: 'Public Address & Audio', logo: '/logos/brands/ahuja.png' },
+    { name: 'Dorset', category: 'Smart Door Locks & Architectural Hardware', logo: '/logos/brands/dorset.svg' },
+    { name: 'Ozone', category: 'Digital Locks & Architectural Hardware', logo: '/logos/brands/ozone.avif' },
+    { name: 'Harison', category: 'Security Locks & Hardware', logo: '/logos/brands/harison.svg' },
+    { name: 'Vivotek', category: 'Optical Surveillance (Delta Group)', logo: '/logos/brands/vivotek.svg' },
+    { name: 'Polycab', category: 'Wires & Structured Cables', logo: '/logos/brands/polycab.png' },
+    { name: 'DLINK', category: 'Networking & Switches', logo: '/logos/brands/dlink.webp' },
   ];
 
   const clientTestimonials = [
@@ -336,7 +339,7 @@ export default function HomePage({ onOpenSchedule }) {
               </div>
               <div>
                 <div className="text-xs sm:text-base font-black font-heading text-white tracking-wide">
-                  10+ Years of Serving &nbsp;|&nbsp; All-in-one Integration Solutions &nbsp;|&nbsp; Trusted by 200+ Businesses
+                  14+ Years of Serving &nbsp;|&nbsp; All-in-one Integration Solutions &nbsp;|&nbsp; Trusted by 200+ Businesses
                 </div>
                 <div className="text-[11px] sm:text-xs text-[#c4b5fd] mt-0.5 font-medium">
                   Next-Gen Workspace Solutions engineered and maintained under one accountable roof.
@@ -584,7 +587,9 @@ export default function HomePage({ onOpenSchedule }) {
                   src={client.logo}
                   alt={`${client.name} Logo`}
                   draggable={false}
-                  className="max-h-8 sm:max-h-10 max-w-[150px] sm:max-w-[170px] object-contain filter drop-shadow group-hover:scale-110 transition-transform duration-300 pointer-events-none"
+                  className={`max-h-8 sm:max-h-10 max-w-[150px] sm:max-w-[170px] object-contain filter drop-shadow group-hover:scale-110 transition-transform duration-300 pointer-events-none rounded-md ${
+                    client.logo.includes('raknpa') ? 'bg-white p-0.5 rounded-full shadow-md' : ''
+                  }`}
                   onError={(e) => {
                     e.target.style.display = 'none';
                   }}
@@ -633,7 +638,9 @@ export default function HomePage({ onOpenSchedule }) {
                   src={brand.logo}
                   alt={`${brand.name} Logo`}
                   draggable={false}
-                  className="max-h-9 sm:max-h-11 max-w-[150px] sm:max-w-[170px] object-contain filter drop-shadow group-hover:scale-105 transition-transform duration-300 pointer-events-none"
+                  className={`max-h-9 sm:max-h-11 max-w-[150px] sm:max-w-[170px] object-contain filter drop-shadow group-hover:scale-105 transition-transform duration-300 pointer-events-none ${
+                    brand.logo.includes('ahuja') || brand.logo.includes('vivotek') ? 'bg-white px-2.5 py-1 rounded-xl shadow-md' : ''
+                  }`}
                   onError={(e) => {
                     e.target.style.display = 'none';
                   }}
