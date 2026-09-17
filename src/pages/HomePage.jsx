@@ -348,7 +348,7 @@ export default function HomePage({ onOpenSchedule }) {
             </div>
 
             <button
-              onClick={onOpenSchedule}
+              onClick={() => onOpenSchedule({ type: 'meeting', title: 'Schedule Strategy Consultation' })}
               className="btn-gold px-5 py-2.5 rounded-xl text-xs font-extrabold flex items-center gap-2 cursor-pointer shadow-xl shrink-0"
             >
               <span>Schedule a meeting</span>
@@ -437,7 +437,9 @@ export default function HomePage({ onOpenSchedule }) {
               <div className="lg:col-span-6 relative rounded-2xl overflow-hidden aspect-[16/10] border border-white/15 shadow-2xl group bg-black">
                 <img
                   src={currentSolution.image}
-                  alt={currentSolution.title}
+                  alt={`${currentSolution.title} - Global Enterprises Infrastructure Solutions`}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#10061e] via-transparent to-transparent"></div>
@@ -482,7 +484,12 @@ export default function HomePage({ onOpenSchedule }) {
                     Ready to enhance your workplace security and efficiency?
                   </div>
                   <button
-                    onClick={onOpenSchedule}
+                    onClick={() => onOpenSchedule({ 
+                      type: 'inquiry', 
+                      service: currentSolution.title, 
+                      title: `Inquire: ${currentSolution.title}`,
+                      subtitle: `Direct engineering inquiry for ${currentSolution.category}`
+                    })}
                     className="btn-gold px-6 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 cursor-pointer shadow-lg shrink-0"
                   >
                     <span>Inquire</span>
@@ -550,7 +557,11 @@ export default function HomePage({ onOpenSchedule }) {
               Contact our directors to assess your facility and receive an itemized, transparent proposal.
             </p>
             <button
-              onClick={onOpenSchedule}
+              onClick={() => onOpenSchedule({ 
+                type: 'quote', 
+                title: 'Request Itemized Turnkey Quote',
+                subtitle: 'Transparent, itemized commercial BOQ proposal for your workspace'
+              })}
               className="btn-gold px-6 sm:px-7 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-xl"
             >
               <span>Get a Quote</span>
@@ -585,7 +596,9 @@ export default function HomePage({ onOpenSchedule }) {
               >
                 <img
                   src={client.logo}
-                  alt={`${client.name} Logo`}
+                  alt={`${client.name} - Trusted Corporate Client of Global Enterprises`}
+                  loading="lazy"
+                  decoding="async"
                   draggable={false}
                   className={`max-h-8 sm:max-h-10 max-w-[150px] sm:max-w-[170px] object-contain filter drop-shadow group-hover:scale-110 transition-transform duration-300 pointer-events-none rounded-md ${
                     client.logo.includes('raknpa') ? 'bg-white p-0.5 rounded-full shadow-md' : ''
@@ -601,8 +614,13 @@ export default function HomePage({ onOpenSchedule }) {
 
         <div className="text-center relative z-10">
           <button
-            onClick={onOpenSchedule}
-            className="btn-gold px-6 sm:px-7 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-2xl"
+            onClick={() => onOpenSchedule({ 
+              type: 'general', 
+              title: 'Join Global Enterprises Client Network',
+              subtitle: 'Corporate vendor onboarding, client contracts & multi-facility management'
+            })}
+            className="btn-gold px-6 sm:px-7 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-2xl cursor-pointer"
+            aria-label="Join Global Enterprises Corporate Client Network"
           >
             <span>Join Us Now</span>
             <ArrowRight className="w-4 h-4" />
@@ -636,7 +654,9 @@ export default function HomePage({ onOpenSchedule }) {
               >
                 <img
                   src={brand.logo}
-                  alt={`${brand.name} Logo`}
+                  alt={`${brand.name} - Authorized Technology Hardware Partner`}
+                  loading="lazy"
+                  decoding="async"
                   draggable={false}
                   className={`max-h-9 sm:max-h-11 max-w-[150px] sm:max-w-[170px] object-contain filter drop-shadow group-hover:scale-105 transition-transform duration-300 pointer-events-none ${
                     brand.logo.includes('ahuja') || brand.logo.includes('vivotek') ? 'bg-white px-2.5 py-1 rounded-xl shadow-md' : ''
@@ -814,7 +834,34 @@ export default function HomePage({ onOpenSchedule }) {
                   </div>
 
                   <button
-                    onClick={onOpenSchedule}
+                    onClick={() => {
+                      const serviceNameMap = {
+                        cctv: 'Security & Surveillance',
+                        av: 'Audio & Video Suites',
+                        fire: 'Fire Safety & Rodent Defense',
+                        network: 'Network & IT Infrastructure',
+                        workspace: 'Workspace Fit-Out & Partitions',
+                        moulding: 'Precision Injection Moulding'
+                      };
+                      const selectedLabels = selectedEstimatorServices.map(id => serviceNameMap[id] || id).join(', ');
+                      const formattedEstimate = calculateEstimate();
+                      const formattedArea = `${estimateArea.toLocaleString()} sq.ft`;
+
+                      onOpenSchedule({
+                        type: 'quote',
+                        title: 'Inquire for Exact Pricing & BOQ',
+                        subtitle: `Scope: ${formattedArea} • Indicative ${formattedEstimate}`,
+                        service: `Turnkey Scope: ${selectedLabels}`,
+                        metadata: {
+                          fromEstimator: true,
+                          estimatedArea: formattedArea,
+                          targetBudget: formattedEstimate,
+                          selectedServiceIds: selectedEstimatorServices,
+                          selectedServiceNames: selectedLabels,
+                          scopeNotes: `Scope configured via Instant Budget Estimator:\n• Facility Built-Up Area: ${formattedArea}\n• Indicative Turnkey Budget: ${formattedEstimate}\n• Selected Systems: ${selectedLabels}`
+                        }
+                      });
+                    }}
                     className="btn-gold px-5 py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2 cursor-pointer shadow-xl shrink-0"
                   >
                     <span>Inquire for Exact Pricing</span>
@@ -851,7 +898,7 @@ export default function HomePage({ onOpenSchedule }) {
             </Link>
 
             <button
-              onClick={onOpenSchedule}
+              onClick={() => onOpenSchedule({ type: 'meeting', title: 'Schedule Executive Consultation' })}
               className="btn-gold px-6 sm:px-7 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-extrabold flex items-center gap-2 cursor-pointer shadow-2xl"
             >
               <span>Schedule a meeting</span>

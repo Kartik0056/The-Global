@@ -142,7 +142,7 @@ export default function AboutPage({ onOpenSchedule }) {
 
             <div className="flex items-center gap-4 shrink-0 w-full sm:w-auto">
               <button
-                onClick={onOpenSchedule}
+                onClick={() => onOpenSchedule({ type: 'meeting', title: 'Schedule a Meeting' })}
                 className="btn-gold px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center justify-center gap-2 shadow-xl cursor-pointer w-full sm:w-auto"
               >
                 <span>Schedule a Meeting</span>

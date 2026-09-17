@@ -80,7 +80,7 @@ export default function MissionSection({ onOpenSchedule }) {
                 </div>
               </div>
               <button
-                onClick={onOpenSchedule}
+                onClick={() => onOpenSchedule({ type: 'meeting', title: 'Schedule Strategic Consultation' })}
                 className="btn-gold px-4 py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
               >
                 <span>Consult</span>

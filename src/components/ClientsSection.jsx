@@ -202,7 +202,11 @@ export default function ClientsSection({ onOpenSchedule }) {
             </div>
             <div className="mt-6 pt-4 border-t border-white/10">
               <button
-                onClick={onOpenSchedule}
+                onClick={() => onOpenSchedule({ 
+                  type: 'general', 
+                  title: 'Join Global Enterprises Client Network',
+                  subtitle: 'Corporate vendor onboarding, client contracts & multi-facility management'
+                })}
                 className="btn-gold w-full py-3 rounded-xl font-bold text-xs flex items-center justify-center gap-2 cursor-pointer shadow-lg"
               >
                 <span>Join Us Now</span>

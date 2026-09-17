@@ -154,7 +154,11 @@ export default function MissionPage({ onOpenSchedule }) {
               </p>
 
               <button
-                onClick={onOpenSchedule}
+                onClick={() => onOpenSchedule({
+                  type: 'inquiry',
+                  service: 'Sustainable Workspace Designs',
+                  title: 'Inquire: Sustainable Workspace Designs'
+                })}
                 className="btn-gold px-7 py-3.5 rounded-xl font-bold text-xs flex items-center gap-2 cursor-pointer shadow-xl"
               >
                 <span>Inquire</span>

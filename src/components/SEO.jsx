@@ -5,16 +5,18 @@ const BASE_URL = 'https://globalenterprises.in';
 
 const pageSEOMap = {
   '/': {
-    title: 'Global Enterprises | Integrated Workspace & Security Solutions',
-    description: 'Global Enterprises is a single-window partner providing CCTV surveillance, access control, boardroom audio-video, fire safety systems, and office fit-outs across India.',
+    title: 'Global Enterprises | Integrated Workspace & Security Solutions | Delhi NCR',
+    description: 'Global Enterprises is an ISO certified single-window partner providing 4K CCTV surveillance, Dorset smart door locks, access control, boardroom AV, fire safety, and turnkey office fit-outs across Delhi NCR and India.',
+    keywords: 'CCTV surveillance Delhi NCR, office fit-outs India, Dorset smart locks, access control systems, biometric attendance, fire alarm systems, boardroom audio visual, IT network cabling, turnkey security contractors, Global Enterprises CR Park',
     image: '/images/headquarters.jpg',
     type: 'website',
     isIndexable: true,
     pageName: 'Home'
   },
   '/about': {
-    title: 'About Us | Global Enterprises',
+    title: 'About Global Enterprises | Turnkey Workspace & Security Leaders Since 2012',
     description: 'Founded in 2012 by Sachin and Rajni Arora, Global Enterprises delivers turnkey technology integration, security infrastructure, and office environments from CR Park, New Delhi.',
+    keywords: 'Global Enterprises Sachin Arora, security contractors Delhi, turnkey office contractors CR Park, technology infrastructure company India, commercial fitouts history',
     image: '/images/headquarters.jpg',
     type: 'article',
     isIndexable: true,
@@ -22,55 +24,62 @@ const pageSEOMap = {
   },
   '/services': {
     title: 'Workspace, Security & IT Infrastructure Services | Global Enterprises',
-    description: 'Explore our 6 core services: Security & Monitoring Systems, Audio & Video Solutions, Fire Safety & Rodent Management, Network & Connectivity, Office Fit-outs, and Injection Moulding.',
+    description: 'Explore our 6 core services: 4K CCTV Security & Surveillance, Boardroom Audio & Video Solutions, Fire Safety & Rodent Management, Network & Connectivity, Office Fit-outs, and Precision Moulding.',
+    keywords: 'commercial CCTV installation, biometric access control, boardroom automation, corporate fire safety, structured IT cabling, commercial office interiors, Dorset smart locks Delhi',
     image: '/images/cctv.jpg',
     type: 'website',
     isIndexable: true,
     pageName: 'Services'
   },
   '/capabilities': {
-    title: 'Hardware & Systems Catalog | Global Enterprises',
-    description: 'Specifications for commercial 4K CCTV cameras, optical speed gates, addressable fire alarm panels, boardroom display systems, and ergonomic modular workstations.',
+    title: 'Security Hardware & Systems Matrix | Global Enterprises',
+    description: 'Specifications for commercial 4K CCTV cameras, optical speed gates, addressable fire alarm panels, boardroom display systems, Dorset smart locks, and ergonomic modular workstations.',
+    keywords: 'speed gates Delhi, 4K CCTV specs, Dorset digital locks, addressable fire alarm panel, boardroom display matrix, commercial security hardware specs',
     image: '/images/speedgates.jpg',
     type: 'website',
     isIndexable: true,
     pageName: 'Hardware & Systems Matrix'
   },
   '/values': {
-    title: 'Our Core Values | Global Enterprises',
-    description: 'The five operating principles that guide our everyday client work: Quality, Timeliness, Fair Value, Dedication, and Honest Integrity.',
+    title: 'Our Core Operating Values & Ethics | Global Enterprises',
+    description: 'The five operating principles that guide our everyday client work: Quality, Timeliness, Fair Value, Dedication, and Honest Integrity in every turnkey project.',
+    keywords: 'corporate integrity values, ethical contractors Delhi, quality workspace engineering, client dedication principles',
     image: '/images/workspace.jpg',
     type: 'article',
     isIndexable: true,
     pageName: 'Core Values'
   },
   '/mission': {
-    title: 'Our Mission & Vision | Global Enterprises',
-    description: 'Building long-term client partnerships through turnkey project execution, reliable ongoing maintenance, and sustainable workspace engineering.',
+    title: 'Our Mission & Strategic Vision | Global Enterprises',
+    description: 'Building long-term client partnerships through turnkey project execution, reliable ongoing maintenance, and sustainable workspace engineering across India.',
+    keywords: 'workspace vision, technology infrastructure mission, corporate engineering goals, sustainable office design Delhi',
     image: '/images/hero_bg.jpg',
     type: 'article',
     isIndexable: true,
     pageName: 'Mission & Vision'
   },
   '/clients': {
-    title: 'Our Community of Clients | Global Enterprises',
+    title: 'Our Community of Corporate Clients | Global Enterprises',
     description: 'See the airlines, corporations, logistics providers, and public institutions across India that trust Global Enterprises for workspace infrastructure and security.',
+    keywords: 'Global Enterprises clients, Indigo airlines security contractor, Air India contractor, corporate facility clients Delhi NCR',
     image: '/images/firesafety.jpg',
     type: 'website',
     isIndexable: true,
     pageName: 'Clients'
   },
   '/contact': {
-    title: 'Contact Us | Global Enterprises',
-    description: 'Get in touch with our engineering and project teams in CR Park, New Delhi for site assessments, service inquiries, and project consultations.',
+    title: 'Contact Global Enterprises | Site Audit & Turnkey Consultation | CR Park New Delhi',
+    description: 'Get in touch with our engineering and project teams in CR Park, New Delhi for technical site assessments, service inquiries, BOQ estimates, and project consultations.',
+    keywords: 'contact Global Enterprises, CR Park office address, security site audit Delhi, turnkey consultation phone number, globalenterprises010',
     image: '/images/headquarters.jpg',
     type: 'website',
     isIndexable: true,
     pageName: 'Contact Us'
   },
   '/admin': {
-    title: 'Admin Sign In | Global Enterprises',
-    description: 'Administrative portal for Global Enterprises team members.',
+    title: 'Admin Sign In | Global Enterprises CRM',
+    description: 'Administrative CRM portal for Global Enterprises team members.',
+    keywords: 'admin login, internal crm',
     image: '/images/headquarters.jpg',
     type: 'website',
     isIndexable: false,
@@ -102,7 +111,9 @@ export default function SEO() {
 
     // 3. Primary Meta Tags
     setMetaTag('name', 'description', seo.description);
+    setMetaTag('name', 'keywords', seo.keywords || '');
     setMetaTag('name', 'author', 'Global Enterprises');
+    setMetaTag('name', 'revisit-after', '7 days');
 
     // Robots directive based on indexability
     if (seo.isIndexable) {
@@ -136,38 +147,82 @@ export default function SEO() {
     canonical.setAttribute('href', currentUrl);
 
     // 7. Dynamic WebPage & BreadcrumbList JSON-LD Schema
+    const graphItems = [
+      {
+        '@type': 'WebPage',
+        '@id': `${currentUrl}#webpage`,
+        'url': currentUrl,
+        'name': seo.title,
+        'description': seo.description,
+        'isPartOf': {
+          '@id': `${BASE_URL}/#website`
+        }
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${currentUrl}#breadcrumb`,
+        'itemListElement': [
+          {
+            '@type': 'ListItem',
+            'position': 1,
+            'name': 'Home',
+            'item': BASE_URL
+          },
+          ...(pathname !== '/' ? [{
+            '@type': 'ListItem',
+            'position': 2,
+            'name': seo.pageName,
+            'item': currentUrl
+          }] : [])
+        ]
+      }
+    ];
+
+    // FAQPage schema on home page for Google Rich Snippets
+    if (pathname === '/') {
+      graphItems.push({
+        '@type': 'FAQPage',
+        '@id': `${BASE_URL}/#faq`,
+        'mainEntity': [
+          {
+            '@type': 'Question',
+            'name': 'What turnkey infrastructure solutions does Global Enterprises provide?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Global Enterprises provides end-to-end turnkey infrastructure including 4K Starlight CCTV surveillance, Dorset smart door locks, biometric access control, optical speed gates, fire alarms, boardroom audio-video integration, structured IT networking, and ergonomic modular office fit-outs across Delhi NCR and India.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'Does Global Enterprises provide on-site technical audits and BOQ estimates?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Yes, our certified engineering team conducts technical site audits across Delhi NCR, Haryana, and Uttar Pradesh. We prepare detailed Bill of Quantities (BOQ), itemized proposals, and turnkey budget estimations based on your facility square footage.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'Is Global Enterprises an authorized partner for Dorset smart locks and security hardware?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Yes, Global Enterprises is an authorized distributor and deployment partner for Dorset digital locks, high-definition CCTV systems, and commercial safety hardware, ensuring genuine OEM warranties and certified installation.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'Where is Global Enterprises located and how can I contact support?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Our corporate office is located at 52/21 Basement, Pocket 52, CR Park, New Delhi 110019. You can reach our technical consultation team at +91-98999-33768 or email globalenterprises010@gmail.com.'
+            }
+          }
+        ]
+      });
+    }
+
     const pageSchema = {
       '@context': 'https://schema.org',
-      '@graph': [
-        {
-          '@type': 'WebPage',
-          '@id': `${currentUrl}#webpage`,
-          'url': currentUrl,
-          'name': seo.title,
-          'description': seo.description,
-          'isPartOf': {
-            '@id': `${BASE_URL}/#website`
-          }
-        },
-        {
-          '@type': 'BreadcrumbList',
-          '@id': `${currentUrl}#breadcrumb`,
-          'itemListElement': [
-            {
-              '@type': 'ListItem',
-              'position': 1,
-              'name': 'Home',
-              'item': BASE_URL
-            },
-            ...(pathname !== '/' ? [{
-              '@type': 'ListItem',
-              'position': 2,
-              'name': seo.pageName,
-              'item': currentUrl
-            }] : [])
-          ]
-        }
-      ]
+      '@graph': graphItems
     };
 
     let scriptElement = document.getElementById('dynamic-page-schema');

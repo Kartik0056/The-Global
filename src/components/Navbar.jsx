@@ -472,7 +472,7 @@ export default function Navbar({ onOpenSchedule }) {
             </Link>
 
             <button
-              onClick={onOpenSchedule}
+              onClick={() => onOpenSchedule({ type: 'meeting', title: 'Schedule Strategy Consultation' })}
               className="btn-gold p-2 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-xs flex items-center gap-1.5 cursor-pointer font-extrabold shadow-xl shrink-0 whitespace-nowrap"
               title="Schedule a meeting"
             >
@@ -657,7 +657,7 @@ export default function Navbar({ onOpenSchedule }) {
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  onOpenSchedule();
+                  onOpenSchedule({ type: 'meeting', title: 'Schedule Strategy Consultation' });
                 }}
                 className="btn-gold w-full py-3.5 rounded-xl text-xs font-extrabold flex items-center justify-center gap-2 shadow-xl cursor-pointer"
               >

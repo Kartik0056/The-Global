@@ -83,7 +83,11 @@ export default function ClientsPage({ onOpenSchedule }) {
             Join over 200+ thriving enterprises, airlines, and corporate facilities.
           </p>
           <button
-            onClick={onOpenSchedule}
+            onClick={() => onOpenSchedule({ 
+              type: 'general', 
+              title: 'Join Global Enterprises Client Network',
+              subtitle: 'Corporate vendor onboarding, client contracts & multi-facility management'
+            })}
             className="btn-gold px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-2xl cursor-pointer"
           >
             <span>Join Us Now</span>

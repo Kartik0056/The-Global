@@ -191,7 +191,12 @@ export default function ServicesPage({ onOpenSchedule }) {
                 </div>
 
                 <button
-                  onClick={onOpenSchedule}
+                  onClick={() => onOpenSchedule({
+                    type: 'quote',
+                    service: tier.name,
+                    title: `Inquire: ${tier.name}`,
+                    subtitle: `Turnkey commercial quote for ${tier.subtitle}`
+                  })}
                   className="btn-gold w-full py-3.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2 cursor-pointer shadow-lg"
                 >
                   <span>Inquire</span>
@@ -251,7 +256,7 @@ export default function ServicesPage({ onOpenSchedule }) {
             Get in touch with our friendly professionals for custom site assessments, 4K CCTV surveillance, turnstiles, and turnkey facility protection.
           </p>
           <button
-            onClick={onOpenSchedule}
+            onClick={() => onOpenSchedule({ type: 'meeting', title: 'Schedule Strategy Consultation' })}
             className="btn-gold px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-2xl cursor-pointer"
           >
             <span>Get Started</span>

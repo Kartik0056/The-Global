@@ -198,7 +198,12 @@ export default function ServicesSection({ onOpenSchedule }) {
             </div>
 
             <button
-              onClick={onOpenSchedule}
+              onClick={() => onOpenSchedule({
+                type: 'inquiry',
+                service: current.title,
+                title: `Inquire: ${current.title}`,
+                subtitle: `Direct engineering inquiry for ${current.title}`
+              })}
               className="btn-gold px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm font-extrabold flex items-center gap-2 cursor-pointer shadow-xl shrink-0 self-start lg:self-center"
             >
               <span>{current.ctaText}</span>
@@ -347,7 +352,11 @@ export default function ServicesSection({ onOpenSchedule }) {
               </h4>
             </div>
             <button
-              onClick={onOpenSchedule}
+              onClick={() => onOpenSchedule({ 
+                type: 'meeting', 
+                service: current.title, 
+                title: `Schedule Consultation: ${current.title}` 
+              })}
               className="btn-gold px-7 py-3 rounded-xl text-xs sm:text-sm font-extrabold flex items-center gap-2 cursor-pointer shadow-2xl shrink-0"
             >
               <span>{current.closingCta || 'Schedule Consultation'}</span>

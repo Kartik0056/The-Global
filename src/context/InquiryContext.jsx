@@ -358,6 +358,9 @@ export function InquiryProvider({ children }) {
     setInquiries((prev) => {
       const updated = prev.map((inq) => (inq.id === id ? { ...inq, read: true } : inq));
       setUnreadCount(updated.filter((item) => !item.read).length);
+      try {
+        localStorage.setItem(STORAGE_KEYS.INQUIRIES, JSON.stringify(updated));
+      } catch {}
       return updated;
     });
 
@@ -369,6 +372,31 @@ export function InquiryProvider({ children }) {
           'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({ read: true }),
+      });
+    } catch {
+      // Offline fallback safe
+    }
+  };
+
+  const markAllAsRead = async () => {
+    if (!token) return;
+
+    setInquiries((prev) => {
+      const updated = prev.map((inq) => ({ ...inq, read: true }));
+      setUnreadCount(0);
+      try {
+        localStorage.setItem(STORAGE_KEYS.INQUIRIES, JSON.stringify(updated));
+      } catch {}
+      return updated;
+    });
+
+    try {
+      await fetch(`${API_BASE}/inquiries/mark-all-read`, {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
       });
     } catch {
       // Offline fallback safe
@@ -441,6 +469,7 @@ export function InquiryProvider({ children }) {
       updateInquiryStatus,
       updateInquiryNotes,
       markAsRead,
+      markAllAsRead,
       deleteInquiry,
       bulkDeleteInquiries,
       requestOTP,

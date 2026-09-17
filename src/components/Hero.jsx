@@ -90,7 +90,11 @@ export default function Hero({ onOpenSchedule }) {
       <div className="absolute inset-0 z-0">
         <img
           src="/images/hero_bg.jpg"
-          alt="Workspace Technology Background"
+          alt="Global Enterprises Integrated Workspace & 4K CCTV Security Infrastructure"
+          width="1920"
+          height="1080"
+          fetchpriority="high"
+          decoding="async"
           className="w-full h-full object-cover object-center opacity-30 scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0e0419]/95 via-[#120722]/85 to-[#120722]"></div>
@@ -126,7 +130,7 @@ export default function Hero({ onOpenSchedule }) {
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 mb-5 sm:mb-6">
               <button
-                onClick={onOpenSchedule}
+                onClick={() => onOpenSchedule({ type: 'meeting', title: 'Schedule Strategy Consultation' })}
                 className="btn-gold px-4.5 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer group font-bold shadow-lg w-full sm:w-auto"
               >
                 <span>Schedule a Meeting</span>
@@ -235,7 +239,9 @@ export default function Hero({ onOpenSchedule }) {
             <div className="lg:col-span-7 relative rounded-2xl overflow-hidden group aspect-[16/9] border border-white/15 bg-black/40">
               <img
                 src={current.image}
-                alt={current.title}
+                alt={`${current.title} - Global Enterprises ${current.category} Solutions`}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
 
@@ -279,7 +285,12 @@ export default function Hero({ onOpenSchedule }) {
 
               <div className="flex items-center gap-3">
                 <button
-                  onClick={onOpenSchedule}
+                  onClick={() => onOpenSchedule({ 
+                    type: 'meeting', 
+                    service: current.title, 
+                    title: `Schedule Consultation: ${current.category}`,
+                    subtitle: `30-minute technical session on ${current.title}`
+                  })}
                   className="btn-gold px-5 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 cursor-pointer"
                 >
                   <span>Request Consultation</span>

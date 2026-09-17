@@ -220,7 +220,9 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
               <div className="relative aspect-[16/10] overflow-hidden bg-black">
                 <img
                   src={prod.image}
-                  alt={prod.title}
+                  alt={`${prod.title} - ${prod.categoryLabel} Infrastructure System`}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#140828] via-transparent to-transparent"></div>
@@ -253,7 +255,12 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
                   </button>
 
                   <button
-                    onClick={onOpenSchedule}
+                    onClick={() => onOpenSchedule({
+                      type: 'inquiry',
+                      service: item.title,
+                      title: `Inquire: ${item.title}`,
+                      subtitle: `Direct technical specification and deployment for ${item.category}`
+                    })}
                     className="btn-gold px-3.5 py-1.5 rounded-lg text-xs font-extrabold flex items-center gap-1 cursor-pointer"
                   >
                     <span>Inquire</span>
@@ -300,7 +307,9 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
                 <div className="aspect-[16/8] rounded-2xl overflow-hidden border border-white/10 bg-black shrink-0">
                   <img
                     src={selectedProductModal.image}
-                    alt={selectedProductModal.title}
+                    alt={`${selectedProductModal.title} - Technical Specifications & Deployment`}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -327,8 +336,13 @@ export default function CapabilitiesMatrix({ onOpenSchedule }) {
 
                 <button
                   onClick={() => {
+                    const prod = selectedProductModal;
                     setSelectedProductModal(null);
-                    onOpenSchedule();
+                    onOpenSchedule({
+                      type: 'quote',
+                      service: prod?.title || 'Certified Turnkey Deployment',
+                      title: `Deployment Proposal: ${prod?.title || 'Turnkey Solution'}`
+                    });
                   }}
                   className="btn-gold w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 cursor-pointer shadow-xl"
                 >

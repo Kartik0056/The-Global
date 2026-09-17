@@ -114,7 +114,9 @@ export default function AboutSection({ onOpenSchedule }) {
             <div className="relative rounded-3xl overflow-hidden border border-white/20 h-full min-h-[440px] bg-[#1a0b32] group shadow-2xl">
               <img
                 src="/images/headquarters.jpg"
-                alt="Global Enterprises Headquarters"
+                alt="Global Enterprises Corporate Headquarters in CR Park, New Delhi"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#120722] via-[#120722]/30 to-transparent"></div>
@@ -123,7 +125,9 @@ export default function AboutSection({ onOpenSchedule }) {
                 <div className="w-11 h-11 rounded-xl bg-white/95 border border-amber-400/50 shadow-md flex items-center justify-center p-0.5 shrink-0 overflow-hidden">
                   <img
                     src="/logo.png"
-                    alt="Global Enterprises Logo"
+                    alt="Global Enterprises Corporate Logo"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-contain"
                   />
                 </div>
@@ -457,7 +461,7 @@ export default function AboutSection({ onOpenSchedule }) {
           </p>
           <div className="p-4 sm:p-6 rounded-2xl bg-[#1b0a36] border border-amber-400/30 inline-block">
             <button
-              onClick={onOpenSchedule}
+              onClick={() => onOpenSchedule({ type: 'meeting', title: 'Schedule a Meeting' })}
               className="btn-gold px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 cursor-pointer shadow-xl"
             >
               <span>Schedule a Meeting</span>

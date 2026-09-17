@@ -88,13 +88,17 @@ export default function ScheduleModal({ isOpen: controlledIsOpen, onClose: contr
         else matchedService = modalConfig.service;
       }
 
+      const meta = modalConfig.metadata || {};
+
       setFormData(prev => ({
         ...prev,
-        inquiryService: matchedService,
-        meetingTopic: matchedService,
-        quoteServices: matchedService,
-        estimatedArea: modalConfig.metadata?.estimatedArea || prev.estimatedArea,
-        projectCity: modalConfig.metadata?.location || prev.projectCity
+        inquiryService: modalConfig.service || matchedService,
+        meetingTopic: modalConfig.service || matchedService,
+        quoteServices: modalConfig.service || matchedService,
+        estimatedArea: meta.estimatedArea || prev.estimatedArea,
+        targetBudget: meta.targetBudget || prev.targetBudget,
+        quoteNotes: meta.scopeNotes || prev.quoteNotes,
+        projectCity: meta.location || prev.projectCity
       }));
     }
   }, [isOpen, modalConfig]);
@@ -565,6 +569,26 @@ export default function ScheduleModal({ isOpen: controlledIsOpen, onClose: contr
               {/* ==================================================== */}
               {currentTab === 'quote' && (
                 <>
+                  {modalConfig.metadata?.fromEstimator && (
+                    <div className="p-3.5 rounded-2xl bg-gradient-to-r from-emerald-950/70 via-[#1b0a33] to-[#120722] border border-emerald-400/40 mb-3.5 shadow-lg">
+                      <div className="flex items-center justify-between gap-2 mb-1.5">
+                        <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-400 font-mono flex items-center gap-1.5">
+                          <Calculator className="w-3.5 h-3.5" />
+                          <span>Scope Selected in Estimator</span>
+                        </span>
+                        <span className="text-xs font-black font-mono text-emerald-300 px-2 py-0.5 rounded-lg bg-emerald-500/20 border border-emerald-500/40">
+                          {modalConfig.metadata.targetBudget}
+                        </span>
+                      </div>
+                      <div className="text-xs text-white font-semibold">
+                        Area Scope: <span className="text-amber-300 font-bold">{modalConfig.metadata.estimatedArea}</span>
+                      </div>
+                      <div className="text-[11px] text-[#c4b5fd] mt-0.5 leading-snug">
+                        Selected Systems: <span className="text-gray-200">{modalConfig.metadata.selectedServiceNames}</span>
+                      </div>
+                    </div>
+                  )}
+
                   <div>
                     <label className="block text-xs font-medium text-gray-200 mb-1">
                       Quotation Scope <span className="text-amber-400">*</span>
@@ -572,7 +596,10 @@ export default function ScheduleModal({ isOpen: controlledIsOpen, onClose: contr
                     <CustomSelect
                       value={formData.quoteServices}
                       onChange={(e) => setFormData({ ...formData, quoteServices: e.target.value })}
-                      options={ALL_SERVICES}
+                      options={Array.from(new Set([
+                        formData.quoteServices,
+                        ...ALL_SERVICES
+                      ])).filter(Boolean)}
                     />
                   </div>
 
@@ -584,13 +611,14 @@ export default function ScheduleModal({ isOpen: controlledIsOpen, onClose: contr
                       <CustomSelect
                         value={formData.estimatedArea}
                         onChange={(e) => setFormData({ ...formData, estimatedArea: e.target.value })}
-                        options={[
+                        options={Array.from(new Set([
+                          formData.estimatedArea,
                           'Below 5,000 sq.ft',
                           '5,000 - 15,000 sq.ft',
                           '15,000 - 50,000 sq.ft',
                           '50,000 - 100,000 sq.ft',
                           '100,000+ sq.ft (Multi-floor Campus)'
-                        ]}
+                        ])).filter(Boolean)}
                       />
                     </div>
 
@@ -601,14 +629,15 @@ export default function ScheduleModal({ isOpen: controlledIsOpen, onClose: contr
                       <CustomSelect
                         value={formData.targetBudget}
                         onChange={(e) => setFormData({ ...formData, targetBudget: e.target.value })}
-                        options={[
+                        options={Array.from(new Set([
+                          formData.targetBudget,
                           'Under ₹5 Lakhs',
                           '₹5 Lakhs – ₹15 Lakhs',
                           '₹15 Lakhs – ₹50 Lakhs',
                           '₹50 Lakhs – ₹1.5 Crore',
                           '₹1.5 Crore+ (Enterprise Turnkey)',
                           'Undisclosed / Need Estimation'
-                        ]}
+                        ])).filter(Boolean)}
                       />
                     </div>
                   </div>
