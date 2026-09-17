@@ -42,8 +42,7 @@ function RouteFallback() {
 
 function AppContent() {
   const [isLoading, setIsLoading] = useState(true);
-  const [isScheduleOpen, setIsScheduleOpen] = useState(false);
-  const { isAdminLoginOpen, closeAdminLogin } = useInquiry();
+  const { isAdminLoginOpen, closeAdminLogin, openModal, closeModal, modalConfig } = useInquiry();
 
   return (
     <Router>
@@ -52,18 +51,18 @@ function AppContent() {
       <LightningCursor />
       {isLoading && <LoadingScreen onFinish={() => setIsLoading(false)} />}
       <div className="min-h-screen bg-[#120722] text-[#f1f1f6] relative flex flex-col justify-between selection:bg-amber-500/30 selection:text-white">
-        <Navbar onOpenSchedule={() => setIsScheduleOpen(true)} />
+        <Navbar onOpenSchedule={openModal} />
 
         <main className="flex-1">
           <Suspense fallback={<RouteFallback />}>
             <Routes>
-              <Route path="/" element={<HomePage onOpenSchedule={() => setIsScheduleOpen(true)} />} />
-              <Route path="/about" element={<AboutPage onOpenSchedule={() => setIsScheduleOpen(true)} />} />
-              <Route path="/services" element={<ServicesPage onOpenSchedule={() => setIsScheduleOpen(true)} />} />
-              <Route path="/capabilities" element={<ProductsPage onOpenSchedule={() => setIsScheduleOpen(true)} />} />
+              <Route path="/" element={<HomePage onOpenSchedule={openModal} />} />
+              <Route path="/about" element={<AboutPage onOpenSchedule={openModal} />} />
+              <Route path="/services" element={<ServicesPage onOpenSchedule={openModal} />} />
+              <Route path="/capabilities" element={<ProductsPage onOpenSchedule={openModal} />} />
               <Route path="/values" element={<ValuesPage />} />
-              <Route path="/mission" element={<MissionPage onOpenSchedule={() => setIsScheduleOpen(true)} />} />
-              <Route path="/clients" element={<ClientsPage onOpenSchedule={() => setIsScheduleOpen(true)} />} />
+              <Route path="/mission" element={<MissionPage onOpenSchedule={openModal} />} />
+              <Route path="/clients" element={<ClientsPage onOpenSchedule={openModal} />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/admin" element={<AdminPage />} />
             </Routes>
@@ -73,8 +72,8 @@ function AppContent() {
         <Footer />
 
         <ScheduleModal
-          isOpen={isScheduleOpen}
-          onClose={() => setIsScheduleOpen(false)}
+          isOpen={modalConfig.isOpen}
+          onClose={closeModal}
         />
 
         <AdminLoginDrawer

@@ -60,6 +60,32 @@ export function InquiryProvider({ children }) {
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [isAdminLoginOpen, setAdminLoginOpen] = useState(false);
+  const [modalConfig, setModalConfig] = useState({
+    isOpen: false,
+    type: 'meeting',
+    title: '',
+    subtitle: '',
+    service: '',
+    metadata: {}
+  });
+
+  const openModal = useCallback((config = {}) => {
+    if (!config || config.nativeEvent || config._reactName || typeof config !== 'object') {
+      config = { type: 'meeting' };
+    }
+    setModalConfig({
+      isOpen: true,
+      type: config.type || 'meeting',
+      title: config.title || '',
+      subtitle: config.subtitle || '',
+      service: config.service || '',
+      metadata: config.metadata && typeof config.metadata === 'object' ? config.metadata : {}
+    });
+  }, []);
+
+  const closeModal = useCallback(() => {
+    setModalConfig((prev) => ({ ...prev, isOpen: false }));
+  }, []);
 
   const openAdminLogin = useCallback(() => setAdminLoginOpen(true), []);
   const closeAdminLogin = useCallback(() => setAdminLoginOpen(false), []);
@@ -171,9 +197,14 @@ export function InquiryProvider({ children }) {
       return null;
     }
 
+    const userTitle = 
+      createdInquiry.type === 'meeting' ? 'Consultation Reserved' :
+      createdInquiry.type === 'quote' ? 'Quotation Request Received' :
+      createdInquiry.type === 'general' ? 'Partnership Request Received' : 'Inquiry Received Securely';
+
     showToast({
       type: 'user',
-      title: 'Inquiry Received Securely',
+      title: userTitle,
       message: `Thank you ${createdInquiry.name}! Our team will contact you at ${createdInquiry.phone}.`,
     });
 
@@ -185,9 +216,14 @@ export function InquiryProvider({ children }) {
       setInquiries((prev) => [createdInquiry, ...prev]);
       setUnreadCount((prev) => prev + 1);
 
+      const adminToastTitle = 
+        createdInquiry.type === 'meeting' ? '📅 New Meeting Scheduled' :
+        createdInquiry.type === 'quote' ? '💰 New Quotation Request' :
+        createdInquiry.type === 'general' ? '📬 New General Contact' : '💡 New Service Inquiry';
+
       showToast({
         type: 'admin',
-        title: 'New Lead Received',
+        title: adminToastTitle,
         name: createdInquiry.name,
         phone: createdInquiry.phone,
         service: createdInquiry.service,
@@ -396,6 +432,9 @@ export function InquiryProvider({ children }) {
       isAdminLoginOpen,
       openAdminLogin,
       closeAdminLogin,
+      modalConfig,
+      openModal,
+      closeModal,
       login,
       logout,
       submitInquiry,
@@ -419,6 +458,9 @@ export function InquiryProvider({ children }) {
       isAdminLoginOpen,
       openAdminLogin,
       closeAdminLogin,
+      modalConfig,
+      openModal,
+      closeModal,
       logout,
     ]
   );

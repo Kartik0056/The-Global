@@ -146,7 +146,7 @@ export default function Hero({ onOpenSchedule }) {
               <div className="flex items-center gap-4 sm:gap-6 flex-wrap sm:flex-nowrap">
                 <div className="flex items-center gap-2 shrink-0">
                   <span className="w-2.5 h-2.5 rounded-full bg-amber-400 shadow-[0_0_10px_#f59e0b]"></span>
-                  <span className="font-bold text-white">10+ Years</span>
+                  <span className="font-bold text-white">14+ Years</span>
                   <span className="text-[#c4b5fd]">of Serving</span>
                 </div>
 
@@ -214,11 +214,10 @@ export default function Hero({ onOpenSchedule }) {
                     window.scrollTo({ top: currentY, behavior: 'instant' });
                   });
                 }}
-                className={`relative px-3 sm:px-3.5 py-1.5 rounded-lg sm:rounded-xl text-[10px] sm:text-[11px] font-bold tracking-wider uppercase transition-colors whitespace-nowrap cursor-pointer flex items-center gap-1.5 ${
-                  activeTab === idx
+                className={`relative px-3 sm:px-3.5 py-1.5 rounded-lg sm:rounded-xl text-[10px] sm:text-[11px] font-bold tracking-wider uppercase transition-colors whitespace-nowrap cursor-pointer flex items-center gap-1.5 ${activeTab === idx
                     ? 'text-[#120722]'
                     : 'bg-white/5 text-[#c4b5fd] hover:text-white hover:bg-white/10'
-                }`}
+                  }`}
               >
                 {activeTab === idx && (
                   <motion.div
